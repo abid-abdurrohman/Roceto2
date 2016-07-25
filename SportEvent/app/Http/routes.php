@@ -22,3 +22,10 @@ Route::get('/master', function () {
 Route::get('/dashboard', function () {
     return view('dashboard.dashboard');
 });
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
+
+Route::get('/reset', function () {
+    return view('auth.passwords.reset');
+});
