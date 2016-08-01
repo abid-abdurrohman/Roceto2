@@ -51,7 +51,7 @@
                 <!-- LOGO -->
                 <div class="topbar-left">
                     <div class="text-center">
-                        <a href="index.html" class="logo"><i class="md md-terrain"></i> <span>Moltran </span></a>
+                        <a href="/dashboard" class="logo"><i class="md md-terrain"></i> <span>Moltran </span></a>
                     </div>
                 </div>
                 <!-- Button mobile view to collapse sidebar menu -->
@@ -182,7 +182,7 @@
                     <div id="sidebar-menu">
                         <ul>
                             <li>
-                                <a href="index.html" class="waves-effect active"><i class="md md-home"></i><span> Dashboard </span></a>
+                                <a href="/dashboard" class="waves-effect active"><i class="md md-home"></i><span> Dashboard </span></a>
                             </li>
 
                             <li class="has_sub">
