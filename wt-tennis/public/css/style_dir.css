@@ -344,7 +344,7 @@ ul,ol {
 .content-result.content-result-news {
     height:750px;
 	padding:0;
-	background: url("http://placehold.it/1366x768") no-repeat 100% 100%; 
+	background: url("../images/background.jpg") no-repeat 100% 100%; 
     background-position: center center; 
 	-webkit-background-size: cover;
     -moz-background-size: cover;
@@ -1430,7 +1430,7 @@ text-decoration: none;
     background: radial-gradient(ellipse at 50% -3%, rgba(00, 00, 00, 0.5), rgba(97, 97, 97, 0.0) 40%);
 }
 .bbtxt-content{
-	background: transparent url(http://placehold.it/1920x1080) no-repeat center center fixed;
+	background: transparent url(../images/background1.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -1442,7 +1442,7 @@ text-decoration: none;
 }
 
 .bbtxt-content-subscription{
-	background:transparent url(http://placehold.it/1920x1080) no-repeat center center fixed;
+	background:transparent url(../images/background1.jpg) no-repeat center center fixed;
 	-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -1647,7 +1647,7 @@ text-decoration: none;
 }
 /***** Parallax training today *****/
 #parallaxTraining {
-	background:transparent url(http://placehold.it/1920x1080) no-repeat center center fixed;
+	background:transparent url(../img/top-background.png) no-repeat center center fixed;
 	-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -2520,7 +2520,7 @@ text-decoration: none;
 	position: absolute;
 }
 .top-product.top-product-news {
-    background:transparent url(http://placehold.it/1920x1080) no-repeat fixed center center;
+    background:transparent url(../images/background1.jpg) no-repeat fixed center center;
 	-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

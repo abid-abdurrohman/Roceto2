@@ -10,15 +10,43 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+
+/*link menu*/
 Route::get('/', function () {
     return view('home.home');
+});
 
 Route::auth();
 
-Route::get('/', 'HomeController@index');
-
-
+Route::get('/login', function () {
+    return view('log.login');
 });
+
+Route::get('/tim', function () {
+    return view('peserta.tim');
+});
+
+Route::get('/individual', function () {
+    return view('peserta.individual');
+});
+
+Route::get('/match', function () {
+    return view('matches.match');
+});
+
+
+Route::get('/results', function () {
+    return view('results.results');
+});
+
+Route::get('/news', function () {
+    return view('news.news');
+});
+
+Route::get('/contact', function () {
+    return view('contact.contact');
+});
+
 
 /*link group*/
 

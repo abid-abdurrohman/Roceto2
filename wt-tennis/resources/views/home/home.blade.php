@@ -10,16 +10,16 @@
                 <div class="container">
                     <div class="col-md-12 slide-txt">
                         <p class='sub-result aft-little welcome linetheme-left'>Creative</p>
-                        <p class='sub-result aft-little linetheme-right'>Web Design<span class="point-big">.</span></p>
+                        <p class='sub-result aft-little linetheme-right'>Sport Event<span class="point-big">.</span></p>
                     </div>
                 </div>
              </div>
            </div>
            <div id="slidematch" class="col-xs-12 col-md-12">
                   <div class="content-match-team-wrapper">
-                     <span class="gdlr-left">Real Tennis</span>
+                     <span class="gdlr-left">Team TI 7A (Futsal)</span>
                      <span class="gdlr-upcoming-match-versus">VS</span>
-                     <span class="gdlr-right">Wednesday Club</span>
+                     <span class="gdlr-right">Team TKJ7B (Futsal)</span>
                   </div>
                   <div class="content-match-team-time">
                      <span class="gdlr-left">23 Sep 2016 - 14:00</span>
@@ -33,7 +33,8 @@
      <section class="news_slide-over-color">
           <div class="news_slide-over"></div>
            <div class="container">
-             <div class="col-xs-12 col-md-12 top-first-info">
+           
+             <!-- <div class="col-xs-12 col-md-12 top-first-info">
                <div class="col-md-4">
                      <section class="slider">
                             <div id="slider" class="flexslider flexslider-attachments">
@@ -54,7 +55,8 @@
                      <img src="http://placehold.it/1024x700" alt=""/>
                      <div class="slide-news-bottom"><a href="#">Wtp Tokyo Stadium</a><a class="i-ico" href="#"><i class="fa fa-angle-double-right"></i></a></div>
                 </div>
-             </div>
+             </div> -->
+
              <div class="col-xs-12 col-md-12 top-slide-info">
               <div class="col-xs-6 col-md-6">
                 <div class="col-md-4 slide-cont-img"><a href="single_news.html"><img class="scale_image" src="http://placehold.it/614x428" alt=""/><i class="fa fa-video-camera"></i></a></div>
@@ -96,7 +98,7 @@
         </div>
       </div>
      </section>
-          <!--SECTION Match TOP SCORE-->
+    <!--SECTION Match TOP SCORE-->
      <section id="atp-match">
            <div class="container">
            <div id="people-top" class="top-match col-xs-12 col-md-12">
@@ -110,7 +112,7 @@
                    <div class="col-xs-4 pht-1 pht-left">
                          <div class="img-face-home">
                             <img src="http://placehold.it/235x224" alt="" />
-                            <p class="name-mc">Nikol Brian</p>
+                            <p class="name-mc">Team 7A (Basket)</p>
                          </div>                      
                   </div>
                   <div class="col-xs-4 pl-point ">
@@ -131,7 +133,7 @@
                    <div class="col-xs-4 pht-1 pht-right">
                         <div class="img-face-home">
                             <img src="http://placehold.it/235x224" alt="" />
-                            <p class="name-mc">Roial Mink</p>
+                            <p class="name-mc">Team 7Aeu (Basket)</p>
                         </div>
 
                   </div>
@@ -343,48 +345,84 @@
                   </div>
              
      </section>
-          <!--SECTION STATISTIC RESULTS-->
+          <!--SECTION Quota RESULTS-->
      <section id="resultsPoint">
            <div class="container">
                     <div class="top-match col-xs-12 col-md-12">
                      <div class="top-score-title">
-                        <h3>Statistics<span class="point-little">.</span></h3>
+                        <h3>Quota<span class="point-little">.</span></h3>
                         <p class="subtitle">A small creative team, trying to enrich the lives of others and build brands 
                                     that a normal humans can understand.</p>
                         <div class="col-xs-12 circle-percentage">
                           <div class="col-xs-3">
-                            <div class="pie_progress" role="progressbar" data-goal="83" data-barcolor="#f59123" data-barsize="10">
+                            <div class="pie_progress" role="progressbar" data-goal="90" data-barcolor="#f59123" data-barsize="10">
                              <div class="pie_content">
-                                <div class="pie_progress__number">0%</div>
-                                <div class="pie_progress__content">Super-Senior</div>
+                                <div class="pie_progress__number">90%</div>
+                                <div class="pie_progress__content">Futsal</div>
                              </div>
                             </div>
                           </div>
                           <div class="col-xs-3">
-                            <div class="pie_progress" role="progressbar" data-goal="65" data-barcolor="#2c333b" data-barsize="10">
+                            <div class="pie_progress" role="progressbar" data-goal="83" data-barcolor="#2c333b" data-barsize="10">
                              <div class="pie_content">
-                                <div class="pie_progress__number">0%</div>
-                                <div class="pie_progress__content">Senior</div>
+                                <div class="pie_progress__number">83</div>
+                                <div class="pie_progress__content">Basket</div>
                              </div>
                             </div>
                           </div>
                           <div class="col-xs-3">
-                            <div class="pie_progress" role="progressbar" data-goal="32" data-barcolor="#f59123" data-barsize="10">
+                            <div class="pie_progress" role="progressbar" data-goal="45" data-barcolor="#f59123" data-barsize="10">
                              <div class="pie_content">
-                                <div class="pie_progress__number">0%</div>
-                                <div class="pie_progress__content">Pro</div>
+                                <div class="pie_progress__number">45%</div>
+                                <div class="pie_progress__content">Bulu Tangkis</div>
                              </div>
                             </div>
                           </div>
                           <div class="col-xs-3">
                             <div class="pie_progress" role="progressbar" data-goal="73" data-barcolor="#2c333b" data-barsize="10">
                              <div class="pie_content">
-                                <div class="pie_progress__number">0%</div>
-                                <div class="pie_progress__content">Junior</div>
+                                <div class="pie_progress__number">73%</div>
+                                <div class="pie_progress__content">Voli</div>
                              </div>
                             </div>
                           </div>
                         </div>
+
+                        <div class="col-xs-12 circle-percentage">
+                          <div class="col-xs-3">
+                            <div class="pie_progress" role="progressbar" data-goal="78" data-barcolor="#2c333b" data-barsize="10">
+                             <div class="pie_content">
+                                <div class="pie_progress__number">78%</div>
+                                <div class="pie_progress__content">Berenang</div>
+                             </div>
+                            </div>
+                          </div>
+                          <div class="col-xs-3">
+                            <div class="pie_progress" role="progressbar" data-goal="65" data-barcolor="#f59123" data-barsize="10">
+                             <div class="pie_content">
+                                <div class="pie_progress__number">65%</div>
+                                <div class="pie_progress__content">Marathon</div>
+                             </div>
+                            </div>
+                          </div>
+                          <div class="col-xs-3">
+                            <div class="pie_progress" role="progressbar" data-goal="32" data-barcolor="#2c333b" data-barsize="10">
+                             <div class="pie_content">
+                                <div class="pie_progress__number">32%</div>
+                                <div class="pie_progress__content">Catur</div>
+                             </div>
+                            </div>
+                          </div>
+                          <div class="col-xs-3">
+                            <div class="pie_progress" role="progressbar" data-goal="28" data-barcolor="#f59123" data-barsize="10">
+                             <div class="pie_content">
+                                <div class="pie_progress__number">28%</div>
+                                <div class="pie_progress__content">Lompat Tinggi</div>
+                             </div>
+                            </div>
+                          </div>
+                        </div>
+
                         <div class="clear"></div>
                        
                       </div>
@@ -392,7 +430,7 @@
                 </div>
      </section>
 
-     <section id="parallax-info">
+     <!-- <section id="parallax-info">
         <div class="clearfix">
                 <div class="col-md-6 yoga-desc title">
                     <h1>Robert Doe</h1>
@@ -407,7 +445,7 @@
                      <img src="images/people.jpg" alt=""/>
                </div>       
             </div>
-    </section>
+    </section> -->
           <!-- SECTION SUBSCRIPTIONS-->
      <section class="bbtxt-content-subscription">
            <div class="container">
@@ -544,7 +582,7 @@
            <div class="container">
            <div class="col-xs-12 col-md-12">
              <h3>Top <span>Match</span><span class="point-little">.</span></h3>
-             <p class="subtitle ground">A small creative team, trying to enrich the lives of others and build brands 
+             <p class="subtitle">A small creative team, trying to enrich the lives of others and build brands 
                                     that a normal humans can understand.</p>
              <ul id="product" class="bxslider">
               <li>
@@ -757,12 +795,12 @@
            <div class="client-sport client-sport-nomargin home-pg">
                <div class="content-banner">
                      <ul class="sponsor second">
-                      <li><img src="http://placehold.it/273x133" alt="" /></li>
-                      <li><img src="http://placehold.it/273x133" alt="" /></li>
-                      <li><img src="http://placehold.it/273x133" alt="" /></li>
-                      <li><img src="http://placehold.it/273x133" alt="" /></li>
-                      <li><img src="http://placehold.it/273x133" alt="" /></li>
-                      <li><img src="http://placehold.it/273x133" alt="" /></li>
+                      <li><img src="img\sponsorship\aqua.jpg" alt="" /></li>
+                      <li><img src="img\sponsorship\danone.jpg" alt="" /></li>
+                      <li><img src="img\sponsorship\nike.jpg" alt="" /></li>
+                      <li><img src="img\sponsorship\pocari.jpg" alt="" /></li>
+                      <li><img src="img\sponsorship\sariroti.jpg" alt="" /></li>
+                      <li><img src="img\sponsorship\yakult.jpg" alt="" /></li>
                     </ul>
                 </div>
           </div>
