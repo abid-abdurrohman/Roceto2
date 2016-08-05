@@ -37,7 +37,8 @@
             "php artisan key:generate"
         ],
         "post-install-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postInstall",
+            "php artisan clear-compiled",
+            "php -r \"copy('.env.example', '.env');\"",
             "php artisan optimize"
         ],
         "post-update-cmd": [
