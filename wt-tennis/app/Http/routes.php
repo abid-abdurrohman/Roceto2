@@ -83,5 +83,8 @@ Route::resource('reg_marathon', 'Reg_marathonController');
 
 Route::resource('reg_swim', 'Reg_swimController');
 
-Route::get('/admins', 'AdminController@index');
-Route::get('/admin/pro_login', 'AdminController@pro_login');
+Route::get('admin', 'AdminController@login');
+Route::get('admin/home', 'AdminController@index');
+Route::post('admin/pro_login', 'AdminController@pro_login');
+Route::resource('admin/event', 'EventController');
+Route::post('admin/event/search', 'EventController@search');

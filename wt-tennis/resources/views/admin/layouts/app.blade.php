@@ -11,25 +11,26 @@
         <title>@yield('title')</title>
 
         <!-- Base Css Files -->
-        <link href="{{ URL::asset('admin/css/bootstrap.min.css') }}" rel="stylesheet" />
+        <link href="{{ URL::asset('admin_asset/css/bootstrap.min.css') }}" rel="stylesheet" />
 
         <!-- Font Icons -->
-        <link href="{{ URL::asset('admin/assets/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" />
-        <link href="{{ URL::asset('admin/assets/ionicon/css/ionicons.min.css') }}" rel="stylesheet" />
-        <link href="{{ URL::asset('admin/css/material-design-iconic-font.min.css') }}" rel="stylesheet">
+        <link href="{{ URL::asset('admin_asset/assets/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" />
+        <link href="{{ URL::asset('admin_asset/assets/ionicon/css/ionicons.min.css') }}" rel="stylesheet" />
+        <link href="{{ URL::asset('admin_asset/css/material-design-iconic-font.min.css') }}" rel="stylesheet">
 
         <!-- animate css -->
-        <link href="{{ URL::asset('admin/css/animate.css') }}" rel="stylesheet" />
+        <link href="{{ URL::asset('admin_asset/css/animate.css') }}" rel="stylesheet" />
 
         <!-- Waves-effect -->
-        <link href="{{ URL::asset('admin/css/waves-effect.css') }}" rel="stylesheet">
+        <link href="{{ URL::asset('admin_asset/css/waves-effect.css') }}" rel="stylesheet">
 
         <!-- sweet alerts -->
-        <link href="{{ URL::asset('admin/assets/sweet-alert/sweet-alert.min.css') }}" rel="stylesheet">
-
+        <link href="{{ URL::asset('admin_asset/assets/sweet-alert/sweet-alert.min.css') }}" rel="stylesheet">
+        <!-- DataTables -->
+        <link href="{{ URL::asset('admin_asset/assets/datatables/jquery.dataTables.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- Custom Files -->
-        <link href="{{ URL::asset('admin/css/helper.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ URL::asset('admin/css/style.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ URL::asset('admin_asset/css/helper.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ URL::asset('admin_asset/css/style.css') }}" rel="stylesheet" type="text/css" />
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,14 +39,14 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
 
-        <script src="{{ URL::asset('admin/js/modernizr.min.js') }}"></script>        
+        <script src="{{ URL::asset('admin_asset/js/modernizr.min.js') }}"></script>
     </head>
 
     <body class="fixed-left">
-        
+
         <!-- Begin page -->
         <div id="wrapper">
-        
+
             <!-- Top Bar Start -->
             <div class="topbar">
                 <!-- LOGO -->
@@ -130,7 +131,7 @@
                                             <a href="javascript:void(0);" class="list-group-item">
                                               <small>See all notifications</small>
                                             </a>
-                                        </li>                 
+                                        </li>
                                     </ul>
                                 </li>
                                 <li class="hidden-xs">
@@ -140,7 +141,7 @@
                                     <a href="#" class="right-bar-toggle waves-effect waves-light"><i class="md md-chat"></i></a>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="" class="dropdown-toggle profile" data-toggle="dropdown" aria-expanded="true"><img src="{{ URL::asset('admin/images/avatar-1.jpg') }}" alt="user-img" class="img-circle"> </a>
+                                    <a href="" class="dropdown-toggle profile" data-toggle="dropdown" aria-expanded="true"><img src="{{ URL::asset('admin_asset/images/avatar-1.jpg') }}" alt="user-img" class="img-circle"> </a>
                                     <ul class="dropdown-menu">
                                         <li><a href="javascript:void(0)"><i class="md md-face-unlock"></i> Profile</a></li>
                                         <li><a href="javascript:void(0)"><i class="md md-settings"></i> Settings</a></li>
@@ -162,7 +163,7 @@
                 <div class="sidebar-inner slimscrollleft">
                     <div class="user-details">
                         <div class="pull-left">
-                            <img src="{{ URL::asset('admin/images/users/avatar-1.jpg') }}" alt="" class="thumb-md img-circle">
+                            <img src="{{ URL::asset('admin_asset/images/users/avatar-1.jpg') }}" alt="" class="thumb-md img-circle">
                         </div>
                         <div class="user-info">
                             <div class="dropdown">
@@ -174,7 +175,7 @@
                                     <li><a href="javascript:void(0)"><i class="md md-settings-power"></i> Logout</a></li>
                                 </ul>
                             </div>
-                            
+
                             <p class="text-muted m-0">Administrator</p>
                         </div>
                     </div>
@@ -185,7 +186,11 @@
                                 <a href="/dashboard" class="waves-effect active"><i class="md md-home"></i><span> Dashboard </span></a>
                             </li>
 
-                            <li class="has_sub">
+                            <li>
+                                <a href="{{ action('EventController@index') }}" class="waves-effect active"><i class="md md-home"></i><span> Events </span></a>
+                            </li>
+
+                            <!-- <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="md md-mail"></i><span> Mail </span><span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="inbox.html">Inbox</a></li>
@@ -235,7 +240,7 @@
                                     <li><a href="font-awesome.html">Font awesome</a></li>
                                 </ul>
                             </li>
-                            
+
                             <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="md md-now-widgets"></i><span> Forms </span><span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
@@ -317,18 +322,18 @@
                                         <a href="javascript:void(0);"><span>Menu Level 1.2</span></a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> -->
                         </ul>
                         <div class="clearfix"></div>
                     </div>
                     <div class="clearfix"></div>
                 </div>
             </div>
-            <!-- Left Sidebar End --> 
+            <!-- Left Sidebar End -->
 
             <!-- ============================================================== -->
             <!-- Start right Content here -->
-            <!-- ============================================================== -->                      
+            <!-- ============================================================== -->
             <div class="content-page">
                 <!-- Start content -->
                 <div class="content">
@@ -352,7 +357,7 @@
                         <li class="list-group-item">
                             <a href="#">
                                 <div class="avatar">
-                                    <img src="{{ URL::asset('admin/images/users/avatar-1.jpg') }}" alt="">
+                                    <img src="{{ URL::asset('admin_asset/images/users/avatar-1.jpg') }}" alt="">
                                 </div>
                                 <span class="name">Chadengle</span>
                                 <i class="fa fa-circle online"></i>
@@ -362,7 +367,7 @@
                         <li class="list-group-item">
                             <a href="#">
                                 <div class="avatar">
-                                    <img src="{{ URL::asset('admin/images/users/avatar-2.jpg') }}" alt="">
+                                    <img src="{{ URL::asset('admin_asset/images/users/avatar-2.jpg') }}" alt="">
                                 </div>
                                 <span class="name">Tomaslau</span>
                                 <i class="fa fa-circle online"></i>
@@ -372,7 +377,7 @@
                         <li class="list-group-item">
                             <a href="#">
                                 <div class="avatar">
-                                    <img src="{{ URL::asset('admin/images/users/avatar-3.jpg') }}" alt="">
+                                    <img src="{{ URL::asset('admin_asset/images/users/avatar-3.jpg') }}" alt="">
                                 </div>
                                 <span class="name">Stillnotdavid</span>
                                 <i class="fa fa-circle online"></i>
@@ -382,7 +387,7 @@
                         <li class="list-group-item">
                             <a href="#">
                                 <div class="avatar">
-                                    <img src="{{ URL::asset('admin/images/users/avatar-4.jpg') }}" alt="">
+                                    <img src="{{ URL::asset('admin_asset/images/users/avatar-4.jpg') }}" alt="">
                                 </div>
                                 <span class="name">Kurafire</span>
                                 <i class="fa fa-circle online"></i>
@@ -392,7 +397,7 @@
                         <li class="list-group-item">
                             <a href="#">
                                 <div class="avatar">
-                                    <img src="{{ URL::asset('admin/images/users/avatar-5.jpg') }}" alt="">
+                                    <img src="{{ URL::asset('admin_asset/images/users/avatar-5.jpg') }}" alt="">
                                 </div>
                                 <span class="name">Shahedk</span>
                                 <i class="fa fa-circle away"></i>
@@ -402,7 +407,7 @@
                         <li class="list-group-item">
                             <a href="#">
                                 <div class="avatar">
-                                    <img src="{{ URL::asset('admin/images/users/avatar-6.jpg') }}" alt="">
+                                    <img src="{{ URL::asset('admin_asset/images/users/avatar-6.jpg') }}" alt="">
                                 </div>
                                 <span class="name">Adhamdannaway</span>
                                 <i class="fa fa-circle away"></i>
@@ -412,7 +417,7 @@
                         <li class="list-group-item">
                             <a href="#">
                                 <div class="avatar">
-                                    <img src="{{ URL::asset('admin/images/users/avatar-7.jpg') }}" alt="">
+                                    <img src="{{ URL::asset('admin_asset/images/users/avatar-7.jpg') }}" alt="">
                                 </div>
                                 <span class="name">Ok</span>
                                 <i class="fa fa-circle away"></i>
@@ -422,7 +427,7 @@
                         <li class="list-group-item">
                             <a href="#">
                                 <div class="avatar">
-                                    <img src="{{ URL::asset('admin/images/users/avatar-8.jpg') }}" alt="">
+                                    <img src="{{ URL::asset('admin_asset/images/users/avatar-8.jpg') }}" alt="">
                                 </div>
                                 <span class="name">Arashasghari</span>
                                 <i class="fa fa-circle offline"></i>
@@ -432,7 +437,7 @@
                         <li class="list-group-item">
                             <a href="#">
                                 <div class="avatar">
-                                    <img src="{{ URL::asset('admin/images/users/avatar-9.jpg') }}" alt="">
+                                    <img src="{{ URL::asset('admin_asset/images/users/avatar-9.jpg') }}" alt="">
                                 </div>
                                 <span class="name">Joshaustin</span>
                                 <i class="fa fa-circle offline"></i>
@@ -442,14 +447,14 @@
                         <li class="list-group-item">
                             <a href="#">
                                 <div class="avatar">
-                                    <img src="{{ URL::asset('admin/images/users/avatar-10.jpg') }}" alt="">
+                                    <img src="{{ URL::asset('admin_asset/images/users/avatar-10.jpg') }}" alt="">
                                 </div>
                                 <span class="name">Sortino</span>
                                 <i class="fa fa-circle offline"></i>
                             </a>
                             <span class="clearfix"></span>
                         </li>
-                    </ul>  
+                    </ul>
                 </div>
             </div>
             <!-- /Right-bar -->
@@ -462,48 +467,50 @@
         </script>
 
         <!-- jQuery  -->
-        <script src="{{ URL::asset('admin/js/jquery.min.js') }}"></script>
-        <script src="{{ URL::asset('admin/js/bootstrap.min.js') }}"></script>
-        <script src="{{ URL::asset('admin/js/waves.js') }}"></script>
-        <script src="{{ URL::asset('admin/js/wow.min.js') }}"></script>
-        <script src="{{ URL::asset('admin/js/jquery.nicescroll.js') }}" type="text/javascript"></script>
-        <script src="{{ URL::asset('admin/js/jquery.scrollTo.min.js') }}"></script>
-        <script src="{{ URL::asset('admin/assets/chat/moment-2.2.1.js') }}"></script>
-        <script src="{{ URL::asset('admin/assets/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
-        <script src="{{ URL::asset('admin/assets/jquery-detectmobile/detect.js') }}"></script>
-        <script src="{{ URL::asset('admin/assets/fastclick/fastclick.js') }}"></script>
-        <script src="{{ URL::asset('admin/assets/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
-        <script src="{{ URL::asset('admin/assets/jquery-blockui/jquery.blockUI.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/js/jquery.min.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/js/bootstrap.min.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/js/waves.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/js/wow.min.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/js/jquery.nicescroll.js') }}" type="text/javascript"></script>
+        <script src="{{ URL::asset('admin_asset/js/jquery.scrollTo.min.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/assets/chat/moment-2.2.1.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/assets/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/assets/jquery-detectmobile/detect.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/assets/fastclick/fastclick.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/assets/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/assets/jquery-blockui/jquery.blockUI.js') }}"></script>
 
         <!-- sweet alerts -->
-        <script src="{{ URL::asset('admin/assets/sweet-alert/sweet-alert.min.js') }}"></script>
-        <script src="{{ URL::asset('admin/assets/sweet-alert/sweet-alert.init.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/assets/sweet-alert/sweet-alert.min.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/assets/sweet-alert/sweet-alert.init.js') }}"></script>
 
         <!-- flot Chart -->
-        <script src="{{ URL::asset('admin/assets/flot-chart/jquery.flot.js') }}"></script>
-        <script src="{{ URL::asset('admin/assets/flot-chart/jquery.flot.time.js') }}"></script>
-        <script src="{{ URL::asset('admin/assets/flot-chart/jquery.flot.tooltip.min.js') }}"></script>
-        <script src="{{ URL::asset('admin/assets/flot-chart/jquery.flot.resize.js') }}"></script>
-        <script src="{{ URL::asset('admin/assets/flot-chart/jquery.flot.pie.js') }}"></script>
-        <script src="{{ URL::asset('admin/assets/flot-chart/jquery.flot.selection.js') }}"></script>
-        <script src="{{ URL::asset('admin/assets/flot-chart/jquery.flot.stack.js') }}"></script>
-        <script src="{{ URL::asset('admin/assets/flot-chart/jquery.flot.crosshair.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/assets/flot-chart/jquery.flot.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/assets/flot-chart/jquery.flot.time.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/assets/flot-chart/jquery.flot.tooltip.min.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/assets/flot-chart/jquery.flot.resize.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/assets/flot-chart/jquery.flot.pie.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/assets/flot-chart/jquery.flot.selection.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/assets/flot-chart/jquery.flot.stack.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/assets/flot-chart/jquery.flot.crosshair.js') }}"></script>
 
         <!-- Counter-up -->
-        <script src="{{ URL::asset('admin/assets/counterup/waypoints.min.js') }}" type="text/javascript"></script>
-        <script src="{{ URL::asset('admin/assets/counterup/jquery.counterup.min.js') }}" type="text/javascript"></script>
-        
+        <script src="{{ URL::asset('admin_asset/assets/counterup/waypoints.min.js') }}" type="text/javascript"></script>
+        <script src="{{ URL::asset('admin_asset/assets/counterup/jquery.counterup.min.js') }}" type="text/javascript"></script>
+
         <!-- CUSTOM JS -->
-        <script src="{{ URL::asset('admin/js/jquery.app.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/js/jquery.app.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/assets/datatables/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/assets/datatables/dataTables.bootstrap.js') }}"></script>
 
         <!-- Dashboard -->
-        <script src="{{ URL::asset('admin/js/jquery.dashboard.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/js/jquery.dashboard.js') }}"></script>
 
         <!-- Chat -->
-        <script src="{{ URL::asset('admin/js/jquery.chat.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/js/jquery.chat.js') }}"></script>
 
         <!-- Todo -->
-        <script src="{{ URL::asset('admin/js/jquery.todo.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/js/jquery.todo.js') }}"></script>
 
         <script type="text/javascript">
             /* ==============================================

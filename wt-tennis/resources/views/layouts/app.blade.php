@@ -9,7 +9,8 @@
   <meta name="keywords" content="Tennis, club, events, football, golf, non-profit, betting assistant, football,fitness, tennis, sport, soccer, goal, sports, volleyball, basketball,  charity, club, cricket, football, hockey, magazine, non profit, rugby, soccer, sport, sports, tennis" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <link href="{{ URL::asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" />
+  <!--<link href="{{ URL::asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" /> -->
+  {{ Html::style('css/bootstrap.css') }}
   <!--<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />-->
 
   <link href="{{ URL::asset('css/online/open_sans.css') }}" rel='stylesheet' type='text/css'/>
@@ -39,10 +40,10 @@
   <section class="content-top-login">
    <div class="container">
     <div class="col-md-12">
-     <div class="box-support"> 
+     <div class="box-support">
        <p class="support-info"><i class="fa fa-envelope-o"></i> info@wttennis.com</p>
      </div>
-     <div class="box-login"> 
+     <div class="box-login">
        <!-- <i class="fa fa-shopping-cart"></i> -->
        <a href="{{ url('/login') }}">Login</a>
        <!-- <a href='login.html'>Sign Up</a> -->
@@ -75,7 +76,7 @@
 <section class="container box-logo">
   <header>
    <div class="content-logo col-md-12">
-    <div class="logo"> 
+    <div class="logo">
       <img src="img/logo2.png" alt="" />
     </div>
 
@@ -84,12 +85,12 @@
     <div class="box-menu">
 
       <nav id="cbp-hrmenu" class="cbp-hrmenu">
-        <ul id="menu">    
+        <ul id="menu">
           <li><a class="lnk-menu active" href="{{ url('/') }}">Home</a></li>
           <!-- <li>
             <a class="lnk-menu" href="#">Pages</a>
             <div class="cbp-hrsub sub-little">
-              <div class="cbp-hrsub-inner"> 
+              <div class="cbp-hrsub-inner">
                 <div class="content-sub-menu">
                   <ul class="menu-pages">
                     <li><a href="tournaments.html"><span>Tournaments</span></a></li>
@@ -111,11 +112,11 @@
                 </div>
               </div>
             </div>
-          </li>--> 
+          </li>-->
           <li>
             <a class="lnk-menu" href="#">Participant</a>
             <div class="cbp-hrsub sub-little">
-              <div class="cbp-hrsub-inner"> 
+              <div class="cbp-hrsub-inner">
                 <div class="content-sub-menu">
                   <ul class="menu-pages">
                     <li><a href="{{ url('/tim') }}"><span>Tim</span></a></li>
@@ -141,15 +142,15 @@
 @yield('content')
 
 
-<!--SECTION FOOTER--> 
+<!--SECTION FOOTER-->
 <section id="footer-tag">
  <div class="container">
    <div class="col-md-12">
     <div class="col-md-3">
      <h3>About Us</h3>
-     <p>Thank you for visiting tennisclub.com. Our mission is to 
+     <p>Thank you for visiting tennisclub.com. Our mission is to
        provide unrivalled and unbiased informative and resources to help any sports fan who enjoys a flutter make informed and value led decisions.</p>
-       <p>Our mission is to 
+       <p>Our mission is to
          provide unrivalled and unbiased informative, resources to help any sports fan who enjoys a flutter make.</p>
        </div>
        <div class="col-md-3 cat-footer">
@@ -174,7 +175,7 @@
     </div>
     <div class="col-md-3 footer-newsletters">
       <h3>Newsletters</h3>
-      <form method="post">     
+      <form method="post">
         <div class="name">
           <label for="name">* Name:</label><div class="clear"></div>
           <input id="name" name="name" type="text" placeholder="e.g. Mr. John Doe" required=""/>
@@ -245,7 +246,7 @@
 <!--Count down-->
 <script src="{{ URL::asset('js/jquery.countdown.js') }}" type="text/javascript"></script>
 
-<script src="{{ URL::asset('js/custom_ini.js') }}" type="text/javascript"></script> 
+<script src="{{ URL::asset('js/custom_ini.js') }}" type="text/javascript"></script>
 
 </body>
 </html>
