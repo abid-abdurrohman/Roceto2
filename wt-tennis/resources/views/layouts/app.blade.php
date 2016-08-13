@@ -9,9 +9,9 @@
   <meta name="keywords" content="Tennis, club, events, football, golf, non-profit, betting assistant, football,fitness, tennis, sport, soccer, goal, sports, volleyball, basketball,  charity, club, cricket, football, hockey, magazine, non profit, rugby, soccer, sport, sports, tennis" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <!--<link href="{{ URL::asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" /> -->
+  <link href="{{ URL::asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" /> 
   {{ Html::style('css/bootstrap.css') }}
-  <!--<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />-->
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
   <link href="{{ URL::asset('css/online/open_sans.css') }}" rel='stylesheet' type='text/css'/>
   <!--<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css'/>-->
@@ -114,6 +114,25 @@
             </div>
           </li>-->
           <li>
+            <a class="lnk-menu" href="#">Competition</a>
+            <div class="cbp-hrsub sub-little">
+              <div class="cbp-hrsub-inner">
+                <div class="content-sub-menu">
+                  <ul class="menu-pages">
+                    <li><a href="{{ route('reg_futsal.store') }}"><span>Futsal</span></a></li>
+                    <li><a href="{{ route('reg_basket.store') }}"><span>Basket</span></a></li>
+                    <li><a href="{{ route('reg_bultang.store') }}"><span>Bulu Tangkis</span></a></li>
+                    <li><a href="{{ route('reg_voli.store') }}"><span>Voli</span></a></li>
+                    <li><a href="{{ route('reg_swim.store') }}"><span>Berenang</span></a></li>
+                    <li><a href="{{ route('reg_marathon.store') }}"><span>Marathon</span></a></li>
+                    <li><a href="{{ route('reg_catur.store') }}"<span>Catur</span></a></li>
+                    <li><a href="{{ route('reg_lompat.store') }}"><span>Lompat Tinggi</span></a></li>                 
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
             <a class="lnk-menu" href="#">Participant</a>
             <div class="cbp-hrsub sub-little">
               <div class="cbp-hrsub-inner">
@@ -121,7 +140,7 @@
                   <ul class="menu-pages">
                     <li><a href="{{ url('/tim') }}"><span>Tim</span></a></li>
                     <li><a href="{{ url('/individual') }}"><span>Single Player</span></a></li>
-                    <li><a href="{{ url('/match')}}"><span>Matches</span></a></li>
+                    <li><a href="{{ url('/match')}}"><span>Points</span></a></li>
                   </ul>
                 </div>
               </div>
@@ -140,6 +159,22 @@
 
 
 @yield('content')
+
+<!--SECTION SPONSOR-->
+     <section class="container">
+           <div class="client-sport client-sport-nomargin home-pg">
+               <div class="content-banner">
+                     <ul class="sponsor second">
+                      <li><img src="img\sponsorship\aqua.jpg" alt="" /></li>
+                      <li><img src="img\sponsorship\danone.jpg" alt="" /></li>
+                      <li><img src="img\sponsorship\nike.jpg" alt="" /></li>
+                      <li><img src="img\sponsorship\pocari.jpg" alt="" /></li>
+                      <li><img src="img\sponsorship\sariroti.jpg" alt="" /></li>
+                      <li><img src="img\sponsorship\yakult.jpg" alt="" /></li>
+                    </ul>
+                </div>
+          </div>
+     </section>
 
 
 <!--SECTION FOOTER-->
@@ -235,6 +270,7 @@
 <script src="{{ URL::asset('js/jquery.ui.totop.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/custom.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/jquery.bxslider.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('js/jquery.accordion.js') }}" type="text/javascript"></script>
 
 <!--Carousel News-->
 <script src="{{ URL::asset('js/jquery.easing.1.3.js') }}" type="text/javascript"></script>
