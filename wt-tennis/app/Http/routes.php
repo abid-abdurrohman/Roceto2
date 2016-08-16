@@ -63,3 +63,4 @@ Route::post('admin/pro_login', 'AdminController@pro_login');
 Route::resource('admin/event', 'EventController');
 Route::post('admin/event/search', 'EventController@search');
 Route::resource('admin/news', 'NewsController');
+Route::resource('admin/participant', 'ParticipantController');

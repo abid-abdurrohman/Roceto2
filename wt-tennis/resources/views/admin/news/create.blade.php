@@ -7,7 +7,7 @@
         <div class="col-sm-12">
             <h4 class="pull-left page-title">News</h4>
             <ol class="breadcrumb pull-right">
-                <li><a href="#">Moltran</a></li>
+                <li><a href="#">Admin</a></li>
                 <li><a href="{{ action('NewsController@index') }}">News</a></li>
                 <li class="active">Create</li>
             </ol>

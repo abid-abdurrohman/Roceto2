@@ -10,6 +10,8 @@
 
         <title>@yield('title')</title>
 
+        <script src="{{ URL::asset('admin_asset/tinymce/tinymce.min.js') }}"></script>
+
         <!-- Base Css Files -->
         <link href="{{ URL::asset('admin_asset/css/bootstrap.min.css') }}" rel="stylesheet" />
 
@@ -188,6 +190,10 @@
                         <ul>
                             <li>
                                 <a href="{{ action('AdminController@index') }}" class="waves-effect active"><i class="md md-home"></i><span> Dashboard </span></a>
+                            </li>
+
+                            <li>
+                                <a href="{{ action('ParticipantController@index') }}" class="waves-effect"><i class="md md-home"></i><span> Participant </span></a>
                             </li>
 
                             <li>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\News;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests;
 
 class NewsController extends Controller
@@ -51,8 +51,10 @@ class NewsController extends Controller
         $input['slug'] = str_slug($request->judul, '-');
 
         $photo = $request->thumbnail->getClientOriginalName();
-        $destination = base_path().'/public/images/news';
+        $destination = 'images/news/';
         $request->thumbnail->move($destination, $photo);
+
+        $input['thumbnail'] = $destination.$photo;
 
         News::create($input);
         return redirect()->action('NewsController@index')->with('message','News has been created');
@@ -66,7 +68,8 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        //
+      $news = News::findOrFail($id);
+      return view('admin.news.show', compact('news'));
     }
 
     /**
@@ -77,7 +80,9 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        //
+      $news = News::findOrFail($id);
+
+      return view('admin.news.edit', compact('news'));
     }
 
     /**
@@ -89,7 +94,16 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $this->validate($request, [
+        'judul' => 'required',
+        'thumbnail' => 'required',
+        'kategori' => 'required',
+        'tag' => 'required',
+        'deskripsi' => 'required'
+      ]);
+      $news = News::findOrFail($id);
+      $news->update($request->all());
+      return redirect()->action('NewsController@index')->with('message','News has been edited');
     }
 
     /**
@@ -100,6 +114,9 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $news = News::findOrFail($id);
+      Storage::delete($news->thumbnail);
+      $news->delete();
+      return redirect()->action('NewsController@index')->with('message','News has been deleted');
     }
 }

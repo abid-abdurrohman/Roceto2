@@ -1,3 +1,8 @@
+<!-- <script>
+  tinymce.init({
+    selector:'textarea',
+  });
+</script> -->
 <div class="form-group">
   <label for="exampleInputFile">Judul :</label>
   {!! Form::text('judul', null, ['class' => 'form-control input-md', 'placeholder' => 'Write a title',
@@ -29,6 +34,7 @@
   </div>
 </div>
 <div class="form-group">
+  <!-- {!! Form::textarea('deskripsi', null, ['placeholder' => 'Write a detail', 'required'],'') !!} -->
   {!! Form::textarea('deskripsi', null, ['class' => 'ckeditor', 'rows' => '10', 'cols' => '80',
   'placeholder' => 'Write a detail', 'required'],'') !!}
 </div>

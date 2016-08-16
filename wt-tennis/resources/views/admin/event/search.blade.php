@@ -7,7 +7,7 @@
                 <div class="col-sm-12">
                     <h4 class="pull-left page-title">Events</h4>
                     <ol class="breadcrumb pull-right">
-                        <li><a href="#">Moltran</a></li>
+                        <li><a href="#">Admin</a></li>
                         <li class="active">Events</li>
                     </ol>
                 </div>

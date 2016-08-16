@@ -8,7 +8,7 @@
                 <div class="col-sm-12">
                     <h4 class="pull-left page-title">Events</h4>
                     <ol class="breadcrumb pull-right">
-                        <li><a href="#">Moltran</a></li>
+                        <li><a href="#">Admin</a></li>
                         <li><a href="{{ action('EventController@index') }}">Events</a></li>
                         <li class="active">Edit</li>
                     </ol>
@@ -21,7 +21,7 @@
                         <div class="panel-body">
                             {!! Form::model($events, ['method' => 'PATCH', 'action' => ['EventController@update', $events->id],
                             'class'=>'form-horizontal']) !!}
-                                @include('admin/event/form/form', ['submit_text' => 'Edit Event']) 
+                                @include('admin/event/form/form', ['submit_text' => 'Edit Event'])
                             {!! Form::close() !!}
                         </div> <!-- panel-body -->
                     </div> <!-- panel -->
