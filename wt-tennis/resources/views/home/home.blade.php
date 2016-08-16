@@ -498,9 +498,14 @@
                             <dd>
                                 <ul class="filter group albumFilter"> 
                                     <li data-filter="*" class="current"><a  href="#">ALL</a></li> 
-                                    <li data-filter=".cat1"><a  href="#">ATP</a></li> 
-                                    <li data-filter=".cat2"><a  href="#">WTP</a></li> 
-                                    <li data-filter=".cat3"><a  href="#">BEAUTY</a></li> 
+                                    <li data-filter=".cat1"><a  href="#">Futsal</a></li> 
+                                    <li data-filter=".cat2"><a  href="#">Basket</a></li> 
+                                    <li data-filter=".cat3"><a  href="#">Bultang</a></li>
+                                    <li data-filter=".cat1"><a  href="#">Voli</a></li> 
+                                    <li data-filter=".cat2"><a  href="#">Berenang</a></li> 
+                                    <li data-filter=".cat3"><a  href="#">Marathon</a></li> 
+                                    <li data-filter=".cat1"><a  href="#">catur</a></li> 
+                                    <li data-filter=".cat2"><a  href="#">Lompat Tinggi</a></li>
                                     <li data-filter=".cat4"><a  href="#">MEETING</a></li> 
                                 </ul> 
                             </dd>
@@ -790,19 +795,5 @@
            </div>
         </div>
      </section>
-            <!--SECTION SPONSOR-->
-     <section class="container">
-           <div class="client-sport client-sport-nomargin home-pg">
-               <div class="content-banner">
-                     <ul class="sponsor second">
-                      <li><img src="img\sponsorship\aqua.jpg" alt="" /></li>
-                      <li><img src="img\sponsorship\danone.jpg" alt="" /></li>
-                      <li><img src="img\sponsorship\nike.jpg" alt="" /></li>
-                      <li><img src="img\sponsorship\pocari.jpg" alt="" /></li>
-                      <li><img src="img\sponsorship\sariroti.jpg" alt="" /></li>
-                      <li><img src="img\sponsorship\yakult.jpg" alt="" /></li>
-                    </ul>
-                </div>
-          </div>
-     </section>
+            
 @endsection
