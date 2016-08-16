@@ -13,6 +13,10 @@
         <!-- Base Css Files -->
         <link href="{{ URL::asset('admin_asset/css/bootstrap.min.css') }}" rel="stylesheet" />
 
+        <!-- ckeditor -->
+        <link rel="stylesheet" href="{{ URL::asset('admin_asset/dist/css/skins/_all-skins.min.css') }}">
+        <script src="{{ URL::asset('admin_asset/ckeditor/ckeditor.js') }}"></script>
+
         <!-- Font Icons -->
         <link href="{{ URL::asset('admin_asset/assets/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" />
         <link href="{{ URL::asset('admin_asset/assets/ionicon/css/ionicons.min.css') }}" rel="stylesheet" />
@@ -52,7 +56,7 @@
                 <!-- LOGO -->
                 <div class="topbar-left">
                     <div class="text-center">
-                        <a href="/dashboard" class="logo"><i class="md md-terrain"></i> <span>Moltran </span></a>
+                        <a href="{{ action('AdminController@index') }}" class="logo"><i class="md md-terrain"></i> <span>Admin</span></a>
                     </div>
                 </div>
                 <!-- Button mobile view to collapse sidebar menu -->
@@ -183,11 +187,15 @@
                     <div id="sidebar-menu">
                         <ul>
                             <li>
-                                <a href="/dashboard" class="waves-effect active"><i class="md md-home"></i><span> Dashboard </span></a>
+                                <a href="{{ action('AdminController@index') }}" class="waves-effect active"><i class="md md-home"></i><span> Dashboard </span></a>
                             </li>
 
                             <li>
-                                <a href="{{ action('EventController@index') }}" class="waves-effect active"><i class="md md-home"></i><span> Events </span></a>
+                                <a href="{{ action('EventController@index') }}" class="waves-effect"><i class="md md-home"></i><span> Events </span></a>
+                            </li>
+
+                            <li>
+                                <a href="{{ action('NewsController@index') }}" class="waves-effect"><i class="md md-home"></i><span> News </span></a>
                             </li>
 
                             <!-- <li class="has_sub">
