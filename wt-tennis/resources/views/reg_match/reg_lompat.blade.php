@@ -11,7 +11,7 @@
   </div>
 
   <section id="shop" class="container secondary-page">
-    <div class="general general-results">      
+    <div class="general general-results">
      <div class="top-score-title col-md-9">
       <h3>Product <span>Details</span><span class="point-little">.</span></h3>
       <div class="col-md-12 content-zoom">
@@ -22,7 +22,7 @@
          <h3>TOUR RED 15 PACK</h3>
          <p class="desc-prod">Designed for Wilson's pro players and carried on court by all players playing the new Wilson Six-One Racket. This is ideal for serious players of every level.</p>
          <p class="desc-price">$165.00</p>
-         <div class="col-xs-6 box">    
+         <div class="col-xs-6 box">
           <label for="qty"><abbr title="Quantity">Qty</abbr></label>
           <input id="qty" value="0" />
           <button id="down" onclick="modify_qty(-1)">-1</button>
@@ -35,7 +35,7 @@
 
     <div class="col-md-12 content-more-det login-page">
       <h3>Register Now</h3>
-        <form method="post" class="register-form" role="form" action="{{route('reg_lompat.store')}}">
+        <form method="post" class="register-form" role="form" action="{{ action('RegisterController@store_regLompat') }}">
         {{ csrf_field() }}
 
           <div class="full_name{{ $errors->has('fullname') ? ' has-error' : '' }}">
@@ -109,7 +109,7 @@
     <img src="http://placehold.it/1000x475" alt="" />
   </div>
   <div class="top-score-title col-md-12 right-title">
-    <h3>Photos</h3> 
+    <h3>Photos</h3>
     <ul class="right-last-photo">
       <li>
         <div class="jm-item second">
@@ -121,7 +121,7 @@
               <i class="fa fa-plus"></i>
             </div>
           </div>
-        </div>	
+        </div>
       </div>
     </div>
   </li>
@@ -135,7 +135,7 @@
           <i class="fa fa-plus"></i>
         </div>
       </div>
-    </div>	
+    </div>
   </div>
 </div>
 </li>
@@ -149,7 +149,7 @@
         <i class="fa fa-plus"></i>
       </div>
     </div>
-  </div>	
+  </div>
 </div>
 </div>
 </li>
@@ -163,7 +163,7 @@
         <i class="fa fa-plus"></i>
       </div>
     </div>
-  </div>	
+  </div>
 </div>
 </div>
 </li>
@@ -177,7 +177,7 @@
         <i class="fa fa-plus"></i>
       </div>
     </div>
-  </div>	
+  </div>
 </div>
 </div>
 </li>
@@ -191,7 +191,7 @@
         <i class="fa fa-plus"></i>
       </div>
     </div>
-  </div>	
+  </div>
 </div>
 </div>
 </li>
@@ -205,7 +205,7 @@
         <i class="fa fa-plus"></i>
       </div>
     </div>
-  </div>	
+  </div>
 </div>
 </div>
 </li>
@@ -219,7 +219,7 @@
         <i class="fa fa-plus"></i>
       </div>
     </div>
-  </div>	
+  </div>
 </div>
 </div>
 </li>
@@ -233,7 +233,7 @@
         <i class="fa fa-plus"></i>
       </div>
     </div>
-  </div>	
+  </div>
 </div>
 </div>
 </li>

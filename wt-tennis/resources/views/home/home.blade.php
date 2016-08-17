@@ -28,12 +28,12 @@
                </div>
          </div>
     </section>
-          
+
     <!-- SECTION NEWS SLIDER -->
      <section class="news_slide-over-color">
           <div class="news_slide-over"></div>
            <div class="container">
-           
+
              <!-- <div class="col-xs-12 col-md-12 top-first-info">
                <div class="col-md-4">
                      <section class="slider">
@@ -67,19 +67,19 @@
                 <div class="col-md-4 slide-cont-img"><a href="single_news.html"><img class="scale_image" src="http://placehold.it/614x428" alt=""/><i class="fa fa-picture-o"></i></a></div>
                 <div class="event_date dd-date">May 01, 2014 5:50 am <div class="post_theme">Interview</div></div><h4> Stay Ahead of the curve</h4>
                 <p>Quisque gravida libero sodales augue luctus elementum. In tristique faucibus diam, sit amet ultrices erat porttitor ut. Phasellus sit amet lorem sit amet orci lobortis mattis. Nulla venenatis, quam vitae pellentesque sollicitudin.</p>
-                
+
               </div>
               <div class="col-xs-6 col-md-6 box-top-txt">
                 <div class="col-md-4 slide-cont-img"><a href="single_news.html"><img class="scale_image" src="http://placehold.it/614x428" alt=""/><i class="fa fa-picture-o"></i></a></div>
                 <div class="event_date dd-date">May 01, 2014 5:50 am</div><h4> Stay Ahead of the curve</h4>
                 <p>Quisque gravida libero sodales augue luctus elementum. In tristique faucibus diam, sit amet ultrices erat porttitor ut. Phasellus sit amet lorem sit amet orci lobortis mattis. Nulla venenatis, quam vitae pellentesque sollicitudin.</p>
-                
+
               </div>
               <div class="col-xs-6 col-md-6 box-top-txt">
                 <div class="col-md-4 slide-cont-img"><a href="single_news.html"><img class="scale_image" src="http://placehold.it/614x428" alt=""/><i class="fa fa-video-camera"></i></a></div>
                 <div class="event_date dd-date">May 01, 2014 5:50 am</div><h4> Stay Ahead of the curve</h4>
                 <p>Quisque gravida libero sodales augue luctus elementum. In tristique faucibus diam, sit amet ultrices erat porttitor ut. Phasellus sit amet lorem sit amet orci lobortis mattis. Nulla venenatis, quam vitae pellentesque sollicitudin.</p>
-                
+
               </div>
              </div>
            </div>
@@ -103,7 +103,7 @@
            <div class="container">
            <div id="people-top" class="top-match col-xs-12 col-md-12">
               <h3 class="news-title n-match">Last <span>Match</span><span class="point-little">.</span></h3>
-              <p class="subtitle">A small creative team, trying to enrich the lives of others and build brands 
+              <p class="subtitle">A small creative team, trying to enrich the lives of others and build brands
                                     that a normal humans can understand.</p>
             <!--SECTION ATP MATCH-->
               <div class="next-match-co col-xs-8 col-md-8">
@@ -113,7 +113,7 @@
                          <div class="img-face-home">
                             <img src="http://placehold.it/235x224" alt="" />
                             <p class="name-mc">Team 7A (Basket)</p>
-                         </div>                      
+                         </div>
                   </div>
                   <div class="col-xs-4 pl-point ">
                       <p class="col-xs-12 name-mc-title">BEIJING - FIRST ROUND</p>
@@ -161,7 +161,7 @@
                                           <tr><td class="score-position">3.</td><td><a href="single_player.html">Roger Figo</a></td><td><img src="images/flags/uk.png" alt="" /></td><td>7490</td></tr>
                                           <tr><td class="score-position">4.</td><td><a href="single_player.html">St. Waiker</a></td><td><img src="images/flags/brazil.png" alt="" /></td><td>5985</td></tr>
                                           <tr><td class="score-position">5.</td><td><a href="single_player.html">David Ruby</a></td><td><img src="images/flags/japan.png" alt="" /></td><td>4765</td></tr>
-                                          
+
                                          </table>
                                         </div>
                                         <div id="tab2222" class="tab">
@@ -197,7 +197,7 @@
            <div  class="container">
               <div class="next-match-news top-match col-xs-12 col-md-12">
               <h3 class="news-title n-match">Next <span>Match</span><span class="point-little">.</span></h3>
-              <p class="subtitle">A small creative team, trying to enrich the lives of others and build brands 
+              <p class="subtitle">A small creative team, trying to enrich the lives of others and build brands
                                     that a normal humans can understand.</p>
                 <div class="other-match col-md-4">
                     <div class="score-next-time">
@@ -219,7 +219,7 @@
                         <p class='sub-result'>Qatar ExonMobil</p>
                         <p class="dd-news-date">April 22, 2016 ~ 2:30pm Canada Stadium</p>
                     </div>
-                    
+
                 </div>
                 <div class="other-match col-md-4">
                     <div class="match-team-list">
@@ -253,12 +253,12 @@
                 <div class="other-match col-md-4 other-last">
                    <img src="images/adwertise.jpg" alt="" />
                 </div>
-                
+
             </div>
            </div>
      </section>
 
-     
+
           <!-- PARALLAX BLACK TENNIS-->
      <section class="bbtxt-content">
 
@@ -269,7 +269,7 @@
                         <div class="col-md-6 homevideo-top">
                              <h3 class="home-video-title">Amazing Video</h3>
                             <div class="col-md-12 homevideo">
-                               
+
                                 <div class="col-md-5 it-video">
                                   <a href="video.html"><img class="scale_image" src="http://placehold.it/624x428" alt=""/>
                                   <i class="fa fa-video-camera"></i></a>
@@ -306,7 +306,7 @@
                         </div>
                         <div class="col-md-6 homevideo-top">
                             <h3 class="home-video-title">Amazing Video</h3>
-                            <div class="col-md-12 homevideo"> 
+                            <div class="col-md-12 homevideo">
                                 <div class="col-md-5 it-video">
                                   <a href="video.html"><img class="scale_image" src="http://placehold.it/624x428" alt=""/>
                                   <i class="fa fa-video-camera"></i></a>
@@ -343,7 +343,7 @@
                         </div>
                     </div>
                   </div>
-             
+
      </section>
           <!--SECTION Quota RESULTS-->
      <section id="resultsPoint">
@@ -351,7 +351,7 @@
                     <div class="top-match col-xs-12 col-md-12">
                      <div class="top-score-title">
                         <h3>Quota<span class="point-little">.</span></h3>
-                        <p class="subtitle">A small creative team, trying to enrich the lives of others and build brands 
+                        <p class="subtitle">A small creative team, trying to enrich the lives of others and build brands
                                     that a normal humans can understand.</p>
                         <div class="col-xs-12 circle-percentage">
                           <div class="col-xs-3">
@@ -424,7 +424,7 @@
                         </div>
 
                         <div class="clear"></div>
-                       
+
                       </div>
                     </div>
                 </div>
@@ -434,16 +434,16 @@
         <div class="clearfix">
                 <div class="col-md-6 yoga-desc title">
                     <h1>Robert Doe</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed ligula odio. Sed id metus felis. Ut pretium nisl non justo condimentum id tincidunt nunc faucibus. Ut neque eros, pulvinar eu blandit quis, lacinia nec ipsum. Etiam vel orci ipsum. Sed eget velit ipsum. 
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed ligula odio. Sed id metus felis. Ut pretium nisl non justo condimentum id tincidunt nunc faucibus. Ut neque eros, pulvinar eu blandit quis, lacinia nec ipsum. Etiam vel orci ipsum. Sed eget velit ipsum.
                     Duis in tortor scelerisque felis mattis imperdiet. Donec at libero tellus. Suspendisse consectetur consectetur bibendum.</p>
 
-                    <p class="txt-break">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed ligula odio. Sed id metus felis. Ut pretium nisl non justo condimentum id tincidunt nunc faucibus. Ut neque eros, pulvinar eu blandit quis, lacinia nec ipsum. Etiam vel orci ipsum. Sed eget velit ipsum. 
+                    <p class="txt-break">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed ligula odio. Sed id metus felis. Ut pretium nisl non justo condimentum id tincidunt nunc faucibus. Ut neque eros, pulvinar eu blandit quis, lacinia nec ipsum. Etiam vel orci ipsum. Sed eget velit ipsum.
                     Duis in tortor scelerisque felis mattis imperdiet. Donec at libero tellus. Suspendisse consectetur consectetur bibendum.</p>
                     <img class="signature" src="images/signature.png" alt=""/>
                </div>
                <div class="col-md-6 cup-img" style="padding:0;">
                      <img src="images/people.jpg" alt=""/>
-               </div>       
+               </div>
             </div>
     </section> -->
           <!-- SECTION SUBSCRIPTIONS-->
@@ -455,27 +455,27 @@
                         <div class="subscription-content">
                             <div class="col-md-4">
                                 <div class="subscription-tennis">
-                                     
+
                                      <h3>subscription<span> Free</span></h3>
-                                     
+
                                      <p class="desc-subscription">A Responsive Online Shopping website can attract its more is buyers as the user.</p>
                                      <a class="pl-point-button" href="">Read more</a>
                                  </div>
                              </div>
                              <div class="col-md-4">
                                 <div class="subscription-tennis">
-                                   
+
                                   <h3>subscription<span> Gold</span></h3>
-                                  
+
                                   <p class="desc-subscription">A Responsive Online Shopping website can attract its more is buyers as the user.</p>
                                   <a class="pl-point-button" href="">Read more</a>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="subscription-tennis">
-                                  
+
                                   <h3>subscription<span> Premium</span></h3>
-                                  
+
                                   <p class="desc-subscription">A Responsive Online Shopping website can attract its more is buyers as the user.</p>
                                   <a class="pl-point-button" href="">Read more</a>
                                 </div>
@@ -490,24 +490,24 @@
                    <div class="top-match col-xs-12 col-md-12">
                       <div class="news-content">
                        <h3 class="news-title">Latest <span>Photo</span><span class="point-little">.</span></h3>
-                       <p class="subtitle">A small creative team, trying to enrich the lives of others and build brands 
+                       <p class="subtitle">A small creative team, trying to enrich the lives of others and build brands
                                     that a normal humans can understand.</p>
                        <div id="container-vert-n">
                         <dl class="group">
                             <dt></dt>
                             <dd>
-                                <ul class="filter group albumFilter"> 
-                                    <li data-filter="*" class="current"><a  href="#">ALL</a></li> 
-                                    <li data-filter=".cat1"><a  href="#">Futsal</a></li> 
-                                    <li data-filter=".cat2"><a  href="#">Basket</a></li> 
+                                <ul class="filter group albumFilter">
+                                    <li data-filter="*" class="current"><a  href="#">ALL</a></li>
+                                    <li data-filter=".cat1"><a  href="#">Futsal</a></li>
+                                    <li data-filter=".cat2"><a  href="#">Basket</a></li>
                                     <li data-filter=".cat3"><a  href="#">Bultang</a></li>
-                                    <li data-filter=".cat1"><a  href="#">Voli</a></li> 
-                                    <li data-filter=".cat2"><a  href="#">Berenang</a></li> 
-                                    <li data-filter=".cat3"><a  href="#">Marathon</a></li> 
-                                    <li data-filter=".cat1"><a  href="#">catur</a></li> 
+                                    <li data-filter=".cat1"><a  href="#">Voli</a></li>
+                                    <li data-filter=".cat2"><a  href="#">Berenang</a></li>
+                                    <li data-filter=".cat3"><a  href="#">Marathon</a></li>
+                                    <li data-filter=".cat1"><a  href="#">catur</a></li>
                                     <li data-filter=".cat2"><a  href="#">Lompat Tinggi</a></li>
-                                    <li data-filter=".cat4"><a  href="#">MEETING</a></li> 
-                                </ul> 
+                                    <li data-filter=".cat4"><a  href="#">MEETING</a></li>
+                                </ul>
                             </dd>
                         </dl>
                         <div class="clear"></div>
@@ -515,11 +515,11 @@
                     </div>
                   </div>
             </div>
-            
-           <ul class="portfolio group albumContainer"> 
+
+           <ul class="portfolio group albumContainer">
                         <li class="item block cat2 col-xs-3">
                             <a href="http://placehold.it/1600x1000" data-gal="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Hannah 1" /></a>
-                        </li> 
+                        </li>
                         <li class="item block cat1 col-xs-3">
                             <a href="http://placehold.it/1600x1000" data-gal="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Hair 1" /></a>
                         </li>
@@ -541,17 +541,17 @@
                         <li class="item block cat1 cat3 col-xs-3">
                             <a href="http://placehold.it/1600x1000" data-gal="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Traction 1" /></a>
                         </li>
-                    </ul>         
+                    </ul>
      </section>
              <!--SECTION CLIENTS-->
      <section class="container">
            <div class="top-video col-xs-12 col-md-12">
              <h3>OUR <span>CLIENT</span><span class="point-little">.</span></h3>
-             <p class="subtitle">A small creative team, trying to enrich the lives of others and build brands 
+             <p class="subtitle">A small creative team, trying to enrich the lives of others and build brands
                                     that a normal humans can understand.</p>
 
                  <div id="testimonials">
-                   
+
                           <div id="owl-demo" class="owl-carousel">
                             <div class="item">
                                  <img src="http://placehold.it/235x224" alt="" />
@@ -583,11 +583,11 @@
      </section>
     <!--SECTION TOP PRODUCTS-->
      <section class="top-product top-product-news">
-        
+
            <div class="container">
            <div class="col-xs-12 col-md-12">
              <h3>Top <span>Match</span><span class="point-little">.</span></h3>
-             <p class="subtitle">A small creative team, trying to enrich the lives of others and build brands 
+             <p class="subtitle">A small creative team, trying to enrich the lives of others and build brands
                                     that a normal humans can understand.</p>
              <ul id="product" class="bxslider">
               <li>
@@ -609,7 +609,7 @@
 
                   <div class="col-md-12 tshirt-buy" style="background-color: transparent">
                     <div class="col-md-6">
-                   <a href="{{ route('reg_futsal.store') }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
+                   <a href="{{ action('RegisterController@store_regFutsal') }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
                    </div>
                    <div class="col-md-6">
                     <a href="" class="tshirt-cart"><i class="fa fa-male"></i>Join</a>
@@ -634,7 +634,7 @@
 
                   <div class="col-md-12 tshirt-buy" style="background-color: transparent">
                     <div class="col-md-6">
-                   <a href="{{ route('reg_basket.store') }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
+                   <a href="{{ action('RegisterController@store_regBasket') }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
                    </div>
                    <div class="col-md-6">
                     <a href="#" class="tshirt-cart"><i class="fa fa-male"></i>Join</a>
@@ -659,7 +659,7 @@
 
                   <div class="col-md-12 tshirt-buy" style="background-color: transparent">
                     <div class="col-md-6">
-                   <a href="{{ route('reg_bultang.store') }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
+                   <a href="{{ action('RegisterController@store_regBultang') }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
                    </div>
                    <div class="col-md-6">
                     <a href="#" class="tshirt-cart"><i class="fa fa-male"></i>Join</a>
@@ -683,7 +683,7 @@
 
                   <div class="col-md-12 tshirt-buy" style="background-color: transparent">
                     <div class="col-md-6">
-                   <a href="{{ route('reg_voli.store') }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
+                   <a href="{{ action('RegisterController@store_regVoli') }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
                    </div>
                    <div class="col-md-6">
                     <a href="#" class="tshirt-cart"><i class="fa fa-male"></i>Join</a>
@@ -708,7 +708,7 @@
 
                   <div class="col-md-12 tshirt-buy" style="background-color: transparent">
                     <div class="col-md-6">
-                   <a href="{{route('reg_swim.store')}}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
+                   <a href="{{ action('RegisterController@store_regSwim') }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
                    </div>
                    <div class="col-md-6">
                     <a href="#" class="tshirt-cart"><i class="fa fa-male"></i>Join</a>
@@ -733,7 +733,7 @@
 
                  <div class="col-md-12 tshirt-buy" style="background-color: transparent">
                     <div class="col-md-6">
-                   <a href="{{route('reg_marathon.store')}}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
+                   <a href="{{ action('RegisterController@store_regMarathon') }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
                    </div>
                    <div class="col-md-6">
                     <a href="#" class="tshirt-cart"><i class="fa fa-male"></i>Join</a>
@@ -758,7 +758,7 @@
 
                   <div class="col-md-12 tshirt-buy" style="background-color: transparent">
                     <div class="col-md-6">
-                   <a href="{{route('reg_catur.store')}}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
+                   <a href="{{ action('RegisterController@store_regCatur') }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
                    </div>
                    <div class="col-md-6">
                     <a href="#" class="tshirt-cart"><i class="fa fa-male"></i>Join</a>
@@ -783,7 +783,7 @@
 
                   <div class="col-md-12 tshirt-buy" style="background-color: transparent">
                     <div class="col-md-6">
-                   <a href="{{route('reg_lompat.store')}}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
+                   <a href="{{ action('RegisterController@store_regLompat') }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
                    </div>
                    <div class="col-md-6">
                     <a href="#" class="tshirt-cart"><i class="fa fa-male"></i>Join</a>
@@ -795,5 +795,5 @@
            </div>
         </div>
      </section>
-            
+
 @endsection

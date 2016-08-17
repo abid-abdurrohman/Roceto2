@@ -9,7 +9,7 @@
   <meta name="keywords" content="Tennis, club, events, football, golf, non-profit, betting assistant, football,fitness, tennis, sport, soccer, goal, sports, volleyball, basketball,  charity, club, cricket, football, hockey, magazine, non profit, rugby, soccer, sport, sports, tennis" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <link href="{{ URL::asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" /> 
+  <link href="{{ URL::asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" />
   {{ Html::style('css/bootstrap.css') }}
   <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
@@ -119,14 +119,14 @@
               <div class="cbp-hrsub-inner">
                 <div class="content-sub-menu">
                   <ul class="menu-pages">
-                    <li><a href="{{ route('reg_futsal.store') }}"><span>Futsal</span></a></li>
-                    <li><a href="{{ route('reg_basket.store') }}"><span>Basket</span></a></li>
-                    <li><a href="{{ route('reg_bultang.store') }}"><span>Bulu Tangkis</span></a></li>
-                    <li><a href="{{ route('reg_voli.store') }}"><span>Voli</span></a></li>
-                    <li><a href="{{ route('reg_swim.store') }}"><span>Berenang</span></a></li>
-                    <li><a href="{{ route('reg_marathon.store') }}"><span>Marathon</span></a></li>
-                    <li><a href="{{ route('reg_catur.store') }}"<span>Catur</span></a></li>
-                    <li><a href="{{ route('reg_lompat.store') }}"><span>Lompat Tinggi</span></a></li>                 
+                    <li><a href="{{ action('RegisterController@regFutsal') }}"><span>Futsal</span></a></li>
+                    <li><a href="{{ action('RegisterController@regBasket') }}"><span>Basket</span></a></li>
+                    <li><a href="{{ action('RegisterController@regBultang') }}"><span>Bulu Tangkis</span></a></li>
+                    <li><a href="{{ action('RegisterController@regVoli') }}"><span>Voli</span></a></li>
+                    <li><a href="{{ action('RegisterController@regSwim') }}"><span>Berenang</span></a></li>
+                    <li><a href="{{ action('RegisterController@regMarathon') }}"><span>Marathon</span></a></li>
+                    <li><a href="{{ action('RegisterController@regCatur') }}"<span>Catur</span></a></li>
+                    <li><a href="{{ action('RegisterController@regLompat') }}"><span>Lompat Tinggi</span></a></li>
                   </ul>
                 </div>
               </div>

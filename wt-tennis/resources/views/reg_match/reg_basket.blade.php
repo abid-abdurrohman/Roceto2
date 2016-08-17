@@ -4,20 +4,15 @@
 
 <!--javascripts collapse-->
 <script src="{{ URL::asset('js/jquery-1.10.2.js') }}" type="text/javascript"></script>
-<script src="{{ URL::asset('js/jquery.ui.totop.js" type="text/javascript') }}"></script>
-
 <script src="{{ URL::asset('js/jquery.accordion.js" type="text/javascript') }}"></script>
 <script type="text/javascript">
   $(document).ready(function () {
     $(function () {
       "use strict";
-                $('.accordion').accordion({ defaultOpen: 'section1' }); //some_id section1 in demo
-              });
+      $('.accordion').accordion({ defaultOpen: 'section1' }); //some_id section1 in demo
+    });
   });
 </script>
-
-<script src="js/custom.js" type="text/javascript"></script>
-<!---->
 
 <section class="drawer">
   <div class="col-md-12 size-img back-img-shop">
@@ -33,92 +28,31 @@
       <h3> Lomba <span>Basket</span><span class="point-little">.</span></h3>
       <div class="col-md-12 content-zoom">
         <div class="col-md-6 content-img-zoom">
-         <img id="img_01" src="images\pertandingan\basketball.jpg" />
-       </div>
+        <img id="img_01" src="images\pertandingan\basketball.jpg" />
+        </div>
 
-       <div class="col-md-6 content-desc-zoom">
-         <h3>Pertandingan Basket</h3>
-         <p class="desc-prod">Designed for Wilson's pro players and carried on court by all players playing the new Wilson Six-One Racket. This is ideal for serious players of every level.</p>
-         <p class="desc-price">$165.00</p>
-          <div class="general general-results tournaments">
+        <div class="col-md-6 content-desc-zoom">
+           <h3>Pertandingan Basket</h3>
+           <p class="desc-prod">Designed for Wilson's pro players and carried on court by all players playing the new Wilson Six-One Racket. This is ideal for serious players of every level.</p>
+           <p class="desc-price">$165.00</p>
+           <div class="general general-results tournaments">
 
-         <div id="c-calend" class="top-score-title right-score col-md-12">
-           <div class="accordion accordion-close" id="section11"><i class="fa fa-calendar-o"></i>Peraturan<span></span></div>
-           <div class="acc-content" style="display: block;">
-            <div>Sample Content</div>
-            <p>Content here....</p>
+             <div id="c-calend" class="top-score-title right-score col-md-12">
+                <div class="accordion accordion-close" id="section11"><i class="fa fa-calendar-o"></i>Peraturan<span></span></div>
+                <div class="acc-content" style="display: block;">
+                  <div>Sample Content</div>
+                  <p>Content here....</p>
+                </div>
+            </div>
           </div>
         </div>
       </div>
-
-      </div>
-
-
-    </div>
-
-
-
-
-
-
-    <!-- <div class="col-md-12 content-more-det login-page">
-      <h3>Register Now</h3>
-        <form method="post" class="register-form" role="form" action="{{ route('reg_basket.store') }}">
-        {{ csrf_field() }}
-
-          <div class="nama_tim{{ $errors->has('nama_tim') ? ' has-error' : '' }}">
-            <label for="nama_tim">* Nama Tim : </label><div class="clear"></div>
-            <input id="tim" name="nama_tim" type="text" placeholder="Nama Tim" required/>
-            @if ($errors->has('nama_tim'))
-              <span class="help-block">
-                  <strong>{{ $errors->first('nama_tim') }}</strong>
-              </span>
-            @endif
-          </div>
-
-          <div class="nama_kapten{{ $errors->has('nama_kapten') ? ' has-error' : '' }}">
-            <label for="nama_kapten">* Nama Kapten :</label><div class="clear"></div>
-            <input id="kapten" name="nama_kapten" type="text" placeholder="Nama Kapten" required=""/>
-            @if ($errors->has('nama_kapten'))
-              <span class="help-block">
-                  <strong>{{ $errors->first('nama_kapten') }}</strong>
-              </span>
-            @endif
-          </div>
-
-          <div class="warna_kostum{{ $errors->has('warna_kostum') ? ' has-error' : '' }}">
-            <label for="warna_kostum">* Warna Kostum :</label><div class="clear"></div>
-            <input id="warna_kostum" name="warna_kostum" type="text" placeholder="Warna Kostum" required=""/>
-            @if ($errors->has('warna_kostum'))
-              <span class="help-block">
-                  <strong>{{ $errors->first('warna_kosan') }}</strong>
-              </span>
-            @endif
-          </div>
-
-          <div class="jml_pemain">
-            <label for="jml_pemain">* Jumlah Pemain :</label><div class="clear"></div>
-            <input id="jml_pemain" name="jml_pemain" type="text" placeholder="Jumlah Pemain" required=""/>
-            @if ($errors->has('jml_pemain'))
-              <span class="help-block">
-                  <strong>{{ $errors->first('jml_pemain') }}</strong>
-              </span>
-            @endif
-          </div>
-
-          <div id="register-submit">
-            <input type="submit" value="Submit"/>
-          </div>
-        </form>
-      </div> -->
-
-      <!-- Form registrasi -->
 
       <div class="col-md-12 right-title">
         <h3>Register Now</h3>
         <div class="panel-body">
           <div class="form" style="margin-left:0px">
-            <form class="cmxform form-horizontal tasi-form" id="signupForm" method="post" action="{{ route('reg_basket.store') }}" novalidate="novalidate" role="form" ">{{ csrf_field() }}
+            <form class="cmxform form-horizontal tasi-form" id="signupForm" method="post" action="action('RegisterController@store_regBasket')" novalidate="novalidate" role="form" ">{{ csrf_field() }}
 
               <div class="form-group nama_tim{{ $errors->has('nama_tim') ? ' has-error' : '' }}">
                 <label for="nama_tim" class="control-label col-lg-3">Nama Tim *</label>
@@ -202,8 +136,6 @@
         </div> <!-- panel-body -->
 
       </div> <!-- col -->
-
-
 
     </div><!--Close Top Match-->
     <div class="col-md-3 right-column">
@@ -361,6 +293,4 @@
 </div>
 </div>
 </section>
-
-
 @endsection

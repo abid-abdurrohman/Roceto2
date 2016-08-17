@@ -1,8 +1,15 @@
-<!-- <script>
+<script>
   tinymce.init({
-    selector:'textarea',
+    selector: '#deskripsi',
+    plugins: [
+    'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+    'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+    'save table contextmenu directionality emoticons template paste textcolor save'
+    ], //The plugins configuration option allows you to enable functionality within the editor.
+    toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons | save',
+    save_enablewhendirty: true,
   });
-</script> -->
+</script>
 <div class="form-group">
   <label for="exampleInputFile">Judul :</label>
   {!! Form::text('judul', null, ['class' => 'form-control input-md', 'placeholder' => 'Write a title',
@@ -34,9 +41,9 @@
   </div>
 </div>
 <div class="form-group">
-  <!-- {!! Form::textarea('deskripsi', null, ['placeholder' => 'Write a detail', 'required'],'') !!} -->
-  {!! Form::textarea('deskripsi', null, ['class' => 'ckeditor', 'rows' => '10', 'cols' => '80',
-  'placeholder' => 'Write a detail', 'required'],'') !!}
+  {!! Form::textarea('deskripsi', null, ['placeholder' => 'Write a detail', 'id' => 'deskripsi', 'required'],'') !!}
+  <!-- {!! Form::textarea('deskripsi', null, ['class' => 'ckeditor', 'rows' => '10', 'cols' => '80',
+  'placeholder' => 'Write a detail', 'required'],'') !!} -->
 </div>
 <div class="form-group">
   {!! Form::button($submit_text, ['type'=>'submit', 'class'=>'btn btn-purple waves-effect waves-light col-sm-offset-4 col-sm-4']) !!}
