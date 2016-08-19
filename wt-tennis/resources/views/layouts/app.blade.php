@@ -28,11 +28,24 @@
 
   <link href="{{ URL::asset('css/minislide/flexslider.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ URL::asset('css/component.css') }}" rel="stylesheet" type="text/css" />
+   <link href="{{ URL::asset('css/bracket.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ URL::asset('css/prettyPhoto.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ URL::asset('css/style_dir.css') }}" rel="stylesheet" type="text/css" />
   <link rel="shortcut icon" type="image/png" href="{{ URL::asset('img/favicon.ico') }}" />
   <link href="{{ URL::asset('css/responsive.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ URL::asset('css/animate.css') }}" rel="stylesheet" type="text/css" />
+
+  <!-- Waves-effect -->
+  <link href="{{ URL::asset('admin_asset/css/waves-effect.css') }}" rel="stylesheet">
+
+  <!--javascripts collapse-->
+  <script src="{{ URL::asset('js/jquery-1.10.2.js') }}" type="text/javascript"></script>
+  <script src="{{ URL::asset('js/jquery.ui.totop.js" type="text/javascript') }}"></script>
+  <script src="{{ URL::asset('js/jquery.accordion.js" type="text/javascript') }}"></script>
+
+  <!--Video Player-->
+  <link href="css/video-js.css" rel="stylesheet" type="text/css" />
+  <link href="css/responsive.css" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
@@ -140,13 +153,28 @@
                   <ul class="menu-pages">
                     <li><a href="{{ url('/tim') }}"><span>Tim</span></a></li>
                     <li><a href="{{ url('/individual') }}"><span>Single Player</span></a></li>
-                    <li><a href="{{ url('/match')}}"><span>Points</span></a></li>
+                    <li><a href="{{ url('/gallery') }}"><span>Gallery</span></a></li>
+                    <li><a href="{{ url('/video') }}"><span>Video</span></a></li>
                   </ul>
                 </div>
               </div>
             </div>
           </li>
-          <li><a class="lnk-menu" href="{{ url('/results') }}">Results</a></li>
+          <li>
+            <a class="lnk-menu" href="#">Events</a>
+            <div class="cbp-hrsub sub-little">
+              <div class="cbp-hrsub-inner">
+                <div class="content-sub-menu">
+                  <ul class="menu-pages">
+                    <li><a href="{{ url('/match')}}"><span>Points</span></a></li>
+                    <li><a href="{{ url('/jadwal') }}"><span>Schedule</span></a></li>
+                    <li><a href="{{ url('/bagan') }}"><span>Bracket</span></a></li>
+                    <li><a href="{{ url('/results') }}"><span>Results</span></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
           <li><a class="lnk-menu" href="{{ url('/news') }}">News</a></li>
           <li><a class="lnk-menu" href="{{ url('/contact') }}">Contact</a></li>
         </ul>
@@ -248,8 +276,25 @@
 
 <script src="{{ URL::asset('js/jquery-1.10.2.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/jquery-migrate-1.2.1.min.js') }}" type="text/javascript"></script>
+
+
 <script src="{{ URL::asset('js/jquery.transit.min.js') }}" type="text/javascript"></script>
 
+<script type="text/javascript">
+  $(document).ready(function () {
+    $(function () {
+      "use strict";
+                $('.accordion').accordion({ defaultOpen: 'section1' }); //some_id section1 in demo
+              });
+  });
+</script>
+
+<!-- jQuery  -->
+<script src="{{ URL::asset('admin_asset/js/jquery.min.js') }}"></script>
+<script src="{{ URL::asset('admin_asset/js/bootstrap.min.js') }}"></script>
+<script src="{{ URL::asset('admin_asset/js/waves.js') }}"></script>
+
+<!---->
 <!--MENU-->
 <script src="{{ URL::asset('js/menu/modernizr.custom.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/menu/cbpHorizontalMenu.js') }}" type="text/javascript"></script>
@@ -271,6 +316,10 @@
 <script src="{{ URL::asset('js/custom.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/jquery.bxslider.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/jquery.accordion.js') }}" type="text/javascript"></script>
+
+<!--Other News-->
+
+
 
 <!--Carousel News-->
 <script src="{{ URL::asset('js/jquery.easing.1.3.js') }}" type="text/javascript"></script>

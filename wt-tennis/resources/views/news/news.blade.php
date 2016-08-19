@@ -23,7 +23,7 @@
                      <p>It normally takes a great of deal time and effort to defeat No. 26 Gilles Simon, largely due to his counterpunching style of play and impressive foot speed. 
                      No. 14 seed Marin Cilic 
                      needed that and more on Tuesday in Louis Armstrong Stadium, going a marathon five sets to prevail in their fourth-round match, 5-7, 7-6, 6-4, 3-6, 6-3.</p>
-                    <div class="col-md-12 news-more"><a href="single_news.html" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a></div>
+                    <div class="col-md-12 news-more"><a href="{{ action('NewsController@detail') }}" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a></div>
                   </div>
                 </div>
                 <div class="col-md-12 news-page">
@@ -35,7 +35,7 @@
                      <p>It normally takes a great of deal time and effort to defeat No. 26 Gilles Simon, largely due to his counterpunching style of play and impressive foot speed. 
                      No. 14 seed Marin Cilic 
                      needed that and more on Tuesday in Louis Armstrong Stadium, going a marathon five sets to prevail in their fourth-round match, 5-7, 7-6, 6-4, 3-6, 6-3.</p>
-                     <div class="col-md-12 news-more"><a href="single_news.html" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a></div>
+                     <div class="col-md-12 news-more"><a href="{{ action('NewsController@detail') }}" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a></div>
                   </div>
                 </div>
                 <div class="col-md-12 news-page">
@@ -47,7 +47,7 @@
                      <p>It normally takes a great of deal time and effort to defeat No. 26 Gilles Simon, largely due to his counterpunching style of play and impressive foot speed. 
                      No. 14 seed Marin Cilic 
                      needed that and more on Tuesday in Louis Armstrong Stadium, going a marathon five sets to prevail in their fourth-round match, 5-7, 7-6, 6-4, 3-6, 6-3.</p>
-                     <div class="col-md-12 news-more"><a href="single_news.html" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a></div>
+                     <div class="col-md-12 news-more"><a href="{{ action('NewsController@detail') }}" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a></div>
                   </div>
                 </div>
                 <div class="col-md-12 news-page">
@@ -59,7 +59,7 @@
                      <p>It normally takes a great of deal time and effort to defeat No. 26 Gilles Simon, largely due to his counterpunching style of play and impressive foot speed. 
                      No. 14 seed Marin Cilic 
                      needed that and more on Tuesday in Louis Armstrong Stadium, going a marathon five sets to prevail in their fourth-round match, 5-7, 7-6, 6-4, 3-6, 6-3.</p>
-                     <div class="col-md-12 news-more"><a href="single_news.html" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a></div>
+                     <div class="col-md-12 news-more"><a href="{{ action('NewsController@detail') }}" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a></div>
                   </div>
                 </div>
                 <div class="col-md-12 news-page">
@@ -71,7 +71,7 @@
                      <p>It normally takes a great of deal time and effort to defeat No. 26 Gilles Simon, largely due to his counterpunching style of play and impressive foot speed. 
                      No. 14 seed Marin Cilic 
                      needed that and more on Tuesday in Louis Armstrong Stadium, going a marathon five sets to prevail in their fourth-round match, 5-7, 7-6, 6-4, 3-6, 6-3.</p>
-                     <div class="col-md-12 news-more"><a href="single_news.html" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a></div>
+                     <div class="col-md-12 news-more"><a href="{{ action('NewsController@detail') }}" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a></div>
                   </div>
                 </div>
                 <div class="col-md-12 news-page">
@@ -83,7 +83,7 @@
                      <p>It normally takes a great of deal time and effort to defeat No. 26 Gilles Simon, largely due to his counterpunching style of play and impressive foot speed. 
                      No. 14 seed Marin Cilic 
                      needed that and more on Tuesday in Louis Armstrong Stadium, going a marathon five sets to prevail in their fourth-round match, 5-7, 7-6, 6-4, 3-6, 6-3.</p>
-                     <div class="col-md-12 news-more"><a href="single_news.html" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a></div>
+                     <div class="col-md-12 news-more"><a href="{{ action('NewsController@detail') }}" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a></div>
                   </div>
                 </div>
                 <div class="col-md-12 news-page">
@@ -95,7 +95,7 @@
                      <p>It normally takes a great of deal time and effort to defeat No. 26 Gilles Simon, largely due to his counterpunching style of play and impressive foot speed. 
                      No. 14 seed Marin Cilic 
                      needed that and more on Tuesday in Louis Armstrong Stadium, going a marathon five sets to prevail in their fourth-round match, 5-7, 7-6, 6-4, 3-6, 6-3.</p>
-                     <div class="col-md-12 news-more"><a href="single_news.html" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a></div>
+                     <div class="col-md-12 news-more"><a href="{{ action('NewsController@detail') }}" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a></div>
                   </div>
                 </div>
                 <div class="col-md-12 news-page">
@@ -107,7 +107,7 @@
                      <p>It normally takes a great of deal time and effort to defeat No. 26 Gilles Simon, largely due to his counterpunching style of play and impressive foot speed. 
                      No. 14 seed Marin Cilic 
                      needed that and more on Tuesday in Louis Armstrong Stadium, going a marathon five sets to prevail in their fourth-round match, 5-7, 7-6, 6-4, 3-6, 6-3.</p>
-                     <div class="col-md-12 news-more"><a href="single_news.html" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a></div>
+                     <div class="col-md-12 news-more"><a href="{{ action('NewsController@detail') }}" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a></div>
                   </div>
                 </div>
                 <div class="col-md-12 news-page-page">
