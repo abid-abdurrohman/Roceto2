@@ -12,9 +12,7 @@
 */
 
 /*link menu*/
-Route::get('/', function () {
-    return view('home.home');
-});
+Route::get('', 'HomeController@index');
 
 Route::auth();
 Route::get('/login', function () {

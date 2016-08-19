@@ -19,6 +19,7 @@
                             <h3 class="panel-title">Data Events</h3>
                         </div>
                         <div class="panel-body">
+                            @include('admin.event.notification.flash')
                             <div class="row">
                               <div class="col-md-5">
                                 <a class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#con-close-modal">Add <i class="fa fa-plus"></i></a>

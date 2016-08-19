@@ -46,7 +46,7 @@ class EventController extends Controller
         ]);
         $input = $request->all();
         Event::create($input);
-        return redirect()->action('EventController@index')->with('message','Event has been created');
+        return redirect()->action('EventController@index')->with('success', 'Event has been created');
     }
 
     /**
@@ -90,7 +90,7 @@ class EventController extends Controller
         ]);
         $events = Event::findOrFail($id);
         $events->update($request->all());
-        return redirect()->action('EventController@index')->with('message','Event has been edited');
+        return redirect()->action('EventController@index')->with('info','Event has been edited');
     }
 
     /**
@@ -103,7 +103,7 @@ class EventController extends Controller
     {
         $events = Event::findOrFail($id);
         $events->delete();
-        return redirect()->action('EventController@index')->with('message','Event has been deleted');
+        return redirect()->action('EventController@index')->with('danger','Event has been deleted');
     }
 
     public function search(Request $request)

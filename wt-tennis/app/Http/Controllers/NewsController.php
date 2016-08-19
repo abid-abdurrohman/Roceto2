@@ -57,7 +57,7 @@ class NewsController extends Controller
         $input['thumbnail'] = $destination.$photo;
 
         News::create($input);
-        return redirect()->action('NewsController@index')->with('message','News has been created');
+        return redirect()->action('NewsController@index')->with('success','News has been created');
     }
 
     /**
@@ -102,8 +102,17 @@ class NewsController extends Controller
         'deskripsi' => 'required'
       ]);
       $news = News::findOrFail($id);
+
+      $news['slug'] = str_slug($request->judul, '-');
+
+      // $photo = $request->thumbnail->getClientOriginalName();
+      // $destination = 'images/news/';
+      // $request->thumbnail->move($destination, $photo);
+
+      // $news['thumbnail'] = $destination.$photo;
+
       $news->update($request->all());
-      return redirect()->action('NewsController@index')->with('message','News has been edited');
+      return redirect()->action('NewsController@index')->with('info','News has been edited');
     }
 
     /**
@@ -117,6 +126,6 @@ class NewsController extends Controller
       $news = News::findOrFail($id);
       Storage::delete($news->thumbnail);
       $news->delete();
-      return redirect()->action('NewsController@index')->with('message','News has been deleted');
+      return redirect()->action('NewsController@index')->with('danger','News has been deleted');
     }
 }

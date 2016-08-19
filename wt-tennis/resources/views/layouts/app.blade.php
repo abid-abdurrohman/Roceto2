@@ -119,14 +119,14 @@
               <div class="cbp-hrsub-inner">
                 <div class="content-sub-menu">
                   <ul class="menu-pages">
-                    <li><a href="{{ action('RegisterController@regFutsal') }}"><span>Futsal</span></a></li>
-                    <li><a href="{{ action('RegisterController@regBasket') }}"><span>Basket</span></a></li>
+                      <li><a href="{{ action('RegisterController@regFutsal') }}"><span>Futsal</span></a></li>
+                    <!-- <li><a href="{{ action('RegisterController@regBasket') }}"><span>Basket</span></a></li>
                     <li><a href="{{ action('RegisterController@regBultang') }}"><span>Bulu Tangkis</span></a></li>
                     <li><a href="{{ action('RegisterController@regVoli') }}"><span>Voli</span></a></li>
                     <li><a href="{{ action('RegisterController@regSwim') }}"><span>Berenang</span></a></li>
                     <li><a href="{{ action('RegisterController@regMarathon') }}"><span>Marathon</span></a></li>
                     <li><a href="{{ action('RegisterController@regCatur') }}"<span>Catur</span></a></li>
-                    <li><a href="{{ action('RegisterController@regLompat') }}"><span>Lompat Tinggi</span></a></li>
+                    <li><a href="{{ action('RegisterController@regLompat') }}"><span>Lompat Tinggi</span></a></li> -->
                   </ul>
                 </div>
               </div>
