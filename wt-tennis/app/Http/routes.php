@@ -26,11 +26,20 @@ Route::get('/tim', function () {
 Route::get('/individual', function () {
     return view('peserta.individual');
 });
+Route::get('/gallery', function () {
+    return view('gallery.gallery');
+});
+Route::get('/video', function () {
+    return view('video.video');
+});
 Route::get('/match', function () {
     return view('matches.match');
 });
-Route::get('turnamen', function() {
-    return view('turnamen.turnamen');
+Route::get('/jadwal', function() {
+    return view('jadwal.jadwal');
+});
+Route::get('/bagan', function() {
+    return view('bagan.bagan');
 });
 Route::get('/results', function () {
     return view('results.results');
@@ -42,6 +51,9 @@ Route::get('/contact', function () {
     return view('contact.contact');
 });
 
+
+/*link news*/
+Route::get('news-single', 'NewsController@detail');
 
 /*link group*/
 Route::get('reg_futsal', 'RegisterController@regFutsal');

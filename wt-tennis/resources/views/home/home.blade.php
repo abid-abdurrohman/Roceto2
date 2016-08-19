@@ -59,24 +59,24 @@
 
              <div class="col-xs-12 col-md-12 top-slide-info">
               <div class="col-xs-6 col-md-6">
-                <div class="col-md-4 slide-cont-img"><a href="single_news.html"><img class="scale_image" src="http://placehold.it/614x428" alt=""/><i class="fa fa-video-camera"></i></a></div>
+                <div class="col-md-4 slide-cont-img"><a href="{{ url('/news') }}"><img class="scale_image" src="http://placehold.it/614x428" alt=""/><i class="fa fa-video-camera"></i></a></div>
                 <div class="event_date dd-date">May 01, 2014 5:50 am <div class="post_theme">Exlusive</div></div><h4> Stay Ahead of the curve</h4>
                 <p>Quisque gravida libero sodales augue luctus elementum. In tristique faucibus diam, sit amet ultrices erat porttitor ut. Phasellus sit amet lorem sit amet orci lobortis mattis. Nulla venenatis, quam vitae pellentesque sollicitudin.</p>
               </div>
               <div class="col-xs-6 col-md-6">
-                <div class="col-md-4 slide-cont-img"><a href="single_news.html"><img class="scale_image" src="http://placehold.it/614x428" alt=""/><i class="fa fa-picture-o"></i></a></div>
+                <div class="col-md-4 slide-cont-img"><a href="{{ url('/news') }}"><img class="scale_image" src="http://placehold.it/614x428" alt=""/><i class="fa fa-picture-o"></i></a></div>
                 <div class="event_date dd-date">May 01, 2014 5:50 am <div class="post_theme">Interview</div></div><h4> Stay Ahead of the curve</h4>
                 <p>Quisque gravida libero sodales augue luctus elementum. In tristique faucibus diam, sit amet ultrices erat porttitor ut. Phasellus sit amet lorem sit amet orci lobortis mattis. Nulla venenatis, quam vitae pellentesque sollicitudin.</p>
 
               </div>
               <div class="col-xs-6 col-md-6 box-top-txt">
-                <div class="col-md-4 slide-cont-img"><a href="single_news.html"><img class="scale_image" src="http://placehold.it/614x428" alt=""/><i class="fa fa-picture-o"></i></a></div>
+                <div class="col-md-4 slide-cont-img"><a href="{{ url('/news') }}"><img class="scale_image" src="http://placehold.it/614x428" alt=""/><i class="fa fa-picture-o"></i></a></div>
                 <div class="event_date dd-date">May 01, 2014 5:50 am</div><h4> Stay Ahead of the curve</h4>
                 <p>Quisque gravida libero sodales augue luctus elementum. In tristique faucibus diam, sit amet ultrices erat porttitor ut. Phasellus sit amet lorem sit amet orci lobortis mattis. Nulla venenatis, quam vitae pellentesque sollicitudin.</p>
 
               </div>
               <div class="col-xs-6 col-md-6 box-top-txt">
-                <div class="col-md-4 slide-cont-img"><a href="single_news.html"><img class="scale_image" src="http://placehold.it/614x428" alt=""/><i class="fa fa-video-camera"></i></a></div>
+                <div class="col-md-4 slide-cont-img"><a href="{{ url('/news') }}"><img class="scale_image" src="http://placehold.it/614x428" alt=""/><i class="fa fa-video-camera"></i></a></div>
                 <div class="event_date dd-date">May 01, 2014 5:50 am</div><h4> Stay Ahead of the curve</h4>
                 <p>Quisque gravida libero sodales augue luctus elementum. In tristique faucibus diam, sit amet ultrices erat porttitor ut. Phasellus sit amet lorem sit amet orci lobortis mattis. Nulla venenatis, quam vitae pellentesque sollicitudin.</p>
 
@@ -185,7 +185,7 @@
                                          </table>
                                         </div>
                                     </div>
-                                    <div class="score-view-all"><a class="pl-point-button" href="results.html">View All</a></div>
+                                    <div class="score-view-all"><a class="pl-point-button" href="{{ url('/results')}}">View All</a></div>
                                 </div>
                             </div>
                 </div>
@@ -271,7 +271,7 @@
                             <div class="col-md-12 homevideo">
 
                                 <div class="col-md-5 it-video">
-                                  <a href="video.html"><img class="scale_image" src="http://placehold.it/624x428" alt=""/>
+                                  <a href="{{ url('/video') }}"><img class="scale_image" src="http://placehold.it/624x428" alt=""/>
                                   <i class="fa fa-video-camera"></i></a>
                                 </div>
                                 <div class="video-txt">
@@ -283,7 +283,7 @@
                             </div>
                             <div class="col-md-12 homevideo">
                                 <div class="col-md-5 it-video">
-                                  <a href="video.html"><img class="scale_image" src="http://placehold.it/624x428" alt=""/>
+                                  <a href="{{ url('/video') }}"><img class="scale_image" src="http://placehold.it/624x428" alt=""/>
                                   <i class="fa fa-video-camera"></i></a>
                                 </div>
                                 <div class="video-txt">
@@ -294,7 +294,7 @@
                             </div>
                             <div class="col-md-12 homevideo">
                                 <div class="col-md-5 it-video">
-                                  <a href="video.html"><img class="scale_image" src="http://placehold.it/624x428" alt=""/>
+                                  <a href="{{ url('/video') }}"><img class="scale_image" src="http://placehold.it/624x428" alt=""/>
                                   <i class="fa fa-video-camera"></i></a>
                                 </div>
                                 <div class="video-txt">
@@ -308,7 +308,7 @@
                             <h3 class="home-video-title">Amazing Video</h3>
                             <div class="col-md-12 homevideo">
                                 <div class="col-md-5 it-video">
-                                  <a href="video.html"><img class="scale_image" src="http://placehold.it/624x428" alt=""/>
+                                  <a href="{{ url('/video') }}"><img class="scale_image" src="http://placehold.it/624x428" alt=""/>
                                   <i class="fa fa-video-camera"></i></a>
                                 </div>
                                 <div class="video-txt">
@@ -320,7 +320,7 @@
                             </div>
                             <div class="col-md-12 homevideo">
                                 <div class="col-md-5 it-video">
-                                  <a href="video.html"><img class="scale_image" src="http://placehold.it/624x428" alt=""/>
+                                  <a href="{{ url('/video') }}"><img class="scale_image" src="http://placehold.it/624x428" alt=""/>
                                   <i class="fa fa-video-camera"></i></a>
                                 </div>
                                 <div class="video-txt">
@@ -331,7 +331,7 @@
                             </div>
                             <div class="col-md-12 homevideo">
                                 <div class="col-md-5 it-video">
-                                  <a href="video.html"><img class="scale_image" src="http://placehold.it/624x428" alt=""/>
+                                  <a href="{{ url('/video') }}"><img class="scale_image" src="http://placehold.it/624x428" alt=""/>
                                   <i class="fa fa-video-camera"></i></a>
                                 </div>
                                 <div class="video-txt">
@@ -583,7 +583,6 @@
      </section>
     <!--SECTION TOP PRODUCTS-->
      <section class="top-product top-product-news">
-
            <div class="container">
            <div class="col-xs-12 col-md-12">
              <h3>Top <span>Match</span><span class="point-little">.</span></h3>
@@ -591,7 +590,6 @@
                                     that a normal humans can understand.</p>
              <ul id="product" class="bxslider">
               <li>
-
                 <div class="jm-item second">
                     <div class="jm-item-wrapper">
                         <div class="jm-item-image">
@@ -615,7 +613,6 @@
                     <a href="" class="tshirt-cart"><i class="fa fa-male"></i>Join</a>
                    </div>
                  </div>
-
                </li>
               <li>
                   <div class="jm-item second">
@@ -789,7 +786,6 @@
                     <a href="#" class="tshirt-cart"><i class="fa fa-male"></i>Join</a>
                    </div>
                  </div>
-
               </li>
             </ul>
            </div>
