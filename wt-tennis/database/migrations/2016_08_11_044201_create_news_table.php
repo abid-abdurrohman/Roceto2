@@ -17,7 +17,6 @@ class CreateNewsTable extends Migration
             $table->string('judul');
             $table->text('deskripsi');
             $table->string('kategori');
-            $table->text('tag');
             $table->string('author');
             $table->text('slug');
             $table->text('thumbnail');

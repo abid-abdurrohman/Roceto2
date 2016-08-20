@@ -16,7 +16,7 @@
   'files' => true, 'required'],'') !!}
 </div>
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-4">
     <div class="form-group">
       <label for="exampleInputFile">Thumbnail :</label>
       {!! Form::file('thumbnail', null, ['class' => 'form-control input-md', 'placeholder' => 'Write a title',
@@ -26,17 +26,18 @@
   <div class="col-md-4">
     <div class="form-group">
       <label for="exampleInputFile">Kategori :</label>
-      <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="kategori" required>
+      <select class="form-control select2" style="width: 100%;" tabindex="-1" aria-hidden="true" name="kategori" required>
         <option selected="selected" value="news">News</option>
         <option value="informasi">Informasi</option>
       </select>
     </div>
   </div>
-  <div class="col-md-5">
+  <div class="col-md-4">
     <div class="form-group">
       <label for="exampleInputFile">Tag :</label>
-      {!! Form::text('tag', null, ['class' => 'form-control input-md', 'placeholder' => 'Separate Tags with a (,)',
-      'required'],'') !!}
+      <!-- {!! Form::text('tag', null, ['class' => 'form-control input-md', 'placeholder' => 'Separate Tags with a (,)',
+      'required'],'') !!} -->
+      {!! Form::select('tag_list[]', $tags, null, ['id' => 'tag_list', 'class' => 'form-control input-md', 'multiple', 'required'],'') !!}
     </div>
   </div>
 </div>
@@ -48,3 +49,9 @@
 <div class="form-group">
   {!! Form::button($submit_text, ['type'=>'submit', 'class'=>'btn btn-purple waves-effect waves-light col-sm-offset-4 col-sm-4']) !!}
 </div>
+
+@section('footer')
+  <script>
+    $('#tag_list').select2();
+  </script>
+@endsection

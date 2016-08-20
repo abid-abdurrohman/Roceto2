@@ -49,7 +49,7 @@
                                           @foreach ($news as $new)
                                             <tr>
                                                 <td>{{ $new->id }}</td>
-                                                <td><a href="{{ action('NewsController@show', $new->id) }}">{{ $new->judul }}</a></td>
+                                                <td><a href="{{ action('NewsController@show', $new->slug) }}">{{ $new->judul }}</a></td>
                                                 <td>{{ $new->kategori }}</td>
                                                 <td>{{ $new->created_at }}</td>
                                                 <td>
@@ -75,4 +75,9 @@
                 </div>
             </div> <!-- End Row -->
         </div> <!-- container -->
+@endsection
+@section('footer')
+  <script>
+    $('div.alert').not('.alert-important').delay(3000);
+  </script>
 @endsection

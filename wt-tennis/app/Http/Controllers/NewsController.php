@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\News;
+use App\Model\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests;
@@ -17,8 +18,8 @@ class NewsController extends Controller
     public function index()
     {
         $news = News::paginate(5);
-
-        return view('admin.news.index', compact('news'));
+        $tags = Tag::lists('nama', 'id');
+        return view('admin.news.index', compact('news', 'tags'));
     }
 
     /**
@@ -28,7 +29,8 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('admin.news.create');
+        $tags = Tag::lists('nama', 'id');
+        return view('admin.news.create', compact('tags'));
     }
 
     /**
@@ -43,20 +45,24 @@ class NewsController extends Controller
             'judul' => 'required',
             'thumbnail' => 'required',
             'kategori' => 'required',
-            'tag' => 'required',
+            'tag_list' => 'required',
             'deskripsi' => 'required'
         ]);
         $input = $request->all();
 
+        $input['author'] = "Admin";
         $input['slug'] = str_slug($request->judul, '-');
 
         $photo = $request->thumbnail->getClientOriginalName();
-        $destination = 'images/news/';
+        $destination = 'images/news/'.$request->kategori.'/';
         $request->thumbnail->move($destination, $photo);
 
         $input['thumbnail'] = $destination.$photo;
 
-        News::create($input);
+        $news = News::create($input);
+
+        $news->tags()->attach($request->input('tag_list'));
+
         return redirect()->action('NewsController@index')->with('success','News has been created');
     }
 
@@ -66,9 +72,9 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-      $news = News::findOrFail($id);
+      $news = News::where('slug', $slug)->first();
       return view('admin.news.show', compact('news'));
     }
 
@@ -81,8 +87,9 @@ class NewsController extends Controller
     public function edit($id)
     {
       $news = News::findOrFail($id);
+      $tags = Tag::lists('nama', 'id');
 
-      return view('admin.news.edit', compact('news'));
+      return view('admin.news.edit', compact('news', 'tags'));
     }
 
     /**
@@ -96,9 +103,8 @@ class NewsController extends Controller
     {
       $this->validate($request, [
         'judul' => 'required',
-        'thumbnail' => 'required',
-        'kategori' => 'required',
-        'tag' => 'required',
+        // 'thumbnail' => 'required',
+        // 'kategori' => 'required',
         'deskripsi' => 'required'
       ]);
       $news = News::findOrFail($id);
@@ -106,12 +112,14 @@ class NewsController extends Controller
       $news['slug'] = str_slug($request->judul, '-');
 
       // $photo = $request->thumbnail->getClientOriginalName();
-      // $destination = 'images/news/';
+      // $destination = 'images/news/'.$request->kategori.'/';
       // $request->thumbnail->move($destination, $photo);
-
+      //
       // $news['thumbnail'] = $destination.$photo;
 
       $news->update($request->all());
+
+      $news->tags()->sync($request->input('tag_list'));
       return redirect()->action('NewsController@index')->with('info','News has been edited');
     }
 
