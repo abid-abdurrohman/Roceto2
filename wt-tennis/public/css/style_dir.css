@@ -2953,7 +2953,9 @@ text-decoration: none;
 	text-align: center;
 }
 .img-djoko {
+	width: 400px;
 	float: left;
+	border: 1px solid #fff;
 }
 .rank-player p.rank-data{
 	font-weight:400;

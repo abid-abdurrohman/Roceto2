@@ -42,16 +42,14 @@ Route::get('/bagan', function() {
 Route::get('/results', function () {
     return view('results.results');
 });
-Route::get('/news', function () {
-    return view('news.news');
-});
 Route::get('/contact', function () {
     return view('contact.contact');
 });
 
 
 /*link news*/
-Route::get('news-single', 'NewsController@detail');
+Route::get('news', 'NewsUserController@index');
+Route::get('news/{slug}', 'NewsUserController@show');
 
 /*link group*/
 Route::get('reg_futsal', 'RegisterController@regFutsal');
@@ -81,3 +79,4 @@ Route::resource('admin/event', 'EventController');
 Route::post('admin/event/search', 'EventController@search');
 Route::resource('admin/news', 'NewsController');
 Route::resource('admin/participant', 'ParticipantController');
+
