@@ -11,24 +11,25 @@
       <p class="txt-advert-sub">News - Match - Player</p>
     </div>
   </div>
-  
   <section id="single_news" class="container secondary-page">
     <div class="general general-results">
      <div class="top-score-title col-md-9">
-      <h3>Match of the Day presented<span class="point-little">.</span></h3>
-      
-      <p class="desc_news">It normally takes a great of deal time and effort to defeat No. 26 Jhon Doe, largely due to his counterpunching style of play and impressive foot speed. 
-       No. 14 seed Jhon Doe 
-       needed that and more on Tuesday in Louis Armstrong Stadium, going a marathon five sets to prevail in their fourth-round match, 5-7, 7-6, 6-4, 3-6, 6-3.</p>
-       <p class="desc_news important_news"><i class="fa fa-quote-left"></i>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi 
-        architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione 
-        voluptatem sequi nesciunt.<i class="fa fa-quote-right"></i></p>
-        <p class="desc_news">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque 
-          corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. </p>
-
-          <p class="desc_news important_news data">by ATP Staff <i class="fa fa-calendar"></i>May 7, 2014 - London, England</p>
-
-          <div class="tab_news"><i class="fa fa-tag"></i><span>TAGS:</span><a href="index.html" class="tag">SPORT</a><a href="news.html" class="tag">TENNIS</a><a href="players.html" class="tag">PLAYERS</a></div>
+      <h3>{!! $news->judul !!}<span class="point-little">.</span></h3>
+      <div class="col-md-4">
+        <img class="img-djoko" src="{!! asset('').'/'.$news->thumbnail !!}" alt="" />
+      </div>
+      <div class="data-news-pg">
+        <p>{!! $news->deskripsi !!}</p>
+      </div>
+      <p class="desc_news important_news data">by {{ $news->author }}<i class="fa fa-calendar"></i>{{ $news->created_at }} - Depok, Indonesia</p>
+          <div class="tab_news">
+          @unless ($news->tags->isEmpty())
+            <i class="fa fa-tag"></i><span>TAGS:</span>
+              @foreach ($news->tags as $tag)
+                <a href="#" class="tag">{{ $tag->nama }}</a>
+              @endforeach
+          @endunless
+          </div>
 
           <div class="other-news">
            <h3>Other <span>News</span><span class="point-little">.</span></h3>

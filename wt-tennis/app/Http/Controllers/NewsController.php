@@ -137,17 +137,4 @@ class NewsController extends Controller
       return redirect()->action('NewsController@index')->with('danger','News has been deleted');
     }
 
-    public function detail()
-    {
-        return view('news.news-single');
-    }
-
-/*    public function detailnews(Request $request)
-    {
-        $this->validate($request, $this->rules);
-        $input = $request->all();
-        Group::create($input);
-        return redirect()->action('NewsController@detail');
-    }*/
-
 }

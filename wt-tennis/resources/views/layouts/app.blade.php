@@ -175,7 +175,7 @@
               </div>
             </div>
           </li>
-          <li><a class="lnk-menu" href="{{ url('/news') }}">News</a></li>
+          <li><a class="lnk-menu" href="{{ action('NewsUserController@index') }}">News</a></li>
           <li><a class="lnk-menu" href="{{ url('/contact') }}">Contact</a></li>
         </ul>
       </nav>
