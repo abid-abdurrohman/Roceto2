@@ -111,7 +111,7 @@ class NewsController extends Controller
 
       $news['slug'] = str_slug($request->judul, '-');
 
-      // $photo = $request->thumbnail->getClientOriginalName();
+      // $photo = $request->file('thumbnail')->getClientOriginalName();
       // $destination = 'images/news/'.$request->kategori.'/';
       // $request->thumbnail->move($destination, $photo);
       //

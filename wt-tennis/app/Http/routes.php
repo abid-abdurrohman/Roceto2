@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Mail;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -13,6 +13,12 @@
 
 /*link menu*/
 Route::get('', 'HomeController@index');
+
+Route::get('/mail', function (){
+    Mail::send('emails.welcome', ['name' => 'Annisa Gusviany M.S'], function($message){
+      $message->to('maudyannisa@gmail.com')->from('muhammadabdurrohman1995@gmail.com')->subject('Welcome!');
+    });
+});
 
 Route::auth();
 Route::get('/login', function () {
