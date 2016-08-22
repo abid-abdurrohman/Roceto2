@@ -40,12 +40,12 @@
 
   <!--javascripts collapse-->
   <script src="{{ URL::asset('js/jquery-1.10.2.js') }}" type="text/javascript"></script>
-  <script src="{{ URL::asset('js/jquery.ui.totop.js" type="text/javascript') }}"></script>
-  <script src="{{ URL::asset('js/jquery.accordion.js" type="text/javascript') }}"></script>
+  <script src="{{ URL::asset('js/jquery.ui.totop.js') }}" type="text/javascript') }}"></script>
+  <script src="{{ URL::asset('js/jquery.accordion.js') }}" type="text/javascript') }}"></script>
 
   <!--Video Player-->
-  <link href="css/video-js.css" rel="stylesheet" type="text/css" />
-  <link href="css/responsive.css" rel="stylesheet" type="text/css" />
+  <link href="{{ URL::asset('css/video-js.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ URL::asset('css/responsive.css') }}" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
@@ -90,7 +90,7 @@
   <header>
    <div class="content-logo col-md-12">
     <div class="logo">
-      <img src="img/logo2.png" alt="" />
+      <img src="{{ URL::asset('img/logo2.png') }}" alt="" />
     </div>
 
     <div class="bt-menu"><a href="#" class="menu"><span>&equiv;</span> Menu</a></div>
@@ -193,12 +193,12 @@
            <div class="client-sport client-sport-nomargin home-pg">
                <div class="content-banner">
                      <ul class="sponsor second">
-                      <li><img src="img\sponsorship\aqua.jpg" alt="" /></li>
-                      <li><img src="img\sponsorship\danone.jpg" alt="" /></li>
-                      <li><img src="img\sponsorship\nike.jpg" alt="" /></li>
-                      <li><img src="img\sponsorship\pocari.jpg" alt="" /></li>
-                      <li><img src="img\sponsorship\sariroti.jpg" alt="" /></li>
-                      <li><img src="img\sponsorship\yakult.jpg" alt="" /></li>
+                      <li><img src="{{ URL::asset('img\sponsorship\aqua.jpg') }}" alt="" /></li>
+                      <li><img src="{{ URL::asset('img\sponsorship\danone.jpg') }}" alt="" /></li>
+                      <li><img src="{{ URL::asset('img\sponsorship\nike.jpg') }}" alt="" /></li>
+                      <li><img src="{{ URL::asset('img\sponsorship\pocari.jpg') }}" alt="" /></li>
+                      <li><img src="{{ URL::asset('img\sponsorship\sariroti.jpg') }}" alt="" /></li>
+                      <li><img src="{{ URL::asset('img\sponsorship\yakult.jpg') }}" alt="" /></li>
                     </ul>
                 </div>
           </div>

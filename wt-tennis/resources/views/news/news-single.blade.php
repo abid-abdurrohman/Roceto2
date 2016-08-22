@@ -1,9 +1,6 @@
-
 @extends('layouts.app')
 
-
 @section('content')
-<body>
  <section class="drawer">
   <div class="col-md-12 size-img back-img-shop">
     <div class="effect-cover">
@@ -256,6 +253,7 @@
       </div>
     </div>
   </section>
+
   <section id="sponsor" class="container">
     <!--SECTION SPONSOR-->
     <div class="client-sport client-sport-nomargin">
@@ -271,7 +269,6 @@
     </div>
   </div>
 </section>
-
 <script src="js/jquery.bxslider.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).ready(function () {
