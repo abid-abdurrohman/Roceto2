@@ -40,8 +40,9 @@
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Nama Gallery</th>
-                                                <th>Detail Gallery</th>
+                                                <th>Judul</th>
+                                                <th>Deskripsi</th>
+                                                <th>Thumbnail</th>
                                                 <th>Waktu</th>
                                                 <th colspan="2">Action</th>
                                             </tr>
@@ -50,8 +51,9 @@
                                           @foreach ($galleries as $gallery)
                                             <tr>
                                                 <td>{{ $gallery->id }}</td>
-                                                <td><a href="{{ action('GalleryController@show', $gallery->id) }}">{{ $gallery->nama }}</a></td>
-                                                <td>{{ $gallery->detail }}</td>
+                                                <td><a href="{{ action('GalleryController@show', $gallery->id) }}">{{ $gallery->judul }}</a></td>
+                                                <td>{{ $gallery->deskripsi }}</td>
+                                                <td>{{ $gallery->thumbnail }}</td>
                                                 <td>{{ $gallery->created_at }}</td>
                                                 <td>
                                                   <a href="{{ action('GalleryController@edit', $gallery->id) }}">

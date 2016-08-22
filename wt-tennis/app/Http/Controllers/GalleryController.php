@@ -27,7 +27,7 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        $event = Event::lists('nama');
+        $event = Event::lists('nama','id');
         return view('admin.gallery.create', compact('event'));
     }
 
@@ -46,16 +46,14 @@ class GalleryController extends Controller
             'kategori' => 'required',
         ]);
         $input = $request->all();
-        $event = Event::where('nama', $request->kategori);
-
         // $photo = $request->thumbnail->getClientOriginalName();
         // $destination = 'images/gallery/'.$request->kategori.'/';
         // $request->thumbnail->move($destination, $photo);
         //
         // $input['thumbnail'] = $destination.$photo;
-        $input['event_id'] = $event->id;
+        $input['event_id'] = $request->kategori;
         Gallery::create($input);
-        // return redirect()->action('GalleryController@index')->with('success', 'Gallery has been created');
+        return redirect()->action('GalleryController@index')->with('success', 'Gallery has been created');
     }
 
     /**
@@ -77,7 +75,9 @@ class GalleryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $gallery = Gallery::findOrFail($id);
+        $event = Event::lists('nama','id');
+        return view('admin.gallery.edit', compact('gallery', 'event'));
     }
 
     /**
@@ -100,6 +100,8 @@ class GalleryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $gallery = Gallery::findOrFail($id);
+        $gallery->delete();
+        return redirect()->action('GalleryController@index')->with('danger','Event has been deleted');
     }
 }
