@@ -5,10 +5,10 @@
             <!-- Page-Title -->
             <div class="row">
                 <div class="col-sm-12">
-                    <h4 class="pull-left page-title">Gallerys</h4>
+                    <h4 class="pull-left page-title">Gallery</h4>
                     <ol class="breadcrumb pull-right">
                         <li><a href="#">Admin</a></li>
-                        <li class="active">Gallerys</li>
+                        <li class="active">Gallery</li>
                     </ol>
                 </div>
             </div>
@@ -16,7 +16,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Data Gallerys</h3>
+                            <h3 class="panel-title">Data Gallery</h3>
                         </div>
                         <div class="panel-body">
                             @include('admin.gallery.notification.flash')
@@ -40,8 +40,9 @@
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Judul Gallery</th>
-                                                <th>Deskripsi Gallery</th>
+                                                <th>Judul</th>
+                                                <th>Deskripsi</th>
+                                                <th>Thumbnail</th>
                                                 <th>Waktu</th>
                                                 <th colspan="2">Action</th>
                                             </tr>
@@ -52,6 +53,7 @@
                                                 <td>{{ $gallery->id }}</td>
                                                 <td><a href="{{ action('GalleryController@show', $gallery->id) }}">{{ $gallery->judul }}</a></td>
                                                 <td>{{ $gallery->deskripsi }}</td>
+                                                <td>{{ $gallery->thumbnail }}</td>
                                                 <td>{{ $gallery->created_at }}</td>
                                                 <td>
                                                   <a href="{{ action('GalleryController@edit', $gallery->id) }}">

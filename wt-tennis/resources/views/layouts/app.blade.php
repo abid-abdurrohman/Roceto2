@@ -153,7 +153,7 @@
                   <ul class="menu-pages">
                     <li><a href="{{ url('/tim') }}"><span>Tim</span></a></li>
                     <li><a href="{{ url('/individual') }}"><span>Single Player</span></a></li>
-                    <li><a href="{{ url('/gallery') }}"><span>Gallery</span></a></li>
+                    <li><a href="{{ action('GalleryUserController@index') }}"><span>Gallery</span></a></li>
                     <li><a href="{{ url('/video') }}"><span>Video</span></a></li>
                   </ul>
                 </div>

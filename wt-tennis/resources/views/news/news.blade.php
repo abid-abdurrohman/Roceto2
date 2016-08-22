@@ -28,7 +28,8 @@
                 </div>
                 @endforeach
                 <div class="col-md-12 news-page-page">
-                  <span class="news-page-active">1</span><span>2</span><span>3</span><span class="page-point">....</span><span>10</span>
+                  {!! $news->links() !!}
+                  <!-- <span class="news-page-active">1</span><span>2</span><span>3</span><span class="page-point">....</span><span>10</span> -->
                 </div>
            </div><!--Close Top Match-->
          </div>

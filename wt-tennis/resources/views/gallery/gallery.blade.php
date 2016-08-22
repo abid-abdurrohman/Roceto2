@@ -18,23 +18,23 @@
 		                <dd>
 			                <ul class="filter group albumFilter"> 
 				                <li data-filter="*" class="current"><a  href="#">ALL</a></li>
-                                    <li data-filter=".cat1"><a  href="#">Futsal</a></li>
-                                    <li data-filter=".cat2"><a  href="#">Basket</a></li>
-                                    <li data-filter=".cat3"><a  href="#">Bultang</a></li>
-                                    <li data-filter=".cat1"><a  href="#">Voli</a></li>
-                                    <li data-filter=".cat2"><a  href="#">Berenang</a></li>
-                                    <li data-filter=".cat3"><a  href="#">Marathon</a></li>
-                                    <li data-filter=".cat1"><a  href="#">catur</a></li>
-                                    <li data-filter=".cat2"><a  href="#">Lompat Tinggi</a></li>
+                                @foreach($events as $event)
+                                <li data-filter=".cat{{ $event->id }}"><a  href="#">{{ $event->nama }}</a></li>
+                                @endforeach
 			                </ul> 
 		                </dd>
 	                </dl>
+                        @foreach($events as $event)
+                            <h3>{{$kat->event_id}}</h3>
+                        @endforeach
 
 	                <!-- Portfolio Items -->
-	                <ul class="portfolio group albumContainer"> 
+	                <ul class="portfolio group albumContainer">
+                        @foreach($kategori as $kat)
 		                <li class="item block cat2">
 			                <a href="http://placehold.it/1600x1000" rel="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Hannah 1" /></a>
-		                </li> 
+		                </li>
+                        @endforeach
 		                <li class="item block cat1">
 			                <a href="http://placehold.it/1600x1000" rel="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Hair 1" /></a>
 		                </li>

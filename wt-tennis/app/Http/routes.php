@@ -57,6 +57,9 @@ Route::get('/contact', function () {
 Route::get('news', 'NewsUserController@index');
 Route::get('news/{slug}', 'NewsUserController@show');
 
+/*link gallery*/
+Route::get('gallery', 'GalleryUserController@index');
+
 /*link group*/
 Route::get('reg_futsal', 'RegisterController@regFutsal');
 Route::post('reg_futsal', 'RegisterController@store_regFutsal');

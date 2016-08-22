@@ -65,7 +65,9 @@ class GalleryController extends Controller
      */
     public function show($id)
     {
-        //
+        $gallery = Gallery::findOrFail($id);
+
+        return view('admin.gallery.show', compact('gallery'));
     }
 
     /**
@@ -76,7 +78,9 @@ class GalleryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $gallery = Gallery::findOrFail($id);
+        $event = Event::lists('nama','id');
+        return view('admin.gallery.edit', compact('gallery', 'event'));
     }
 
     /**
@@ -88,7 +92,16 @@ class GalleryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'judul' => 'required',
+            'deskripsi' => 'required',
+            'thumbnail' => 'required',
+            'kategori' => 'required',
+        ]);
+        $gallery = Gallery::findOrFail($id);
+        $gallery->update($request->all());
+        return redirect()->action('GalleryController@index')->with('info','Event has been edited');
+
     }
 
     /**
