@@ -82,7 +82,8 @@ Route::get('admin', 'AdminController@login');
 Route::get('admin/home', 'AdminController@index');
 Route::post('admin/pro_login', 'AdminController@pro_login');
 Route::resource('admin/event', 'EventController');
+Route::resource('admin/event.category', 'CategoryController');
+Route::resource('admin/gallery', 'GalleryController');
 Route::post('admin/event/search', 'EventController@search');
 Route::resource('admin/news', 'NewsController');
 Route::resource('admin/participant', 'ParticipantController');
-
