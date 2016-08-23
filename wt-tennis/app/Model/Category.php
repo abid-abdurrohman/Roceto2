@@ -12,4 +12,8 @@ class Category extends Model
     public function event() {
     	 return $this->belongsTo('App\Model\Event');
     }
+
+    public function participant() {
+    	 return $this->hasMany('App\Model\Participant');
+    }
 }

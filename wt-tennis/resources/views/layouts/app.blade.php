@@ -40,12 +40,12 @@
 
   <!--javascripts collapse-->
   <script src="{{ URL::asset('js/jquery-1.10.2.js') }}" type="text/javascript"></script>
-  <script src="{{ URL::asset('js/jquery.ui.totop.js" type="text/javascript') }}"></script>
-  <script src="{{ URL::asset('js/jquery.accordion.js" type="text/javascript') }}"></script>
+  <script src="{{ URL::asset('js/jquery.ui.totop.js') }}" type="text/javascript') }}"></script>
+  <script src="{{ URL::asset('js/jquery.accordion.js') }}" type="text/javascript') }}"></script>
 
   <!--Video Player-->
-  <link href="css/video-js.css" rel="stylesheet" type="text/css" />
-  <link href="css/responsive.css" rel="stylesheet" type="text/css" />
+  <link href="{{ URL::asset('css/video-js.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ URL::asset('css/responsive.css') }}" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
@@ -90,7 +90,7 @@
   <header>
    <div class="content-logo col-md-12">
     <div class="logo">
-      <img src="img/logo2.png" alt="" />
+      <img src="{{ URL::asset('img/logo2.png') }}" alt="" />
     </div>
 
     <div class="bt-menu"><a href="#" class="menu"><span>&equiv;</span> Menu</a></div>
@@ -100,46 +100,20 @@
       <nav id="cbp-hrmenu" class="cbp-hrmenu">
         <ul id="menu">
           <li><a class="lnk-menu active" href="{{ url('/') }}">Home</a></li>
-          <!-- <li>
-            <a class="lnk-menu" href="#">Pages</a>
-            <div class="cbp-hrsub sub-little">
-              <div class="cbp-hrsub-inner">
-                <div class="content-sub-menu">
-                  <ul class="menu-pages">
-                    <li><a href="tournaments.html"><span>Tournaments</span></a></li>
-                    <li><a href="login.html"><span>Login</span></a></li>
-                    <li><a href="news.html"><span>News</span></a></li>
-                    <li><a href="single_news.html"><span>Single News</span></a></li>
-                    <li><a href="video_tube.html"><span>Video (youtube)</span></a></li>
-                    <li><a href="video.html"><span>Video (html5)</span></a></li>
-                    <li><a href="results.html"><span>Results</span></a></li>
-                    <li><a href="players.html"><span>Players</span></a></li>
-                    <li><a href="single_player.html"><span>Single Player</span></a></li>
-                    <li><a href="matches.html"><span>Matches</span></a></li>
-                    <li><a href="match.html"><span>Single Match</span></a></li>
-                    <li><a href="shops.html">Shop</a></li>
-                    <li><a href="shop_rackets.html">Shop Rackets</a></li>
-                    <li><a href="details_prod.html">Single products</a></li>
-                    <li><a href="gallery_col.html">Photo Gallery</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </li>-->
           <li>
             <a class="lnk-menu" href="#">Competition</a>
             <div class="cbp-hrsub sub-little">
               <div class="cbp-hrsub-inner">
                 <div class="content-sub-menu">
                   <ul class="menu-pages">
-                      <li><a href="{{ action('RegisterController@regFutsal') }}"><span>Futsal</span></a></li>
-                    <!-- <li><a href="{{ action('RegisterController@regBasket') }}"><span>Basket</span></a></li>
+                    <li><a href="{{ action('RegisterController@regFutsal') }}"><span>Futsal</span></a></li>
+                    <li><a href="{{ action('RegisterController@regBasket') }}"><span>Basket</span></a></li>
                     <li><a href="{{ action('RegisterController@regBultang') }}"><span>Bulu Tangkis</span></a></li>
                     <li><a href="{{ action('RegisterController@regVoli') }}"><span>Voli</span></a></li>
                     <li><a href="{{ action('RegisterController@regSwim') }}"><span>Berenang</span></a></li>
                     <li><a href="{{ action('RegisterController@regMarathon') }}"><span>Marathon</span></a></li>
                     <li><a href="{{ action('RegisterController@regCatur') }}"<span>Catur</span></a></li>
-                    <li><a href="{{ action('RegisterController@regLompat') }}"><span>Lompat Tinggi</span></a></li> -->
+                    <li><a href="{{ action('RegisterController@regLompat') }}"><span>Lompat Tinggi</span></a></li>
                   </ul>
                 </div>
               </div>
@@ -153,7 +127,7 @@
                   <ul class="menu-pages">
                     <li><a href="{{ url('/tim') }}"><span>Tim</span></a></li>
                     <li><a href="{{ url('/individual') }}"><span>Single Player</span></a></li>
-                    <li><a href="{{ url('/gallery') }}"><span>Gallery</span></a></li>
+                    <li><a href="{{ action('GalleryUserController@index') }}"><span>Gallery</span></a></li>
                     <li><a href="{{ url('/video') }}"><span>Video</span></a></li>
                   </ul>
                 </div>
@@ -193,12 +167,12 @@
            <div class="client-sport client-sport-nomargin home-pg">
                <div class="content-banner">
                      <ul class="sponsor second">
-                      <li><img src="img\sponsorship\aqua.jpg" alt="" /></li>
-                      <li><img src="img\sponsorship\danone.jpg" alt="" /></li>
-                      <li><img src="img\sponsorship\nike.jpg" alt="" /></li>
-                      <li><img src="img\sponsorship\pocari.jpg" alt="" /></li>
-                      <li><img src="img\sponsorship\sariroti.jpg" alt="" /></li>
-                      <li><img src="img\sponsorship\yakult.jpg" alt="" /></li>
+                      <li><img src="{{ URL::asset('img\sponsorship\aqua.jpg') }}" alt="" /></li>
+                      <li><img src="{{ URL::asset('img\sponsorship\danone.jpg') }}" alt="" /></li>
+                      <li><img src="{{ URL::asset('img\sponsorship\nike.jpg') }}" alt="" /></li>
+                      <li><img src="{{ URL::asset('img\sponsorship\pocari.jpg') }}" alt="" /></li>
+                      <li><img src="{{ URL::asset('img\sponsorship\sariroti.jpg') }}" alt="" /></li>
+                      <li><img src="{{ URL::asset('img\sponsorship\yakult.jpg') }}" alt="" /></li>
                     </ul>
                 </div>
           </div>

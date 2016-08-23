@@ -13,7 +13,7 @@
     </div>
 </div>
 <div class="form-group">
-    <label class="col-md-2 control-label">Deskripsi</label>
+    <label class="col-md-2 control-label">Thumbnail</label>
     <div class="col-md-10">
         {!! Form::file('thumbnail', null, ['class' => 'form-control input-md', 'required'],'') !!}
     </div>

@@ -59,6 +59,9 @@ Route::get('/contact', function () {
 Route::get('news', 'NewsUserController@index');
 Route::get('news/{slug}', 'NewsUserController@show');
 
+/*link gallery*/
+Route::get('gallery', 'GalleryUserController@index');
+
 /*link group*/
 Route::get('reg_futsal', 'RegisterController@regFutsal');
 Route::post('reg_futsal', 'RegisterController@store_regFutsal');
@@ -92,3 +95,5 @@ Route::resource('admin/participant', 'ParticipantController');
 
 Route::get('redirect/{provider}', 'SocialAuthController@redirect');
 Route::get('callback/{provider}', 'SocialAuthController@callback');
+
+Route::post('admin/participant/search', 'ParticipantController@search');

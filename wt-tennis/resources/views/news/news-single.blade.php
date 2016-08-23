@@ -1,9 +1,6 @@
-
 @extends('layouts.app')
 
-
 @section('content')
-<body>
  <section class="drawer">
   <div class="col-md-12 size-img back-img-shop">
     <div class="effect-cover">
@@ -34,43 +31,14 @@
           <div class="other-news">
            <h3>Other <span>News</span><span class="point-little">.</span></h3>
            <ul id="product" class="bxslider">
+           @foreach($other_news as $newss )
             <li>
-              <img src="http://placehold.it/270x180" alt="" />
-              <p class="product-title">Europe Tour</p>
-              <p class="txt-other-news">It normally takes a great of deal time and effort to defeat No. 26 Gilles Simon, largely due to his counterpunching style of play and impressive foot speed.</p>
+              <img src="{!! asset('').'/'.$newss->thumbnail !!}" alt="" style="height:150px"/>
+              <p class="product-title">{{ $newss->judul }}</p>
+              <p class="data-news-pg">{!!str_limit($newss->deskripsi, 350) !!}.</p>
               <div><a href="single_news.html" class="ready-news" style="height:52px">Read</a></div>
             </li>
-            <li>
-              <img src="http://placehold.it/270x180" alt="" />
-              <p class="product-title">London Cup</p>
-              <p class="txt-other-news">It normally takes a great of deal time and effort to defeat No. 26 Gilles Simon, largely due to his counterpunching style of play and impressive foot speed.</p>
-              <div><a href="single_news.html" class="ready-news">Read</a></div>
-            </li>
-            <li>
-              <img src="http://placehold.it/270x180" alt="" />
-              <p class="product-title">ATP World</p>
-              <p class="txt-other-news">It normally takes a great of deal time and effort to defeat No. 26 Gilles Simon, largely due to his counterpunching style of play and impressive foot speed.</p>
-              <div><a href="single_news.html" class="ready-news">Read</a></div>
-            </li>
-            <li>
-              <img src="http://placehold.it/270x180" alt="" />
-              <p class="product-title">WPT World</p>
-              <p class="txt-other-news">It normally takes a great of deal time and effort to defeat No. 26 Gilles Simon, largely due to his counterpunching style of play and impressive foot speed.</p>
-              <div><a href="single_news.html" class="ready-news">Read</a></div>
-            </li>
-            <li>
-              <img src="http://placehold.it/270x180" alt="" />
-              <p class="product-title">Russian</p>
-              <p class="txt-other-news">It normally takes a great of deal time and effort to defeat No. 26 Gilles Simon, largely due to his counterpunching style of play and impressive foot speed.</p>
-              <div><a href="single_news.html" class="ready-news">Read</a></div>
-            </li>
-            <li>
-              <img src="http://placehold.it/270x180" alt="" />
-              <p class="product-title">Africa Tour</p>
-              <p class="txt-other-news">It normally takes a great of deal time and effort to defeat No. 26 Gilles Simon, largely due to his counterpunching style of play and impressive foot speed.</p>
-              <div><a href="single_news.html" class="ready-news">Read</a></div>
-            </li>
-            
+          @endforeach            
           </ul>
         </div>
 
@@ -256,6 +224,7 @@
       </div>
     </div>
   </section>
+
   <section id="sponsor" class="container">
     <!--SECTION SPONSOR-->
     <div class="client-sport client-sport-nomargin">
@@ -271,7 +240,6 @@
     </div>
   </div>
 </section>
-
 <script src="js/jquery.bxslider.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).ready(function () {

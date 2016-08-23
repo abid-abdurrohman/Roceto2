@@ -1,14 +1,14 @@
 @extends('admin.layouts.app')
-@section('title', 'Data Gallery')
+@section('title', 'Data Participant')
 @section('content')
         <div class="container">
             <!-- Page-Title -->
             <div class="row">
                 <div class="col-sm-12">
-                    <h4 class="pull-left page-title">Gallery</h4>
+                    <h4 class="pull-left page-title">Participants</h4>
                     <ol class="breadcrumb pull-right">
                         <li><a href="#">Admin</a></li>
-                        <li class="active">Gallery</li>
+                        <li class="active">Participants</li>
                     </ol>
                 </div>
             </div>
@@ -16,17 +16,19 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Data Gallery</h3>
+                            <h3 class="panel-title">Data Participants</h3>
                         </div>
                         <div class="panel-body">
-                            @include('admin.gallery.notification.flash')
+                            @include('admin.participant.notification.flash')
                             <div class="row">
                               <div class="col-md-5">
-                                <a href="{{ action('GalleryController@create') }}" class="btn btn-primary waves-effect waves-light">Add <i class="fa fa-plus"></i></a>
+                                <a class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#con-close-modal">Add <i class="fa fa-plus"></i></a>
+                                @include('admin.participant.modal.create')
+                                <!-- <a href="{{ action('ParticipantController@create') }}" class="btn btn-primary waves-effect waves-light">Add <i class="fa fa-plus"></i></a> -->
                               </div>
                               <div class="col-md-6">
                                 <div id="datatable_filter" class="dataTables_filter">
-                                    {!! Form::open([]) !!}
+                                    {!! Form::open(['action' => 'ParticipantController@search']) !!}
                                     <label>Search:
                                       <input name=search type="search" class="form-control input-sm" placeholder="Write something" aria-controls="datatable" required>
                                     {!! Form::close() !!}
@@ -40,37 +42,41 @@
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Judul</th>
-                                                <th>Deskripsi</th>
-                                                <th>Thumbnail</th>
+                                                <th>Nama Tim</th>
+                                                <th>Nama Kapten</th>
+                                                <th>No. Hp</th>
+                                                <th>Warna Kostum</th>
+                                                <th>Jumlah Pemain</th>
                                                 <th>Waktu</th>
                                                 <th colspan="2">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                          @foreach ($galleries as $gallery)
+                                          @foreach ($participants as $participant)
                                             <tr>
-                                                <td>{{ $gallery->id }}</td>
-                                                <td><a href="{{ action('GalleryController@show', $gallery->id) }}">{{ $gallery->judul }}</a></td>
-                                                <td>{{ $gallery->deskripsi }}</td>
-                                                <td>{{ $gallery->thumbnail }}</td>
-                                                <td>{{ $gallery->created_at }}</td>
+                                                <td>{{ $participant->id }}</td>
+                                                <td><a href="{{ action('ParticipantController@show', $participant->id) }}">{{ $participant->nama_tim }}</a></td>
+                                                <td>{{ $participant->nama_kapten }}</td>
+                                                <td>{{ $participant->no_hp }}</td>
+                                                <td>{{ $participant->warna_kostum }}</td>
+                                                <td>{{ $participant->jumlah_pemain }}</td>
+                                                <td>{{ $participant->created_at }}</td>
                                                 <td>
-                                                  <a href="{{ action('GalleryController@edit', $gallery->id) }}">
+                                                  <a href="{{ action('ParticipantController@edit', $participant->id) }}">
                                                     <i class="fa fa-edit"></i> Edit
                                                   </a>
                                                 </td>
                                                 <td>
-                                                  <a href="#" data-toggle="modal" data-target="#myModal-{{ $gallery->id }}">
+                                                  <a href="#" data-toggle="modal" data-target="#myModal-{{ $participant->id }}">
                                                     <i class="fa fa-trash"></i> Delete
                                                   </a>
                                                 </td>
                                             </tr>
-                                            @include('admin.gallery.modal.delete', ['id' => $gallery->id])
+                                            @include('admin.participant.modal.delete', ['id' => $participant->id])
                                           @endforeach
                                         </tbody>
                                     </table>
-                                    {!! $galleries->links() !!}
+                                    {!! $participants->links() !!}
                                 </div>
                             </div>
                         </div>
