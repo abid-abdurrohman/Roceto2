@@ -32,6 +32,11 @@
                         </div>
                         <div id="login-submit">
                             <input type="submit" value="Submit"/>
+                            <p>
+                                <a href="redirect/facebook">FB Login</a>
+                                <a href="redirect/twitter">Twitter Login</a>
+                                <a href="redirect/google">G+</a>
+                            </p>
                         </div>
                      </form>
                 </div>

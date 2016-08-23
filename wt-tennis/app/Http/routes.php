@@ -14,13 +14,15 @@ use Illuminate\Support\Facades\Mail;
 /*link menu*/
 Route::get('', 'HomeController@index');
 
+Route::get('home', 'HomeController@index');
+
 Route::get('/mail', function (){
     Mail::send('emails.welcome', ['name' => 'Annisa Gusviany M.S'], function($message){
       $message->to('maudyannisa@gmail.com')->from('muhammadabdurrohman1995@gmail.com')->subject('Welcome!');
     });
 });
+Route::get('admin/logout', 'Auth\AuthController@getLogout');
 
-Route::auth();
 Route::get('/login', function () {
     return view('log.login');
 });
@@ -87,3 +89,6 @@ Route::resource('admin/gallery', 'GalleryController');
 Route::post('admin/event/search', 'EventController@search');
 Route::resource('admin/news', 'NewsController');
 Route::resource('admin/participant', 'ParticipantController');
+
+Route::get('redirect/{provider}', 'SocialAuthController@redirect');
+Route::get('callback/{provider}', 'SocialAuthController@callback');

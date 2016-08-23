@@ -6,7 +6,7 @@
                 <h4 class="modal-title">Create News</h4>
             </div>
             <div class="modal-body">
-              {!! Form::model(new App\Model\News, ['action' => 'NewsController@store', 'files' => true]) !!}
+              {!! Form::model(new App\Model\News, ['action' => 'NewsController@store', 'files' => true, 'class'=>'form-horizontal']) !!}
                   @include('admin.news.form.form', ['submit_text' => 'Add News'])
               {!! Form::close() !!}
             </div>
