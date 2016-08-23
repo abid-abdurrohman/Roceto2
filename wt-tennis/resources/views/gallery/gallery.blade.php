@@ -24,9 +24,6 @@
 			                </ul> 
 		                </dd>
 	                </dl>
-                        @foreach($events as $event)
-                            <h3>{{$kat->event_id}}</h3>
-                        @endforeach
 
 	                <!-- Portfolio Items -->
 	                <ul class="portfolio group albumContainer">

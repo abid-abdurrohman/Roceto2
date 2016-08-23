@@ -90,3 +90,6 @@ Route::resource('admin/gallery', 'GalleryController');
 Route::post('admin/event/search', 'EventController@search');
 Route::resource('admin/news', 'NewsController');
 Route::resource('admin/participant', 'ParticipantController');
+Route::post('admin/participant/search', 'ParticipantController@search');
+
+

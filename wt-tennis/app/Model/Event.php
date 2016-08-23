@@ -9,6 +9,10 @@ class Event extends Model
     protected $table = 'events';
     protected $fillable = ['nama', 'detail'];
 
+    public function participant() {
+    	 return $this->hasMany('App\Model\Participant');
+    }
+
     public function category() {
     	 return $this->hasMany('App\Model\Category');
     }
