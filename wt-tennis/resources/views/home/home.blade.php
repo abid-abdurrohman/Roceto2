@@ -605,7 +605,7 @@
 
                   <div class="col-md-12 tshirt-buy" style="background-color: transparent">
                     <div class="col-md-6">
-                   <a href="{{ action('RegisterController@store_regFutsal') }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
+                   <a href="{{ action('RegisterController@index',1) }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
                    </div>
                    <div class="col-md-6">
                     <a href="" class="tshirt-cart"><i class="fa fa-male"></i>Join</a>
@@ -629,7 +629,7 @@
 
                   <div class="col-md-12 tshirt-buy" style="background-color: transparent">
                     <div class="col-md-6">
-                   <a href="{{ action('RegisterController@store_regBasket') }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
+                   <a href="{{ action('RegisterController@index',1) }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
                    </div>
                    <div class="col-md-6">
                     <a href="#" class="tshirt-cart"><i class="fa fa-male"></i>Join</a>
@@ -654,7 +654,7 @@
 
                   <div class="col-md-12 tshirt-buy" style="background-color: transparent">
                     <div class="col-md-6">
-                   <a href="{{ action('RegisterController@store_regBultang') }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
+                   <a href="{{ action('RegisterController@index',1) }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
                    </div>
                    <div class="col-md-6">
                     <a href="#" class="tshirt-cart"><i class="fa fa-male"></i>Join</a>
@@ -678,7 +678,7 @@
 
                   <div class="col-md-12 tshirt-buy" style="background-color: transparent">
                     <div class="col-md-6">
-                   <a href="{{ action('RegisterController@store_regVoli') }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
+                   <a href="{{ action('RegisterController@index',1) }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
                    </div>
                    <div class="col-md-6">
                     <a href="#" class="tshirt-cart"><i class="fa fa-male"></i>Join</a>
@@ -703,7 +703,7 @@
 
                   <div class="col-md-12 tshirt-buy" style="background-color: transparent">
                     <div class="col-md-6">
-                   <a href="{{ action('RegisterController@store_regSwim') }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
+                   <a href="{{ action('RegisterController@index',1) }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
                    </div>
                    <div class="col-md-6">
                     <a href="#" class="tshirt-cart"><i class="fa fa-male"></i>Join</a>
@@ -728,7 +728,7 @@
 
                  <div class="col-md-12 tshirt-buy" style="background-color: transparent">
                     <div class="col-md-6">
-                   <a href="{{ action('RegisterController@store_regMarathon') }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
+                   <a href="{{ action('RegisterController@index',1) }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
                    </div>
                    <div class="col-md-6">
                     <a href="#" class="tshirt-cart"><i class="fa fa-male"></i>Join</a>
@@ -753,7 +753,7 @@
 
                   <div class="col-md-12 tshirt-buy" style="background-color: transparent">
                     <div class="col-md-6">
-                   <a href="{{ action('RegisterController@store_regCatur') }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
+                   <a href="{{ action('RegisterController@index',1) }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
                    </div>
                    <div class="col-md-6">
                     <a href="#" class="tshirt-cart"><i class="fa fa-male"></i>Join</a>
@@ -778,7 +778,7 @@
 
                   <div class="col-md-12 tshirt-buy" style="background-color: transparent">
                     <div class="col-md-6">
-                   <a href="{{ action('RegisterController@store_regLompat') }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
+                   <a href="{{ action('RegisterController@index',1) }}" class="tshirt-cart"><i class="fa fa-female"></i>Join</a>
                    </div>
                    <div class="col-md-6">
                     <a href="#" class="tshirt-cart"><i class="fa fa-male"></i>Join</a>

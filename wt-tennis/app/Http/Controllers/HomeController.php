@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
-use App\Model\Group;
+use App\Model\Participant;
 use App\Model\Individual;
 use Illuminate\Mail\Mailer;
 
@@ -29,8 +29,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $groups = Group::all();
-        return view('home.home', compact('groups'));
+        $participant = Participant::all();
+        return view('home.home', compact('participant'));
     }
 
     

@@ -27,8 +27,10 @@
   <link href="{{ URL::asset('css/jquery.jscrollpane.css') }}" rel="stylesheet" type="text/css" />
 
   <link href="{{ URL::asset('css/minislide/flexslider.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ URL::asset('css/minislide/form_wizard.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ URL::asset('css/component.css') }}" rel="stylesheet" type="text/css" />
-   <link href="{{ URL::asset('css/bracket.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ URL::asset('css/dropzone.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ URL::asset('css/bracket.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ URL::asset('css/prettyPhoto.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ URL::asset('css/style_dir.css') }}" rel="stylesheet" type="text/css" />
   <link rel="shortcut icon" type="image/png" href="{{ URL::asset('img/favicon.ico') }}" />
@@ -99,21 +101,24 @@
 
       <nav id="cbp-hrmenu" class="cbp-hrmenu">
         <ul id="menu">
-          <li><a class="lnk-menu active" href="{{ url('/') }}">Home</a></li>
+          <li><a class="lnk-menu active" href="{{ url('/') }}">Home</a></li>          
           <li>
-            <a class="lnk-menu" href="#">Competition</a>
+            <a class="lnk-menu" href="#">Competition</a> 
             <div class="cbp-hrsub sub-little">
               <div class="cbp-hrsub-inner">
                 <div class="content-sub-menu">
                   <ul class="menu-pages">
-                    <li><a href="{{ action('RegisterController@regFutsal') }}"><span>Futsal</span></a></li>
-                    <li><a href="{{ action('RegisterController@regBasket') }}"><span>Basket</span></a></li>
-                    <li><a href="{{ action('RegisterController@regBultang') }}"><span>Bulu Tangkis</span></a></li>
-                    <li><a href="{{ action('RegisterController@regVoli') }}"><span>Voli</span></a></li>
-                    <li><a href="{{ action('RegisterController@regSwim') }}"><span>Berenang</span></a></li>
-                    <li><a href="{{ action('RegisterController@regMarathon') }}"><span>Marathon</span></a></li>
-                    <li><a href="{{ action('RegisterController@regCatur') }}"<span>Catur</span></a></li>
-                    <li><a href="{{ action('RegisterController@regLompat') }}"><span>Lompat Tinggi</span></a></li>
+                    <li>
+                      <a href="{{ action('RegisterController@index',1) }}" ><span>Futsal</span></a>
+                      
+                    </li>
+                    <li><a href="{{ action('RegisterController@index',2) }}"><span>Basket</span></a></li>
+                    <li><a href="{{ action('RegisterController@index',3) }}"><span>Bulu Tangkis</span></a></li>
+                    <li><a href="{{ action('RegisterController@index',4) }}"><span>Voli</span></a></li>
+                    <li><a href="{{ action('RegisterController@index',5) }}"><span>Berenang</span></a></li>
+                    <li><a href="{{ action('RegisterController@index',6) }}"><span>Marathon</span></a></li>
+                    <li><a href="{{ action('RegisterController@index',7) }}"><span>Catur</span></a></li>
+                    <li><a href="{{ action('RegisterController@index',8) }}"><span>Lompat Tinggi</span></a></li>
                   </ul>
                 </div>
               </div>
@@ -250,9 +255,8 @@
 
 <script src="{{ URL::asset('js/jquery-1.10.2.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/jquery-migrate-1.2.1.min.js') }}" type="text/javascript"></script>
-
-
 <script src="{{ URL::asset('js/jquery.transit.min.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('js/dropzone.min.js') }}" type="text/javascript"></script>
 
 <script type="text/javascript">
   $(document).ready(function () {
@@ -276,6 +280,7 @@
 
 <!--Mini Flexslide-->
 <script src="{{ URL::asset('js/minislide/jquery.flexslider.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('js/minislide/form_wizard.js') }}" type="text/javascript"></script>
 
 <!-- Percentace circolar -->
 <script src="{{ URL::asset('js/circle/jquery-asPieProgress.js') }}" type="text/javascript"></script>
@@ -290,10 +295,6 @@
 <script src="{{ URL::asset('js/custom.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/jquery.bxslider.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/jquery.accordion.js') }}" type="text/javascript"></script>
-
-<!--Other News-->
-
-
 
 <!--Carousel News-->
 <script src="{{ URL::asset('js/jquery.easing.1.3.js') }}" type="text/javascript"></script>
