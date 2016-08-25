@@ -81,6 +81,61 @@
     text-transform: uppercase;
 }
 /* sub-menu */
+
+
+.cbp-hrmenu .cbp-hrsub {
+	display: none;
+	position: absolute;
+	background: #fff;
+	width: 1100px;
+}
+
+.cbp-hropen .cbp-hrsub {
+	display: block;
+	padding-bottom: 3em;
+	z-index: 99999;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.5);
+}
+
+.cbp-hrmenu .cbp-hrsub-inner > .content-sub-menu {
+	width: 100%;
+	float: left;
+	padding: 0;
+	
+}
+
+.cbp-hrmenu .cbp-hrsub-inner:before,
+.cbp-hrmenu .cbp-hrsub-inner:after {
+	content: " ";
+	display: table;
+}
+
+.cbp-hrmenu .cbp-hrsub-inner:after {
+	clear: both;
+}
+
+.cbp-hrmenu .cbp-hrsub-inner > div a {
+	line-height: 2em;
+	text-decoration: none;
+	float:left;
+	width:100%;
+}
+.cbp-hrmenu .cbp-hrsub-inner > div a:hover {
+	text-decoration: none;
+	background:#e7e7e7;
+}
+.cbp-hrmenu .cbp-hrsub-inner ul.menu-pages li a {
+	padding: 3px 0 3px 5px;
+}
+.cbp-hrsub h4 {
+	color: #afdefa;
+	padding: 2em 0 0.6em;
+	margin: 0;
+	font-size: 160%;
+	font-weight: 300;
+}
+
+/* sub-menu */
 .cbp-hrmenu .cbp-hrsub {
 	display: none;
 	position: absolute;

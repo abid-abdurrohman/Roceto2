@@ -13,23 +13,18 @@
   <section id="shop" class="container secondary-page">
     <div class="general general-results">
      <div class="top-score-title col-md-9">
-      <h3> Lomba <span>Basket</span><span class="point-little">.</span></h3>
+      <h3>Competition <span>Futsal</span><span class="point-little">.</span></h3>
       <div class="col-md-12 content-zoom">
         <div class="col-md-6 content-img-zoom">
-         <img id="img_01" src="images\pertandingan\basketball.jpg" />
+         <img id="img_01" src="images\pertandingan\futsalball.jpg" width="400" height="340" />
        </div>
-
        <div class="col-md-6 content-desc-zoom">
-         <h3>Pertandingan Basket</h3>
+         <h3>Pertandingan Futsal</h3>
          <p class="desc-prod" style="text-align:justify">
            <b>Bola basket</b> adalah olahraga bola berkelompok yang terdiri atas dua tim beranggotakan masing-masing lima orang yang saling bertanding mencetak poin dengan memasukkan bola ke dalam keranjang lawan. Bola basket sangat cocok untuk ditonton karena biasa dimainkan di ruang olahraga tertutup dan hanya memerlukan lapangan yang relatif kecil. Selain itu, permainan bola basket juga lebih kompetitif karena tempo permainan cenderung lebih cepat jika dibandingkan dengan olahraga bola yang lain, seperti voli dan sepak bola. </p>
-<!--          <p class="desc-prod"> Ada 3 posisi utama dalam bermain basket, yaitu :
-         <li class="desc-prod"><b>Forward,</b> pemain yang tugas utamanya adalah mencetak poin dengan memasukkan bola ke keranjang lawan, </li>
-         <li class="desc-prod"><b>Defense,</b> pemain yang tugas utamanya adalah menjaga pemain lawan agar pemain lawan kesulitan memasukkan bola,</li>
-         <li class="desc-prod"><b>Playmaker,</b>pemain yang menjadi tokoh kunci permainan dengan mengatur alur bola dan strategi yang dimainkan oleh rekan-rekan setimnya.</li></p>
-       -->
-     </div>
-   </div>
+       </div>
+    </div>
+
 
    <div class="col-md-12">
      <div class="panel-body" style="padding-top:100px">
@@ -82,41 +77,166 @@
      </div>
    </div>
 
-   <div class="row">
-    <div class="col-md-12">
 
-      <!-- <a href="{{ action('EventController@create') }}" class="btn btn-primary waves-effect waves-light">Add <i class="fa fa-plus"></i></a> -->
+  </div><!--Close Top Match-->
+
+  <div class="col-md-3 right-column">
+   <div class="top-score-title col-md-12 right-title">
+    <h3>Latest News</h3>
+    <div class="right-content">
+      <p class="news-title-right">A New Old Life</p>
+      <p class="txt-right">Simon, who’s seeded just a lowly 26th here, was in many ways the right man for this grueling assignment</p>
+      <a href="single_news.html" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a>
+    </div>
+    <div class="right-content">
+      <p class="news-title-right">A New Old Life</p>
+      <p class="txt-right">Simon, who’s seeded just a lowly 26th here, was in many ways the right man for this grueling assignment</p>
+      <a href="single_news.html" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a>
+    </div>
+    <div class="right-content">
+      <p class="news-title-right">A New Old Life</p>
+      <p class="txt-right">Simon, who’s seeded just a lowly 26th here, was in many ways the right man for this grueling assignment</p>
+      <a href="single_news.html" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a>
     </div>
   </div>
-
-</div><!--Close Top Match-->
-
-<div class="col-md-3 right-column">
- <div class="top-score-title col-md-12 right-title">
-  <h3>Latest News</h3>
-  <div class="right-content">
-    <p class="news-title-right">A New Old Life</p>
-    <p class="txt-right">Simon, who’s seeded just a lowly 26th here, was in many ways the right man for this grueling assignment</p>
-    <a href="single_news.html" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a>
+  <div class="top-score-title col-md-12">
+    <img src="http://placehold.it/1000x475" alt="" />
   </div>
-  <div class="right-content">
-    <p class="news-title-right">A New Old Life</p>
-    <p class="txt-right">Simon, who’s seeded just a lowly 26th here, was in many ways the right man for this grueling assignment</p>
-    <a href="single_news.html" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a>
+  <div class="top-score-title col-md-12 right-title">
+    <h3>Photos</h3>
+    <ul class="right-last-photo">
+      <li>
+        <div class="jm-item second">
+         <div class="jm-item-wrapper">
+          <div class="jm-item-image">
+           <img src="http://placehold.it/320x213" alt="" />
+           <div class="jm-item-description">
+            <div class="jm-item-button">
+              <i class="fa fa-plus"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+  <li>
+    <div class="jm-item second">
+     <div class="jm-item-wrapper">
+      <div class="jm-item-image">
+       <img src="http://placehold.it/320x213" alt="" />
+       <div class="jm-item-description">
+        <div class="jm-item-button">
+          <i class="fa fa-plus"></i>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="right-content">
-    <p class="news-title-right">A New Old Life</p>
-    <p class="txt-right">Simon, who’s seeded just a lowly 26th here, was in many ways the right man for this grueling assignment</p>
-    <a href="single_news.html" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a>
+</div>
+</li>
+<li>
+  <div class="jm-item second">
+   <div class="jm-item-wrapper">
+    <div class="jm-item-image">
+     <img src="http://placehold.it/320x213" alt="" />
+     <div class="jm-item-description">
+      <div class="jm-item-button">
+        <i class="fa fa-plus"></i>
+      </div>
+    </div>
   </div>
 </div>
-<div class="top-score-title col-md-12">
-  <img src="http://placehold.it/1000x475" alt="" />
 </div>
+</li>
+<li>
+  <div class="jm-item second">
+   <div class="jm-item-wrapper">
+    <div class="jm-item-image">
+     <img src="http://placehold.it/320x213" alt="" />
+     <div class="jm-item-description">
+      <div class="jm-item-button">
+        <i class="fa fa-plus"></i>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</li>
+<li>
+  <div class="jm-item second">
+   <div class="jm-item-wrapper">
+    <div class="jm-item-image">
+     <img src="http://placehold.it/320x213" alt="" />
+     <div class="jm-item-description">
+      <div class="jm-item-button">
+        <i class="fa fa-plus"></i>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</li>
+<li>
+  <div class="jm-item second">
+   <div class="jm-item-wrapper">
+    <div class="jm-item-image">
+     <img src="http://placehold.it/320x213" alt="" />
+     <div class="jm-item-description">
+      <div class="jm-item-button">
+        <i class="fa fa-plus"></i>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</li>
+<li>
+  <div class="jm-item second">
+   <div class="jm-item-wrapper">
+    <div class="jm-item-image">
+     <img src="http://placehold.it/320x213" alt="" />
+     <div class="jm-item-description">
+      <div class="jm-item-button">
+        <i class="fa fa-plus"></i>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</li>
+<li>
+  <div class="jm-item second">
+   <div class="jm-item-wrapper">
+    <div class="jm-item-image">
+     <img src="http://placehold.it/320x213" alt="" />
+     <div class="jm-item-description">
+      <div class="jm-item-button">
+        <i class="fa fa-plus"></i>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</li>
+<li>
+  <div class="jm-item second">
+   <div class="jm-item-wrapper">
+    <div class="jm-item-image">
+     <img src="http://placehold.it/320x213" alt="" />
+     <div class="jm-item-description">
+      <div class="jm-item-button">
+        <i class="fa fa-plus"></i>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="sponsor" class="container">
 
-
-</div>
-</div>
 </section>
 
 @endsection

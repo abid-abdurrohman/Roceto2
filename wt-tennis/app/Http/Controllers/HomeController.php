@@ -29,7 +29,7 @@ class HomeController extends Controller
     public function index()
     {
         $participant = Participant::all();
-        return view('home.home', compact('groups'));
+        return view('home.home', compact('participant'));
     }
 
 
