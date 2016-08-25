@@ -21,6 +21,11 @@ Route::get('/mail', function (){
       $message->to('maudyannisa@gmail.com')->from('muhammadabdurrohman1995@gmail.com')->subject('Welcome!');
     });
 });
+
+Route::get('admin/bracket', function (){
+    return view('admin.bracket.index');
+});
+
 Route::get('admin/logout', 'Auth\AuthController@getLogout');
 
 Route::get('/login', function () {
@@ -92,8 +97,10 @@ Route::resource('admin/gallery', 'GalleryController');
 Route::post('admin/event/search', 'EventController@search');
 Route::resource('admin/news', 'NewsController');
 Route::resource('admin/participant', 'ParticipantController');
+Route::resource('admin/participant.member', 'MemberController');
 
 Route::get('redirect/{provider}', 'SocialAuthController@redirect');
 Route::get('callback/{provider}', 'SocialAuthController@callback');
 
 Route::post('admin/participant/search', 'ParticipantController@search');
+Route::post('admin/participant/validation/{id}', 'ParticipantController@validation');

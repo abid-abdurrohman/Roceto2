@@ -1,15 +1,15 @@
 @extends('admin.layouts.app')
-@section('title', 'Detail participant')
+@section('title', 'Detail Participant')
 @section('content')
         <div class="container">
 
             <!-- Page-Title -->
             <div class="row">
                 <div class="col-sm-12">
-                    <h4 class="pull-left page-title">participants</h4>
+                    <h4 class="pull-left page-title">Participants</h4>
                     <ol class="breadcrumb pull-right">
                         <li><a href="#">Admin</a></li>
-                        <li><a href="{{ action('participantController@index') }}">participants</a></li>
+                        <li><a href="{{ action('ParticipantController@index') }}">Participants</a></li>
                         <li class="active">{{$participants->nama}}</li>
                     </ol>
                 </div>
@@ -22,14 +22,19 @@
                             <h3 class="panel-title">Data {{$participants->nama}}</h3>
                         </div>
                         <div class="panel-body">
+                            @include('admin.event.notification.flash')
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <table id="datatable" class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Nama participant</th>
-                                                <th>Detail participant</th>
+                                                <th>Nama Tim</th>
+                                                <th>Nama Kapten</th>
+                                                <th>No Hp</th>
+                                                <th>Warna Kostum</th>
+                                                <th>Jumlah Pemain</th>
+                                                <th>Kategori</th>
                                                 <th>Created At</th>
                                                 <th>Updated At</th>
                                             </tr>
@@ -37,8 +42,12 @@
                                         <tbody>
                                             <tr>
                                                 <td>{{ $participants->id }}</td>
-                                                <td>{{ $participants->nama }}</td>
-                                                <td>{{ $participants->detail }}</td>
+                                                <td>{{ $participants->nama_tim }}</td>
+                                                <td>{{ $participants->nama_kapten }}</td>
+                                                <td>{{ $participants->no_hp }}</td>
+                                                <td>{{ $participants->warna_kostum }}</td>
+                                                <td>{{ $participants->jumlah_pemain }}</td>
+                                                <td>{{ $participants->category_id }}</td>
                                                 <td>{{ $participants->created_at }}</td>
                                                 <td>{{ $participants->updated_at }}</td>
                                             </tr>
@@ -46,8 +55,8 @@
                                     </table>
                                 </div>
                             </div>
-                            @if ( !$participants->category->count() )
-                    				    <h4>Belum memiliki kategori.</h4>
+                            @if ( !$participants->member->count() )
+                    				    <h4>Belum memiliki member.</h4>
                     				@else
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -62,35 +71,35 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach( $participants->category as $category )
+                                            @foreach( $participants->member as $member )
                                               <tr>
-                                                  <td>{{ $category->id }}</td>
+                                                  <td>{{ $member->id }}</td>
                                                   <td>
-                                                    <a href="{{ action('CategoryController@show', [$participants->id, $category->id]) }}">
-                                                      {{ $category->nama }}
+                                                    <a href="{{ action('MemberController@show', [$participants->id, $member->id]) }}">
+                                                      {{ $member->nama }}
                                                     </a>
                                                   </td>
-                                                  <td>{{ $category->created_at }}</td>
-                                                  <td>{{ $category->updated_at }}</td>
+                                                  <td>{{ $member->created_at }}</td>
+                                                  <td>{{ $member->updated_at }}</td>
                                                   <td>
-                                                    <a href="{{ action('CategoryController@edit', array($participants->id, $category->id)) }}">
+                                                    <a href="{{ action('MemberController@edit', array($participants->id, $member->id)) }}">
                                                       <i class="fa fa-edit"></i> Edit
                                                     </a>
                                                   </td>
                                                   <td>
-                                                    <a href="#" data-toggle="modal" data-target="#myModal-{{ $participants->id }}-{{ $category->id }}">
+                                                    <a href="#" data-toggle="modal" data-target="#myModal-{{ $participants->id }}-{{ $member->id }}">
                                                       <i class="fa fa-trash"></i> Delete
                                                     </a>
                                                   </td>
                                               </tr>
-                                              @include('admin.category.modal.delete', ['id_participant' => $participants->id, 'id_category' => $category->id])
+                                              @include('admin.member.modal.delete', ['id_participant' => $participants->id, 'id_member' => $member->id])
                                             @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                             @endif
-                            <a href="{{ action('CategoryController@create', $participants->id) }}" class="btn btn-primary waves-effect waves-light">Add <i class="fa fa-plus"></i></a>
+                            <a href="{{ action('MemberController@create', $participants->id) }}" class="btn btn-primary waves-effect waves-light">Add <i class="fa fa-plus"></i></a>
                         </div>
                     </div>
                 </div>

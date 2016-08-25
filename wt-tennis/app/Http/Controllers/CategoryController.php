@@ -92,7 +92,7 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id_category);
         $input = $request->all();
         $category->update($input);
-        return redirect()->action('EventController@show', [$event->id])->with('danger', 'Category has been deleted');
+        return redirect()->action('EventController@show', [$event->id])->with('info', 'Category has been edited');
     }
 
     /**

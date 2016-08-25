@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Participant;
 use App\Model\Category;
+use App\Model\Event;
 use Illuminate\Http\Request;
 use DB;
 use App\Http\Requests;
@@ -17,9 +18,11 @@ class ParticipantController extends Controller
      */
     public function index()
     {
-         $participants = Participant::paginate(5);
-         $category = Category::lists('nama','id');
-         return view('admin.participant.index', compact('participants', 'category'));
+        $events = Event::lists('nama','id');
+        $participants = Participant::paginate(5);
+        $category = Category::selectRaw('categories.id, categories.nama, categories.event_id')
+              ->leftJoin('events','events.id','=','categories.event_id')->get();
+        return view('admin.participant.index', compact('participants', 'events', 'category'));
     }
 
     /**
@@ -51,6 +54,7 @@ class ParticipantController extends Controller
         ]);
         $input = $request->all();
         $input['category_id'] = $request->kategori;
+        $input['status'] = 'waiting';
         Participant::create($input);
         return redirect()->action('ParticipantController@index')->with('success', 'Participant has been created');
     }
@@ -77,8 +81,8 @@ class ParticipantController extends Controller
     public function edit($id)
     {
         $participants = Participant::findOrFail($id);
-
-        return view('admin.participant.edit', compact('participants'));
+        $category = Category::lists('nama','id');
+        return view('admin.participant.edit', compact('participants', 'category'));
     }
 
     /**
@@ -91,12 +95,17 @@ class ParticipantController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'nama' => 'required',
-            'detail' => 'required',
+            'nama_tim' => 'required',
+            'nama_kapten' => 'required',
+            'no_hp' => 'required',
+            'warna_kostum' => 'required',
+            'jumlah_pemain' => 'required',
+            'kategori' => 'required',
         ]);
         $participants = Participant::findOrFail($id);
+        $participants['category_id'] = $request->kategori;
         $participants->update($request->all());
-        return redirect()->action('participantController@index')->with('info','participant has been edited');
+        return redirect()->action('ParticipantController@index')->with('info','Participant has been edited');
     }
 
     /**
@@ -109,10 +118,10 @@ class ParticipantController extends Controller
     {
         $participants = participant::findOrFail($id);
         $participants->delete();
-        return redirect()->action('participantController@index')->with('danger','participant has been deleted');
+        return redirect()->action('ParticipantController@index')->with('danger','Participant has been deleted');
     }
 
-     public function search(Request $request)
+    public function search(Request $request)
     {
         $temp_search = $request->get('search');
         $search = '%'.$temp_search.'%';
@@ -123,5 +132,13 @@ class ParticipantController extends Controller
                 ->paginate(5);
 
         return view('admin.participant.search', compact('participants','temp_search'));
+    }
+
+    public function validation($id)
+    {
+        $participants = participant::findOrFail($id);
+        $participants['status'] = 'validated';
+        $participants->update();
+        return redirect()->action('ParticipantController@index')->with('info','Participant has been validated');
     }
 }

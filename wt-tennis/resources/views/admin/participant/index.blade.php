@@ -47,6 +47,7 @@
                                                 <th>No. Hp</th>
                                                 <th>Warna Kostum</th>
                                                 <th>Jumlah Pemain</th>
+                                                <th>Kategori</th>
                                                 <th>Waktu</th>
                                                 <th colspan="2">Action</th>
                                             </tr>
@@ -60,7 +61,14 @@
                                                 <td>{{ $participant->no_hp }}</td>
                                                 <td>{{ $participant->warna_kostum }}</td>
                                                 <td>{{ $participant->jumlah_pemain }}</td>
+                                                <td><a href="#">{{ $participant->category_id }}</a></td>
                                                 <td>{{ $participant->created_at }}</td>
+                                                @if ($participant->status=='waiting')
+                                                    <td><a href="#" class="btn btn-info" data-toggle="modal" data-target="#Modal-{{ $participant->id }}">Check</a></td>
+                                                    @include('admin.participant.modal.check', ['id' => $participant->id])
+                                        				    <td><a href="#" class="btn btn-info" data-toggle="modal" data-target="#Validation-{{ $participant->id }}">Approve</a></td>
+                                                    @include('admin.participant.modal.validation', ['id' => $participant->id])
+                                        				@else
                                                 <td>
                                                   <a href="{{ action('ParticipantController@edit', $participant->id) }}">
                                                     <i class="fa fa-edit"></i> Edit
@@ -71,6 +79,7 @@
                                                     <i class="fa fa-trash"></i> Delete
                                                   </a>
                                                 </td>
+                                                @endif
                                             </tr>
                                             @include('admin.participant.modal.delete', ['id' => $participant->id])
                                           @endforeach

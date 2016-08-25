@@ -34,6 +34,12 @@
     </div>
 </div>
 <div class="form-group">
+    <label class="col-md-2 control-label">Event</label>
+    <div class="col-md-10">
+        {!! Form::select('event', [1,2,3], null, ['class' => 'form-control input-md', 'id' => 'event', 'onchange' => 'cek()'], '') !!}
+    </div>
+</div>
+<div class="form-group" id="kategori">
     <label class="col-md-2 control-label">Category</label>
     <div class="col-md-10">
         {!! Form::select('kategori', $category, null, ['class' => 'form-control input-md', 'required'], '') !!}
@@ -42,3 +48,17 @@
 <div class="form-group" style="margin:1px">
   {!! Form::button($submit_text, ['type'=>'submit', 'class'=>'btn btn-purple waves-effect waves-light col-sm-offset-2 col-sm-10']) !!}
 </div>
+@section('footer')
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#kategori").hide();
+  });
+  function cek(){
+    if($("#event").val()=='2'){
+      $("#kategori").show();
+    }else{
+      $("#kategori").hide();
+    }
+  }
+</script>
+@endsection
