@@ -36,6 +36,7 @@
   <link rel="shortcut icon" type="image/png" href="{{ URL::asset('img/favicon.ico') }}" />
   <link href="{{ URL::asset('css/responsive.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ URL::asset('css/animate.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ URL::asset('css/submenu.css') }}" rel="stylesheet" type="text/css" />
 
   <!-- Waves-effect -->
   <link href="{{ URL::asset('admin_asset/css/waves-effect.css') }}" rel="stylesheet">
@@ -51,6 +52,7 @@
 
 </head>
 <body>
+
   <!--SECTION TOP LOGIN-->
   <section class="content-top-login">
    <div class="container">
@@ -63,104 +65,137 @@
        <a href="{{ url('/login') }}">Login</a>
        <!-- <a href='login.html'>Sign Up</a> -->
      </div>
-     <!-- <div class="cart-prod hiddenbox">
-       <div class="sec-prod">
-        <div class="content-cart-prod">
-          <i class="fa fa-times"></i>
-          <img src="http://placehold.it/160x160" alt="" />
-          <p>FIVE BLX</p>
-          <p>1 X $55.00</p>
-        </div>
-        <div class="content-cart-prod">
-          <i class="fa fa-times"></i>
-          <img class="racket-img" src="http://placehold.it/160x160" alt="" />
-          <p>FIVE BLX</p>
-          <p>1 X $125.00</p>
-        </div>
-        <div class="content-cart-prod">
-          <p class="cart-tot-price">Total: $180.00</p>
-          <a href="#" class="btn-cart">Go to cart</a>
-          <a href="#" class="btn-cart">Checkout</a>
-        </div>
-      </div>
     </div>
-  </div> -->
-</div>
+  </div>
 </section>
+
 <!--SECTION MENU -->
 <section class="container box-logo">
   <header>
-   <div class="content-logo col-md-12">
+    <div class="content-logo col-md-12">
     <div class="logo">
       <img src="{{ URL::asset('img/logo2.png') }}" alt="" />
     </div>
-
-    <div class="bt-menu"><a href="#" class="menu"><span>&equiv;</span> Menu</a></div>
-
-    <div class="box-menu">
-
-      <nav id="cbp-hrmenu" class="cbp-hrmenu">
-        <ul id="menu">
-          <li><a class="lnk-menu active" href="{{ url('/') }}">Home</a></li>          
-          <li>
-            <a class="lnk-menu" href="#">Competition</a> 
-            <div class="cbp-hrsub sub-little">
-              <div class="cbp-hrsub-inner">
-                <div class="content-sub-menu">
-                  <ul class="menu-pages">
-                    <li>
-                      <a href="{{ action('RegisterController@index',1) }}" ><span>Futsal</span></a>
-                      
-                    </li>
-                    <li><a href="{{ action('RegisterController@index',2) }}"><span>Basket</span></a></li>
-                    <li><a href="{{ action('RegisterController@index',3) }}"><span>Bulu Tangkis</span></a></li>
-                    <li><a href="{{ action('RegisterController@index',4) }}"><span>Voli</span></a></li>
-                    <li><a href="{{ action('RegisterController@index',5) }}"><span>Berenang</span></a></li>
-                    <li><a href="{{ action('RegisterController@index',6) }}"><span>Marathon</span></a></li>
-                    <li><a href="{{ action('RegisterController@index',7) }}"><span>Catur</span></a></li>
-                    <li><a href="{{ action('RegisterController@index',8) }}"><span>Lompat Tinggi</span></a></li>
-                  </ul>
-                </div>
-              </div>
+      <div class="bt-menu"><a href="#" class="menu"><span>&equiv;</span> Menu</a></div>
+      <div class="box-menu"> 
+        <nav id="cbp-hrmenu" class="cbp-hrmenu">
+          <ul id="menu">
+              <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right" id="menu">
+                  <li><a class="lnk-menu {{ Request::segment(1) === 'home' ? 'active' : null }}" href="{{ action('HomeController@index') }}">HOME</a>
+                  </li>
+                  <li>
+                    <a href="#" class="dropdown-toggle lnk-menu" data-toggle="dropdown"> COMPETITION <b class="caret"></b></a>
+                    <ul class="dropdown-menu multi-level">
+                      <li class="dropdown-submenu">
+                        <a class="dropdown-toggle" data-toggle="dropdown">BASKET</a>
+                        <ul class="dropdown-menu">
+                          <li><a href="{{ action('RegisterController@index',1) }}" ><span>Group</span></a></li>
+                          <li class="divider"></li>
+                          <li><a href="{{ action('RegisterController@index',2) }}" ><span>Individu</span></a></li>
+                        </ul>
+                      </li> 
+                      <li class="divider"></li>
+                      <li class="dropdown-submenu">
+                        <a class="dropdown-toggle" data-toggle="dropdown">BASKET</a>
+                        <ul class="dropdown-menu">
+                          <li><a href="{{ action('RegisterController@index',3) }}" ><span>Group</span></a></li>
+                          <li class="divider"></li>
+                          <li><a href="{{ action('RegisterController@index',4) }}" ><span>Individu</span></a></li>
+                        </ul>
+                      </li>
+                      <li class="divider"></li>
+                      <li class="dropdown-submenu">
+                        <a class="dropdown-toggle" data-toggle="dropdown">BULU TANGKIS</a>
+                        <ul class="dropdown-menu">
+                          <li><a href="{{ action('RegisterController@index',5) }}" ><span>Group</span></a></li>
+                          <li class="divider"></li>
+                          <li><a href="{{ action('RegisterController@index',6) }}" ><span>Individu</span></a></li>
+                        </ul>
+                      </li>
+                      <li class="divider"></li>
+                      <li class="dropdown-submenu">
+                        <a class="dropdown-toggle" data-toggle="dropdown">VOLI</a>
+                        <ul class="dropdown-menu">
+                          <li><a href="{{ action('RegisterController@index',7) }}" ><span>Group</span></a></li>
+                          <li class="divider"></li>
+                          <li><a href="{{ action('RegisterController@index',8) }}" ><span>Individu</span></a></li>
+                        </ul>
+                      </li>
+                      <li class="divider"></li>
+                      <li class="dropdown-submenu">
+                        <a class="dropdown-toggle" data-toggle="dropdown">BERENANG</a>
+                        <ul class="dropdown-menu">
+                          <li><a href="{{ action('RegisterController@index',9) }}" ><span>Group</span></a></li>
+                          <li class="divider"></li>
+                          <li><a href="{{ action('RegisterController@index',10) }}" ><span>Individu</span></a></li>
+                        </ul>
+                      </li>
+                      <li class="divider"></li>
+                      <li class="dropdown-submenu">
+                        <a class="dropdown-toggle" data-toggle="dropdown">MARATHON</a>
+                        <ul class="dropdown-menu">
+                          <li><a href="{{ action('RegisterController@index',11) }}" ><span>Group</span></a></li>
+                          <li class="divider"></li>
+                          <li><a href="{{ action('RegisterController@index',12) }}" ><span>Individu</span></a></li>
+                        </ul>
+                      </li>
+                      <li class="divider"></li>
+                      <li class="dropdown-submenu">
+                        <a class="dropdown-toggle" data-toggle="dropdown">CATUR</a>
+                        <ul class="dropdown-menu">
+                          <li><a href="{{ action('RegisterController@index',13) }}" ><span>Group</span></a></li>
+                          <li class="divider"></li>
+                          <li><a href="{{ action('RegisterController@index',14) }}" ><span>Individu</span></a></li>
+                        </ul>
+                      </li>
+                      <li class="divider"></li>
+                     <li class="dropdown-submenu">
+                        <a class="dropdown-toggle" data-toggle="dropdown">LOMPAT TINGGI</a>
+                        <ul class="dropdown-menu">
+                          <li><a href="{{ action('RegisterController@index',7) }}" ><span>Group</span></a></li>
+                          <li class="divider"></li>
+                          <li><a href="{{ action('RegisterController@index',8) }}" ><span>Individu</span></a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#" class="dropdown-toggle lnk-menu" data-toggle="dropdown"> PARTICIPANT <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="{{ url('/tim') }}"><span>Tim</span></a></li>
+                      <li class="divider"></li>
+                      <li><a href="{{ url('/individual') }}"><span>Single Player</span></a></li>
+                      <li class="divider"></li>
+                      <li><a href="{{ action('GalleryUserController@index') }}"><span>Gallery</span></a></li>
+                      <li class="divider"></li>
+                      <li><a href="{{ url('/video') }}"><span>Video</span></a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#" class="dropdown-toggle lnk-menu" data-toggle="dropdown"> EVENTS <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="{{ url('/match')}}"><span>Points</span></a></li>
+                      <li class="divider"></li>
+                      <li><a href="{{ url('/jadwal') }}"><span>Schedule</span></a></li>
+                      <li class="divider"></li>
+                      <li><a href="{{ url('/bagan') }}"><span>Bracket</span></a></li>
+                      <li class="divider"></li>
+                      <li><a href="{{ url('/results') }}"><span>Results</span></a></li>
+                    </ul>
+                  </li>
+                   <li><a class="lnk-menu {{ Request::segment(1) === 'news' ? 'active' : null }}" href="{{ action('NewsUserController@index') }}">News</a></li>
+                  <li><a class="lnk-menu {{ Request::segment(1) === 'contact' ? 'active' : null }}" href="{{ url('/contact') }}">Contact</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div><!--/.nav-collapse -->     
             </div>
-          </li>
-          <li>
-            <a class="lnk-menu" href="#">Participant</a>
-            <div class="cbp-hrsub sub-little">
-              <div class="cbp-hrsub-inner">
-                <div class="content-sub-menu">
-                  <ul class="menu-pages">
-                    <li><a href="{{ url('/tim') }}"><span>Tim</span></a></li>
-                    <li><a href="{{ url('/individual') }}"><span>Single Player</span></a></li>
-                    <li><a href="{{ action('GalleryUserController@index') }}"><span>Gallery</span></a></li>
-                    <li><a href="{{ url('/video') }}"><span>Video</span></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <a class="lnk-menu" href="#">Events</a>
-            <div class="cbp-hrsub sub-little">
-              <div class="cbp-hrsub-inner">
-                <div class="content-sub-menu">
-                  <ul class="menu-pages">
-                    <li><a href="{{ url('/match')}}"><span>Points</span></a></li>
-                    <li><a href="{{ url('/jadwal') }}"><span>Schedule</span></a></li>
-                    <li><a href="{{ url('/bagan') }}"><span>Bracket</span></a></li>
-                    <li><a href="{{ url('/results') }}"><span>Results</span></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li><a class="lnk-menu" href="{{ action('NewsUserController@index') }}">News</a></li>
-          <li><a class="lnk-menu" href="{{ url('/contact') }}">Contact</a></li>
-        </ul>
-      </nav>
+          </ul>  
+        </nav>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 </section>
 
 
