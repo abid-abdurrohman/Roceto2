@@ -22,10 +22,6 @@ Route::get('/mail', function (){
     });
 });
 
-Route::get('admin/bracket', function (){
-    return view('admin.bracket.index');
-});
-
 Route::get('admin/logout', 'Auth\AuthController@getLogout');
 
 Route::get('/login', function () {
@@ -82,6 +78,7 @@ Route::post('admin/event/search', 'EventController@search');
 Route::resource('admin/news', 'NewsController');
 Route::resource('admin/participant', 'ParticipantController');
 Route::resource('admin/participant.member', 'MemberController');
+Route::resource('admin/match', 'MatchController');
 
 Route::get('redirect/{provider}', 'SocialAuthController@redirect');
 Route::get('callback/{provider}', 'SocialAuthController@callback');

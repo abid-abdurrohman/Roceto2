@@ -211,6 +211,10 @@
                                 <a href="{{ action('GalleryController@index') }}" class="waves-effect"><i class="md md-home"></i><span> Gallery </span></a>
                             </li>
 
+                            <li>
+                                <a href="{{ action('MatchController@index') }}" class="waves-effect"><i class="md md-home"></i><span> Match </span></a>
+                            </li>
+
                             <!-- <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="md md-mail"></i><span> Mail </span><span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
