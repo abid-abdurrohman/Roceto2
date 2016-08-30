@@ -101,16 +101,16 @@
 
       <nav id="cbp-hrmenu" class="cbp-hrmenu">
         <ul id="menu">
-          <li><a class="lnk-menu active" href="{{ url('/') }}">Home</a></li>          
+          <li><a class="lnk-menu active" href="{{ url('/') }}">Home</a></li>
           <li>
-            <a class="lnk-menu" href="#">Competition</a> 
+            <a class="lnk-menu" href="#">Competition</a>
             <div class="cbp-hrsub sub-little">
               <div class="cbp-hrsub-inner">
                 <div class="content-sub-menu">
                   <ul class="menu-pages">
                     <li>
                       <a href="{{ action('RegisterController@index',1) }}" ><span>Futsal</span></a>
-                      
+
                     </li>
                     <li><a href="{{ action('RegisterController@index',2) }}"><span>Basket</span></a></li>
                     <li><a href="{{ action('RegisterController@index',3) }}"><span>Bulu Tangkis</span></a></li>
@@ -155,7 +155,7 @@
             </div>
           </li>
           <li><a class="lnk-menu" href="{{ action('NewsUserController@index') }}">News</a></li>
-          <li><a class="lnk-menu" href="{{ url('/contact') }}">Contact</a></li>
+          <li><a class="lnk-menu" href="{{ action('ContactController@index') }}">Contact</a></li>
         </ul>
       </nav>
     </div>

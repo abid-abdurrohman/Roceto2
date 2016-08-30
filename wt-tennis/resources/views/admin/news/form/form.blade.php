@@ -34,7 +34,7 @@
   </div>
   <div class="col-md-4">
     <div class="form-group">
-      <label for="exampleInputFile">Tag :</label>
+      <label for="exampleInputFile">Tag :</label><br>
       <!-- {!! Form::text('tag', null, ['class' => 'form-control input-md', 'placeholder' => 'Separate Tags with a (,)',
       'required'],'') !!} -->
       {!! Form::select('tag_list[]', $tags, null, ['id' => 'tag_list', 'class' => 'form-control input-md', 'multiple', 'required'],'') !!}
@@ -51,7 +51,7 @@
 </div>
 
 @section('footer')
-  <script>
+  <script type="text/javascript">
     $('#tag_list').select2();
   </script>
 @endsection

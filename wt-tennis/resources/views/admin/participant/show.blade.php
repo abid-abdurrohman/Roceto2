@@ -64,7 +64,7 @@
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Nama Kategori</th>
+                                                <th>Nama Member</th>
                                                 <th>Created At</th>
                                                 <th>Updated At</th>
                                                 <th colspan="2">Action</th>

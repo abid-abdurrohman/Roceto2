@@ -19,8 +19,8 @@
                     <div class="panel panel-default">
                         <div class="panel-heading"><h3 class="panel-title">Edit {{ $gallery->nama }}</h3></div>
                         <div class="panel-body">
-                            {!! Form::model($gallery, ['method' => 'PATCH', 'action' => ['GalleryController@update', $gallery->id]
-                            , 'class'=>'form-horizontal']) !!}
+                            {!! Form::model($gallery, ['method' => 'PATCH', 'action' => ['GalleryController@update', $gallery->id],
+                            'files' => true, 'class'=>'form-horizontal']) !!}
                                 @include('admin/gallery/form/form', ['submit_text' => 'Edit Gallery'])
                             {!! Form::close() !!}
                         </div> <!-- panel-body -->

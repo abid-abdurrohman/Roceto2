@@ -1,5 +1,4 @@
 <?php
-use Illuminate\Support\Facades\Mail;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -15,12 +14,6 @@ use Illuminate\Support\Facades\Mail;
 Route::get('', 'HomeController@index');
 
 Route::get('home', 'HomeController@index');
-
-Route::get('/mail', function (){
-    Mail::send('emails.welcome', ['name' => 'Annisa Gusviany M.S'], function($message){
-      $message->to('maudyannisa@gmail.com')->from('muhammadabdurrohman1995@gmail.com')->subject('Welcome!');
-    });
-});
 
 Route::get('admin/logout', 'Auth\AuthController@getLogout');
 
@@ -51,10 +44,9 @@ Route::get('/bagan', function() {
 Route::get('/results', function () {
     return view('results.results');
 });
-Route::get('/contact', function () {
-    return view('contact.contact');
-});
 
+Route::get('contact', 'ContactController@index');
+Route::post('contact', 'ContactController@store');
 
 /*link news*/
 Route::get('news', 'NewsUserController@index');

@@ -16,8 +16,8 @@ class GalleryUserController extends Controller
     public function index()
     {
     	$events = Event::all();
-    	$kategori = Gallery::where('event_id');
-    	return view('gallery.gallery', compact('events', 'kategori'));
+    	$photos = Gallery::all();
+    	return view('gallery.gallery', compact('events', 'photos'));
     }
 
 }
