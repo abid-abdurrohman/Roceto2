@@ -38,15 +38,15 @@
               <p class="data-news-pg">{!!str_limit($newss->deskripsi, 350) !!}.</p>
               <div><a href="single_news.html" class="ready-news" style="height:52px">Read</a></div>
             </li>
-          @endforeach            
+          @endforeach
           </ul>
         </div> -->
 
         <!--Open comment-->
         <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-        <div class="container" style="margin-top:50px" >
-          <div class="col-sm-8">
-            <div class="panel panel-white post panel-shadow"> 
+        <div class="row" style="margin-top:80px" >
+          <div class="col-sm-12">
+            <div class="panel panel-white post panel-shadow">
               <div class="post-footer">
                 <ul class="comments-list">
                   <li class="comment">
@@ -54,7 +54,7 @@
                     <a class="pull-left" href="#">
                       <img class="avatar" src="http://bootdey.com/img/Content/user_1.jpg" alt="avatar">
                     </a>
-                    <div class="stats">  
+                    <div class="stats">
                       <div class="comment-body">
                         <div class="comment-heading">
                           <h4 class="user">Gavino Free</h4>
@@ -86,10 +86,10 @@
                             <p>Ok, cool.</p>
                           </div>
                           <hr>
-                        <div class="input-group"> 
+                        <div class="input-group">
                           <input class="form-control" placeholder="Add a comment" type="text">
                           <span class="input-group-addon">
-                            <a href="#"><i class="fa fa-edit"></i></a>  
+                            <a href="#"><i class="fa fa-edit"></i></a>
                           </span>
                         </div>
                     </li>
@@ -99,8 +99,9 @@
             </div>
           </div>
 <!--Close comment-->
-        
+
       </div><!--Close Top Match-->
+
       <div class="col-md-3 right-column">
        <div class="top-score-title col-md-12 right-title">
         <h3>Latest News</h3>
@@ -124,7 +125,7 @@
         <img src="http://placehold.it/1000x475" alt="" />
       </div>
       <div class="top-score-title col-md-12 right-title">
-        <h3>Photos</h3> 
+        <h3>Photos</h3>
         <ul class="right-last-photo">
           <li>
             <div class="jm-item second">
@@ -136,7 +137,7 @@
                       <i class="fa fa-plus"></i>
                     </div>
                   </div>
-                </div>  
+                </div>
               </div>
             </div>
           </li>
@@ -150,7 +151,7 @@
                       <i class="fa fa-plus"></i>
                     </div>
                   </div>
-                </div>  
+                </div>
               </div>
             </div>
           </li>
@@ -164,7 +165,7 @@
                       <i class="fa fa-plus"></i>
                     </div>
                   </div>
-                </div>  
+                </div>
               </div>
             </div>
           </li>
@@ -178,7 +179,7 @@
                       <i class="fa fa-plus"></i>
                     </div>
                   </div>
-                </div>  
+                </div>
               </div>
             </div>
           </li>
@@ -192,7 +193,7 @@
                       <i class="fa fa-plus"></i>
                     </div>
                   </div>
-                </div>  
+                </div>
               </div>
             </div>
           </li>
@@ -206,7 +207,7 @@
                       <i class="fa fa-plus"></i>
                     </div>
                   </div>
-                </div>  
+                </div>
               </div>
             </div>
           </li>
@@ -220,7 +221,7 @@
                       <i class="fa fa-plus"></i>
                     </div>
                   </div>
-                </div>  
+                </div>
               </div>
             </div>
           </li>
@@ -234,7 +235,7 @@
                       <i class="fa fa-plus"></i>
                     </div>
                   </div>
-                </div>  
+                </div>
               </div>
             </div>
           </li>
@@ -248,7 +249,7 @@
                       <i class="fa fa-plus"></i>
                     </div>
                   </div>
-                </div>  
+                </div>
               </div>
             </div>
           </li>

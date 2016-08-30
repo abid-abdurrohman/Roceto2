@@ -83,65 +83,6 @@
 
     <div class="box-menu">
 
-      <nav id="cbp-hrmenu" class="cbp-hrmenu">
-        <ul id="menu">
-          <li><a class="lnk-menu active" href="{{ url('/') }}">Home</a></li>
-          <li>
-            <a class="lnk-menu" href="#">Competition</a>
-            <div class="cbp-hrsub sub-little">
-              <div class="cbp-hrsub-inner">
-                <div class="content-sub-menu">
-                  <ul class="menu-pages">
-                    <li>
-                      <a href="{{ action('RegisterController@index',1) }}" ><span>Futsal</span></a>
-
-                    </li>
-                    <li><a href="{{ action('RegisterController@index',2) }}"><span>Basket</span></a></li>
-                    <li><a href="{{ action('RegisterController@index',3) }}"><span>Bulu Tangkis</span></a></li>
-                    <li><a href="{{ action('RegisterController@index',4) }}"><span>Voli</span></a></li>
-                    <li><a href="{{ action('RegisterController@index',5) }}"><span>Berenang</span></a></li>
-                    <li><a href="{{ action('RegisterController@index',6) }}"><span>Marathon</span></a></li>
-                    <li><a href="{{ action('RegisterController@index',7) }}"><span>Catur</span></a></li>
-                    <li><a href="{{ action('RegisterController@index',8) }}"><span>Lompat Tinggi</span></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <a class="lnk-menu" href="#">Participant</a>
-            <div class="cbp-hrsub sub-little">
-              <div class="cbp-hrsub-inner">
-                <div class="content-sub-menu">
-                  <ul class="menu-pages">
-                    <li><a href="{{ url('/tim') }}"><span>Tim</span></a></li>
-                    <li><a href="{{ url('/individual') }}"><span>Single Player</span></a></li>
-                    <li><a href="{{ action('GalleryUserController@index') }}"><span>Gallery</span></a></li>
-                    <li><a href="{{ url('/video') }}"><span>Video</span></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <a class="lnk-menu" href="#">Events</a>
-            <div class="cbp-hrsub sub-little">
-              <div class="cbp-hrsub-inner">
-                <div class="content-sub-menu">
-                  <ul class="menu-pages">
-                    <li><a href="{{ url('/match')}}"><span>Points</span></a></li>
-                    <li><a href="{{ url('/jadwal') }}"><span>Schedule</span></a></li>
-                    <li><a href="{{ url('/bagan') }}"><span>Bracket</span></a></li>
-                    <li><a href="{{ url('/results') }}"><span>Results</span></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li><a class="lnk-menu" href="{{ action('NewsUserController@index') }}">News</a></li>
-          <li><a class="lnk-menu" href="{{ action('ContactController@index') }}">Contact</a></li>
-        </ul>
-      </nav>
       <div class="bt-menu"><a href="#" class="menu"><span>&equiv;</span> Menu</a></div>
       <div class="box-menu">
         <nav id="cbp-hrmenu" class="cbp-hrmenu">
@@ -193,6 +134,7 @@
                   <li>
                     <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'tim' ? 'active' : null }}" data-toggle="dropdown"> PARTICIPANT <b class="caret"></b></a>
                     <ul class="dropdown-menu">
+                      <li class="divider"></li>
                       <li><a href="{{ url('/tim') }}"><span>Tim</span></a></li>
                       <li class="divider"></li>
                       <li><a href="{{ url('/individual') }}"><span>Single Player</span></a></li>
@@ -200,11 +142,13 @@
                       <li><a href="{{ action('GalleryUserController@index') }}"><span>Gallery</span></a></li>
                       <li class="divider"></li>
                       <li><a href="{{ url('/video') }}"><span>Video</span></a></li>
+                      <li class="divider"></li>
                     </ul>
                   </li>
                   <li>
                     <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'events' ? 'active' : null }}" data-toggle="dropdown"> EVENTS <b class="caret"></b></a>
                     <ul class="dropdown-menu">
+                      <li class="divider"></li>
                       <li><a href="{{ url('/match')}}"><span>Points</span></a></li>
                       <li class="divider"></li>
                       <li><a href="{{ url('/jadwal') }}"><span>Schedule</span></a></li>
@@ -212,6 +156,7 @@
                       <li><a href="{{ url('/bagan') }}"><span>Bracket</span></a></li>
                       <li class="divider"></li>
                       <li><a href="{{ url('/results') }}"><span>Results</span></a></li>
+                      <li class="divider"></li>
                     </ul>
                   </li>
                    <li><a class="lnk-menu {{ Request::segment(1) === 'news' ? 'active' : null }}" href="{{ action('NewsUserController@index') }}"> NEWS </a></li>
