@@ -21,7 +21,7 @@
        <div class="col-md-6 content-desc-zoom">
          <h3>Pertandingan Basket</h3>
          <p class="desc-prod" style="text-align:justify">
-           <b>Bola basket</b> adalah olahraga bola berkelompok yang terdiri atas dua tim beranggotakan masing-masing lima orang yang saling bertanding mencetak poin dengan memasukkan bola ke dalam keranjang lawan. Bola basket sangat cocok untuk ditonton karena biasa dimainkan di ruang olahraga tertutup dan hanya memerlukan lapangan yang relatif kecil. Selain itu, permainan bola basket juga lebih kompetitif karena tempo permainan cenderung lebih cepat jika dibandingkan dengan olahraga bola yang lain, seperti voli dan sepak bola. </p>
+           <b>Bola basket</b> {{ $event->detail }}</p>
        </div>
     </div>
 

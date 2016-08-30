@@ -28,7 +28,7 @@
           @endunless
           </div>
 
-          <div class="other-news">
+          <!-- <div class="other-news">
            <h3>Other <span>News</span><span class="point-little">.</span></h3>
            <ul id="product" class="bxslider">
            @foreach($other_news as $newss )
@@ -40,33 +40,65 @@
             </li>
           @endforeach            
           </ul>
-        </div>
+        </div> -->
 
-        <div class="top-score-title l-comment">
-          <h3>LEAVE A <span>COMMENT</span><span class="point-little">.</span></h3>
-          <div class="col-md-12 login-page">
-            <form method="post" class="register-form">         
+        <!--Open comment-->
+        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+        <div class="container" style="margin-top:50px" >
+          <div class="col-sm-8">
+            <div class="panel panel-white post panel-shadow"> 
+              <div class="post-footer">
+                <ul class="comments-list">
+                  <li class="comment">
 
-              <div class="name">
-                <label for="name">* Name:</label><div class="clear"></div>
-                <input id="Text2" name="name" type="text" placeholder="e.g. Mr. John" required=""/>
+                    <a class="pull-left" href="#">
+                      <img class="avatar" src="http://bootdey.com/img/Content/user_1.jpg" alt="avatar">
+                    </a>
+                    <div class="stats">  
+                      <div class="comment-body">
+                        <div class="comment-heading">
+                          <h4 class="user">Gavino Free</h4>
+                          <h5 class="time">5 minutes ago</h5>
+                        </div>
+                        <p>Sure, oooooooooooooooohhhhhhhhhhhhhhhh</p>
+                      </div>
+                    </div>
+                      <hr>
+                    <a class="pull-left" href="#">
+                            <img class="avatar" src="http://bootdey.com/img/Content/user_3.jpg" alt="avatar">
+                          </a>
+                          <div class="comment-body">
+                            <div class="comment-heading">
+                              <h4 class="user">Ryan Haywood</h4>
+                              <h5 class="time">3 minutes ago</h5>
+                            </div>
+                            <p>Relax my friend</p>
+                          </div>
+                          <hr>
+                           <a class="pull-left" href="#">
+                            <img class="avatar" src="http://bootdey.com/img/Content/user_2.jpg" alt="avatar">
+                          </a>
+                          <div class="comment-body">
+                            <div class="comment-heading">
+                              <h4 class="user">Gavino Free</h4>
+                              <h5 class="time">3 minutes ago</h5>
+                            </div>
+                            <p>Ok, cool.</p>
+                          </div>
+                          <hr>
+                        <div class="input-group"> 
+                          <input class="form-control" placeholder="Add a comment" type="text">
+                          <span class="input-group-addon">
+                            <a href="#"><i class="fa fa-edit"></i></a>  
+                          </span>
+                        </div>
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <div class="name">
-                <label for="email">* Email:</label><div class="clear"></div>
-                <input id="email" name="email" type="text" placeholder="e.g. Mr. Doe" required=""/>
-              </div>
-              <div class="message">
-                <label for="message"> Message:</label>
-                <textarea name="messagetext" class="txt-area" id="message" cols="30" rows="4"></textarea>
-              </div>
-              <div id="register-submit">
-                <input type="submit" value="Submit"/>
-              </div>
-            </form>
-            
+            </div>
           </div>
-          
-        </div><!--Close comment-->
+<!--Close comment-->
         
       </div><!--Close Top Match-->
       <div class="col-md-3 right-column">
