@@ -59,6 +59,7 @@ Route::get('/contact', function () {
 /*link news*/
 Route::get('news', 'NewsUserController@index');
 Route::get('news/{slug}', 'NewsUserController@show');
+Route::post('comment/{id}', 'CommentUserController@store');
 
 /*link gallery*/
 Route::get('gallery', 'GalleryUserController@index');

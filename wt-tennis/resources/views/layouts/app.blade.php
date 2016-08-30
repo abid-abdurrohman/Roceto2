@@ -210,9 +210,8 @@
       <div class="col-md-3">
        <h3>Last News</h3>
        <ul class="footer-last-news">
-        <li><img src="http://placehold.it/320x213" alt="" /><p>Fusce risus metus, placerat in consectetur eu...</p></li>
-        <li><img src="http://placehold.it/320x213" alt="" /><p>Fusce risus metus, placerat in consectetur eu...</p></li>
-        <li><img src="http://placehold.it/320x213" alt="" /><p>Fusce risus metus, placerat in consectetur eu...</p></li>
+       @foreach($news as $newss)
+        <li><img src="{!! asset('').'/'.$newss->thumbnail !!}" alt="" /><p>Fusce risus metus, placerat in consectetur eu...</p></li>
       </ul>
     </div>
     <div class="col-md-3 footer-newsletters">

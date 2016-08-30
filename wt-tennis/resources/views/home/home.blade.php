@@ -31,55 +31,15 @@
      <section class="news_slide-over-color">
           <div class="news_slide-over"></div>
            <div class="container">
-
-             <!-- <div class="col-xs-12 col-md-12 top-first-info">
-               <div class="col-md-4">
-                     <section class="slider">
-                            <div id="slider" class="flexslider flexslider-attachments">
-                                <ul class="slides">
-                                    <li data-thumb="images/slider/mini-slider/thumb1.jpg"><img src="http://placehold.it/1024x700" alt=""/></li>
-                                    <li data-thumb="images/slider/mini-slider/thumb2.jpg"><img src="http://placehold.it/1024x700" alt=""/></li>
-                                    <li data-thumb="images/slider/mini-slider/thumb3.jpg"><img src="http://placehold.it/1024x700" alt=""/></li>
-                                </ul>
-                            </div>
-                            <div class="slide-news-bottom"><a href="#">Slide News</a><a class="i-ico" href="#"><i class="fa fa-angle-double-right"></i></a></div>
-                     </section>
-                </div>
-                <div class="col-md-4">
-                     <img src="http://placehold.it/1024x700" alt=""/>
-                     <div class="slide-news-bottom"><a href="#">Atp Europe Tour</a><a class="i-ico" href="#"><i class="fa fa-angle-double-right"></i></a></div>
-                </div>
-                <div class="col-md-4">
-                     <img src="http://placehold.it/1024x700" alt=""/>
-                     <div class="slide-news-bottom"><a href="#">Wtp Tokyo Stadium</a><a class="i-ico" href="#"><i class="fa fa-angle-double-right"></i></a></div>
-                </div>
-             </div> -->
-
+            @foreach($news as $newss)
              <div class="col-xs-12 col-md-12 top-slide-info">
               <div class="col-xs-6 col-md-6">
-                <div class="col-md-4 slide-cont-img"><a href="{{ url('/news') }}"><img class="scale_image" src="http://placehold.it/614x428" alt=""/><i class="fa fa-video-camera"></i></a></div>
-                <div class="event_date dd-date">May 01, 2014 5:50 am <div class="post_theme">Exlusive</div></div><h4> Stay Ahead of the curve</h4>
-                <p>Quisque gravida libero sodales augue luctus elementum. In tristique faucibus diam, sit amet ultrices erat porttitor ut. Phasellus sit amet lorem sit amet orci lobortis mattis. Nulla venenatis, quam vitae pellentesque sollicitudin.</p>
+                <div class="col-md-4 slide-cont-img"><a href="{{ url('/news') }}"><img class="scale_image" src="{!! asset('').'/'.$newss->thumbnail !!}" alt=""/></a></div>
+                <div class="event_date dd-date">May 01, 2014 5:50 am <div class="post_theme">Exlusive</div></div><h4> {{ $newss->judul }}</h4>
+                <p>{!! str_limit($newss->deskripsi, 350) !!}</p>
               </div>
-              <div class="col-xs-6 col-md-6">
-                <div class="col-md-4 slide-cont-img"><a href="{{ url('/news') }}"><img class="scale_image" src="http://placehold.it/614x428" alt=""/><i class="fa fa-picture-o"></i></a></div>
-                <div class="event_date dd-date">May 01, 2014 5:50 am <div class="post_theme">Interview</div></div><h4> Stay Ahead of the curve</h4>
-                <p>Quisque gravida libero sodales augue luctus elementum. In tristique faucibus diam, sit amet ultrices erat porttitor ut. Phasellus sit amet lorem sit amet orci lobortis mattis. Nulla venenatis, quam vitae pellentesque sollicitudin.</p>
-
-              </div>
-              <div class="col-xs-6 col-md-6 box-top-txt">
-                <div class="col-md-4 slide-cont-img"><a href="{{ url('/news') }}"><img class="scale_image" src="http://placehold.it/614x428" alt=""/><i class="fa fa-picture-o"></i></a></div>
-                <div class="event_date dd-date">May 01, 2014 5:50 am</div><h4> Stay Ahead of the curve</h4>
-                <p>Quisque gravida libero sodales augue luctus elementum. In tristique faucibus diam, sit amet ultrices erat porttitor ut. Phasellus sit amet lorem sit amet orci lobortis mattis. Nulla venenatis, quam vitae pellentesque sollicitudin.</p>
-
-              </div>
-              <div class="col-xs-6 col-md-6 box-top-txt">
-                <div class="col-md-4 slide-cont-img"><a href="{{ url('/news') }}"><img class="scale_image" src="http://placehold.it/614x428" alt=""/><i class="fa fa-video-camera"></i></a></div>
-                <div class="event_date dd-date">May 01, 2014 5:50 am</div><h4> Stay Ahead of the curve</h4>
-                <p>Quisque gravida libero sodales augue luctus elementum. In tristique faucibus diam, sit amet ultrices erat porttitor ut. Phasellus sit amet lorem sit amet orci lobortis mattis. Nulla venenatis, quam vitae pellentesque sollicitudin.</p>
-
-              </div>
-             </div>
+            </div>
+            @endforeach
            </div>
      </section>
 

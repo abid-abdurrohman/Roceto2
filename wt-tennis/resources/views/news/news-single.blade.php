@@ -18,6 +18,8 @@
       <div class="data-news-pg">
         <p>{!! $news->deskripsi !!}</p>
       </div>
+
+      <div class="row" style>
       <p class="desc_news important_news data">by {{ $news->author }}<i class="fa fa-calendar"></i>{{ $news->created_at }} - Depok, Indonesia</p>
           <div class="tab_news">
           @unless ($news->tags->isEmpty())
@@ -26,6 +28,7 @@
                 <a href="#" class="tag">{{ $tag->nama }}</a>
               @endforeach
           @endunless
+          </div>
           </div>
 
           <!-- <div class="other-news">
@@ -44,8 +47,8 @@
 
         <!--Open comment-->
         <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-        <div class="container" style="margin-top:50px" >
-          <div class="col-sm-8">
+        <div class="row" style="margin-top:80px" >
+          <div class="col-sm-12">
             <div class="panel panel-white post panel-shadow"> 
               <div class="post-footer">
                 <ul class="comments-list">
@@ -86,12 +89,15 @@
                             <p>Ok, cool.</p>
                           </div>
                           <hr>
+                         {!! Form::model(new App\Model\Comment, ['action' => ['CommentUserController@store', $news->id], 'class'=>'form-horizontal']) !!}
                         <div class="input-group"> 
-                          <input class="form-control" placeholder="Add a comment" type="text">
+                        {!! Form::textarea('comment', null, ['class' => 'form-control', 'rows' => '5',
+        'placeholder' => 'Add a Comment', 'required'],'') !!}
                           <span class="input-group-addon">
-                            <a href="#"><i class="fa fa-edit"></i></a>  
+                            <button type="submit"><i class="fa fa-edit"> </i></button>  
                           </span>
                         </div>
+                       {!! Form::close() !!}
                     </li>
                   </ul>
                 </div>
