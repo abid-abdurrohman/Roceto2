@@ -37,6 +37,7 @@
   <link href="{{ URL::asset('css/responsive.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ URL::asset('css/animate.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ URL::asset('css/submenu.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ URL::asset('css/comments.css') }}" rel="stylesheet" type="text/css" />
 
   <!-- Waves-effect -->
   <link href="{{ URL::asset('admin_asset/css/waves-effect.css') }}" rel="stylesheet">
@@ -85,83 +86,47 @@
                   <li><a class="lnk-menu {{ Request::segment(1) === 'home' ? 'active' : null }}" href="{{ action('HomeController@index') }}">HOME</a>
                   </li>
                   <li>
-                    <a href="#" class="dropdown-toggle lnk-menu" data-toggle="dropdown"> COMPETITION <b class="caret"></b></a>
+                  <?php
+                    $konek = mysqli_connect('localhost', 'root','','eo_sport');
+                    if(!$konek){
+                      die('Could not Connect');
+                    }
+
+                    mysqli_select_db($konek ,'eo_sport');
+                    $sql = "SELECT * FROM events";
+                    $result = mysqli_query($konek, $sql);
+                  ?>
+                    <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'register' ? 'active' : null }}" data-toggle="dropdown"> COMPETITION <b class="caret"></b></a>
                     <ul class="dropdown-menu multi-level">
+                    <li class="divider"></li>
+                    <?php
+                      while ($events = mysqli_fetch_array($result)) {
+                    ?>
                       <li class="dropdown-submenu">
-                        <a class="dropdown-toggle" data-toggle="dropdown">BASKET</a>
+                        <a class="dropdown-toggle" data-toggle="dropdown"> {{ $events['nama'] }}</a>
                         <ul class="dropdown-menu">
-                          <li><a href="{{ action('RegisterController@index',1) }}" ><span>Group</span></a></li>
+                        <?php
+                          $id = $events['id'];
+                          $sql1 = "SELECT * FROM categories WHERE event_id = $id";
+                          $result1 = mysqli_query($konek, $sql1);
+                          while ($categories = mysqli_fetch_array($result1)) {
+                        ?>
                           <li class="divider"></li>
-                          <li><a href="{{ action('RegisterController@index',2) }}" ><span>Individu</span></a></li>
+                          <li><a href="{{ action('RegisterController@index',$categories['id']) }}" ><span>{{ $categories['nama'] }}</span></a></li>
+                          <li class="divider"></li>
+                        <?php 
+                          }
+                        ?>
                         </ul>
                       </li> 
                       <li class="divider"></li>
-                      <li class="dropdown-submenu">
-                        <a class="dropdown-toggle" data-toggle="dropdown">BASKET</a>
-                        <ul class="dropdown-menu">
-                          <li><a href="{{ action('RegisterController@index',3) }}" ><span>Group</span></a></li>
-                          <li class="divider"></li>
-                          <li><a href="{{ action('RegisterController@index',4) }}" ><span>Individu</span></a></li>
-                        </ul>
-                      </li>
-                      <li class="divider"></li>
-                      <li class="dropdown-submenu">
-                        <a class="dropdown-toggle" data-toggle="dropdown">BULU TANGKIS</a>
-                        <ul class="dropdown-menu">
-                          <li><a href="{{ action('RegisterController@index',5) }}" ><span>Group</span></a></li>
-                          <li class="divider"></li>
-                          <li><a href="{{ action('RegisterController@index',6) }}" ><span>Individu</span></a></li>
-                        </ul>
-                      </li>
-                      <li class="divider"></li>
-                      <li class="dropdown-submenu">
-                        <a class="dropdown-toggle" data-toggle="dropdown">VOLI</a>
-                        <ul class="dropdown-menu">
-                          <li><a href="{{ action('RegisterController@index',7) }}" ><span>Group</span></a></li>
-                          <li class="divider"></li>
-                          <li><a href="{{ action('RegisterController@index',8) }}" ><span>Individu</span></a></li>
-                        </ul>
-                      </li>
-                      <li class="divider"></li>
-                      <li class="dropdown-submenu">
-                        <a class="dropdown-toggle" data-toggle="dropdown">BERENANG</a>
-                        <ul class="dropdown-menu">
-                          <li><a href="{{ action('RegisterController@index',9) }}" ><span>Group</span></a></li>
-                          <li class="divider"></li>
-                          <li><a href="{{ action('RegisterController@index',10) }}" ><span>Individu</span></a></li>
-                        </ul>
-                      </li>
-                      <li class="divider"></li>
-                      <li class="dropdown-submenu">
-                        <a class="dropdown-toggle" data-toggle="dropdown">MARATHON</a>
-                        <ul class="dropdown-menu">
-                          <li><a href="{{ action('RegisterController@index',11) }}" ><span>Group</span></a></li>
-                          <li class="divider"></li>
-                          <li><a href="{{ action('RegisterController@index',12) }}" ><span>Individu</span></a></li>
-                        </ul>
-                      </li>
-                      <li class="divider"></li>
-                      <li class="dropdown-submenu">
-                        <a class="dropdown-toggle" data-toggle="dropdown">CATUR</a>
-                        <ul class="dropdown-menu">
-                          <li><a href="{{ action('RegisterController@index',13) }}" ><span>Group</span></a></li>
-                          <li class="divider"></li>
-                          <li><a href="{{ action('RegisterController@index',14) }}" ><span>Individu</span></a></li>
-                        </ul>
-                      </li>
-                      <li class="divider"></li>
-                     <li class="dropdown-submenu">
-                        <a class="dropdown-toggle" data-toggle="dropdown">LOMPAT TINGGI</a>
-                        <ul class="dropdown-menu">
-                          <li><a href="{{ action('RegisterController@index',7) }}" ><span>Group</span></a></li>
-                          <li class="divider"></li>
-                          <li><a href="{{ action('RegisterController@index',8) }}" ><span>Individu</span></a></li>
-                        </ul>
-                      </li>
+                    <?php
+                      }
+                    ?>
                     </ul>
                   </li>
                   <li>
-                    <a href="#" class="dropdown-toggle lnk-menu" data-toggle="dropdown"> PARTICIPANT <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'tim' ? 'active' : null }}" data-toggle="dropdown"> PARTICIPANT <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                       <li><a href="{{ url('/tim') }}"><span>Tim</span></a></li>
                       <li class="divider"></li>
@@ -173,7 +138,7 @@
                     </ul>
                   </li>
                   <li>
-                    <a href="#" class="dropdown-toggle lnk-menu" data-toggle="dropdown"> EVENTS <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'events' ? 'active' : null }}" data-toggle="dropdown"> EVENTS <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                       <li><a href="{{ url('/match')}}"><span>Points</span></a></li>
                       <li class="divider"></li>
@@ -184,8 +149,8 @@
                       <li><a href="{{ url('/results') }}"><span>Results</span></a></li>
                     </ul>
                   </li>
-                   <li><a class="lnk-menu {{ Request::segment(1) === 'news' ? 'active' : null }}" href="{{ action('NewsUserController@index') }}">News</a></li>
-                  <li><a class="lnk-menu {{ Request::segment(1) === 'contact' ? 'active' : null }}" href="{{ url('/contact') }}">Contact</a></li>
+                   <li><a class="lnk-menu {{ Request::segment(1) === 'news' ? 'active' : null }}" href="{{ action('NewsUserController@index') }}"> NEWS </a></li>
+                  <li><a class="lnk-menu {{ Request::segment(1) === 'contact' ? 'active' : null }}" href="{{ url('/contact') }}">CONTACT</a></li>
                     </ul>
                   </li>
                 </ul>
