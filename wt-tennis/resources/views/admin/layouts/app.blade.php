@@ -212,11 +212,7 @@
                             </li>
 
                             <li>
-<<<<<<< HEAD
                                 <a href="{{ action('CategoryMatchController@index') }}" class="waves-effect"><i class="md md-home"></i><span> Match </span></a>
-=======
-                                <a href="{{ action('MatchController@index') }}" class="waves-effect"><i class="ion-trophy"></i><span> Match </span></a>
->>>>>>> d4f5b024e8873f53c5182827c479b6c864847b4f
                             </li>
 
                             <!-- <li class="has_sub">
