@@ -50,4 +50,51 @@
                 </div>
             </div> <!-- End Row -->
         </div> <!-- container -->
+        <div class="container">
+             @if ( !$news->comment->count() )
+                <h4>Belum memiliki kategori.</h4>
+            @else
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <table id="datatable" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Nama User</th>
+                                <th>Comment</th>
+                                <th>Created At</th>
+                                <th>Updated At</th>
+                                <th colspan="2">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach( $news->comment as $comment )
+                              <tr>
+                                  <td>{{ $comment->user_id }}</td>
+                                  <td>
+                                    <a href="{{ action('CommentController@show', [$news->id, $comment->id]) }}">
+                                      {{ $comment->comment }}
+                                    </a>
+                                  </td>
+                                  <td>{{ $comment->created_at }}</td>
+                                  <td>{{ $comment->updated_at }}</td>
+                                  <td>
+                                    <a href="{{ action('CommentController@edit', array($news->id, $comment->id)) }}">
+                                      <i class="fa fa-edit"></i> Edit
+                                    </a>
+                                  </td>
+                                  <td>
+                                    <a href="#" data-toggle="modal" data-target="#myModal-{{ $news->id }}-{{ $comment->id }}">
+                                      <i class="fa fa-trash"></i> Delete
+                                    </a>
+                                  </td>
+                              </tr>
+                              @include('admin.comment.modal.delete', ['id_event' => $news->id, 'id_comment' => $comment->id])
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            @endif
+            <a href="{{ action('CommentController@create', $news->id) }}" class="btn btn-primary waves-effect waves-light">Add <i class="fa fa-plus"></i></a>
+        </div>
 @endsection

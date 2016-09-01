@@ -18,7 +18,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading"><h3 class="panel-title">Create Gallery</h3></div>
                         <div class="panel-body">
-                            {!! Form::model(new App\Model\Gallery, ['action' => 'GalleryController@store', 'class'=>'form-horizontal']) !!}
+                            {!! Form::model(new App\Model\Gallery, ['action' => 'GalleryController@store', 'files' => true, 'class'=>'form-horizontal']) !!}
                                 @include('admin.gallery.form.form', ['submit_text' => 'Add Gallery'])
                             {!! Form::close() !!}
                         </div> <!-- panel-body -->

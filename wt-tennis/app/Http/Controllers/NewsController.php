@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\News;
 use App\Model\Tag;
+use App\Model\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests;
@@ -49,7 +50,6 @@ class NewsController extends Controller
             'deskripsi' => 'required'
         ]);
         $input = $request->all();
-
         $input['author'] = "Admin";
         $input['slug'] = str_slug($request->judul, '-');
 
@@ -75,7 +75,8 @@ class NewsController extends Controller
     public function show($slug)
     {
       $news = News::where('slug', $slug)->first();
-      return view('admin.news.show', compact('news'));
+      $comments = Comment::all();
+      return view('admin.news.show', compact('news', 'comments'));
     }
 
     /**
@@ -103,21 +104,20 @@ class NewsController extends Controller
     {
       $this->validate($request, [
         'judul' => 'required',
-        // 'thumbnail' => 'required',
-        // 'kategori' => 'required',
+        'thumbnail' => 'required',
+        'kategori' => 'required',
         'deskripsi' => 'required'
       ]);
+      $input = $request->all();
       $news = News::findOrFail($id);
 
-      $news['slug'] = str_slug($request->judul, '-');
+      $input['slug'] = str_slug($request->judul, '-');
+      $photo = $request->thumbnail->getClientOriginalName();
+      $destination = 'images/news/'.$request->kategori.'/';
+      $request->thumbnail->move($destination, $photo);
 
-      // $photo = $request->file('thumbnail')->getClientOriginalName();
-      // $destination = 'images/news/'.$request->kategori.'/';
-      // $request->thumbnail->move($destination, $photo);
-      //
-      // $news['thumbnail'] = $destination.$photo;
-
-      $news->update($request->all());
+      $input['thumbnail'] = $destination.$photo;
+      $news->update($input);
 
       $news->tags()->sync($request->input('tag_list'));
       return redirect()->action('NewsController@index')->with('info','News has been edited');

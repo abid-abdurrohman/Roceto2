@@ -19,7 +19,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading"><h3 class="panel-title">Edit {{ $news->nama }}</h3></div>
                         <div class="panel-body">
-                            {!! Form::model($news, ['method' => 'PATCH', 'action' => ['NewsController@update', $news->id], 'class'=>'form-horizontal']) !!}
+                            {!! Form::model($news, ['method' => 'PATCH', 'action' => ['NewsController@update', $news->id], 'files' => true, 'class'=>'form-horizontal']) !!}
                                 @include('admin/news/form/form', ['submit_text' => 'Edit News'])
                             {!! Form::close() !!}
                         </div> <!-- panel-body -->

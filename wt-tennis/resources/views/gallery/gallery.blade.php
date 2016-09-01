@@ -1,70 +1,37 @@
 @extends('layouts.app')
 @section('content')
   <section class="drawer">
-            <div class="col-md-12 size-img back-img-video">
-               <div class="effect-cover">
-                    <h3 class="txt-advert animated">The best Tennis Action</h3>
-                    <p class="txt-advert-sub">Photo gallery with the best action in the tournament.</p>
-                </div>
-           </div>
-    
+          <div class="col-md-12 size-img back-img-video">
+             <div class="effect-cover">
+                  <h3 class="txt-advert animated">The best Tennis Action</h3>
+                  <p class="txt-advert-sub">Photo gallery with the best action in the tournament.</p>
+              </div>
+         </div>
+
     <section id="summary" class="container secondary-page">
       <div class="general general-results tournaments">
-           
+
            <div class="top-score-title right-score col-md-9">
                 <h3>Photo <span>Gallery</span><span class="point-little">.</span></h3>
                 <!-- Category Filter -->
 	                <dl class="group">
 		                <dd>
-			                <ul class="filter group albumFilter"> 
+			                <ul class="filter group albumFilter">
 				                <li data-filter="*" class="current"><a  href="#">ALL</a></li>
                                 @foreach($events as $event)
                                 <li data-filter=".cat{{ $event->id }}"><a  href="#">{{ $event->nama }}</a></li>
                                 @endforeach
-			                </ul> 
+			                </ul>
 		                </dd>
 	                </dl>
 
 	                <!-- Portfolio Items -->
 	                <ul class="portfolio group albumContainer">
-                        @foreach($kategori as $kat)
-		                <li class="item block cat2">
-			                <a href="http://placehold.it/1600x1000" rel="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Hannah 1" /></a>
+                        @foreach($photos as $photo)
+		                <li class="item block cat{{ $photo->event_id }}">
+			                <a href="{{ $photo->thumbnail }}" rel="prettyPhoto[portfolio]"><img src="{{ $photo->thumbnail }}"  alt="{{ $photo->judul }}" /></a>
 		                </li>
                         @endforeach
-		                <li class="item block cat1">
-			                <a href="http://placehold.it/1600x1000" rel="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Hair 1" /></a>
-		                </li>
-		                <li class="item block cat1">
-			                <a href="http://placehold.it/1600x1000" rel="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Hair 2" /></a>
-		                </li>
-		                <li class="item block cat3">
-			                <a href="http://placehold.it/1600x1000" rel="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Traction 1" /></a>
-		                </li>
-		                <li class="item block cat1 cat3">
-			                <a href="http://placehold.it/1600x1000" rel="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Traction 1" /></a>
-		                </li>
-		                <li class="item block hiphop">
-			                <a href="http://placehold.it/1600x1000" rel="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Beauty 2" /></a>
-		                </li>
-		                <li class="item block cat4">
-			                <a href="http://placehold.it/1600x1000" rel="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Wavelength 1" /></a>
-		                </li>
-		                <li class="item block cat4">
-			                <a href="http://placehold.it/1600x1000" rel="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, On Fire 1" /></a>
-		                </li>
-		                <li class="item block cat1">
-			                <a href="http://placehold.it/1600x1000" rel="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, On Fire 2" /></a>
-		                </li>
-		                <li class="item block cat1">
-			                <a href="http://placehold.it/1600x1000" rel="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Hair 3" /></a>
-		                </li>
-		                <li class="item block cat3">
-			                <a href="http://placehold.it/1600x1000" rel="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, On Fire 3" /></a>
-		                </li>
-		                <li class="item block cat3">
-			                <a href="http://placehold.it/1600x1000" rel="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Wavelength 2" /></a>
-		                </li>
 	                </ul>
            </div><!--Close Top Match-->
            @include('layouts.right-content')
@@ -101,7 +68,7 @@
 </script>
 <!--<script src="js/gallery/gallery.js" type="text/javascript"></script>-->
 <script src="js/gallery/isotope.js" type="text/javascript"></script>
-     
+
 <script type="text/javascript">
 
     $(window).load(function () {

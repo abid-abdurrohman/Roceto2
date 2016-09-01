@@ -47,11 +47,11 @@ class GalleryController extends Controller
         ]);
         $input = $request->all();
 
-        // $photo = $request->thumbnail->getClientOriginalName();
-        // $destination = 'images/gallery/'.$request->kategori.'/';
-        // $request->thumbnail->move($destination, $photo);
-        //
-        // $input['thumbnail'] = $destination.$photo;
+        $photo = $request->thumbnail->getClientOriginalName();
+        $destination = 'images/gallery/'.$request->kategori.'/';
+        $request->thumbnail->move($destination, $photo);
+
+        $input['thumbnail'] = $destination.$photo;
         $input['event_id'] = $request->kategori;
         Gallery::create($input);
         return redirect()->action('GalleryController@index')->with('success', 'Gallery has been created');
@@ -98,8 +98,16 @@ class GalleryController extends Controller
             'thumbnail' => 'required',
             'kategori' => 'required',
         ]);
+        $input = $request->all();
         $gallery = Gallery::findOrFail($id);
-        $gallery->update($request->all());
+
+        $photo = $request->thumbnail->getClientOriginalName();
+        $destination = 'images/gallery/'.$request->kategori.'/';
+        $request->thumbnail->move($destination, $photo);
+
+        $input['thumbnail'] = $destination.$photo;
+        $input['event_id'] = $request->kategori;
+        $gallery->update($input);
         return redirect()->action('GalleryController@index')->with('info','Event has been edited');
 
     }

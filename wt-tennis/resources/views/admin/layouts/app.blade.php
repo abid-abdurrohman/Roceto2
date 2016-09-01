@@ -196,23 +196,23 @@
                             </li>
 
                             <li>
-                                <a href="{{ action('ParticipantController@index') }}" class="waves-effect"><i class="md md-home"></i><span> Participant </span></a>
+                                <a href="{{ action('ParticipantController@index') }}" class="waves-effect"><i class="fa fa-user"></i><span> Participant </span></a>
                             </li>
 
                             <li>
-                                <a href="{{ action('EventController@index') }}" class="waves-effect"><i class="md md-home"></i><span> Events </span></a>
+                                <a href="{{ action('EventController@index') }}" class="waves-effect"><i class="fa fa-folder-open"></i><span> Events </span></a>
                             </li>
 
                             <li>
-                                <a href="{{ action('NewsController@index') }}" class="waves-effect"><i class="md md-home"></i><span> News </span></a>
+                                <a href="{{ action('NewsController@index') }}" class="waves-effect"><i class="fa fa-newspaper-o"></i><span> News </span></a>
                             </li>
 
                             <li>
-                                <a href="{{ action('GalleryController@index') }}" class="waves-effect"><i class="md md-home"></i><span> Gallery </span></a>
+                                <a href="{{ action('GalleryController@index') }}" class="waves-effect"><i class="fa fa-picture-o"></i><span> Gallery </span></a>
                             </li>
 
                             <li>
-                                <a href="{{ action('MatchController@index') }}" class="waves-effect"><i class="md md-home"></i><span> Match </span></a>
+                                <a href="{{ action('MatchController@index') }}" class="waves-effect"><i class="ion-trophy"></i><span> Match </span></a>
                             </li>
 
                             <!-- <li class="has_sub">

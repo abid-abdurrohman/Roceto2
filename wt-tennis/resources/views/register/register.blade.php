@@ -80,6 +80,7 @@
 
   </div><!--Close Top Match-->
 
+<!--right content-->
   @include('layouts.right-content')
 </section>
 

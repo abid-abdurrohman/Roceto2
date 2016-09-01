@@ -1,6 +1,4 @@
-@extends('admin.layouts.app')
-@section('title', 'Bracket Match')
-@section('content')
+
 	<script type="text/javascript" src="{{ URL::asset('admin_asset/bracket-generator/jquery-1.12.4.min.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('admin_asset/bracket-generator/jquery.bracket.min.js') }}"></script>
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('admin_asset/bracket-generator/jquery.bracket.min.css') }}" />
@@ -94,4 +92,3 @@
 		<div class="bracket-demo"></div>
 	</div>
 	<div id="dataOutput"></div>
-@endsection

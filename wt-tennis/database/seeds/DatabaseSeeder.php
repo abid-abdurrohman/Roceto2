@@ -12,8 +12,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Model::unguard(); 
+        Model::unguard();
         $this->call('AdminsTableSeeder');
         $this->call('TagsTableSeeder');
+        $this->call('EventsTableSeeder');
+        $this->call('CategoriesTableSeeder');
+        $this->call('UsersTableSeeder');
     }
 }

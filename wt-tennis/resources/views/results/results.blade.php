@@ -12,7 +12,7 @@
     
     <section id="summary" class="container secondary-page">
       <div class="general general-results">
-           <div id="rrResult" class="top-score-title right-score total-reslts col-md-9">
+           <div id="rrResult" class="top-score-title right-score total-reslts col-md-12">
                 <h3>Total <span>Scores</span><span class="point-little">.</span></h3>
                 <div class="cat-con-desc">
                 <img src="images/cup1.jpg" alt="" /><p class="news-title-right">The best result</p>
@@ -21,12 +21,25 @@
                 <p class="txt-right">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 </div>
-                <div class="main">
+           </div><!--Close Top Match-->
+
+            <div class="main">
                         <div class="tabs animated-slide-2">
                             <ul class="tab-links">
-                                <li class="active"><a href="#tab1111">ATP</a></li>
-                                <li><a href="#tab2222">WTA</a></li>
-                                <li><a href="#tab3333">ATP DBL</a></li>
+                              <?php
+                        $konek = mysqli_connect('localhost', 'root','','eo_sport');
+                        if(!$konek){
+                          die('Could not Connect');
+                        }
+
+                        mysqli_select_db($konek ,'eo_sport');
+                        $sql = "SELECT * FROM events";
+                        $result = mysqli_query($konek, $sql);
+
+                        while ($events = mysqli_fetch_array($result)) {
+                      ?>
+                                <li class="active"><a href="#tab1111">{{ $events['nama']}}</a></li>
+                               <?php }?> 
                             </ul>
                             <div class="tab-content">
                                 <div id="tab1111" class="tab active">
@@ -90,12 +103,99 @@
                                   <tr><td class="score-position">15.</td><td><a href="single_player.html">name15</a></td><td>-</td><td>1234</td></tr>
                                  </table>
                                 </div>
-                            </div>
+                                <div id="tab4444" class="tab">
+                                <table class="tab-score">
+                                <tr class="top-scrore-table"><td class="score-position">POS.</td><td>PLAYER</td><td>NAT.</td><td>POINTS</td></tr>
+                                  <tr><td class="score-position">1.</td><td><a href="single_player.html">Serena Fergus</a></td><td><img src="images/flags/usa.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">2.</td><td><a href="single_player.html">Simo PAatris</a></td><td><img src="images/flags/uk.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">3.</td><td><a href="single_player.html">Lea Sear</a></td><td><img src="images/flags/italy.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">4.</td><td><a href="single_player.html">Petra Bukova<span class="newrecord">New Record</span></a></td><td><img src="images/flags/denmark.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">5.</td><td><a href="single_player.html">Aga Subaru</a></td><td><img src="images/flags/uk.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">6.</td><td><a href="single_player.html">Maria Srapova</a></td><td><img src="images/flags/france.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">7.</td><td><a href="single_player.html">Anne Kerber</a></td><td><img src="images/flags/brazil.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">8.</td><td><a href="single_player.html">Eugenie Borard<span class="fastball">Fast Ball</span></a></td><td><img src="images/flags/spain.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">9.</td><td><a href="single_player.html">Ana Ivavic</a></td><td><img src="images/flags/germany.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">10.</td><td><a href="single_player.html">Jelena Janvic</a></td><td><img src="images/flags/czech.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">11.</td><td><a href="single_player.html">Caroline Woki</a></td><td><img src="images/flags/czech.png" alt="" /></td><td>1234</td></tr>
+                                 </table>
+                                </div>
+                                <div id="tab5555" class="tab">
+                                <table class="tab-score">
+                                <tr class="top-scrore-table"><td class="score-position">POS.</td><td>PLAYER</td><td>NAT.</td><td>POINTS</td></tr>
+                                  <tr><td class="score-position">1.</td><td><a href="single_player.html">name1</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">2.</td><td><a href="single_player.html">name2</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">3.</td><td><a href="single_player.html">name3</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">4.</td><td><a href="single_player.html">name4</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">5.</td><td><a href="single_player.html">name5</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">6.</td><td><a href="single_player.html">name6</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">7.</td><td><a href="single_player.html">name7</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">8.</td><td><a href="single_player.html">name8</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">9.</td><td><a href="single_player.html">name9</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">10.</td><td><a href="single_player.html">name10</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">11.</td><td><a href="single_player.html">name11</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">12.</td><td><a href="single_player.html">name12</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">13.</td><td><a href="single_player.html">name13</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">14.</td><td><a href="single_player.html">name14</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">15.</td><td><a href="single_player.html">name15</a></td><td>-</td><td>1234</td></tr>
+                                 </table>
+                                </div>
+                                <div id="tab6666" class="tab">
+                                <table class="tab-score">
+                                <tr class="top-scrore-table"><td class="score-position">POS.</td><td>PLAYER</td><td>NAT.</td><td>POINTS</td></tr>
+                                  <tr><td class="score-position">1.</td><td><a href="single_player.html">Serena Fergus</a></td><td><img src="images/flags/usa.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">2.</td><td><a href="single_player.html">Simo PAatris</a></td><td><img src="images/flags/uk.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">3.</td><td><a href="single_player.html">Lea Sear</a></td><td><img src="images/flags/italy.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">4.</td><td><a href="single_player.html">Petra Bukova<span class="newrecord">New Record</span></a></td><td><img src="images/flags/denmark.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">5.</td><td><a href="single_player.html">Aga Subaru</a></td><td><img src="images/flags/uk.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">6.</td><td><a href="single_player.html">Maria Srapova</a></td><td><img src="images/flags/france.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">7.</td><td><a href="single_player.html">Anne Kerber</a></td><td><img src="images/flags/brazil.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">8.</td><td><a href="single_player.html">Eugenie Borard<span class="fastball">Fast Ball</span></a></td><td><img src="images/flags/spain.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">9.</td><td><a href="single_player.html">Ana Ivavic</a></td><td><img src="images/flags/germany.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">10.</td><td><a href="single_player.html">Jelena Janvic</a></td><td><img src="images/flags/czech.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">11.</td><td><a href="single_player.html">Caroline Woki</a></td><td><img src="images/flags/czech.png" alt="" /></td><td>1234</td></tr>
+                                 </table>
+                                </div>
+                                <div id="tab7777" class="tab">
+                                <table class="tab-score">
+                                <tr class="top-scrore-table"><td class="score-position">POS.</td><td>PLAYER</td><td>NAT.</td><td>POINTS</td></tr>
+                                  <tr><td class="score-position">1.</td><td><a href="single_player.html">name1</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">2.</td><td><a href="single_player.html">name2</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">3.</td><td><a href="single_player.html">name3</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">4.</td><td><a href="single_player.html">name4</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">5.</td><td><a href="single_player.html">name5</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">6.</td><td><a href="single_player.html">name6</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">7.</td><td><a href="single_player.html">name7</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">8.</td><td><a href="single_player.html">name8</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">9.</td><td><a href="single_player.html">name9</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">10.</td><td><a href="single_player.html">name10</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">11.</td><td><a href="single_player.html">name11</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">12.</td><td><a href="single_player.html">name12</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">13.</td><td><a href="single_player.html">name13</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">14.</td><td><a href="single_player.html">name14</a></td><td>-</td><td>1234</td></tr>
+                                  <tr><td class="score-position">15.</td><td><a href="single_player.html">name15</a></td><td>-</td><td>1234</td></tr>
+                                 </table>
+                                </div>
+                                <div id="tab8888" class="tab">
+                                <table class="tab-score">
+                                <tr class="top-scrore-table"><td class="score-position">POS.</td><td>PLAYER</td><td>NAT.</td><td>POINTS</td></tr>
+                                  <tr><td class="score-position">1.</td><td><a href="single_player.html">Serena Fergus</a></td><td><img src="images/flags/usa.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">2.</td><td><a href="single_player.html">Simo PAatris</a></td><td><img src="images/flags/uk.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">3.</td><td><a href="single_player.html">Lea Sear</a></td><td><img src="images/flags/italy.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">4.</td><td><a href="single_player.html">Petra Bukova<span class="newrecord">New Record</span></a></td><td><img src="images/flags/denmark.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">5.</td><td><a href="single_player.html">Aga Subaru</a></td><td><img src="images/flags/uk.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">6.</td><td><a href="single_player.html">Maria Srapova</a></td><td><img src="images/flags/france.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">7.</td><td><a href="single_player.html">Anne Kerber</a></td><td><img src="images/flags/brazil.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">8.</td><td><a href="single_player.html">Eugenie Borard<span class="fastball">Fast Ball</span></a></td><td><img src="images/flags/spain.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">9.</td><td><a href="single_player.html">Ana Ivavic</a></td><td><img src="images/flags/germany.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">10.</td><td><a href="single_player.html">Jelena Janvic</a></td><td><img src="images/flags/czech.png" alt="" /></td><td>1234</td></tr>
+                                  <tr><td class="score-position">11.</td><td><a href="single_player.html">Caroline Woki</a></td><td><img src="images/flags/czech.png" alt="" /></td><td>1234</td></tr>
+                                 </table>
+                                </div>              
+                                
                             <div class="score-view-all"></div>
                         </div>
                     </div>
-           </div><!--Close Top Match-->
-           <!-- Right Column-->
-           @include('layouts.right-content')
-        </section>
+
+      </div>
+    </section>
 @endsection

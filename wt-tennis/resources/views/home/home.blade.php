@@ -31,15 +31,29 @@
      <section class="news_slide-over-color">
           <div class="news_slide-over"></div>
            <div class="container">
-            @foreach($news as $newss)
+            <?php
+              $konek = mysqli_connect('localhost', 'root','','eo_sport');
+              if(!$konek){
+                die('Could not Connect');
+              }
+
+              mysqli_select_db($konek ,'eo_sport');
+              $sql = "SELECT * FROM news ORDER BY created_at DESC LIMIT 4";
+              $result = mysqli_query($konek, $sql);
+            ?>
              <div class="col-xs-12 col-md-12 top-slide-info">
-              <div class="col-xs-6 col-md-6">
-                <div class="col-md-4 slide-cont-img"><a href="{{ url('/news') }}"><img class="scale_image" src="{!! asset('').'/'.$newss->thumbnail !!}" alt=""/></a></div>
-                <div class="event_date dd-date">May 01, 2014 5:50 am <div class="post_theme">Exlusive</div></div><h4> {{ $newss->judul }}</h4>
-                <p>{!! str_limit($newss->deskripsi, 350) !!}</p>
-              </div>
+             <?php
+                while ($news = mysqli_fetch_array($result)) {
+              ?>
+              <div class="col-xs-6 col-md-6" style="margin-bottom:20px">
+                <div class="col-md-4 slide-cont-img"><a href="{{ action('NewsUserController@show',$news['slug']) }}"><img class="scale_image" src="{!! asset('').'/'.$news['thumbnail'] !!}" alt=""/></a></div>
+                <div class="event_date dd-date">{!! $news['created_at'] !!} 
+                  <div class="post_theme">Exlusive</div>
+                </div><h4> {{ $news['judul'] }}</h4>
+                <p>{!! str_limit($news['deskripsi'], 350) !!}</p> 
+              </div>              
+              <?php } ?> 
             </div>
-            @endforeach
            </div>
      </section>
 
@@ -150,7 +164,8 @@
              </div><!--Close Top Match-->
            </div>
      </section>
-           <!--SECTION NEXT MATCH-->
+
+ <!--SECTION NEXT MATCH-->
      <section id="next-match">
            <div  class="container">
               <div class="next-match-news top-match col-xs-12 col-md-12">
@@ -215,95 +230,7 @@
             </div>
            </div>
      </section>
-
-
-          <!-- PARALLAX BLACK TENNIS-->
-     <section class="bbtxt-content">
-
-           <div class="container">
-                    <div class="col-xs-12 bbtxt-box">
-                        <h4><i class="fa fa-quote-left"></i>Tennis<span class="point-big">.</span> <span class="middle-txt">is the new black<span class="point-little">.</span></span><i class="fa fa-quote-right"></i></h4>
-                        <p class="subin">The best tennis tour around the europe step by step.</p>
-                        <div class="col-md-6 homevideo-top">
-                             <h3 class="home-video-title">Amazing Video</h3>
-                            <div class="col-md-12 homevideo">
-
-                                <div class="col-md-5 it-video">
-                                  <a href="{{ url('/video') }}"><img class="scale_image" src="http://placehold.it/624x428" alt=""/>
-                                  <i class="fa fa-video-camera"></i></a>
-                                </div>
-                                <div class="video-txt">
-                                   <div class="event_date_video">July 01, 2014 5:50 am</div>
-                                   <div class="post_theme video-post">Interview</div><h3>Neque porro quisquam</h3>
-                                   <p>Aliquam erat volutpat. So your content will always look good on any screen size like<br>
-                                        Tablet, Phones, Imac, Macbook &amp; all sort of devices. </p>
-                                </div>
-                            </div>
-                            <div class="col-md-12 homevideo">
-                                <div class="col-md-5 it-video">
-                                  <a href="{{ url('/video') }}"><img class="scale_image" src="http://placehold.it/624x428" alt=""/>
-                                  <i class="fa fa-video-camera"></i></a>
-                                </div>
-                                <div class="video-txt">
-                                    <div class="event_date_video">July 01, 2014 5:50 am</div>
-                                    <h3>Ante ipsum primis</h3>
-                                   <p>Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi.</p>
-                                </div>
-                            </div>
-                            <div class="col-md-12 homevideo">
-                                <div class="col-md-5 it-video">
-                                  <a href="{{ url('/video') }}"><img class="scale_image" src="http://placehold.it/624x428" alt=""/>
-                                  <i class="fa fa-video-camera"></i></a>
-                                </div>
-                                <div class="video-txt">
-                                    <div class="event_date_video">July 01, 2014 5:50 am</div>
-                                    <h3>Neque porro quisquam</h3>
-                                   <p>Etiam cursus leo vel metus. Nulla facilisi. Aenean nec eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 homevideo-top">
-                            <h3 class="home-video-title">Amazing Video</h3>
-                            <div class="col-md-12 homevideo">
-                                <div class="col-md-5 it-video">
-                                  <a href="{{ url('/video') }}"><img class="scale_image" src="http://placehold.it/624x428" alt=""/>
-                                  <i class="fa fa-video-camera"></i></a>
-                                </div>
-                                <div class="video-txt">
-                                   <div class="event_date_video">July 01, 2014 5:50 am</div>
-                                   <div class="post_theme video-post">Interview</div><h3>Neque porro quisquam</h3>
-                                   <p>Aliquam erat volutpat. So your content will always look good on any screen size like<br>
-                                        Tablet, Phones, Imac, Macbook &amp; all sort of devices. </p>
-                                </div>
-                            </div>
-                            <div class="col-md-12 homevideo">
-                                <div class="col-md-5 it-video">
-                                  <a href="{{ url('/video') }}"><img class="scale_image" src="http://placehold.it/624x428" alt=""/>
-                                  <i class="fa fa-video-camera"></i></a>
-                                </div>
-                                <div class="video-txt">
-                                    <div class="event_date_video">July 01, 2014 5:50 am</div>
-                                    <h3>Ante ipsum primis</h3>
-                                   <p>Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi.</p>
-                                </div>
-                            </div>
-                            <div class="col-md-12 homevideo">
-                                <div class="col-md-5 it-video">
-                                  <a href="{{ url('/video') }}"><img class="scale_image" src="http://placehold.it/624x428" alt=""/>
-                                  <i class="fa fa-video-camera"></i></a>
-                                </div>
-                                <div class="video-txt">
-                                    <div class="event_date_video">July 01, 2014 5:50 am</div>
-                                    <h3>Neque porro quisquam</h3>
-                                   <p>Etiam cursus leo vel metus. Nulla facilisi. Aenean nec eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-
-     </section>
-          <!--SECTION Quota RESULTS-->
+<!--SECTION Quota RESULTS-->
      <section id="resultsPoint">
            <div class="container">
                     <div class="top-match col-xs-12 col-md-12">
@@ -387,62 +314,94 @@
                     </div>
                 </div>
      </section>
+ <!-- PARALLAX BLACK TENNIS-->
+     <section class="bbtxt-content">
 
-     <!-- <section id="parallax-info">
-        <div class="clearfix">
-                <div class="col-md-6 yoga-desc title">
-                    <h1>Robert Doe</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed ligula odio. Sed id metus felis. Ut pretium nisl non justo condimentum id tincidunt nunc faucibus. Ut neque eros, pulvinar eu blandit quis, lacinia nec ipsum. Etiam vel orci ipsum. Sed eget velit ipsum.
-                    Duis in tortor scelerisque felis mattis imperdiet. Donec at libero tellus. Suspendisse consectetur consectetur bibendum.</p>
-
-                    <p class="txt-break">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed ligula odio. Sed id metus felis. Ut pretium nisl non justo condimentum id tincidunt nunc faucibus. Ut neque eros, pulvinar eu blandit quis, lacinia nec ipsum. Etiam vel orci ipsum. Sed eget velit ipsum.
-                    Duis in tortor scelerisque felis mattis imperdiet. Donec at libero tellus. Suspendisse consectetur consectetur bibendum.</p>
-                    <img class="signature" src="images/signature.png" alt=""/>
-               </div>
-               <div class="col-md-6 cup-img" style="padding:0;">
-                     <img src="images/people.jpg" alt=""/>
-               </div>
-            </div>
-    </section> -->
-          <!-- SECTION SUBSCRIPTIONS-->
-     <section class="bbtxt-content-subscription">
            <div class="container">
                     <div class="col-xs-12 bbtxt-box">
-                        <h4><i class="fa fa-quote-left"></i><span class="middle-txt">Enter in</span> <span class="point-big">WT</span> Tennis<i class="fa fa-quote-right"></i></h4>
+                        <h4><i class="fa fa-quote-left"></i>Tennis<span class="point-big">.</span> <span class="middle-txt">is the new black<span class="point-little">.</span></span><i class="fa fa-quote-right"></i></h4>
                         <p class="subin">The best tennis tour around the europe step by step.</p>
-                        <div class="subscription-content">
-                            <div class="col-md-4">
-                                <div class="subscription-tennis">
+                        <div class="col-md-6 homevideo-top">
+                             <h3 class="home-video-title">Amazing Video</h3>
+                            <div class="col-md-12 homevideo">
 
-                                     <h3>subscription<span> Free</span></h3>
-
-                                     <p class="desc-subscription">A Responsive Online Shopping website can attract its more is buyers as the user.</p>
-                                     <a class="pl-point-button" href="">Read more</a>
-                                 </div>
-                             </div>
-                             <div class="col-md-4">
-                                <div class="subscription-tennis">
-
-                                  <h3>subscription<span> Gold</span></h3>
-
-                                  <p class="desc-subscription">A Responsive Online Shopping website can attract its more is buyers as the user.</p>
-                                  <a class="pl-point-button" href="">Read more</a>
+                                <div class="col-md-5 it-video">
+                                  <a href="{{ url('/video') }}"><img class="scale_image" src="http://placehold.it/624x428" alt=""/>
+                                  <i class="fa fa-video-camera"></i></a>
+                                </div>
+                                <div class="video-txt">
+                                   <div class="event_date_video">July 01, 2014 5:50 am</div>
+                                   <div class="post_theme video-post">Interview</div><h3>Neque porro quisquam</h3>
+                                   <p>Aliquam erat volutpat. So your content will always look good on any screen size like<br>
+                                        Tablet, Phones, Imac, Macbook &amp; all sort of devices. </p>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="subscription-tennis">
-
-                                  <h3>subscription<span> Premium</span></h3>
-
-                                  <p class="desc-subscription">A Responsive Online Shopping website can attract its more is buyers as the user.</p>
-                                  <a class="pl-point-button" href="">Read more</a>
+                            <div class="col-md-12 homevideo">
+                                <div class="col-md-5 it-video">
+                                  <a href="{{ url('/video') }}"><img class="scale_image" src="http://placehold.it/624x428" alt=""/>
+                                  <i class="fa fa-video-camera"></i></a>
+                                </div>
+                                <div class="video-txt">
+                                    <div class="event_date_video">July 01, 2014 5:50 am</div>
+                                    <h3>Ante ipsum primis</h3>
+                                   <p>Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-12 homevideo">
+                                <div class="col-md-5 it-video">
+                                  <a href="{{ url('/video') }}"><img class="scale_image" src="http://placehold.it/624x428" alt=""/>
+                                  <i class="fa fa-video-camera"></i></a>
+                                </div>
+                                <div class="video-txt">
+                                    <div class="event_date_video">July 01, 2014 5:50 am</div>
+                                    <h3>Neque porro quisquam</h3>
+                                   <p>Etiam cursus leo vel metus. Nulla facilisi. Aenean nec eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 homevideo-top">
+                            <h3 class="home-video-title">Amazing Video</h3>
+                            <div class="col-md-12 homevideo">
+                                <div class="col-md-5 it-video">
+                                  <a href="{{ url('/video') }}"><img class="scale_image" src="http://placehold.it/624x428" alt=""/>
+                                  <i class="fa fa-video-camera"></i></a>
+                                </div>
+                                <div class="video-txt">
+                                   <div class="event_date_video">July 01, 2014 5:50 am</div>
+                                   <div class="post_theme video-post">Interview</div><h3>Neque porro quisquam</h3>
+                                   <p>Aliquam erat volutpat. So your content will always look good on any screen size like<br>
+                                        Tablet, Phones, Imac, Macbook &amp; all sort of devices. </p>
+                                </div>
+                            </div>
+                            <div class="col-md-12 homevideo">
+                                <div class="col-md-5 it-video">
+                                  <a href="{{ url('/video') }}"><img class="scale_image" src="http://placehold.it/624x428" alt=""/>
+                                  <i class="fa fa-video-camera"></i></a>
+                                </div>
+                                <div class="video-txt">
+                                    <div class="event_date_video">July 01, 2014 5:50 am</div>
+                                    <h3>Ante ipsum primis</h3>
+                                   <p>Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-12 homevideo">
+                                <div class="col-md-5 it-video">
+                                  <a href="{{ url('/video') }}"><img class="scale_image" src="http://placehold.it/624x428" alt=""/>
+                                  <i class="fa fa-video-camera"></i></a>
+                                </div>
+                                <div class="video-txt">
+                                    <div class="event_date_video">July 01, 2014 5:50 am</div>
+                                    <h3>Neque porro quisquam</h3>
+                                   <p>Etiam cursus leo vel metus. Nulla facilisi. Aenean nec eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-               </div>
+                  </div>
      </section>
-            <!--SECTION LAST PHOTO-->
+
+
+<!--SECTION LAST PHOTO-->
      <section id="news-section">
            <div class="container">
                    <div class="top-match col-xs-12 col-md-12">
@@ -456,15 +415,16 @@
                             <dd>
                                 <ul class="filter group albumFilter">
                                     <li data-filter="*" class="current"><a  href="#">ALL</a></li>
-                                    <li data-filter=".cat1"><a  href="#">Futsal</a></li>
-                                    <li data-filter=".cat2"><a  href="#">Basket</a></li>
-                                    <li data-filter=".cat3"><a  href="#">Bultang</a></li>
-                                    <li data-filter=".cat1"><a  href="#">Voli</a></li>
-                                    <li data-filter=".cat2"><a  href="#">Berenang</a></li>
-                                    <li data-filter=".cat3"><a  href="#">Marathon</a></li>
-                                    <li data-filter=".cat1"><a  href="#">catur</a></li>
-                                    <li data-filter=".cat2"><a  href="#">Lompat Tinggi</a></li>
+                                      <?php
+                                        
+                                        $sql = "SELECT * FROM events";
+                                        $result = mysqli_query($konek, $sql);
+                                        while ($events = mysqli_fetch_array($result)) {
+                                      ?>
+                                      <li data-filter=".cat{{ $events['id']}}"><a  href="#">{{ $events['nama']}}</a></li>
+                                    <?php } ?>
                                 </ul>
+
                             </dd>
                         </dl>
                         <div class="clear"></div>
@@ -473,33 +433,20 @@
                   </div>
             </div>
 
-           <ul class="portfolio group albumContainer">
-                        <li class="item block cat2 col-xs-3">
-                            <a href="http://placehold.it/1600x1000" data-gal="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Hannah 1" /></a>
-                        </li>
-                        <li class="item block cat1 col-xs-3">
-                            <a href="http://placehold.it/1600x1000" data-gal="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Hair 1" /></a>
-                        </li>
-                        <li class="item block cat1 col-xs-3">
-                            <a href="http://placehold.it/1600x1000" data-gal="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Hair 2" /></a>
-                        </li>
-                        <li class="item block cat3 col-xs-3">
-                            <a href="http://placehold.it/1600x1000" data-gal="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Traction 1" /></a>
-                        </li>
-                        <li class="item block cat1 cat3 col-xs-3">
-                            <a href="http://placehold.it/1600x1000" data-gal="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Traction 1" /></a>
-                        </li>
-                        <li class="item block cat2 col-xs-3">
-                            <a href="http://placehold.it/1600x1000" data-gal="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Beauty 2" /></a>
-                        </li>
-                        <li class="item block cat1 col-xs-3">
-                            <a href="http://placehold.it/1600x1000" data-gal="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Hair 1" /></a>
-                        </li>
-                        <li class="item block cat1 cat3 col-xs-3">
-                            <a href="http://placehold.it/1600x1000" data-gal="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Traction 1" /></a>
-                        </li>
-                    </ul>
+          <ul class="portfolio group albumContainer"> 
+            <?php
+              $sql = "SELECT * FROM galleries";
+              $result = mysqli_query($konek, $sql);
+              while ($galleries = mysqli_fetch_array($result)) {
+            ?>
+              <li class="item block cat{{ $galleries['event_id']}} col-xs-3 ">
+                      <a href="{{ $galleries['thumbnail'] }}" rel="prettyPhotogalleries[portfolio]"><img src="{{ $galleries['thumbnail'] }}"  alt="{{ $galleries['judul'] }}" /></a>
+                    </li>
+            <?php } ?>  
+          </ul>
      </section>
+
+    <!--end Gallery-->
  
     
 <script>
