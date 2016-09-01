@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Participant;
+use App\Model\Event;
+use App\Model\Category;
+use App\Model\Match;
+use App\Model\TeamsMatch;
 use App\Http\Requests;
 
 class MatchController extends Controller
@@ -13,10 +17,12 @@ class MatchController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function index($id)
     {
-        $participant = Participant::all();
-        return view('admin.match.index', compact('participant'));
+        $categories = Category::findOrFail($id);
+        $matches = Match::where('category_id', $id)->paginate(5);
+        return view('admin.match.index', compact('matches', 'categories'));
     }
 
     /**
@@ -24,9 +30,11 @@ class MatchController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $categories = Category::findOrFail($id);
+        $matches = Match::where('category_id', $id)->paginate(5);
+        return view('admin.match.index', compact('matches', 'categories'));
     }
 
     /**
@@ -35,9 +43,19 @@ class MatchController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'no_match' => 'required',
+            'nama' => 'required',
+            'waktu' => 'required',
+            'tempat' => 'required',
+        ]);
+        $input = $request->all();
+        $categories = Category::findOrFail($id);
+        $input['category_id'] = $categories->id;
+        Match::create($input);
+        return redirect()->action('CategoryMatchController@show', $categories->id)->with('success', 'Category has been created');
     }
 
     /**
@@ -46,9 +64,11 @@ class MatchController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $id_match)
     {
-        //
+        $categories = Category::findOrFail($id);
+        $match = Match::findOrFail($id_match);
+        return view('admin.match.show', compact('categories', 'match'));
     }
 
     /**
@@ -57,9 +77,9 @@ class MatchController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, $id_match)
     {
-        //
+        $categories = Category::findOrFail($id);
     }
 
     /**
@@ -69,9 +89,9 @@ class MatchController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, $id_match)
     {
-        //
+        $categories = Category::findOrFail($id);
     }
 
     /**
@@ -80,8 +100,11 @@ class MatchController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, $id_match)
     {
-        //
+        $categories = Category::findOrFail($id);
+        $match = Match::findOrFail($id_match);
+        $match->delete();
+        return redirect()->action('CategoryMatchController@show', $categories->id)->with('danger', 'Category has been deleted');
     }
 }

@@ -46,7 +46,7 @@ class GalleryController extends Controller
             'kategori' => 'required',
         ]);
         $input = $request->all();
-
+        dd($request->thumbnail);
         $photo = $request->thumbnail->getClientOriginalName();
         $destination = 'images/gallery/'.$request->kategori.'/';
         $request->thumbnail->move($destination, $photo);

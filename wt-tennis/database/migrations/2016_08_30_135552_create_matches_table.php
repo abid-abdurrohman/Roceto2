@@ -14,13 +14,16 @@ class CreateMatchesTable extends Migration
     {
         Schema::create('matches', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('no_match');
             $table->string('nama');
-            $table->integer('home_score');
-            $table->integer('away_score');
-            $table->integer('home_participant_id')->unsigned()->index();
-            $table->foreign('home_participant_id')->references('id')->on('participants')->onDelete('cascade');
-            $table->integer('away_participant_id')->unsigned()->index();
-            $table->foreign('away_participant_id')->references('id')->on('participants')->onDelete('cascade');
+            $table->dateTime('waktu');
+            $table->text('tempat');
+            $table->integer('winner_match1');
+            $table->integer('winner_match2');
+            $table->integer('winner_match3');
+            $table->integer('winner_match4');
+            $table->integer('category_id')->unsigned()->index();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }

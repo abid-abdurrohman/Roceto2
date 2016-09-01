@@ -70,7 +70,9 @@ Route::post('admin/event/search', 'EventController@search');
 Route::resource('admin/news', 'NewsController');
 Route::resource('admin/participant', 'ParticipantController');
 Route::resource('admin/participant.member', 'MemberController');
-Route::resource('admin/match', 'MatchController');
+Route::get('admin/category', 'CategoryMatchController@index');
+Route::get('admin/category/{id}', 'CategoryMatchController@show');
+Route::resource('admin/category.match', 'MatchController');
 
 Route::get('redirect/{provider}', 'SocialAuthController@redirect');
 Route::get('callback/{provider}', 'SocialAuthController@callback');
