@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\News;
 use App\Model\Tag;
+use App\Model\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests;
@@ -74,7 +75,8 @@ class NewsController extends Controller
     public function show($slug)
     {
       $news = News::where('slug', $slug)->first();
-      return view('admin.news.show', compact('news'));
+      $comments = Comment::all();
+      return view('admin.news.show', compact('news', 'comments'));
     }
 
     /**

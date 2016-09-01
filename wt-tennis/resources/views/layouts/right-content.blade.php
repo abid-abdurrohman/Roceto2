@@ -19,138 +19,14 @@
   </div>
   <?php } ?>
 </div>
-<div class="top-score-title col-md-12">
-  <img src="http://placehold.it/1000x475" alt="" />
-</div>
-<div class="top-score-title col-md-12 right-title">
-  <h3>Photos</h3>
-  <ul class="right-last-photo">
-    <li>
-      <div class="jm-item second">
-       <div class="jm-item-wrapper">
-        <div class="jm-item-image">
-         <img src="http://placehold.it/320x213" alt="" />
-         <div class="jm-item-description">
-          <div class="jm-item-button">
-            <i class="fa fa-plus"></i>
-          </div>
-        </div>
-      </div>	
-    </div>
+<div class="top-score-title col-md-12 right-title" style="margin-top:-40px">
+  <h3>Info</h3>
+  <div class="col-md-12">
+    <p><i class="fa fa-phone"></i>0044 (800) 123 4567 891 </p>
+    <p><i class="fa fa-envelope-o"></i>info@tennisclub.com </p>
+    <p><i class="fa fa-globe"></i>Street 2, Road The Circus</p>
+    <p><i class="fa fa-map-marker"></i>London UK, ABC, 1234</p>
   </div>
-</li>
-<li>
-  <div class="jm-item second">
-   <div class="jm-item-wrapper">
-    <div class="jm-item-image">
-     <img src="http://placehold.it/320x213" alt="" />
-     <div class="jm-item-description">
-      <div class="jm-item-button">
-        <i class="fa fa-plus"></i>
-      </div>
-    </div>
-  </div>	
 </div>
-</div>
-</li>
-<li>
-  <div class="jm-item second">
-   <div class="jm-item-wrapper">
-    <div class="jm-item-image">
-     <img src="http://placehold.it/320x213" alt="" />
-     <div class="jm-item-description">
-      <div class="jm-item-button">
-        <i class="fa fa-plus"></i>
-      </div>
-    </div>
-  </div>	
-</div>
-</div>
-</li>
-<li>
-  <div class="jm-item second">
-   <div class="jm-item-wrapper">
-    <div class="jm-item-image">
-     <img src="http://placehold.it/320x213" alt="" />
-     <div class="jm-item-description">
-      <div class="jm-item-button">
-        <i class="fa fa-plus"></i>
-      </div>
-    </div>
-  </div>	
-</div>
-</div>
-</li>
-<li>
-  <div class="jm-item second">
-   <div class="jm-item-wrapper">
-    <div class="jm-item-image">
-     <img src="http://placehold.it/320x213" alt="" />
-     <div class="jm-item-description">
-      <div class="jm-item-button">
-        <i class="fa fa-plus"></i>
-      </div>
-    </div>
-  </div>	
-</div>
-</div>
-</li>
-<li>
-  <div class="jm-item second">
-   <div class="jm-item-wrapper">
-    <div class="jm-item-image">
-     <img src="http://placehold.it/320x213" alt="" />
-     <div class="jm-item-description">
-      <div class="jm-item-button">
-        <i class="fa fa-plus"></i>
-      </div>
-    </div>
-  </div>	
-</div>
-</div>
-</li>
-<li>
-  <div class="jm-item second">
-   <div class="jm-item-wrapper">
-    <div class="jm-item-image">
-     <img src="http://placehold.it/320x213" alt="" />
-     <div class="jm-item-description">
-      <div class="jm-item-button">
-        <i class="fa fa-plus"></i>
-      </div>
-    </div>
-  </div>	
-</div>
-</div>
-</li>
-<li>
-  <div class="jm-item second">
-   <div class="jm-item-wrapper">
-    <div class="jm-item-image">
-     <img src="http://placehold.it/320x213" alt="" />
-     <div class="jm-item-description">
-      <div class="jm-item-button">
-        <i class="fa fa-plus"></i>
-      </div>
-    </div>
-  </div>	
-</div>
-</div>
-</li>
-<li>
-  <div class="jm-item second">
-   <div class="jm-item-wrapper">
-    <div class="jm-item-image">
-     <img src="http://placehold.it/320x213" alt="" />
-     <div class="jm-item-description">
-      <div class="jm-item-button">
-        <i class="fa fa-plus"></i>
-      </div>
-    </div>
-  </div>	
-</div>
-</div>
-</li>
-</ul>
-</div>
+
 </div>

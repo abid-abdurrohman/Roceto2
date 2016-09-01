@@ -51,6 +51,7 @@ Route::post('contact', 'ContactController@store');
 /*link news*/
 Route::get('news', 'NewsUserController@index');
 Route::get('news/{slug}', 'NewsUserController@show');
+Route::post('comment/{id}', 'CommentUserController@store');
 
 /*link gallery*/
 Route::get('gallery', 'GalleryUserController@index');
@@ -68,6 +69,7 @@ Route::resource('admin/event.category', 'CategoryController');
 Route::resource('admin/gallery', 'GalleryController');
 Route::post('admin/event/search', 'EventController@search');
 Route::resource('admin/news', 'NewsController');
+Route::resource('admin/news.comment', 'CommentController');
 Route::resource('admin/participant', 'ParticipantController');
 Route::resource('admin/participant.member', 'MemberController');
 Route::get('admin/category', 'CategoryMatchController@index');

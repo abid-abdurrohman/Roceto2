@@ -1,3 +1,5 @@
+
+
 <div class="container">
 <div class="stepwizard">
     <div class="stepwizard-row setup-panel">
@@ -90,11 +92,59 @@
         <div class="col-xs-12">
             <div class="col-md-12">
                 <h3> Step 3</h3>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Nama Tim</label>
+                        <div class="col-md-10">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Nama Kapten</label>
+                        <div class="col-md-10">
+                            
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">No. Hp</label>
+                        <div class="col-md-10">
+                            
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Warna Kostum</label>
+                        <div class="col-md-10">
+                            
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Jumlah Pemain</label>
+                        <div class="col-md-10">
+                            
+                        </div>
+                    </div>
+                    <div class="form-group">
+                    <label class="col-md-2 control-label"> Nama Pengirim </label>
+                    <div class="col-md-10">
+                        
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label"> No. Rekening </label>
+                    <div class="col-md-10">
+                        
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label"> Nama Bank </label>
+                    <div class="col-md-10">
+                        
+                    </div>
+                </div>
+                    
                 <button class="btn btn-default prevBtn btn-lg pull-left" type="button" >Prev</button>
                 <button class="btn btn-success btn-lg pull-right" type="submit">Finish!</button>
-            </div>
         </div>
     </div>
+  </div>  
 </form>
 </div>
-                   

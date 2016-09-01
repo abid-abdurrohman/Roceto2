@@ -18,4 +18,8 @@ class News extends Model
     {
         return $this->tags->lists('id');
     }
+
+    public function comment() {
+         return $this->hasMany('App\Model\Comment');
+    }
 }
