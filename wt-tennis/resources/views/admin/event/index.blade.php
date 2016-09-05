@@ -31,17 +31,39 @@
                             </div><br>
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <table id="event-table" class="table table-striped table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Nama Event</th>
-                                                <th>Detail Event</th>
-                                                <th>Waktu</th>
-                                                <th colspan="2">Action</th>
-                                            </tr>
-                                        </thead>
-                                    </table>
+                                  <table id="datatable" class="table table-striped table-bordered">
+                                      <thead>
+                                          <tr>
+                                              <th>ID</th>
+                                              <th>Nama Event</th>
+                                              <th>Detail Event</th>
+                                              <th>Waktu</th>
+                                              <th colspan="2">Action</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                        @foreach ($events as $event)
+                                          <tr>
+                                              <td>{{ $event->id }}</td>
+                                              <td><a href="{{ action('EventController@show', $event->id) }}">{{ $event->nama }}</a></td>
+                                              <td>{{ $event->detail }}</td>
+                                              <td>{{ $event->created_at }}</td>
+                                              <td>
+                                                <a href="{{ action('EventController@edit', $event->id) }}">
+                                                  <i class="fa fa-edit"></i> Edit
+                                                </a>
+                                              </td>
+                                              <td>
+                                                <a href="#" data-toggle="modal" data-target="#myModal-{{ $event->id }}">
+                                                  <i class="fa fa-trash"></i> Delete
+                                                </a>
+                                              </td>
+                                          </tr>
+                                          @include('admin.event.modal.delete', ['id' => $event->id])
+                                        @endforeach
+                                      </tbody>
+                                  </table>
+                                  {!! $events->links() !!}
                                 </div>
                             </div>
                         </div>
@@ -50,21 +72,3 @@
             </div> <!-- End Row -->
         </div> <!-- container -->
 @endsection
-@push('js')
-<script type="text/javascript">
-	$(function(){
-		$("#event-table").DataTable({
-			 processing: true,
-       serverSide: true,
-       ajax: "{{ url('admin.event.get_event') }}",
-       columns: [
-          { data: 'id', name: 'id' },
-          { data: 'nama', name: 'nama' },
-          { data: 'detail', name: 'detail' },
-          { data: 'created_at', name: 'created_at' },
-          { data: 'updated_at', name: 'updated_at' }
-        ]
-		});
-	});
-</script>
-@endpush

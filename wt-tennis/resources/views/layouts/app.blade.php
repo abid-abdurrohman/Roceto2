@@ -37,6 +37,7 @@
   <link href="{{ URL::asset('css/responsive.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ URL::asset('css/animate.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ URL::asset('css/submenu.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ URL::asset('css/profil.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ URL::asset('css/comments.css') }}" rel="stylesheet" type="text/css" />
 
   <!-- Waves-effect -->
@@ -82,7 +83,6 @@
     <div class="bt-menu"><a href="#" class="menu"><span>&equiv;</span> Menu</a></div>
 
     <div class="box-menu">
-
       <div class="bt-menu"><a href="#" class="menu"><span>&equiv;</span> Menu</a></div>
       <div class="box-menu">
         <nav id="cbp-hrmenu" class="cbp-hrmenu">
@@ -134,6 +134,8 @@
                   <li>
                     <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'tim' ? 'active' : null }}" data-toggle="dropdown"> PARTICIPANT <b class="caret"></b></a>
                     <ul class="dropdown-menu">
+                      <li class="divider"></li>
+                      <li><a href="{{ url('/profil/1') }}"><span>Profil</span></a></li>
                       <li class="divider"></li>
                       <li><a href="{{ url('/tim') }}"><span>Tim</span></a></li>
                       <li class="divider"></li>
@@ -319,6 +321,9 @@
 <script src="{{ URL::asset('js/custom.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/jquery.bxslider.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/jquery.accordion.js') }}" type="text/javascript"></script>
+
+<!--Profil-->
+<script src="{{ URL::asset('js/jquery.profil.js') }}" type="text/javascript"></script>
 
 <!--Carousel News-->
 <script src="{{ URL::asset('js/jquery.easing.1.3.js') }}" type="text/javascript"></script>

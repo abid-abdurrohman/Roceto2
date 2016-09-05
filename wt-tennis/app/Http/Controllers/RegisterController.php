@@ -13,13 +13,11 @@ class RegisterController extends Controller
 {
     protected $rules = [
         'nama_tim' => ['required'],
-        'nama_kapten' => ['required'],
         'no_hp' => ['required'],
+        'email' => ['required'],
         'warna_kostum' => ['required'],
         'jumlah_pemain' => ['required'],
-        'atas_nama' => ['required'],
-        'no_rek' => ['required'],
-        'nama_bank' => ['required'],
+        
     ];
 
     public function index($id)
@@ -38,6 +36,29 @@ class RegisterController extends Controller
         $input['status'] = 'waiting';
         Participant::create($input);
         return redirect()->action('HomeController@index');
+    }
+
+    public function update($id, Request $request)
+    {
+        $this->validate($request, [
+        'atas_nama' => ['required'],
+        'no_rek' => ['required'],
+        'nama_bank' => ['required'],
+        'bukti' => ['required']
+        ]);
+
+        $input = $request->all();
+        $photo = $request->bukti->getClientOrginalName();
+        $destination = 'images/bukti/';
+        $request -> bukti->move($destination, $photo);
+
+        $Participant = Participant::findOrFail($id);
+        $input['bukti'] = $destination.$photo;
+        $input['category_id'] = $id;
+        $input['status'] = 'waiting';
+        Participant::create($input);
+        return redirect()->action('HomeController@index');
+
     }
 
 }

@@ -13,10 +13,12 @@
     <div class="general general-results players">
       <div class="top-score-title right-score col-md-9">
         <h3>ATP <span>Players</span><span class="point-little">.</span></h3>
+        
         <p class="txt-right">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
          <p class="txt-right txt-dd-second">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
           <div class="col-md-3 atp-player">
             <a href="single_player.html"><img src="images/player/face.jpg" alt="" />
               <p>Nicol Radek</p></a>

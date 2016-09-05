@@ -19,7 +19,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading"><h3 class="panel-title">Edit {{ $category->nama }}</h3></div>
                         <div class="panel-body">
-                            {!! Form::model($category, ['method' => 'PATCH', 'action' => ['CategoryController@update', $event->id, $category->id],'class' => 'form-horizontal']) !!}
+                            {!! Form::model($category, ['method' => 'PATCH', 'files' => true, 'action' => ['CategoryController@update', $event->id, $category->id],'class' => 'form-horizontal']) !!}
                                 @include('admin/category/form/form', ['submit_text' => 'Edit Event'])
                             {!! Form::close() !!}
                         </div> <!-- panel-body -->

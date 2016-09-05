@@ -78,14 +78,14 @@
               <p class="subtitle">A small creative team, trying to enrich the lives of others and build brands
                                     that a normal humans can understand.</p>
             <!--SECTION ATP MATCH-->
-              <div class="next-match-co col-xs-8 col-md-8">
+              <div class="next-match-co col-xs-12 col-md-12">
                  <div id="nextmatch-content" class="experience">
                    <div class="col-xs-12 atphead"><div class="match-sing-title"><img src="images/sub-ball.png" alt="" />ATP.HEAD2</div></div>
                    <div class="col-xs-4 pht-1 pht-left">
-                         <div class="img-face-home">
-                            <img src="http://placehold.it/235x224" alt="" />
-                            <p class="name-mc">Team 7A (Basket)</p>
-                         </div>
+                       <div class="img-face-home">
+                          <img src="http://placehold.it/235x224" alt="" />
+                          <p class="name-mc">Team 7A (Basket)</p>
+                       </div>
                   </div>
                   <div class="col-xs-4 pl-point ">
                       <p class="col-xs-12 name-mc-title">BEIJING - FIRST ROUND</p>
@@ -100,67 +100,21 @@
                             <p class="nr1 ris2"> 1 </p>
                             <p class="nr2"> 100% </p>
                       </div>
-
                   </div>
                    <div class="col-xs-4 pht-1 pht-right">
                         <div class="img-face-home">
                             <img src="http://placehold.it/235x224" alt="" />
                             <p class="name-mc">Team 7Aeu (Basket)</p>
                         </div>
-
                   </div>
-                  <div class="col-xs-12 atphead"><div class="match-sing-title inf-bottom">
+                  <div class="col-xs-12 atphead">
+                      <div class="match-sing-title inf-bottom">
                         <p><i class="fa fa-calendar-o"></i>May 16, 2012 14:30 - 16:00 <i class="fa fa-map-marker"></i> London Brion Stadium</p>
-                   </div></div>
+                      </div>
+                      <div class="score-view-all"><a class="pl-point-button" href="{{ url('/results')}}">View All SCORE</a></div>
+                  </div>
                  </div>
               </div>
-              <div class="col-md-4 home-page">
-                   <div class="main">
-                                <div class="tabs animated-slide-2">
-                                 <div class="result-filter">
-                                    <ul class="tab-links">
-                                        <li class="active"><a href="#tab1111">ATP</a></li>
-                                        <li><a href="#tab2222">WTA</a></li>
-                                        <li><a href="#tab3333">DBL</a></li>
-                                    </ul>
-                                    </div>
-                                    <div class="tab-content-point">
-                                        <div id="tab1111" class="tab active">
-                                        <table class="tab-score">
-                                          <tr class="top-scrore-table"><td class="score-position">POS.</td><td>PLAYER</td><td>NAT.</td><td>POINTS</td></tr>
-                                          <tr><td class="score-position">1.</td><td><a href="single_player.html">Nicol Dorian</a></td><td><img src="images/flags/serbia.png" alt="" /></td><td>12770</td></tr>
-                                          <tr><td class="score-position">2.</td><td><a href="single_player.html">Rafael Milk</a></td><td><img src="images/flags/argentina.png" alt="" /></td><td>10670</td></tr>
-                                          <tr><td class="score-position">3.</td><td><a href="single_player.html">Roger Figo</a></td><td><img src="images/flags/uk.png" alt="" /></td><td>7490</td></tr>
-                                          <tr><td class="score-position">4.</td><td><a href="single_player.html">St. Waiker</a></td><td><img src="images/flags/brazil.png" alt="" /></td><td>5985</td></tr>
-                                          <tr><td class="score-position">5.</td><td><a href="single_player.html">David Ruby</a></td><td><img src="images/flags/japan.png" alt="" /></td><td>4765</td></tr>
-
-                                         </table>
-                                        </div>
-                                        <div id="tab2222" class="tab">
-                                        <table class="tab-score">
-                                        <tr class="top-scrore-table"><td class="score-position">POS.</td><td>PLAYER</td><td>NAT.</td><td>POINTS</td></tr>
-                                          <tr><td class="score-position">1.</td><td><a href="single_player.html">Serena Brain</a></td><td><img src="images/flags/usa.png" alt="" /></td><td>1234</td></tr>
-                                          <tr><td class="score-position">2.</td><td><a href="single_player.html">Simona Figo</a></td><td><img src="images/flags/uk.png" alt="" /></td><td>1234</td></tr>
-                                          <tr><td class="score-position">3.</td><td><a href="single_player.html">Nio Red</a></td><td><img src="images/flags/italy.png" alt="" /></td><td>1234</td></tr>
-                                          <tr><td class="score-position">4.</td><td><a href="single_player.html">Petra Curt</a></td><td><img src="images/flags/denmark.png" alt="" /></td><td>1234</td></tr>
-                                          <tr><td class="score-position">5.</td><td><a href="single_player.html">Ag. Rader</a></td><td><img src="images/flags/uk.png" alt="" /></td><td>1234</td></tr>
-                                         </table>
-                                        </div>
-                                        <div id="tab3333" class="tab">
-                                        <table class="tab-score">
-                                        <tr class="top-scrore-table"><td class="score-position">POS.</td><td>PLAYER</td><td>NAT.</td><td>POINTS</td></tr>
-                                          <tr><td class="score-position">1.</td><td><a href="single_player.html">name1</a></td><td>-</td><td>1234</td></tr>
-                                          <tr><td class="score-position">2.</td><td><a href="single_player.html">name2</a></td><td>-</td><td>1234</td></tr>
-                                          <tr><td class="score-position">3.</td><td><a href="single_player.html">name3</a></td><td>-</td><td>1234</td></tr>
-                                          <tr><td class="score-position">4.</td><td><a href="single_player.html">name4</a></td><td>-</td><td>1234</td></tr>
-                                          <tr><td class="score-position">5.</td><td><a href="single_player.html">name5</a></td><td>-</td><td>1234</td></tr>
-                                         </table>
-                                        </div>
-                                    </div>
-                                    <div class="score-view-all"><a class="pl-point-button" href="{{ url('/results')}}">View All</a></div>
-                                </div>
-                            </div>
-                </div>
              </div><!--Close Top Match-->
            </div>
      </section>

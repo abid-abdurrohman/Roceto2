@@ -20,6 +20,8 @@ Route::get('admin/logout', 'Auth\AuthController@getLogout');
 Route::get('/login', function () {
     return view('log.login');
 });
+Route::get('profil/{id}', 'ParticipantUserController@index');
+
 Route::get('/tim', function () {
     return view('peserta.tim');
 });
@@ -59,6 +61,7 @@ Route::get('gallery', 'GalleryUserController@index');
 /*link register*/
 Route::get('register/{id}', 'RegisterController@index');
 Route::post('register/{id}', 'RegisterController@store');
+Route::patch('register/{id}', 'RegisterController@update');
 
 Route::get('bracket/{id}', 'BracketUserController@show');
 

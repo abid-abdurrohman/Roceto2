@@ -1,16 +1,16 @@
 @extends('admin.layouts.app')
-@section('title', 'Detail Category')
+@section('title', 'Detail Gallery')
 @section('content')
         <div class="container">
 
             <!-- Page-Title -->
             <div class="row">
                 <div class="col-sm-12">
-                    <h4 class="pull-left page-title">Category</h4>
+                    <h4 class="pull-left page-title">Player</h4>
                     <ol class="breadcrumb pull-right">
                         <li><a href="#">Admin</a></li>
-                        <li><a href="{{ action('EventController@show', $event->id) }}">Category</a></li>
-                        <li class="active">{{$event->nama}}</li>
+                        <li><a href="{{ action('ParticipantController@show', $participant->id) }}">Player</a></li>
+                        <li class="active">{{ $participant->nama_tim }}</li>
                     </ol>
                 </div>
             </div>
@@ -19,7 +19,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Data {{$category->nama}}</h3>
+                            <h3 class="panel-title">Data {{$participant->nama_tim}}</h3>
                         </div>
                         <div class="panel-body">
                             <div class="row">
@@ -28,25 +28,25 @@
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Nama Kategori</th>
-                                                <th>Thumbnail</th>
-                                                <th>Peraturan</th>
-                                                <th>Biaya Pendaftaran</th>
-                                                <th>Kuota</th>
-                                                <th>Created At</th>
-                                                <th>Updated At</th>
+                                                <th>Nama</th>
+                                                <th>Jenis Kelamin</th>
+                                                <th>Tanggal Lahir</th>
+                                                <th>No. Hp</th>
+                                                <th>Posisi</th>
+                                                <th>No. Punggung</th>
+                                                <th>Foto</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>{{ $category->id }}</td>
-                                                <td>{{ $category->nama }}</td>
-                                                <td>{{ $category->thumbnail }}</td>
-                                                <td>{{ $category->peraturan }}</td>
-                                                <td>{{ $category->biaya_pendaftaran }}</td>
-                                                <td>{{ $category->kuota }}</td>
-                                                <td>{{ $category->created_at }}</td>
-                                                <td>{{ $category->updated_at }}</td>
+                                                <td>{{ $member->id }}</td>
+                                                <td>{{ $member->nama }}</td>
+                                                <td>{{ $member->jk }}</td>
+                                                <td>{{ $member->tgl_lhr }}</td>
+                                                <td>{{ $member->no_hp }}</td>
+                                                <td>{{ $member->posisi }}</td>
+                                                <td>{{ $member->no_punggung }}</td>
+                                                <td>{{ $member->foto }}</td>
                                             </tr>
                                         </tbody>
                                     </table>

@@ -18,7 +18,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading"><h3 class="panel-title">Create Category</h3></div>
                         <div class="panel-body">
-                            {!! Form::open(array('class' => 'form-horizontal', 'method' => 'POST', 'action' => array('CategoryController@store',
+                           {!! Form::open(array('class' => 'form-horizontal', 'files' => true,  'method' => 'POST', 'action' => array('CategoryController@store',
                             $event->id))) !!}
                                 @include('admin.category.form.form', ['submit_text' => 'Add Event'])
                             {!! Form::close() !!}

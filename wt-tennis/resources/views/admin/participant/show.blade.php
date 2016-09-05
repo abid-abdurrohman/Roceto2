@@ -56,7 +56,7 @@
                                 </div>
                             </div>
                             @if ( !$participants->member->count() )
-                    				    <h4>Belum memiliki member.</h4>
+                    				    <h4>Belum memiliki pemain.</h4>
                     				@else
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -64,7 +64,7 @@
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Nama Member</th>
+                                                <th>Nama Pemain</th>
                                                 <th>Created At</th>
                                                 <th>Updated At</th>
                                                 <th colspan="2">Action</th>
