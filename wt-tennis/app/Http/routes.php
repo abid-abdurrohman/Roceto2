@@ -58,6 +58,7 @@ Route::get('gallery', 'GalleryUserController@index');
 /*link register*/
 Route::get('register/{id}', 'RegisterController@index');
 Route::post('register/{id}', 'RegisterController@store');
+Route::patch('register/{id}', 'RegisterController@update');
 
 /*link admin*/
 Route::get('admin', 'AdminController@login');

@@ -41,10 +41,20 @@ class CategoryController extends Controller
     public function store($id, Request $request)
     {
         $this->validate($request, [
-            'nama' => 'required'
+            'nama' => 'required',
+            'thumbnail' => 'required',
+            'peraturan' => 'required',
+            'biaya_pendaftaran' => 'required',
+            'kuota' => 'required'
         ]);
         $input = $request->all();
+        $photo = $request->thumbnail->getClientOriginalName();
+        $destination = 'images/category/';
+        $request->thumbnail->move($destination, $photo);
+
+
         $event = Event::findOrFail($id);
+        $input['thumbnail'] = $destination.$photo;
         $input['event_id'] = $event->id;
         Category::create($input);
         return redirect()->action('EventController@show', $event->id)->with('success', 'Category has been created');
@@ -85,14 +95,27 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id, $id_category)
     {
-        $this->validate($request, [
-            'nama' => 'required'
-        ]);
-        $event = Event::findOrFail($id);
-        $category = Category::findOrFail($id_category);
-        $input = $request->all();
-        $category->update($input);
-        return redirect()->action('EventController@show', [$event->id])->with('info', 'Category has been edited');
+      $this->validate($request, [
+          'nama' => 'required',
+            'thumbnail' => 'required',
+            'peraturan' => 'required',
+            'biaya_pendaftaran' => 'required',
+            'kuota' => 'required'
+      ]);
+      $input = $request->all();
+      $photo = $request->thumbnail->getClientOriginalName();
+      $destination = 'images/category/';
+      $request->thumbnail->move($destination, $photo);
+
+
+      $event = Event::findOrFail($id);
+      $input['thumbnail'] = $destination.$photo;
+      $input['event_id'] = $event->id;
+
+      $event = Event::findOrFail($id);
+      $category = Category::findOrFail($id_category);
+      $category->update($input);
+      return redirect()->action('EventController@show', [$event->id])->with('info', 'Category has been edited');
     }
 
     /**

@@ -46,8 +46,8 @@ class ParticipantController extends Controller
     {
         $this->validate($request, [
             'nama_tim' => 'required',
-            'nama_kapten' => 'required',
             'no_hp' => 'required',
+            'email' => 'required',
             'warna_kostum' => 'required',
             'jumlah_pemain' => 'required',
             'kategori' => 'required',
@@ -96,8 +96,8 @@ class ParticipantController extends Controller
     {
         $this->validate($request, [
             'nama_tim' => 'required',
-            'nama_kapten' => 'required',
             'no_hp' => 'required',
+            'email' => 'required',
             'warna_kostum' => 'required',
             'jumlah_pemain' => 'required',
             'kategori' => 'required',
