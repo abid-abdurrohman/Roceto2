@@ -22,7 +22,13 @@
                             <h3 class="panel-title">Data </h3>
                         </div>
                         <div class="panel-body">
-                            @include('admin.teams_match.notification.flash')
+                            @include('admin.match.notification.flash')
+                            <div class="row">
+                              <div class="col-md-12">
+                                  <a class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#con-close-modal">Add <i class="fa fa-plus"></i></a>
+                                  @include('admin.match_team.modal.create')
+                              </div>
+                            </div><br>
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <table id="datatable" class="table table-striped table-bordered">
@@ -30,39 +36,38 @@
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Nama Team</th>
+                                                <th>Score</th>
                                                 <th>Created At</th>
                                                 <th>Updated At</th>
                                                 <th colspan="2">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach( $match->teams_match as $team_match )
+                                            @foreach( $matches->match_team as $team_match )
                                               <tr>
                                                   <td>{{ $team_match->id }}</td>
-                                                  <td>
-                                                    <a href="#">
-                                                      {{ $team_match->score }}
-                                                    </a>
-                                                  </td>
+                                                  <td>{{ $team_match->participant_id }}</td>
+                                                  <td>{{ $team_match->score }}</td>
                                                   <td>{{ $team_match->created_at }}</td>
                                                   <td>{{ $team_match->updated_at }}</td>
                                                   <td>
-                                                    <a href="#">
-                                                      <i class="fa fa-edit"></i> Edit
+                                                    <a href="#" data-toggle="modal" data-target="#myModal2-{{ $categories->id }}-{{ $matches->id }}-{{ $team_match->id }}">
+                                                      <i class="fa fa-plus"></i> Score
                                                     </a>
                                                   </td>
                                                   <td>
-                                                    <a href="#" data-toggle="modal" data-target="#myModal-{{ $match->id }}-{{ $team_match->id }}">
+                                                    <a href="#" data-toggle="modal" data-target="#myModal-{{ $categories->id }}-{{ $matches->id }}-{{ $team_match->id }}">
                                                       <i class="fa fa-trash"></i> Delete
                                                     </a>
                                                   </td>
                                               </tr>
+                                              @include('admin.match_team.modal.score', ['id_category' => $categories->id, 'id_match' => $matches->id, 'id_team' => $team_match->id])
+                                              @include('admin.match_team.modal.delete', ['id_category' => $categories->id, 'id_match' => $matches->id, 'id_team' => $team_match->id])
                                             @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-                            <a href="#" class="btn btn-primary waves-effect waves-light">Add <i class="fa fa-plus"></i></a>
                         </div>
                     </div>
                 </div>

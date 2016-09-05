@@ -7,7 +7,7 @@ use App\Model\Participant;
 use App\Model\Event;
 use App\Model\Category;
 use App\Model\Match;
-use App\Model\TeamsMatch;
+use App\Model\Match_team;
 use App\Http\Requests;
 
 class MatchController extends Controller
@@ -67,8 +67,9 @@ class MatchController extends Controller
     public function show($id, $id_match)
     {
         $categories = Category::findOrFail($id);
-        $match = Match::findOrFail($id_match);
-        return view('admin.match.show', compact('categories', 'match'));
+        $matches = Match::findOrFail($id_match);
+        $participants = Participant::where('category_id', $id)->lists('nama_tim', 'id');
+        return view('admin.match.show', compact('categories', 'matches', 'participants'));
     }
 
     /**

@@ -36,13 +36,13 @@
 <div class="form-group">
     <label class="col-md-2 control-label">Event</label>
     <div class="col-md-10">
-        {!! Form::select('event', [1,2,3], null, ['class' => 'form-control input-md', 'id' => 'event', 'onchange' => 'cek()'], '') !!}
+        {!! Form::select('event', $events, null, ['class' => 'form-control input-md', 'id' => 'event', 'onchange' => 'cek(this.value);'], '') !!}
     </div>
 </div>
-<div class="form-group" id="kategori">
+<div class="form-group">
     <label class="col-md-2 control-label">Category</label>
     <div class="col-md-10">
-        {!! Form::select('kategori', $category, null, ['class' => 'form-control input-md', 'required'], '') !!}
+        {!! Form::select('kategori', $category, null, ['id' => 'kategori', 'class' => 'form-control input-md', 'required'], '') !!}
     </div>
 </div>
 <div class="form-group" style="margin:1px">
@@ -50,15 +50,15 @@
 </div>
 @section('footer')
 <script type="text/javascript">
-  $(document).ready(function(){
-    $("#kategori").hide();
-  });
-  function cek(){
-    if($("#event").val()=='2'){
-      $("#kategori").show();
-    }else{
-      $("#kategori").hide();
-    }
-  }
+  function cek(val){
+    $.post("admin.participant.ajax.getdata",
+    {
+      data: val
+    },
+    function(data)
+    {
+      $("#kategori").html(data);
+    });
+  };
 </script>
 @endsection

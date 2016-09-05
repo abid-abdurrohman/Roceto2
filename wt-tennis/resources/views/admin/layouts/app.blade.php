@@ -38,6 +38,7 @@
         <link href="{{ URL::asset('admin_asset/css/helper.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ URL::asset('admin_asset/css/style.css') }}" rel="stylesheet" type="text/css" />
 
+
         <!-- Select2 css -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 
@@ -540,6 +541,9 @@
         <!-- Select2 JQuery -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
+        <!-- Datatables JQuery -->
+        <!-- <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script> -->
+
         <script type="text/javascript">
             /* ==============================================
             Counter Up
@@ -551,6 +555,8 @@
                 });
             });
         </script>
+        <!-- App scripts -->
+        @stack('js')
 
         @yield('footer')
     </body>

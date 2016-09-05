@@ -60,6 +60,8 @@ Route::get('gallery', 'GalleryUserController@index');
 Route::get('register/{id}', 'RegisterController@index');
 Route::post('register/{id}', 'RegisterController@store');
 
+Route::get('bracket/{id}', 'BracketUserController@show');
+
 /*link admin*/
 Route::get('admin', 'AdminController@login');
 Route::get('admin/home', 'AdminController@index');
@@ -75,6 +77,8 @@ Route::resource('admin/participant.member', 'MemberController');
 Route::get('admin/category', 'CategoryMatchController@index');
 Route::get('admin/category/{id}', 'CategoryMatchController@show');
 Route::resource('admin/category.match', 'MatchController');
+Route::resource('admin/category.match.team', 'MatchTeamController');
+Route::get('admin/event/get_event','EventController@getEvent');
 
 Route::get('redirect/{provider}', 'SocialAuthController@redirect');
 Route::get('callback/{provider}', 'SocialAuthController@callback');

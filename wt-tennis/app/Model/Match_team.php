@@ -4,9 +4,9 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TeamsMatch extends Model
+class Match_team extends Model
 {
-    protected $table = 'matches';
+    protected $table = 'match_teams';
     protected $fillable = ['score', 'participant_id', 'match_id'];
 
     public function participant() {

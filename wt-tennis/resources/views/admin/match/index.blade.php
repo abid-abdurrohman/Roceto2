@@ -10,7 +10,7 @@
                     <ol class="breadcrumb pull-right">
                         <li><a href="#">Admin</a></li>
                         <li><a href="{{ action('CategoryMatchController@index') }}">Category</a></li>
-                        <li class="active">{{ $match->nama }}</li>
+                        <li class="active">{{ $categories->nama }}</li>
                     </ol>
                 </div>
             </div>
@@ -49,7 +49,6 @@
                                                 <th>Waktu</th>
                                                 <th>Tempat</th>
                                                 <th>Created At</th>
-                                                <th>Update At</th>
                                                 <th colspan="2">Action</th>
                                             </tr>
                                         </thead>
@@ -65,7 +64,6 @@
                                                 <td>{{ $match->waktu }}</td>
                                                 <td>{{ $match->tempat }}</td>
                                                 <td>{{ $match->created_at }}</td>
-                                                <td>{{ $match->updated_at }}</td>
                                                 <td>
                                                   <a href="{{ action('MatchController@edit', array($categories->id, $match->id)) }}">
                                                     <i class="fa fa-edit"></i> Edit

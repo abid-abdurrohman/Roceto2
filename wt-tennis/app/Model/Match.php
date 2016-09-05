@@ -14,7 +14,7 @@ class Match extends Model
        return $this->belongsTo('App\Model\Category');
     }
 
-    public function teams_match() {
-    	 return $this->hasMany('App\Model\TeamsMatch');
+    public function match_team() {
+    	 return $this->hasMany('App\Model\Match_team');
     }
 }
