@@ -9,7 +9,7 @@
             </div>
             <div class="modal-body">
               {!! Form::open(['action' => array('RegisterController@store',$category->id), 'class'=>'form-horizontal']) !!}
-                  @include('register.form.form', ['submit_text' => 'Join Competition  Basket'])
+                  @include('register.form.form', ['submit_text' => '  Daftar' ])
               {!! Form::close() !!}
             </div>
         </div>

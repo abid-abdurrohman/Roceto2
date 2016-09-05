@@ -83,7 +83,6 @@
     <div class="bt-menu"><a href="#" class="menu"><span>&equiv;</span> Menu</a></div>
 
     <div class="box-menu">
-
       <div class="bt-menu"><a href="#" class="menu"><span>&equiv;</span> Menu</a></div>
       <div class="box-menu">
         <nav id="cbp-hrmenu" class="cbp-hrmenu">

@@ -15,6 +15,10 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama');
+            $table->string('thumbnail');
+            $table->text('peraturan');
+            $table->integer('biaya_pendaftaran');
+            $table->integer('kuota');
             $table->integer('event_id')->unsigned()->index();
             $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
             $table->timestamps();

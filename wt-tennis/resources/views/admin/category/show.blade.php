@@ -29,6 +29,10 @@
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Nama Kategori</th>
+                                                <th>Thumbnail</th>
+                                                <th>Peraturan</th>
+                                                <th>Biaya Pendaftaran</th>
+                                                <th>Kuota</th>
                                                 <th>Created At</th>
                                                 <th>Updated At</th>
                                             </tr>
@@ -37,6 +41,10 @@
                                             <tr>
                                                 <td>{{ $category->id }}</td>
                                                 <td>{{ $category->nama }}</td>
+                                                <td>{{ $category->thumbnail }}</td>
+                                                <td>{{ $category->peraturan }}</td>
+                                                <td>{{ $category->biaya_pendaftaran }}</td>
+                                                <td>{{ $category->kuota }}</td>
                                                 <td>{{ $category->created_at }}</td>
                                                 <td>{{ $category->updated_at }}</td>
                                             </tr>
