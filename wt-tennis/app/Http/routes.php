@@ -20,6 +20,8 @@ Route::get('admin/logout', 'Auth\AuthController@getLogout');
 Route::get('/login', function () {
     return view('log.login');
 });
+Route::get('profil/{id}', 'ParticipantUserController@index');
+
 Route::get('/tim', function () {
     return view('peserta.tim');
 });

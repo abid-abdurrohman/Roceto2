@@ -16,9 +16,9 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="panel panel-default">
-                        <div class="panel-heading"><h3 class="panel-title">Create Member</h3></div>
+                        <div class="panel-heading"><h3 class="panel-title">Create Player</h3></div>
                         <div class="panel-body">
-                            {!! Form::open(array('class' => 'form-horizontal', 'method' => 'POST', 'action' => array('MemberController@store',
+                            {!! Form::open(array('class' => 'form-horizontal', 'files'=>true, 'method' => 'POST', 'action' => array('MemberController@store',
                             $participant->id))) !!}
                                 @include('admin.member.form.form', ['submit_text' => 'Add Member'])
                             {!! Form::close() !!}

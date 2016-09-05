@@ -32,5 +32,11 @@ class HomeController extends Controller
         return view('home.home', compact('participant'));
     }
 
+    public function match()
+    {
+        $participant = Participant::paginate(1);
+        return view('home.home', compact('participant'));
+    }
+
 
 }

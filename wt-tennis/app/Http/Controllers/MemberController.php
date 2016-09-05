@@ -40,17 +40,22 @@ class MemberController extends Controller
     public function store($id, Request $request)
     {
         $this->validate($request, [
-            'nama' => 'required',
-            'nama' => 'required',
+            'nama' => 'required',            
             'jk' => 'required',
             'tgl_lhr' => 'required',
             'no_hp' => 'required',
             'posisi' => 'required',
             'no_punggung' => 'required',
+            'foto' => 'required'
         ]);
         $input = $request->all();
         $participant = Participant::findOrFail($id);
+        $photo = $request->foto->getClientOriginalName();
+        $destination = 'images/player/'.$participant->id.'/';
+        $request->foto->move($destination, $photo);
+
         $input['participant_id'] = $participant->id;
+        $input['foto'] = $destination.$photo;
         Member::create($input);
         return redirect()->action('ParticipantController@show', $participant->id)->with('success', 'Member has been created');
     }
@@ -92,18 +97,25 @@ class MemberController extends Controller
     {
         $this->validate($request, [
             'nama' => 'required',
-            'nama' => 'required',
             'jk' => 'required',
             'tgl_lhr' => 'required',
             'no_hp' => 'required',
             'posisi' => 'required',
             'no_punggung' => 'required',
+            'foto' => 'required'
         ]);
         $participant = Participant::findOrFail($id);
         $member = Member::findOrFail($id_member);
         $input = $request->all();
+        $photo = $request->foto->getClientOriginalName();
+        $destination = 'images/player/'.$participant->id.'/';
+        $request->foto->move($destination, $photo);
+        $input['foto'] = $destination.$photo;
         $member->update($input);
         return redirect()->action('ParticipantController@show', [$participant->id])->with('info', 'Member has been edited');
+
+        
+
     }
 
     /**
