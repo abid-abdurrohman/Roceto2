@@ -1,94 +1,92 @@
+@extends('admin.layouts.app')
+@section('title', 'Detail Match')
+@section('content')
+        <div class="container">
 
-	<script type="text/javascript" src="{{ URL::asset('admin_asset/bracket-generator/jquery-1.12.4.min.js') }}"></script>
-	<script type="text/javascript" src="{{ URL::asset('admin_asset/bracket-generator/jquery.bracket.min.js') }}"></script>
-	<link rel="stylesheet" type="text/css" href="{{ URL::asset('admin_asset/bracket-generator/jquery.bracket.min.css') }}" />
-	<?php
-		$con = mysqli_connect('localhost', 'root', '', 'eo_sport');
-		if (!$con) {
-		    die('Could not connect: ' . mysqli_error($con));
-		}
+            <!-- Page-Title -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4 class="pull-left page-title">Matchs</h4>
+                    <ol class="breadcrumb pull-right">
+                        <li><a href="#">Admin</a></li>
+                        <li><a href="{{ action('CategoryMatchController@index') }}">Category</a></li>
+                        <li class="active">{{ $match->nama }}</li>
+                    </ol>
+                </div>
+            </div>
 
-		mysqli_select_db($con,"eo_sport");
-		$sql = "SELECT * FROM participants";
-		$result = mysqli_query($con, $sql);
-		$count = mysqli_num_rows($result);
-		$i = 0;
-		while ($data = mysqli_fetch_array($result)){
-			$teams[$i] = $data['nama_tim'];
-			$i++;
-		}
-	?>
-	<script type="text/javascript">
-	var saveData = {
-			teams : [
-				<?php
-				$k = 0;
-				for ($i=0; $i < $count/2; $i++) {
-					for ($j=0; $j < 2; $j++) {
-						$teamss[$i][$j] = $teams[$k];
-						if ($j==0) {
-							echo "['".$teamss[$i][$j]."'";
-						}else if ($j==1) {
-							echo ", '".$teamss[$i][$j]."'],";
-						}
-						$k++;
-					}
-
-				}
-				?>
-				]
-					// [
-			// ["Team 1",  "Team 2" ],
-			// ["Team 3",  "Team 4" ],
-			// ["Team 5",  "Team 6" ],
-			// ["Team 7",  "Team 8" ],
-			// ["Team 9",  "Team 10"],
-			// ["Team 11", "Team 12"],
-			// ["Team 13", "Team 14"],
-			// ["Team 15", "Team 16"]
-			// ],
-			// results : [[ /* WINNER BRACKET */
-			// [[3,5,"Match 1"], [2,4,"Match 2"], [6,3,"Match 3"], [2,3,"Match 4"], [1,5,"Match 5"], [5,3,"Match 6"], [7,2,"Match 7"], [1,2,"Match 8"]],
-			// ]]
-		}
-
-	 /* Called whenever bracket is modified
-	 *
-	 * data:     changed bracket object in format given to init
-	 * userData: optional data given when bracket is created.
-	 */
-	 function saveFn(data, userData) {
-	 	var json = JSON.stringify(data)
-	 	$('#saveOutput').text('POST '+userData+' '+json)
-	  /* You probably want to do something like this
-	  jQuery.ajax("rest/"+userData, {contentType: 'application/json', dataType: 'json', type: 'post', data: json})
-	  */
-	}
-
-	function onclick(data) {
-		$('#matchCallback').text("onclick(data: '" + data + "')")
-	}
-
-	function onhover(data, hover) {
-		$('#matchCallback').text("onhover(data: '" + data + "', hover: " + hover + ")")
-	}
-
-	$(function() {
-		$(function() {
-	    var container = $('#bracket-save .bracket-demo')
-	    container.bracket({
-	      init: saveData,
-	      save: saveFn,
-	      userData: "http://myapi"})
-
-	    /* You can also inquiry the current data */
-	    var data = container.bracket('data')
-	    $('#dataOutput').text(JSON.stringify(data))
-	  })
-	})
-</script>
-	<div id="matchCallback"></div>
-	<div id="bracket-save">
-		<div class="bracket-demo"></div>
-	</div>
-	<div id="dataOutput"></div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Data Match</h3>
+                        </div>
+                        <div class="panel-body">
+                            @include('admin.match.notification.flash')
+                            <div class="row">
+                              <div class="col-md-5">
+                                <a class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#con-close-modal">Add <i class="fa fa-plus"></i></a>
+                                @include('admin.match.modal.create')
+                                <!-- <a href="{{ action('EventController@create') }}" class="btn btn-primary waves-effect waves-light">Add <i class="fa fa-plus"></i></a> -->
+                              </div>
+                              <div class="col-md-6">
+                                <div id="datatable_filter" class="dataTables_filter">
+                                    {!! Form::open() !!}
+                                    <label>Search:
+                                      <input name=search type="search" class="form-control input-sm" placeholder="Write something" aria-controls="datatable" required>
+                                    {!! Form::close() !!}
+                                  </label>
+                                </div>
+                              </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <table id="datatable" class="table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Nama</th>
+                                                <th>Waktu</th>
+                                                <th>Tempat</th>
+                                                <th>Created At</th>
+                                                <th>Update At</th>
+                                                <th colspan="2">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                              @foreach ($matches as $match)
+                                            <tr>
+                                                <td>{{ $match->id }}</td>
+                                                <td>
+                                                    <a href="{{ action('MatchController@show', array($categories->id, $match->id)) }}">
+                                                      {{ $match->nama }}
+                                                    </a>
+                                                </td>
+                                                <td>{{ $match->waktu }}</td>
+                                                <td>{{ $match->tempat }}</td>
+                                                <td>{{ $match->created_at }}</td>
+                                                <td>{{ $match->updated_at }}</td>
+                                                <td>
+                                                  <a href="{{ action('MatchController@edit', array($categories->id, $match->id)) }}">
+                                                    <i class="fa fa-edit"></i> Edit
+                                                  </a>
+                                                </td>
+                                                <td>
+                                                  <a href="#" data-toggle="modal" data-target="#myModal-{{ $match->id }}-{{ $categories->id }}">
+                                                    <i class="fa fa-trash"></i> Delete
+                                                  </a>
+                                                </td>
+                                            </tr>
+                                            @include('admin.match.modal.delete', ['id_match' => $match->id, 'id_category' => $categories->id])
+                                          @endforeach
+                                        </tbody>
+                                    </table>
+                                    {!! $matches->links() !!}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- End Row -->
+        </div> <!-- container -->
+@endsection

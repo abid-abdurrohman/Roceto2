@@ -20,7 +20,7 @@
                     <img class="img-djoko" src="{!! asset('').'/'.$newss->thumbnail !!}" alt="" />
                   </div>
                   <div class="col-md-8 data-news-pg">
-                    <p class="news-dd">FEBRUARY 1, 2015 12:00 PM</p>
+                    <p class="news-dd">{{ $newss->created_at }}</p>
                     <h3>{{ $newss->judul }}</h3>
                      <p>{!! str_limit($newss->deskripsi, 350) !!}</p>
                     <div class="col-md-12 news-more"><a href="{{ action('NewsUserController@show', $newss->slug) }}" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a></div>

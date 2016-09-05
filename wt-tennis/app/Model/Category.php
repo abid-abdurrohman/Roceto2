@@ -16,4 +16,8 @@ class Category extends Model
     public function participant() {
     	 return $this->hasMany('App\Model\Participant');
     }
+
+    public function match() {
+    	 return $this->hasMany('App\Model\Match');
+    }
 }

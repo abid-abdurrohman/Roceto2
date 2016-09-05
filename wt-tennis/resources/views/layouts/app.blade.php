@@ -82,8 +82,6 @@
     <div class="bt-menu"><a href="#" class="menu"><span>&equiv;</span> Menu</a></div>
 
     <div class="box-menu">
-
-
       <div class="bt-menu"><a href="#" class="menu"><span>&equiv;</span> Menu</a></div>
       <div class="box-menu">
         <nav id="cbp-hrmenu" class="cbp-hrmenu">
@@ -135,6 +133,7 @@
                   <li>
                     <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'tim' ? 'active' : null }}" data-toggle="dropdown"> PARTICIPANT <b class="caret"></b></a>
                     <ul class="dropdown-menu">
+                      <li class="divider"></li>
                       <li><a href="{{ url('/tim') }}"><span>Tim</span></a></li>
                       <li class="divider"></li>
                       <li><a href="{{ url('/individual') }}"><span>Single Player</span></a></li>
@@ -142,11 +141,13 @@
                       <li><a href="{{ action('GalleryUserController@index') }}"><span>Gallery</span></a></li>
                       <li class="divider"></li>
                       <li><a href="{{ url('/video') }}"><span>Video</span></a></li>
+                      <li class="divider"></li>
                     </ul>
                   </li>
                   <li>
                     <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'events' ? 'active' : null }}" data-toggle="dropdown"> EVENTS <b class="caret"></b></a>
                     <ul class="dropdown-menu">
+                      <li class="divider"></li>
                       <li><a href="{{ url('/match')}}"><span>Points</span></a></li>
                       <li class="divider"></li>
                       <li><a href="{{ url('/jadwal') }}"><span>Schedule</span></a></li>
@@ -154,6 +155,7 @@
                       <li><a href="{{ url('/bagan') }}"><span>Bracket</span></a></li>
                       <li class="divider"></li>
                       <li><a href="{{ url('/results') }}"><span>Results</span></a></li>
+                      <li class="divider"></li>
                     </ul>
                   </li>
                    <li><a class="lnk-menu {{ Request::segment(1) === 'news' ? 'active' : null }}" href="{{ action('NewsUserController@index') }}"> NEWS </a></li>
@@ -202,26 +204,40 @@
        <p>Our mission is to
          provide unrivalled and unbiased informative, resources to help any sports fan who enjoys a flutter make.</p>
        </div>
+       <?php ?>
+
        <div class="col-md-3 cat-footer">
         <div class="footer-map"></div>
-        <h3 class='last-cat'>Categories</h3>
+        <h3 class='last-cat'>Competition</h3>
         <ul class="last-tips">
-          <li><a href="tournaments.html">Tournaments</a></li>
-          <li><a href="results.html">All Results</a></li>
-          <li><a href="matches.html">Matches London ATP</a></li>
-          <li><a href="matches.html">Double ATP</a></li>
-          <li><a href="matches.html">Double WTP</a></li>
-          <li><a href="shops.html">Shop Best Price</a></li>
+        <?php
+          $sql = "SELECT * FROM events";
+          $result = mysqli_query($konek, $sql);
+          while ($events = mysqli_fetch_array($result)) {
+        ?>
+          <li>{{ $events['nama'] }}</li>
+        <?php } ?>  
         </ul>
       </div>
-      <div class="col-md-3">
+
+    <div class="col-md-3">    
        <h3>Last News</h3>
+      <?php
+          $sql = "SELECT * FROM news ORDER BY created_at DESC LIMIT 3";
+          $result = mysqli_query($konek, $sql);
+         while ($news = mysqli_fetch_array($result)) {
+      ?>
        <ul class="footer-last-news">
-        <li><img src="http://placehold.it/320x213" alt="" /><p>Fusce risus metus, placerat in consectetur eu...</p></li>
-        <li><img src="http://placehold.it/320x213" alt="" /><p>Fusce risus metus, placerat in consectetur eu...</p></li>
-        <li><img src="http://placehold.it/320x213" alt="" /><p>Fusce risus metus, placerat in consectetur eu...</p></li>
-      </ul>
+          <li>
+            <a href="{{ action('NewsUserController@show',$news['slug']) }}"> 
+            <img src="{!! asset('').'/'.$news['thumbnail'] !!}" alt="" /></a>
+            <p>{!! str_limit($news['deskripsi'], 100) !!}</p>
+          </li>
+       </ul> 
+     <?php } ?>  
+
     </div>
+
     <div class="col-md-3 footer-newsletters">
       <h3>Newsletters</h3>
       <form method="post">

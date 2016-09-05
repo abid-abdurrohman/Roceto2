@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
- <section class="drawer">
+<section class="drawer">
   <div class="col-md-12 size-img back-img-shop">
     <div class="effect-cover">
       <h3 class="txt-advert animated">The best news ATP WTP</h3>
@@ -18,288 +18,100 @@
       <div class="data-news-pg">
         <p>{!! $news->deskripsi !!}</p>
       </div>
-      <p class="desc_news important_news data">by {{ $news->author }}<i class="fa fa-calendar"></i>{{ $news->created_at }} - Depok, Indonesia</p>
-          <div class="tab_news">
+
+      <div class="row" style>
+        <p class="desc_news important_news data">by {{ $news->author }}<i class="fa fa-calendar"></i>{{ $news->created_at }} - Depok, Indonesia</p>
+        <div class="tab_news">
           @unless ($news->tags->isEmpty())
-            <i class="fa fa-tag"></i><span>TAGS:</span>
-              @foreach ($news->tags as $tag)
-                <a href="#" class="tag">{{ $tag->nama }}</a>
-              @endforeach
+          <i class="fa fa-tag"></i><span>TAGS:</span>
+          @foreach ($news->tags as $tag)
+          <a href="#" class="tag">{{ $tag->nama }}</a>
+          @endforeach
           @endunless
-          </div>
+        </div>
+      </div>
 
-          <!-- <div class="other-news">
-           <h3>Other <span>News</span><span class="point-little">.</span></h3>
-           <ul id="product" class="bxslider">
-           @foreach($other_news as $newss )
-            <li>
-              <img src="{!! asset('').'/'.$newss->thumbnail !!}" alt="" style="height:150px"/>
-              <p class="product-title">{{ $newss->judul }}</p>
-              <p class="data-news-pg">{!!str_limit($newss->deskripsi, 350) !!}.</p>
-              <div><a href="single_news.html" class="ready-news" style="height:52px">Read</a></div>
-            </li>
-          @endforeach            
-          </ul>
-        </div> -->
+      <!--Open comment-->
+      <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 
-        <!--Open comment-->
-        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-        <div class="container" style="margin-top:50px" >
-          <div class="col-sm-8">
-            <div class="panel panel-white post panel-shadow"> 
-              <div class="post-footer">
-                <ul class="comments-list">
-                  <li class="comment">
+      <div class="row" style="margin-top:80px" >
+        <div class="col-sm-12">
+          <div class="panel panel-white post panel-shadow">
+            <div class="post-footer">
+              <ul class="comments-list">
+                <li class="comment">
+                    <?php
+                     $konek = mysqli_connect('localhost', 'root','','eo_sport');
+                          if(!$konek){
+                            die('Could not Connect');
+                          }
+                    mysqli_select_db($konek ,'eo_sport');
+                    ?>
 
-                    <a class="pull-left" href="#">
+                     <a class="pull-left" href="#">
                       <img class="avatar" src="http://bootdey.com/img/Content/user_1.jpg" alt="avatar">
                     </a>
-                    <div class="stats">  
+                    <div class="stats">
                       <div class="comment-body">
+                        @foreach($comments as $comment)
                         <div class="comment-heading">
-                          <h4 class="user">Gavino Free</h4>
-                          <h5 class="time">5 minutes ago</h5>
+                          <h4 class="user">{{ $users->nickname }}</h4>
+                          <h5 class="time">5 minutes ago</h5> 
                         </div>
-                        <p>Sure, oooooooooooooooohhhhhhhhhhhhhhhh</p>
+                        <p>{{ $comment->comment }}</p>
+                        @endforeach
                       </div>
                     </div>
-                      <hr>
-                    <a class="pull-left" href="#">
-                            <img class="avatar" src="http://bootdey.com/img/Content/user_3.jpg" alt="avatar">
-                          </a>
-                          <div class="comment-body">
-                            <div class="comment-heading">
-                              <h4 class="user">Ryan Haywood</h4>
-                              <h5 class="time">3 minutes ago</h5>
-                            </div>
-                            <p>Relax my friend</p>
-                          </div>
-                          <hr>
-                           <a class="pull-left" href="#">
-                            <img class="avatar" src="http://bootdey.com/img/Content/user_2.jpg" alt="avatar">
-                          </a>
-                          <div class="comment-body">
-                            <div class="comment-heading">
-                              <h4 class="user">Gavino Free</h4>
-                              <h5 class="time">3 minutes ago</h5>
-                            </div>
-                            <p>Ok, cool.</p>
-                          </div>
-                          <hr>
+                         {!! Form::model(new App\Model\Comment, ['action' => ['CommentUserController@store', $news->id], 'class'=>'form-horizontal']) !!}
                         <div class="input-group"> 
-                          <input class="form-control" placeholder="Add a comment" type="text">
+                        {!! Form::textarea('comment', null, ['class' => 'form-control', 'rows' => '5',
+        'placeholder' => 'Add a Comment', 'required'],'') !!}
                           <span class="input-group-addon">
-                            <a href="#"><i class="fa fa-edit"></i></a>  
-                          </span>
-                        </div>
+                            <button type="submit"><i class="fa fa-edit"> </i></button>
+                       {!! Form::close() !!}
+                     <?php ?>  
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
-<!--Close comment-->
-        
-      </div><!--Close Top Match-->
-      <div class="col-md-3 right-column">
-       <div class="top-score-title col-md-12 right-title">
-        <h3>Latest News</h3>
-        <div class="right-content">
-          <p class="news-title-right">A New Old Life</p>
-          <p class="txt-right">Simon, who’s seeded just a lowly 26th here, was in many ways the right man for this grueling assignment</p>
-          <a href="single_news.html" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a>
+          <!--Close comment-->
         </div>
-        <div class="right-content">
-          <p class="news-title-right">A New Old Life</p>
-          <p class="txt-right">Simon, who’s seeded just a lowly 26th here, was in many ways the right man for this grueling assignment</p>
-          <a href="single_news.html" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a>
-        </div>
-        <div class="right-content">
-          <p class="news-title-right">A New Old Life</p>
-          <p class="txt-right">Simon, who’s seeded just a lowly 26th here, was in many ways the right man for this grueling assignment</p>
-          <a href="single_news.html" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a>
-        </div>
-      </div>
-      <div class="top-score-title col-md-12">
-        <img src="http://placehold.it/1000x475" alt="" />
-      </div>
-      <div class="top-score-title col-md-12 right-title">
-        <h3>Photos</h3> 
-        <ul class="right-last-photo">
-          <li>
-            <div class="jm-item second">
-              <div class="jm-item-wrapper">
-                <div class="jm-item-image">
-                  <img src="http://placehold.it/320x213" alt="" />
-                  <div class="jm-item-description">
-                    <div class="jm-item-button">
-                      <i class="fa fa-plus"></i>
-                    </div>
-                  </div>
-                </div>  
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="jm-item second">
-              <div class="jm-item-wrapper">
-                <div class="jm-item-image">
-                  <img src="http://placehold.it/320x213" alt="" />
-                  <div class="jm-item-description">
-                    <div class="jm-item-button">
-                      <i class="fa fa-plus"></i>
-                    </div>
-                  </div>
-                </div>  
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="jm-item second">
-              <div class="jm-item-wrapper">
-                <div class="jm-item-image">
-                  <img src="http://placehold.it/320x213" alt="" />
-                  <div class="jm-item-description">
-                    <div class="jm-item-button">
-                      <i class="fa fa-plus"></i>
-                    </div>
-                  </div>
-                </div>  
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="jm-item second">
-              <div class="jm-item-wrapper">
-                <div class="jm-item-image">
-                  <img src="http://placehold.it/320x213" alt="" />
-                  <div class="jm-item-description">
-                    <div class="jm-item-button">
-                      <i class="fa fa-plus"></i>
-                    </div>
-                  </div>
-                </div>  
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="jm-item second">
-              <div class="jm-item-wrapper">
-                <div class="jm-item-image">
-                  <img src="http://placehold.it/320x213" alt="" />
-                  <div class="jm-item-description">
-                    <div class="jm-item-button">
-                      <i class="fa fa-plus"></i>
-                    </div>
-                  </div>
-                </div>  
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="jm-item second">
-              <div class="jm-item-wrapper">
-                <div class="jm-item-image">
-                  <img src="http://placehold.it/320x213" alt="" />
-                  <div class="jm-item-description">
-                    <div class="jm-item-button">
-                      <i class="fa fa-plus"></i>
-                    </div>
-                  </div>
-                </div>  
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="jm-item second">
-              <div class="jm-item-wrapper">
-                <div class="jm-item-image">
-                  <img src="http://placehold.it/320x213" alt="" />
-                  <div class="jm-item-description">
-                    <div class="jm-item-button">
-                      <i class="fa fa-plus"></i>
-                    </div>
-                  </div>
-                </div>  
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="jm-item second">
-              <div class="jm-item-wrapper">
-                <div class="jm-item-image">
-                  <img src="http://placehold.it/320x213" alt="" />
-                  <div class="jm-item-description">
-                    <div class="jm-item-button">
-                      <i class="fa fa-plus"></i>
-                    </div>
-                  </div>
-                </div>  
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="jm-item second">
-              <div class="jm-item-wrapper">
-                <div class="jm-item-image">
-                  <img src="http://placehold.it/320x213" alt="" />
-                  <div class="jm-item-description">
-                    <div class="jm-item-button">
-                      <i class="fa fa-plus"></i>
-                    </div>
-                  </div>
-                </div>  
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
+        <!--Close Top Match-->
 
-  <section id="sponsor" class="container">
-    <!--SECTION SPONSOR-->
-    <div class="client-sport client-sport-nomargin">
-     <div class="content-banner">
-       <ul class="sponsor second">
-        <li><img src="http://placehold.it/273x133" alt="" /></li>
-        <li><img src="http://placehold.it/273x133" alt="" /></li>
-        <li><img src="http://placehold.it/273x133" alt="" /></li>
-        <li><img src="http://placehold.it/273x133" alt="" /></li>
-        <li><img src="http://placehold.it/273x133" alt="" /></li>
-        <li><img src="http://placehold.it/273x133" alt="" /></li>
-      </ul>
-    </div>
-  </div>
-</section>
-<script src="js/jquery.bxslider.js" type="text/javascript"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        "use strict";
-        if (document.body.clientWidth < 400) {
+        <!--right content-->
+        @include('layouts.right-content')
+      </section>
+
+      <script src="js/jquery.bxslider.js" type="text/javascript"></script>
+      <script type="text/javascript">
+        $(document).ready(function () {
+          "use strict";
+          if (document.body.clientWidth < 400) {
             $('#product').bxSlider({
-                minSlides: 1,
-                maxSlides: 3,
-                slideWidth: 300,
-                slideMargin: 10
+              minSlides: 1,
+              maxSlides: 3,
+              slideWidth: 300,
+              slideMargin: 10
             });
-        }
-        else if (document.body.clientWidth < 600) {
+          }
+          else if (document.body.clientWidth < 600) {
             $('#product').bxSlider({
-                minSlides: 2,
-                maxSlides: 3,
-                slideWidth: 265,
-                slideMargin: 10
+              minSlides: 2,
+              maxSlides: 3,
+              slideWidth: 265,
+              slideMargin: 10
             });
-        }
-        else {
+          }
+          else {
             $('#product').bxSlider({
-                minSlides: 3,
-                maxSlides: 3,
-                slideWidth: 265,
-                slideMargin: 10
+              minSlides: 3,
+              maxSlides: 3,
+              slideWidth: 265,
+              slideMargin: 10
             });
-         }
-    });
-</script>
-@endsection
+          }
+        });
+      </script>
+      @endsection

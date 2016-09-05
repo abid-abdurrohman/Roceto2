@@ -17,4 +17,8 @@ class Participant extends Model
     public function member() {
     	 return $this->hasMany('App\Model\Member');
     }
+
+    public function match() {
+    	 return $this->hasMany('App\Model\Match');
+    }
 }
