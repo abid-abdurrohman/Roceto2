@@ -12,8 +12,7 @@ class ParticipantUserController extends Controller
 	public function index($id)
     {
         $participants = Participant::findOrFail($id);
-
-        return view('peserta.profil', compact('participants'));
+        return view('participant.index', compact('participants'));
     }
    
 }

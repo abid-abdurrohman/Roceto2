@@ -20,13 +20,12 @@ Route::get('admin/logout', 'Auth\AuthController@getLogout');
 Route::get('/login', function () {
     return view('log.login');
 });
-Route::get('profil/{id}', 'ParticipantUserController@index');
+Route::get('team/{id}', 'ParticipantUserController@index');
 
-Route::get('/tim', function () {
-    return view('peserta.tim');
-});
+Route::post('team/{id}/member', 'MemberUserController@store');
+
 Route::get('/individual', function () {
-    return view('peserta.individual');
+    return view('participant.individual');
 });
 Route::get('/gallery', function () {
     return view('gallery.gallery');
@@ -37,8 +36,8 @@ Route::get('/video', function () {
 Route::get('/match', function () {
     return view('matches.match');
 });
-Route::get('/jadwal', function() {
-    return view('jadwal.jadwal');
+Route::get('/schedule', function() {
+    return view('schedule.schedule');
 });
 Route::get('/bagan', function() {
     return view('bagan.bagan');
