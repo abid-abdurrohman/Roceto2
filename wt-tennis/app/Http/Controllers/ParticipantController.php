@@ -45,12 +45,12 @@ class ParticipantController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nama_tim' => 'required',
-            'no_hp' => 'required',
-            'email' => 'required',
-            'warna_kostum' => 'required',
-            'jumlah_pemain' => 'required',
-            'kategori' => 'required',
+            'nama_tim' => ['required'],
+            'no_hp' => ['required'],
+            'email' => ['required'],
+            'warna_kostum' => ['required'],
+            'jumlah_pemain' => ['required'],
+            'kategori' => ['required'],
         ]);
         $input = $request->all();
         $input['category_id'] = $request->kategori;
@@ -95,12 +95,12 @@ class ParticipantController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'nama_tim' => 'required',
-            'no_hp' => 'required',
-            'email' => 'required',
-            'warna_kostum' => 'required',
-            'jumlah_pemain' => 'required',
-            'kategori' => 'required',
+            'nama_tim' => ['required'],
+            'no_hp' => ['required'],
+            'email' => ['required'],
+            'warna_kostum' => ['required'],
+            'jumlah_pemain' => ['required'],
+            'kategori' => ['required'],
         ]);
         $participants = Participant::findOrFail($id);
         $participants['category_id'] = $request->kategori;

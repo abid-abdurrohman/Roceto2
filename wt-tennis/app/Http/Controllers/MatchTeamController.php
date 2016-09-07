@@ -8,6 +8,7 @@ use App\Model\Event;
 use App\Model\Category;
 use App\Model\Match;
 use App\Model\Match_team;
+use App\Model\Member;
 use App\Http\Requests;
 
 class MatchTeamController extends Controller
@@ -48,7 +49,7 @@ class MatchTeamController extends Controller
         $matches = Match::findOrFail($id_match);
         $input['match_id'] = $matches->id;
         Match_team::create($input);
-        return redirect()->action('MatchController@show', $categories->id, $matches->id)->with('success', 'Team has been created');
+        return redirect()->action('MatchController@show', [$categories->id, $matches->id])->with('success', 'Team has been created');
     }
 
     /**
@@ -59,7 +60,11 @@ class MatchTeamController extends Controller
      */
     public function show($id, $id_match, $id_team)
     {
-        //
+        $categories = Category::findOrFail($id);
+        $matches = Match::findOrFail($id_match);
+        $match_teams = Match_team::findOrFail($id_team);
+        $members = Member::lists('nama', 'id');
+        return view('admin.match_team.show', compact('categories', 'matches', 'match_teams', 'members'));
     }
 
     /**

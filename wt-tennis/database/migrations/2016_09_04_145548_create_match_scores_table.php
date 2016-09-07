@@ -17,8 +17,8 @@ class CreateMatchScoresTable extends Migration
             $table->integer('score');
             $table->integer('member_id')->unsigned()->index();
             $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
-            $table->integer('team_id')->unsigned()->index();
-            $table->foreign('team_id')->references('id')->on('match_teams')->onDelete('cascade');
+            $table->integer('match_team_id')->unsigned()->index();
+            $table->foreign('match_team_id')->references('id')->on('match_teams')->onDelete('cascade');
             $table->timestamps();
         });
     }
