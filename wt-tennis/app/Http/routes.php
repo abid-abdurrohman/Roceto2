@@ -20,19 +20,14 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::get('admin/logout', 'Auth\AuthController@getLogout');
 
-<<<<<<< HEAD
 Route::get('login', 'LogController@login');
 Route::get('register', 'LogController@register');
 
 Route::get('profil/{id}', 'ParticipantUserController@index');
-=======
-Route::get('/login', function () {
-    return view('log.login');
-});
+
 Route::get('team/{id}', 'ParticipantUserController@index');
 
 Route::post('team/{id}/member', 'MemberUserController@store');
->>>>>>> 1e4ab9cfb3f315172766876c57261bd968694453
 
 Route::get('/individual', function () {
     return view('participant.individual');
