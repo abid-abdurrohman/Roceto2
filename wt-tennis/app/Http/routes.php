@@ -22,7 +22,7 @@ Route::get('/login', function () {
 });
 Route::get('team/{id}', 'ParticipantUserController@index');
 
-Route::post('team/{id}/member', 'MemberUserController@store');
+Route::post('team/{id}', 'MemberUserController@store');
 
 Route::get('/individual', function () {
     return view('participant.individual');
