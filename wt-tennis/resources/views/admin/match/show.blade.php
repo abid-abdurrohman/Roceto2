@@ -39,29 +39,27 @@
                                                 <th>Score</th>
                                                 <th>Created At</th>
                                                 <th>Updated At</th>
-                                                <th colspan="2">Action</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach( $matches->match_team as $team_match )
                                               <tr>
                                                   <td>{{ $team_match->id }}</td>
-                                                  <td>{{ $team_match->participant_id }}</td>
+                                                  <td>
+                                                    <a href="{{ action('MatchTeamController@show', array($categories->id, $matches->id, $team_match->id)) }}">
+                                                    {{ $team_match->participant_id }}
+                                                    </a>
+                                                  </td>
                                                   <td>{{ $team_match->score }}</td>
                                                   <td>{{ $team_match->created_at }}</td>
                                                   <td>{{ $team_match->updated_at }}</td>
-                                                  <td>
-                                                    <a href="#" data-toggle="modal" data-target="#myModal2-{{ $categories->id }}-{{ $matches->id }}-{{ $team_match->id }}">
-                                                      <i class="fa fa-plus"></i> Score
-                                                    </a>
-                                                  </td>
                                                   <td>
                                                     <a href="#" data-toggle="modal" data-target="#myModal-{{ $categories->id }}-{{ $matches->id }}-{{ $team_match->id }}">
                                                       <i class="fa fa-trash"></i> Delete
                                                     </a>
                                                   </td>
                                               </tr>
-                                              @include('admin.match_team.modal.score', ['id_category' => $categories->id, 'id_match' => $matches->id, 'id_team' => $team_match->id])
                                               @include('admin.match_team.modal.delete', ['id_category' => $categories->id, 'id_match' => $matches->id, 'id_team' => $team_match->id])
                                             @endforeach
                                         </tbody>

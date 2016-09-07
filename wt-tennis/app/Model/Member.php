@@ -12,4 +12,8 @@ class Member extends Model
     public function participant() {
        return $this->belongsTo('App\Model\Participant');
     }
+
+    public function match_score() {
+         return $this->hasMany('App\Model\Match_score');
+    }
 }

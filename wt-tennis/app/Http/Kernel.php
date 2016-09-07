@@ -14,7 +14,13 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
-        \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
+      'Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode',
+      // 'Illuminate\Cookie\Middleware\EncryptCookies',
+      // 'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
+      // 'Illuminate\Session\Middleware\StartSession',
+      // 'Illuminate\View\Middleware\ShareErrorsFromSession',
+      // 'App\Http\Middleware\VerifyCsrfToken',
+      // 'App\Http\Middleware\AdminMiddleware',
     ];
 
     /**
@@ -33,6 +39,7 @@ class Kernel extends HttpKernel
 
         'api' => [
             'throttle:60,1',
+            'auth:api',
         ],
     ];
 
@@ -49,6 +56,6 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'admin' => 'App\Http\Middleware\Admin', // this line right here
+        'admin' => \App\Http\Middleware\AdminMiddleware::class,
     ];
 }

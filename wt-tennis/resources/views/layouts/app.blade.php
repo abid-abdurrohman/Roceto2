@@ -11,7 +11,7 @@
 
   <link href="{{ URL::asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" />
   {{ Html::style('css/bootstrap.css') }}
-  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
 
   <link href="{{ URL::asset('css/online/open_sans.css') }}" rel='stylesheet' type='text/css'/>
   <!--<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css'/>-->
@@ -63,9 +63,21 @@
        <p class="support-info"><i class="fa fa-envelope-o"></i> info@wttennis.com</p>
      </div>
      <div class="box-login">
+       @if (Auth::guest())
        <!-- <i class="fa fa-shopping-cart"></i> -->
-       <a href="{{ url('/login') }}">Login</a>
-       <!-- <a href='login.html'>Sign Up</a> -->
+       <a href="{{ action('LogController@login') }}">Login</a>
+       <a href="{{ action('LogController@register') }}">Sign Up</a>
+       @else
+       <li class="dropdown">
+           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+               {{ Auth::user()->name }} <span class="caret"></span>
+           </a>
+
+           <ul class="dropdown-menu" role="menu">
+               <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+           </ul>
+       </li>
+       @endif
      </div>
     </div>
   </div>
@@ -102,7 +114,7 @@
                     $sql = "SELECT * FROM events";
                     $result = mysqli_query($konek, $sql);
                   ?>
-                    <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'register' ? 'active' : null }}" data-toggle="dropdown"> COMPETITION <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'join' ? 'active' : null }}" data-toggle="dropdown"> COMPETITION <b class="caret"></b></a>
                     <ul class="dropdown-menu multi-level">
                     <li class="divider"></li>
                     <?php
@@ -131,6 +143,8 @@
                     ?>
                     </ul>
                   </li>
+                  @if (Auth::guest())
+                  @else
                   <li>
                     <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'tim' ? 'active' : null }}" data-toggle="dropdown"> PARTICIPANT <b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -143,10 +157,11 @@
                       <li class="divider"></li>
                       <li><a href="{{ action('GalleryUserController@index') }}"><span>Gallery</span></a></li>
                       <li class="divider"></li>
-                      <li><a href="{{ url('/video') }}"><span>Video</span></a></li>
+                      <li><a href="{{ action('EventStreamController@show',1) }}"><span>Video</span></a></li>
                       <li class="divider"></li>
                     </ul>
                   </li>
+                  @endif
                   <li>
                     <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'events' ? 'active' : null }}" data-toggle="dropdown"> EVENTS <b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -219,11 +234,11 @@
           while ($events = mysqli_fetch_array($result)) {
         ?>
           <li>{{ $events['nama'] }}</li>
-        <?php } ?>  
+        <?php } ?>
         </ul>
       </div>
 
-    <div class="col-md-3">    
+    <div class="col-md-3">
        <h3>Last News</h3>
       <?php
           $sql = "SELECT * FROM news ORDER BY created_at DESC LIMIT 3";
@@ -232,12 +247,12 @@
       ?>
        <ul class="footer-last-news">
           <li>
-            <a href="{{ action('NewsUserController@show',$news['slug']) }}"> 
+            <a href="{{ action('NewsUserController@show', $news['slug']) }}">
             <img src="{!! asset('').'/'.$news['thumbnail'] !!}" alt="" /></a>
             <p>{!! str_limit($news['deskripsi'], 100) !!}</p>
           </li>
-       </ul> 
-     <?php } ?>  
+       </ul>
+     <?php } ?>
 
     </div>
 
@@ -336,6 +351,6 @@
 <script src="{{ URL::asset('js/jquery.countdown.js') }}" type="text/javascript"></script>
 
 <script src="{{ URL::asset('js/custom_ini.js') }}" type="text/javascript"></script>
-
+@stack('scripts')
 </body>
 </html>

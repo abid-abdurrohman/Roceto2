@@ -16,4 +16,8 @@ class Match_team extends Model
     public function match() {
        return $this->belongsTo('App\Model\Match');
     }
+
+    public function match_score() {
+    	 return $this->hasMany('App\Model\Match_score');
+    }
 }
