@@ -51,6 +51,7 @@
 			border-top:0px solid #aaa;
 		}
 </style>
+
 <section class="drawer">
 	<div class="col-md-12 size-img back-img-single">
 		<div class="effect-cover">

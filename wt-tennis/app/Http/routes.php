@@ -20,22 +20,28 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::get('admin/logout', 'Auth\AuthController@getLogout');
 
+<<<<<<< HEAD
 Route::get('login', 'LogController@login');
 Route::get('register', 'LogController@register');
 
 Route::get('profil/{id}', 'ParticipantUserController@index');
-
-Route::get('/tim', function () {
-    return view('peserta.tim');
+=======
+Route::get('/login', function () {
+    return view('log.login');
 });
+Route::get('team/{id}', 'ParticipantUserController@index');
+
+Route::post('team/{id}/member', 'MemberUserController@store');
+>>>>>>> 1e4ab9cfb3f315172766876c57261bd968694453
+
 Route::get('/individual', function () {
-    return view('peserta.individual');
+    return view('participant.individual');
 });
 Route::get('/match', function () {
     return view('matches.match');
 });
-Route::get('/jadwal', function() {
-    return view('jadwal.jadwal');
+Route::get('/schedule', function() {
+    return view('schedule.schedule');
 });
 Route::get('/bagan', function() {
     return view('bagan.bagan');

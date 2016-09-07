@@ -1121,7 +1121,7 @@ div.inner {
 	padding: 0;
     text-align: center;
     margin: 0 auto 0 auto;
-    margin-left: 80px; 
+    margin-left: 10px; 
     margin-right: 20px; 
 }
 .tab-content-point {
@@ -1135,7 +1135,7 @@ div.inner {
     float:left;
     list-style:none;
     background-color: #212121;
-    width: 13.3333%;
+    width: 12.3333%;
     position: relative;
     padding: 10px 0;
     border-right:1px solid #333;

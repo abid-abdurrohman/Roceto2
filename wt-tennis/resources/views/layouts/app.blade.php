@@ -39,6 +39,7 @@
   <link href="{{ URL::asset('css/submenu.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ URL::asset('css/profil.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ URL::asset('css/comments.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ URL::asset('css/calender.css') }}" rel="stylesheet" type="text/css" />
 
   <!-- Waves-effect -->
   <link href="{{ URL::asset('admin_asset/css/waves-effect.css') }}" rel="stylesheet">
@@ -51,6 +52,12 @@
   <!--Video Player-->
   <link href="{{ URL::asset('css/video-js.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ URL::asset('css/responsive.css') }}" rel="stylesheet" type="text/css" />
+
+  <!-- Examples -->
+    <script src="{{ URL::asset('admin_asset/assets/magnific-popup/magnific-popup.js') }}"></script>
+    <script src="{{ URL::asset('admin_asset/assets/jquery-datatables-editable/jquery.dataTables.js') }}"></script> 
+    <script src="{{ URL::asset('admin_asset/assets/datatables/dataTables.bootstrap.js') }}"></script>
+    <script src="{{ URL::asset('admin_asset/assets/jquery-datatables-editable/datatables.editable.init.js') }}"></script>
 
 </head>
 <body>
@@ -87,14 +94,9 @@
 <section class="container box-logo">
   <header>
     <div class="content-logo col-md-12">
-    <div class="logo">
-      <img src="{{ URL::asset('img/logo2.png') }}" alt="" />
-    </div>
-
-
-    <div class="bt-menu"><a href="#" class="menu"><span>&equiv;</span> Menu</a></div>
-
-    <div class="box-menu">
+      <div class="logo">
+        <img src="{{ URL::asset('img/logo2.png') }}" alt="" />
+      </div>
       <div class="bt-menu"><a href="#" class="menu"><span>&equiv;</span> Menu</a></div>
       <div class="box-menu">
         <nav id="cbp-hrmenu" class="cbp-hrmenu">
@@ -148,10 +150,10 @@
                   <li>
                     <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'tim' ? 'active' : null }}" data-toggle="dropdown"> PARTICIPANT <b class="caret"></b></a>
                     <ul class="dropdown-menu">
+                      <!-- <li class="divider"></li> -->
+                      <!-- <li><a href="{{ url('/profil/1') }}"><span>Profil</span></a></li> -->
                       <li class="divider"></li>
-                      <li><a href="{{ url('/profil/1') }}"><span>Profil</span></a></li>
-                      <li class="divider"></li>
-                      <li><a href="{{ url('/tim') }}"><span>Tim</span></a></li>
+                      <li><a href="{{ action('ParticipantUserController@index',1) }}"><span>Tim</span></a></li>
                       <li class="divider"></li>
                       <li><a href="{{ url('/individual') }}"><span>Single Player</span></a></li>
                       <li class="divider"></li>
@@ -168,7 +170,7 @@
                       <li class="divider"></li>
                       <li><a href="{{ url('/match')}}"><span>Points</span></a></li>
                       <li class="divider"></li>
-                      <li><a href="{{ url('/jadwal') }}"><span>Schedule</span></a></li>
+                      <li><a href="{{ url('/schedule') }}"><span>Schedule</span></a></li>
                       <li class="divider"></li>
                       <li><a href="{{ url('/bagan') }}"><span>Bracket</span></a></li>
                       <li class="divider"></li>
@@ -186,7 +188,6 @@
           </ul>
         </nav>
       </div>
-    </div>
   </header>
 </section>
 
@@ -339,6 +340,9 @@
 
 <!--Profil-->
 <script src="{{ URL::asset('js/jquery.profil.js') }}" type="text/javascript"></script>
+
+<!--Calender-->
+<script src="{{ URL::asset('js/jquery.calender.js') }}" type="text/javascript"></script>
 
 <!--Carousel News-->
 <script src="{{ URL::asset('js/jquery.easing.1.3.js') }}" type="text/javascript"></script>
