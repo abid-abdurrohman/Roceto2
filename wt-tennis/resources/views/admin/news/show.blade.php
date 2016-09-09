@@ -52,7 +52,7 @@
         </div> <!-- container -->
         <div class="container">
              @if ( !$news->comment->count() )
-                <h4>Belum memiliki kategori.</h4>
+                <h4>Belum memiliki komentar.</h4>
             @else
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">

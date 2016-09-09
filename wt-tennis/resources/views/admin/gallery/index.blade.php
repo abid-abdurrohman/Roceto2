@@ -43,6 +43,7 @@
                                                 <th>Judul</th>
                                                 <th>Deskripsi</th>
                                                 <th>Thumbnail</th>
+                                                <th>Event</th>
                                                 <th>Waktu</th>
                                                 <th colspan="2">Action</th>
                                             </tr>
@@ -54,6 +55,7 @@
                                                 <td><a href="{{ action('GalleryController@show', $gallery->id) }}">{{ $gallery->judul }}</a></td>
                                                 <td>{{ $gallery->deskripsi }}</td>
                                                 <td>{{ $gallery->thumbnail }}</td>
+                                                <td>{{ $gallery->nama_event }}</td>
                                                 <td>{{ $gallery->created_at }}</td>
                                                 <td>
                                                   <a href="{{ action('GalleryController@edit', $gallery->id) }}">

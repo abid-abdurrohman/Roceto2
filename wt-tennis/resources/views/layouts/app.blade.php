@@ -55,7 +55,7 @@
 
   <!-- Examples -->
     <script src="{{ URL::asset('admin_asset/assets/magnific-popup/magnific-popup.js') }}"></script>
-    <script src="{{ URL::asset('admin_asset/assets/jquery-datatables-editable/jquery.dataTables.js') }}"></script> 
+    <script src="{{ URL::asset('admin_asset/assets/jquery-datatables-editable/jquery.dataTables.js') }}"></script>
     <script src="{{ URL::asset('admin_asset/assets/datatables/dataTables.bootstrap.js') }}"></script>
     <script src="{{ URL::asset('admin_asset/assets/jquery-datatables-editable/datatables.editable.init.js') }}"></script>
 
@@ -200,12 +200,19 @@
            <div class="client-sport client-sport-nomargin home-pg">
                <div class="content-banner">
                      <ul class="sponsor second">
-                      <li><img src="{{ URL::asset('img\sponsorship\aqua.jpg') }}" alt="" /></li>
-                      <li><img src="{{ URL::asset('img\sponsorship\danone.jpg') }}" alt="" /></li>
-                      <li><img src="{{ URL::asset('img\sponsorship\nike.jpg') }}" alt="" /></li>
-                      <li><img src="{{ URL::asset('img\sponsorship\pocari.jpg') }}" alt="" /></li>
-                      <li><img src="{{ URL::asset('img\sponsorship\sariroti.jpg') }}" alt="" /></li>
-                      <li><img src="{{ URL::asset('img\sponsorship\yakult.jpg') }}" alt="" /></li>
+                      <?php
+                          $sql = "SELECT * FROM sponsors ORDER BY created_at DESC LIMIT 6";
+                          $result = mysqli_query($konek, $sql);
+                          while ($row = mysqli_fetch_array($result)) {
+                      ?>
+                      <li>
+                        <a href="http://{!! $row['website_pt'] !!}" target="_blank">
+                          <img src="{!! asset('').'/'.$row['foto_pt'] !!}" alt="" />
+                        </a>
+                      </li>
+                      <?php
+                          }
+                      ?>
                     </ul>
                 </div>
           </div>
@@ -282,7 +289,6 @@
         <li><a href=""><i class="fa fa-rss"></i></a></li>
         <li><a href=""><i class="fa fa-youtube"></i></a></li>
         <li><a href=""><i class="fa fa-tumblr"></i></a></li>
-
       </ul>
     </div>
   </div>
@@ -293,7 +299,6 @@
   <p>© 2014 - 2015 wttennis.com. All rights reserved. </p>
 </div>
 </footer>
-
 
 <script src="{{ URL::asset('js/jquery-1.10.2.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/jquery-migrate-1.2.1.min.js') }}" type="text/javascript"></script>

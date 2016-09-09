@@ -61,7 +61,7 @@
                                                 <td>{{ $participant->email }}</td>
                                                 <td>{{ $participant->warna_kostum }}</td>
                                                 <td>{{ $participant->jumlah_pemain }}</td>
-                                                <td><a href="#">{{ $participant->category_id }}</a></td>
+                                                <td><a href="#">{{ $participant->nama_category }}</a></td>
                                                 <td>{{ $participant->created_at }}</td>
                                                 @if ($participant->status=='waiting')
                                                     <td><a href="#" class="btn btn-info" data-toggle="modal" data-target="#Modal-{{ $participant->id }}">Check</a></td>

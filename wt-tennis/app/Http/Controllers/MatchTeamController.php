@@ -63,7 +63,7 @@ class MatchTeamController extends Controller
         $categories = Category::findOrFail($id);
         $matches = Match::findOrFail($id_match);
         $match_teams = Match_team::findOrFail($id_team);
-        $members = Member::lists('nama', 'id');
+        $members = Member::where('participant_id',$match_teams->participant_id)->lists('nama', 'id');
         return view('admin.match_team.show', compact('categories', 'matches', 'match_teams', 'members'));
     }
 

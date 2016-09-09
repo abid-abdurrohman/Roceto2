@@ -35,7 +35,7 @@ class CategoriesTableSeeder extends Seeder
                             </ol>',
             'biaya_pendaftaran' => '250000',
             'Kuota' => '8',
-            'event_id' => '2',            
+            'event_id' => '2',
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
@@ -48,7 +48,7 @@ class CategoriesTableSeeder extends Seeder
                             </ol>',
             'biaya_pendaftaran' => '220000',
             'Kuota' => '8',
-            'event_id' => '2',
+            'event_id' => '3',
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(

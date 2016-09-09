@@ -83,6 +83,7 @@ Route::resource('admin/participant.member', 'MemberController');
 Route::get('admin/category-match', 'CategoryMatchController@index');
 Route::get('admin/category-match/{id}', 'CategoryMatchController@show');
 Route::get('admin/category-bracket', 'CategoryBracketController@index');
+Route::get('admin/category-result/{id}', 'CategoryBracketController@show_result');
 Route::get('admin/category-bracket/{id}', 'CategoryBracketController@show');
 Route::resource('admin/category.match', 'MatchController');
 Route::resource('admin/category.match.team', 'MatchTeamController');
