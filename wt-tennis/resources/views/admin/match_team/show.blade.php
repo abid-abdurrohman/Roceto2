@@ -30,7 +30,7 @@
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Nama</th>
-                                                <th>Detail</th>
+                                                <th>No Match</th>
                                                 <th>Created At</th>
                                                 <th>Update At</th>
                                             </tr>

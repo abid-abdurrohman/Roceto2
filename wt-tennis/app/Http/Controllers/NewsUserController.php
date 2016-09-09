@@ -13,19 +13,17 @@ class NewsUserController extends Controller
 {
     public function index()
     {
-    	$news = News::paginate(5);
-
-    	return view('news.news', compact('news'));
+      	$news = News::paginate(5);
+      	return view('news.news', compact('news'));
     }
 
     public function show($slug)
     {
-    	$other_news = News::all();
-    	$news = News::where('slug', $slug)->first();
-        $comments = Comment::findOrFail($news->id);
-        $users = User::findOrFail($comment->id);
-        dd($news->id);
-        return view('news.news-single', compact('news', 'other_news', 'comments', 'users'));
+      	$other_news = News::all();
+      	$news = News::where('slug', $slug)->first();
+        $comments = Comment::where('news_id', $news->id)->join('users', 'users.id', '=', 'comments.user_id')
+          ->select('users.name as nama_user', 'comments.*')->get();
+        return view('news.news-single', compact('news', 'other_news', 'comments'));
     }
 
 }

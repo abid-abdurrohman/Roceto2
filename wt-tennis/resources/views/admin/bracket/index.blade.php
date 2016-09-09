@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title', 'Data Event')
+@section('title', 'Bracket')
 @section('content')
 <style type="text/css">
 		/*

@@ -17,7 +17,8 @@ class CategoryBracketController extends Controller
      */
     public function index()
     {
-        $categories = Category::paginate(5);
+        $categories = Category::join('events', 'events.id', '=', 'categories.event_id')
+          ->select('events.nama as nama_event', 'categories.*')->paginate(5);
         $events = Event::all();
         return view('admin.bracket.category', compact('events', 'categories'));
     }
@@ -55,6 +56,14 @@ class CategoryBracketController extends Controller
         $events = Event::findOrFail($categories->event_id);
         $matches = Match::where('category_id', $id)->paginate(5);
         return view('admin.bracket.index', compact('matches', 'categories', 'events'));
+    }
+
+    public function show_result($id)
+    {
+        $categories = Category::findOrFail($id);
+        $events = Event::findOrFail($categories->event_id);
+        $matches = Match::where('category_id', $id)->paginate(5);
+        return view('admin.bracket.result', compact('matches', 'categories', 'events'));
     }
 
     /**

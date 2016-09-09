@@ -26,7 +26,7 @@ class NewsTableSeeder extends Seeder
             'kategori' => 'news',
             'author' => 'Admin',
             'slug' => 'kirab-medali-emas-owibutet-berakhir-pada-hari-olahraga-nasional',
-            'thumbnail' => 'images/news/news/058301400_1447427151-20151113-WKF_World_Junior_Championships2015-Faqih_Karomi__galeri__-_HEL_4.jpg', 
+            'thumbnail' => 'images/news/news/058301400_1447427151-20151113-WKF_World_Junior_Championships2015-Faqih_Karomi__galeri__-_HEL_4.jpg',
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
@@ -76,7 +76,10 @@ class NewsTableSeeder extends Seeder
            'updated_at' => DB::raw('NOW()'),
           )
         );
+<<<<<<< HEAD
       // Comment the below to stop the seeder
+=======
+>>>>>>> 11cb560790c5a09838dc628504c141997fe796b0
         DB::table('news')->insert($news);
     }
 }

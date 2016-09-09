@@ -1,16 +1,16 @@
 @extends('admin.layouts.app')
-@section('title', 'Detail Gallery')
+@section('title', 'Detail Sponsor')
 @section('content')
         <div class="container">
 
             <!-- Page-Title -->
             <div class="row">
                 <div class="col-sm-12">
-                    <h4 class="pull-left page-title">Gallery</h4>
+                    <h4 class="pull-left page-title">Sponsor</h4>
                     <ol class="breadcrumb pull-right">
                         <li><a href="#">Admin</a></li>
-                        <li><a href="{{ action('GalleryController@index') }}">Gallery</a></li>
-                        <li class="active">{{$gallery->judul}}</li>
+                        <li><a href="{{ action('SponsorController@index') }}">Sponsor</a></li>
+                        <li class="active">{{$sponsor->nama_pt}}</li>
                     </ol>
                 </div>
             </div>
@@ -19,7 +19,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Data {{$gallery->judul}}</h3>
+                            <h3 class="panel-title">Data {{$sponsor->nama_pt}}</h3>
                         </div>
                         <div class="panel-body">
                             <div class="row">
@@ -28,21 +28,23 @@
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Judul</th>
-                                                <th>Deskripsi</th>
-                                                <th>Thumbnail</th>
-                                                <th>Event</th>
+                                                <th>Nama Perusahaan</th>
+                                                <th>Alamat Perusahaan</th>
+                                                <th>Nama CP</th>
+                                                <th>No HP CP</th>
+                                                <th>Email CP</th>
                                                 <th>Waktu</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>{{ $gallery->id }}</td>
-                                                <td>{{ $gallery->judul }}</td>
-                                                <td>{{ $gallery->deskripsi }}</td>
-                                                <td>{{ $gallery->thumbnail }}</td>
-                                                <td>{{ $gallery->nama_event }}</td>
-                                                <td>{{ $gallery->created_at }}</td>
+                                                <td>{{ $sponsor->id }}</td>
+                                                <td>{{ $sponsor->nama_pt }}</td>
+                                                <td>{{ $sponsor->alamat_pt }}</td>
+                                                <td>{{ $sponsor->nama_cp }}</td>
+                                                <td>{{ $sponsor->no_hp_cp }}</td>
+                                                <td>{{ $sponsor->email_cp }}</td>
+                                                <td>{{ $sponsor->created_at }}</td>
                                             </tr>
                                         </tbody>
                                     </table>

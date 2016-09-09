@@ -39,17 +39,20 @@
                                                 <th>ID</th>
                                                 <th>Event</th>
                                                 <th>Nama Kategori</th>
-                                                <th>Action</th>
+                                                <th colspan="2">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                           @foreach ($categories as $category)
                                             <tr>
                                                 <td>{{ $category->id }}</td>
-                                                <td><a href="{{ action('EventController@show', $category->event_id) }}">{{ $category->event_id }}</a></td>
+                                                <td><a href="{{ action('EventController@show', $category->event_id) }}">{{ $category->nama_event }}</a></td>
                                                 <td>{{ $category->nama }}</td>
                                                 <td>
-                                                  <a href="{{ action('CategoryBracketController@show', $category->event_id) }}">Check</a>
+                                                  <a href="{{ action('CategoryBracketController@show', $category->event_id) }}">Bracket</a>
+                                                </td>
+                                                <td>
+                                                  <a href="{{ action('CategoryBracketController@show_result', $category->event_id) }}">Result</a>
                                                 </td>
                                             </tr>
                                           @endforeach

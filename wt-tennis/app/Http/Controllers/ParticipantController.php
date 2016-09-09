@@ -19,7 +19,8 @@ class ParticipantController extends Controller
     public function index()
     {
         $events = Event::lists('nama','id');
-        $participants = Participant::paginate(5);
+        $participants = Participant::join('categories', 'categories.id', '=', 'participants.category_id')
+          ->select('categories.nama as nama_category', 'participants.*')->paginate(5);
         $category = Category::selectRaw('categories.id, categories.nama, categories.event_id')
               ->leftJoin('events','events.id','=','categories.event_id')->get();
         return view('admin.participant.index', compact('participants', 'events', 'category'));
@@ -67,8 +68,8 @@ class ParticipantController extends Controller
      */
     public function show($id)
     {
-        $participants = Participant::findOrFail($id);
-
+        $participants = Participant::findOrFail($id)->join('categories', 'categories.id', '=', 'participants.category_id')
+          ->select('categories.nama as nama_category', 'participants.*')->first();
         return view('admin.participant.show', compact('participants'));
     }
 
