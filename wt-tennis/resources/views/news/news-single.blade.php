@@ -8,6 +8,7 @@
       <p class="txt-advert-sub">News - Match - Player</p>
     </div>
   </div>
+</section>
   <section id="single_news" class="container secondary-page">
     <div class="general general-results">
       @include('news.share', [
@@ -39,39 +40,30 @@
       <!--Open comment-->
 
       <!--Close comment-->
-        </div>
-
-        <!--Close Top Match-->
-
-        <!--right content-->
-        @include('layouts.right-content')
-      </section>
+    </div>
+    <!--right content-->
+    @include('layouts.right-content')
+    </div>
+  </section>
 @endsection
 @push('scripts')
-<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script>
-
     var popupSize = {
         width: 780,
         height: 550
     };
-
     $(document).on('click', '.social-buttons > a', function(e){
-
         var
             verticalPos = Math.floor(($(window).width() - popupSize.width) / 2),
             horisontalPos = Math.floor(($(window).height() - popupSize.height) / 2);
-
         var popup = window.open($(this).prop('href'), 'social',
             'width='+popupSize.width+',height='+popupSize.height+
             ',left='+verticalPos+',top='+horisontalPos+
             ',location=0,menubar=0,toolbar=0,status=0,scrollbars=1,resizable=1');
-
         if (popup) {
             popup.focus();
             e.preventDefault();
         }
-
     });
 </script>
 @endpush

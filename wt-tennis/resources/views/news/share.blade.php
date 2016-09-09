@@ -5,11 +5,11 @@
     </a>
     <a href="https://twitter.com/intent/tweet?url={{ urlencode($url) }}"
        target="_blank">
-        <i class="fa fa-twitter-square"></i>
+        <i class="fa fa-twitter"></i>
     </a>
     <a href="https://plus.google.com/share?url={{ urlencode($url) }}"
        target="_blank">
-       <i class="fa fa-google-plus-square"></i>
+       <i class="fa fa-google-plus"></i>
     </a>
     <a href="https://pinterest.com/pin/create/button/?{{
         http_build_query([
@@ -18,6 +18,6 @@
             'description' => $description
         ])
         }}" target="_blank">
-        <i class="fa fa-pinterest-square"></i>
+        <i class="fa fa-pinterest"></i>
     </a>
 </div>

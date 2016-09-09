@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
   <title>Sport Event</title>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
@@ -102,7 +102,7 @@
       <div class="box-menu">
         <nav id="cbp-hrmenu" class="cbp-hrmenu">
           <ul id="menu">
-              
+
                   <li><a class="lnk-menu {{ Request::segment(1) === 'home' ? 'active' : null }}" href="{{ action('HomeController@index') }}">HOME</a>
                   </li>
 
@@ -120,7 +120,7 @@
 
                     <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'join' ? 'active' : null }}" data-toggle="dropdown"> COMPETITION <b class="caret"></b></a>
                     <div class="cbp-hrsub sub-little">
-                                  <div class="cbp-hrsub-inner"> 
+                                  <div class="cbp-hrsub-inner">
                                       <div class="content-sub-menu">
 
                     <ul class="menu-pages">
@@ -145,7 +145,7 @@
                           }
                           ?>
                         </div>
-                         
+
                       </li>
                     <?php
                       }
@@ -157,49 +157,30 @@
                   </li>
                   @if (Auth::guest())
                   @else
-                  <li>
-                    <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'tim' ? 'active' : null }}" data-toggle="dropdown"> PARTICIPANT <b class="caret"></b></a>
-                     <div class="cbp-hrsub sub-little">
-                                  <div class="cbp-hrsub-inner"> 
-                                      <div class="content-sub-menu">
-                    <ul class="menu-pages">
-                      <!-- <li class="divider"></li> -->
-                      <!-- <li><a href="{{ url('/profil/1') }}"><span>Profil</span></a></li> -->
-                      <li><a href="{{ action('ParticipantUserController@index',1) }}"><span>Tim</span></a></li>
-                      <li><a href="{{ url('/individual') }}"><span>Single Player</span></a></li>
-                      <li><a href="{{ action('GalleryUserController@index') }}"><span>Gallery</span></a></li>
-                      <li><a href="{{ action('EventStreamController@show',1) }}"><span>Video</span></a></li>
-                      <li></li>
-                    </ul>
-                    </div>
-                    </div>
-                    </div>
-                  </li>
+                    <li><a class="lnk-menu {{ Request::segment(1) === 'team' ? 'active' : null }}" href="{{ action('ParticipantUserController@index',1) }}">Team</a></li>
                   @endif
                   <li>
                     <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'events' ? 'active' : null }}" data-toggle="dropdown"> EVENTS <b class="caret"></b></a>
                     <div class="cbp-hrsub sub-little">
-                                  <div class="cbp-hrsub-inner"> 
+                                  <div class="cbp-hrsub-inner">
                                       <div class="content-sub-menu">
                     <ul class="menu-pages">
-                      <li><a href="{{ url('/match')}}"><span>Points</span></a></li>
-                  
                       <li><a href="{{ url('/schedule') }}"><span>Schedule</span></a></li>
-                  
                       <li><a href="{{ url('/bagan') }}"><span>Bracket</span></a></li>
-                  
-                      <li><a href="{{ url('/results') }}"><span>Results</span></a></li>                  
+                      <li><a href="{{ action('EventStreamController@show',1) }}"><span>Video</span></a></li>
+                      <li><a href="{{ url('/results') }}"><span>Results</span></a></li>
                     </ul>
                     </div>
                     </div>
                     </div>
                   </li>
-                   <li><a class="lnk-menu {{ Request::segment(1) === 'news' ? 'active' : null }}" href="{{ action('NewsUserController@index') }}"> NEWS </a></li>
+                  <li><a class="lnk-menu {{ Request::segment(1) === 'gallery' ? 'active' : null }}" href="{{ action('GalleryUserController@index') }}"> Gallery </a></li>  
+                  <li><a class="lnk-menu {{ Request::segment(1) === 'news' ? 'active' : null }}" href="{{ action('NewsUserController@index') }}"> NEWS </a></li>
                   <li><a class="lnk-menu {{ Request::segment(1) === 'contact' ? 'active' : null }}" href="{{ url('/contact') }}">CONTACT</a></li>
                     </ul>
                   </li>
-                
-           
+
+
           </ul>
         </nav>
       </div>

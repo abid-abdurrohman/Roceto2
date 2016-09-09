@@ -47,12 +47,12 @@
               ?>
               <div class="col-xs-6 col-md-6" style="margin-bottom:20px">
                 <div class="col-md-4 slide-cont-img"><a href="{{ action('NewsUserController@show',$news['slug']) }}"><img class="scale_image" src="{!! asset('').'/'.$news['thumbnail'] !!}" alt=""/></a></div>
-                <div class="event_date dd-date">{!! $news['created_at'] !!} 
+                <div class="event_date dd-date">{!! $news['created_at'] !!}
                   <div class="post_theme">Exlusive</div>
                 </div><h4> {{ $news['judul'] }}</h4>
-                <p>{!! str_limit($news['deskripsi'], 350) !!}</p> 
-              </div>              
-              <?php } ?> 
+                <p>{!! str_limit($news['deskripsi'], 350) !!}</p>
+              </div>
+              <?php } ?>
             </div>
            </div>
      </section>
@@ -366,7 +366,7 @@
                                 <ul class="filter group albumFilter">
                                     <li data-filter="*" class="current"><a  href="#">ALL</a></li>
                                       <?php
-                                        
+
                                         $sql = "SELECT * FROM events";
                                         $result = mysqli_query($konek, $sql);
                                         while ($events = mysqli_fetch_array($result)) {
@@ -383,7 +383,7 @@
                   </div>
             </div>
 
-          <ul class="portfolio group albumContainer"> 
+          <ul class="portfolio group albumContainer">
             <?php
               $sql = "SELECT * FROM galleries";
               $result = mysqli_query($konek, $sql);
@@ -392,13 +392,12 @@
               <li class="item block cat{{ $galleries['event_id']}} col-xs-3 ">
                       <a href="{{ $galleries['thumbnail'] }}" rel="prettyPhotogalleries[portfolio]"><img src="{{ $galleries['thumbnail'] }}"  alt="{{ $galleries['judul'] }}" /></a>
                     </li>
-            <?php } ?>  
+            <?php } ?>
           </ul>
      </section>
-
     <!--end Gallery-->
- 
-    
+@endsection
+@push('scripts')
 <script>
     $(document).ready(function() {
       if (window.location.hash == '#_=_') {
@@ -408,4 +407,4 @@
       }
     });
 </script>
-@endsection
+@endpush
