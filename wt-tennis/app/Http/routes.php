@@ -23,11 +23,14 @@ Route::get('admin/logout', 'Auth\AuthController@getLogout');
 Route::get('login', 'LogController@login');
 Route::get('register', 'LogController@register');
 
-Route::get('profil/{id}', 'ParticipantUserController@index');
+Route::get('profil', 'ProfileController@index');
 
 Route::get('team/{id}', 'ParticipantUserController@index');
+Route::patch('team/{id}', 'ParticipantUserController@update');
 
 Route::post('team/{id}', 'MemberUserController@store');
+Route::patch('team/{id}/member/{member}', 'MemberUserController@update');
+Route::delete('team/{id}/member/{member}', 'MemberUserController@destroy');
 
 Route::get('/individual', function () {
     return view('participant.individual');

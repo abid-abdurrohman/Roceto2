@@ -93,7 +93,7 @@ class MemberUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, $id_member)
     {
          $this->validate($request, [
             'nama' => 'required',
@@ -112,7 +112,7 @@ class MemberUserController extends Controller
         $request->foto->move($destination, $photo);
         $input['foto'] = $destination.$photo;
         $member->update($input);
-        return redirect()->action('ParticipantController@show', [$participant->id])->with('info', 'Member has been edited');
+        return redirect()->action('ParticipantUserController@index', [$participant->id])->with('info', 'Member has been edited');
     }
 
     /**
@@ -121,13 +121,11 @@ class MemberUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, $id_member)
     {
-        {
         $participant = Participant::findOrFail($id);
         $member = Member::findOrFail($id_member);
         $member->delete();
-        return redirect()->action('ParticipantController@show', $participant->id)->with('danger', 'Member has been deleted');
-    }
+        return redirect()->action('ParticipantUserController@index', $participant->id)->with('danger', 'Member has been deleted');
     }
 }

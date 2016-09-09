@@ -111,7 +111,7 @@
                       <div class="match-sing-title inf-bottom">
                         <p><i class="fa fa-calendar-o"></i>May 16, 2012 14:30 - 16:00 <i class="fa fa-map-marker"></i> London Brion Stadium</p>
                       </div>
-                      <div class="score-view-all"><a class="pl-point-button" href="{{ url('/results')}}">View All SCORE</a></div>
+                      <!-- <div class="score-view-all"><a class="pl-point-button" href="{{ url('/results')}}">View All SCORE</a></div> -->
                   </div>
                  </div>
               </div>
@@ -126,7 +126,7 @@
               <h3 class="news-title n-match">Next <span>Match</span><span class="point-little">.</span></h3>
               <p class="subtitle">A small creative team, trying to enrich the lives of others and build brands
                                     that a normal humans can understand.</p>
-                <div class="other-match col-md-4">
+                <div class="other-match col-md-6">
                     <div class="score-next-time">
                         <div class="circle-ico"><p>ATP</p></div>
                     </div>
@@ -148,7 +148,7 @@
                     </div>
 
                 </div>
-                <div class="other-match col-md-4">
+                <div class="other-match col-md-6">
                     <div class="match-team-list">
                         <img class="t-img1" src="images/team1_small.png" alt=""/>
                         <span>Fernand</span>
@@ -177,10 +177,6 @@
                        <p>View all</p>
                     </div>
                 </div>
-                <div class="other-match col-md-4 other-last">
-                   <img src="images/adwertise.jpg" alt="" />
-                </div>
-
             </div>
            </div>
      </section>

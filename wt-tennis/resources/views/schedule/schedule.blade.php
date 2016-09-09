@@ -19,7 +19,7 @@
                 <p class="txt-right txt-dd-second">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
-                <!-- <div class="accordion" id="section1"><i class="fa fa-calendar-o"></i>Futsal<span></span></div>
+                <div class="accordion" id="section1"><i class="fa fa-calendar-o"></i>Futsal<span></span></div>
                     <div class="acc-content">
                             <div class="col-md-1 acc-title">Cat.</div>
                             <div class="col-md-2 acc-title">Date</div>
@@ -170,7 +170,7 @@
                     <div class="acc-content">
                             <div>Sample Content</div>
                             <p>Content here....</p>
-                    </div> -->
+                    </div>
 
                       <div class="container">
                           <div class="row"> 

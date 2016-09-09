@@ -18,11 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call('EventsTableSeeder');
         $this->call('CategoriesTableSeeder');
         $this->call('UsersTableSeeder');
-        $this->call('ParticipantsTableSeeder');
-<<<<<<< HEAD
-        $this->call('MembersTableSeeder');
-=======
+        $this->call('ParticipantsTableSeeder');    
         $this->call('NewsTableSeeder');
->>>>>>> 1e4ab9cfb3f315172766876c57261bd968694453
+        $this->call('MembersTableSeeder');
     }
 }

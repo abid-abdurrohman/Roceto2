@@ -127,25 +127,23 @@
                     <?php
                       while ($events = mysqli_fetch_array($result)) {
                     ?>
-                      <li>
-                        <div class="col-md-9">
-                          <a class="dropdown-toggle" data-toggle="dropdown">
-                          {{ $events['nama'] }}
-                        </a>
-                        </div>
-                        <div class="col-md-3">
-                          <?php
+                      <li class="dropdown-submenu">
+                        <a class="dropdown-toggle" data-toggle="dropdown"> {{ $events['nama'] }}</a>
+                        
+                        <ul class="dropdown-menu">
+                        <?php
                           $id = $events['id'];
                           $sql1 = "SELECT * FROM categories WHERE event_id = $id";
                           $result1 = mysqli_query($konek, $sql1);
                           while ($categories = mysqli_fetch_array($result1)) {
-                          ?>
-                          <a href="{{ action('RegisterController@index',$categories['id']) }}" type="button" style="width:45px; text-align:center">{{ substr($categories['nama'],0,1) }}</a>
-                          <?php
-                          }
-                          ?>
-                        </div>
+                        ?>
                          
+                          <li><a href="{{ action('RegisterController@index',$categories['id']) }}" ><span>{{ $categories['nama'] }}</span></a></li>
+                          
+                        <?php
+                          }
+                        ?>
+                        </ul>
                       </li>
                     <?php
                       }
