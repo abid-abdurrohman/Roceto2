@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<!-- Social Share Kit CSS -->
+<link rel="stylesheet" href="{{ URL::asset('socialsharekit/css/social-share-kit.css?v=1.0.10') }}">
+
 <section class="drawer">
   <div class="col-md-12 size-img back-img-shop">
     <div class="effect-cover">
@@ -11,11 +14,6 @@
 </section>
   <section id="single_news" class="container secondary-page">
     <div class="general general-results">
-      @include('news.share', [
-          'url' => request()->fullUrl(),
-          'description' => 'This is really cool link',
-          'image' => 'http://placehold.it/300x300?text=Cool+link'
-      ])
      <div class="top-score-title col-md-9">
       <h3>{!! $news->judul !!}<span class="point-little">.</span></h3>
       <div class="col-md-4">
@@ -25,7 +23,7 @@
         <p>{!! $news->deskripsi !!}</p>
       </div>
 
-      <div class="row" style>
+      <div class="row">
         <p class="desc_news important_news data">by {{ $news->author }}<i class="fa fa-calendar"></i>{{ $news->created_at }} - Depok, Indonesia</p>
         <div class="tab_news">
           @unless ($news->tags->isEmpty())
@@ -34,6 +32,19 @@
           <a href="#" class="tag">{{ $tag->nama }}</a>
           @endforeach
           @endunless
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="top-score-title col-md-12">
+          <div class="col-md-3 col-md-offset-9">
+            <h4>Share with :</h4>
+            @include('news.share', [
+                'url' => request()->fullUrl(),
+                'description' => $news->judul,
+                'image' => asset('').'/'.$news->thumbnail
+            ])
+          </div>
         </div>
       </div>
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Model\Participant;
 use App\Model\Category;
 use App\Model\Event;
+use App\Model\Member;
 use Illuminate\Http\Request;
 use DB;
 use App\Http\Requests;
@@ -68,9 +69,10 @@ class ParticipantController extends Controller
      */
     public function show($id)
     {
-        $participants = Participant::findOrFail($id)->join('categories', 'categories.id', '=', 'participants.category_id')
-          ->select('categories.nama as nama_category', 'participants.*')->first();
-        return view('admin.participant.show', compact('participants'));
+        $participants = Participant::join('categories', 'categories.id', '=', 'participants.category_id')
+          ->select('categories.nama as nama_category', 'participants.*')->findOrFail($id);
+        $members = Member::where('participant_id', $id)->get();
+        return view('admin.participant.show', compact('participants', 'members'));
     }
 
     /**

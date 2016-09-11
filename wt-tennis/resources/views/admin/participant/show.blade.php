@@ -55,7 +55,7 @@
                                     </table>
                                 </div>
                             </div>
-                            @if ( !$participants->member->count() )
+                            @if ( !$members->count() )
                     				    <h4>Belum memiliki pemain.</h4>
                     				@else
                             <div class="row">
@@ -71,7 +71,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach( $participants->member as $member )
+                                            @foreach( $members as $member )
                                               <tr>
                                                   <td>{{ $member->id }}</td>
                                                   <td>

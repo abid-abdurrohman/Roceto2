@@ -8,6 +8,7 @@ use App\Model\Event;
 use App\Model\Category;
 use App\Model\Match;
 use App\Model\Match_team;
+use App\Model\Match_score;
 use App\Model\Member;
 use App\Http\Requests;
 
@@ -64,7 +65,11 @@ class MatchTeamController extends Controller
         $matches = Match::findOrFail($id_match);
         $match_teams = Match_team::findOrFail($id_team);
         $members = Member::where('participant_id',$match_teams->participant_id)->lists('nama', 'id');
-        return view('admin.match_team.show', compact('categories', 'matches', 'match_teams', 'members'));
+        $match_teams = Match_team::join('participants', 'participants.id', '=', 'match_teams.participant_id')
+          ->select('participants.nama_tim as nama_participant', 'match_teams.*')->findOrFail($id_team);;
+        $match_scores = Match_score::where('match_team_id', $id_team)->join('members', 'members.id', '=', 'match_scores.member_id')
+          ->select('members.nama as nama_member', 'match_scores.*')->get();
+        return view('admin.match_team.show', compact('categories', 'matches', 'match_teams', 'members', 'match_scores'));
     }
 
     /**

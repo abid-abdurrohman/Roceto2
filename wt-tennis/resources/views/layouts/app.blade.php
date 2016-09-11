@@ -67,7 +67,7 @@
    <div class="container">
     <div class="col-md-12">
      <div class="box-support">
-       <p class="support-info"><i class="fa fa-envelope-o"></i> info@wttennis.com</p>
+       <p class="support-info"><i class="fa fa-envelope-o"></i> info@roceto.com</p>
      </div>
      <div class="box-login">
        @if (Auth::guest())
@@ -166,7 +166,7 @@
                                       <div class="content-sub-menu">
                     <ul class="menu-pages">
                       <li><a href="{{ url('/schedule') }}"><span>Schedule</span></a></li>
-                      <li><a href="{{ url('/bagan') }}"><span>Bracket</span></a></li>
+                      <li><a href="{{ action('BracketUserController@show',1) }}"><span>Bracket</span></a></li>
                       <li><a href="{{ action('EventStreamController@show',1) }}"><span>Video</span></a></li>
                       <li><a href="{{ url('/results') }}"><span>Results</span></a></li>
                     </ul>
@@ -174,7 +174,7 @@
                     </div>
                     </div>
                   </li>
-                  <li><a class="lnk-menu {{ Request::segment(1) === 'gallery' ? 'active' : null }}" href="{{ action('GalleryUserController@index') }}"> Gallery </a></li>  
+                  <li><a class="lnk-menu {{ Request::segment(1) === 'gallery' ? 'active' : null }}" href="{{ action('GalleryUserController@index') }}"> Gallery </a></li>
                   <li><a class="lnk-menu {{ Request::segment(1) === 'news' ? 'active' : null }}" href="{{ action('NewsUserController@index') }}"> NEWS </a></li>
                   <li><a class="lnk-menu {{ Request::segment(1) === 'contact' ? 'active' : null }}" href="{{ url('/contact') }}">CONTACT</a></li>
                     </ul>

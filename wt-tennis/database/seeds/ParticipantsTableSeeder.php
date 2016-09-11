@@ -44,10 +44,10 @@ class ParticipantsTableSeeder extends Seeder
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
-            'nama_tim' => 'Arsenal',
+            'nama_tim' => 'AJAX Amsterdam',
             'no_hp' => '08137782190232',
-            'email' => 'admin@arsenal.com',
-            'warna_kostum' => 'Merah Putih',
+            'email' => 'admin@ajax.com',
+            'warna_kostum' => 'Orange Putih',
             'jumlah_pemain' => '12',
             'status' => 'waiting',
             'category_id' => '1',

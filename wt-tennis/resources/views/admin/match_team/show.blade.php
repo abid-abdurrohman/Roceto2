@@ -38,7 +38,7 @@
                                         <tbody>
                                             <tr>
                                                 <td>{{ $match_teams->id }}</td>
-                                                <td>{{ $match_teams->participant_id }}</td>
+                                                <td>{{ $match_teams->nama_participant }}</td>
                                                 <td>{{ $match_teams->match_id }}</td>
                                                 <td>{{ $match_teams->created_at }}</td>
                                                 <td>{{ $match_teams->updated_at }}</td>
@@ -47,7 +47,7 @@
                                     </table>
                                 </div>
                             </div>
-                            @if ( !$match_teams->match_score->count() )
+                            @if ( !$match_scores->count() )
                     				    <h4>Belum memiliki score.</h4>
                     				@else
                             <div class="row">
@@ -64,12 +64,12 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach( $match_teams->match_score as $match_score )
+                                            @foreach( $match_scores as $match_score )
                                               <tr>
                                                   <td>{{ $match_score->id }}</td>
                                                   <td>
                                                     <a href="{{ action('MatchScoreController@show', [$categories->id, $matches->id, $match_teams->id, $match_score->id]) }}">
-                                                      {{ $match_score->member_id }}
+                                                      {{ $match_score->nama_member }}
                                                     </a>
                                                   </td>
                                                   <td>{{ $match_score->score }}</td>
