@@ -358,9 +358,6 @@
 <script src="{{ URL::asset('js/jquery.bxslider.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/jquery.accordion.js') }}" type="text/javascript"></script>
 
-<!--Profil-->
-<script src="{{ URL::asset('js/jquery.profil.js') }}" type="text/javascript"></script>
-
 <!--Calender-->
 <script src="{{ URL::asset('js/jquery.calender.js') }}" type="text/javascript"></script>
 
