@@ -22,7 +22,7 @@ class NewsUserController extends Controller
       	$other_news = News::all();
       	$news = News::where('slug', $slug)->first();
         $comments = Comment::where('news_id', $news->id)->join('users', 'users.id', '=', 'comments.user_id')
-          ->select('users.name as nama_user', 'comments.*')->get();
+          ->select('users.name as nama_user', 'users.avatar as avatar_user', 'comments.*')->get();
         return view('news.news-single', compact('news', 'other_news', 'comments'));
     }
 

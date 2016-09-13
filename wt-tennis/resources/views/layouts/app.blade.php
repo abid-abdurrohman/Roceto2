@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <link href="{{ URL::asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" />
-  {{ Html::style('css/bootstrap.css') }}
+
   <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
 
   <link href="{{ URL::asset('css/online/open_sans.css') }}" rel='stylesheet' type='text/css'/>
@@ -58,6 +58,7 @@
     <script src="{{ URL::asset('admin_asset/assets/jquery-datatables-editable/jquery.dataTables.js') }}"></script>
     <script src="{{ URL::asset('admin_asset/assets/datatables/dataTables.bootstrap.js') }}"></script>
     <script src="{{ URL::asset('admin_asset/assets/jquery-datatables-editable/datatables.editable.init.js') }}"></script>
+    <script src="{{ URL::asset('admin_asset/tinymce/tinymce.min.js') }}"></script>
 
 </head>
 <body>
@@ -102,10 +103,8 @@
       <div class="box-menu">
         <nav id="cbp-hrmenu" class="cbp-hrmenu">
           <ul id="menu">
-
                   <li><a class="lnk-menu {{ Request::segment(1) === 'home' ? 'active' : null }}" href="{{ action('HomeController@index') }}">HOME</a>
                   </li>
-
                   <li>
                   <?php
                     $konek = mysqli_connect('localhost', 'root','','eo_sport');
@@ -179,8 +178,6 @@
                   <li><a class="lnk-menu {{ Request::segment(1) === 'contact' ? 'active' : null }}" href="{{ url('/contact') }}">CONTACT</a></li>
                     </ul>
                   </li>
-
-
           </ul>
         </nav>
       </div>
@@ -338,9 +335,6 @@
 <script src="{{ URL::asset('js/custom.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/jquery.bxslider.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/jquery.accordion.js') }}" type="text/javascript"></script>
-
-<!--Profil-->
-<script src="{{ URL::asset('js/jquery.profil.js') }}" type="text/javascript"></script>
 
 <!--Calender-->
 <script src="{{ URL::asset('js/jquery.calender.js') }}" type="text/javascript"></script>

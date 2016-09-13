@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<link rel="stylesheet" href="{{ URL::asset('socialsharekit/css/social-share-kit.css?v=1.0.10') }}">
 <style type="text/css">
     /*
     *  Flex Layout Specifics
@@ -42,4 +42,37 @@
     </div>
   </div>
 </section>
+<div class="row">
+  <div class="top-score-title col-md-12">
+    <div class="col-md-3 col-md-offset-9">
+      <h4>Share with :</h4>
+      @include('bracket.include.share', [
+          'url' => request()->fullUrl(),
+          'description' => $categories->nama_event.' - '.$categories->nama.' Bracket',
+          'image' => asset('').'/'.$categories->thumbnail
+      ])
+    </div>
+  </div>
+</div>
 @endsection
+@push('scripts')
+<script>
+    var popupSize = {
+        width: 780,
+        height: 550
+    };
+    $(document).on('click', '.social-buttons > a', function(e){
+        var
+            verticalPos = Math.floor(($(window).width() - popupSize.width) / 2),
+            horisontalPos = Math.floor(($(window).height() - popupSize.height) / 2);
+        var popup = window.open($(this).prop('href'), 'social',
+            'width='+popupSize.width+',height='+popupSize.height+
+            ',left='+verticalPos+',top='+horisontalPos+
+            ',location=0,menubar=0,toolbar=0,status=0,scrollbars=1,resizable=1');
+        if (popup) {
+            popup.focus();
+            e.preventDefault();
+        }
+    });
+</script>
+@endpush

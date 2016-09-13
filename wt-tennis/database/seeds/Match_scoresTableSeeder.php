@@ -72,6 +72,30 @@ class Match_scoresTableSeeder extends Seeder
            'match_team_id' => '8',
            'created_at' => DB::raw('NOW()'),
            'updated_at' => DB::raw('NOW()'),
+         ),array(
+           'score' => '1',
+           'member_id' => '2',
+           'match_team_id' => '9',
+           'created_at' => DB::raw('NOW()'),
+           'updated_at' => DB::raw('NOW()'),
+         ),array(
+           'score' => '1',
+           'member_id' => '1',
+           'match_team_id' => '9',
+           'created_at' => DB::raw('NOW()'),
+           'updated_at' => DB::raw('NOW()'),
+         ),array(
+           'score' => '2',
+           'member_id' => '8',
+           'match_team_id' => '11',
+           'created_at' => DB::raw('NOW()'),
+           'updated_at' => DB::raw('NOW()'),
+         ),array(
+           'score' => '3',
+           'member_id' => '2',
+           'match_team_id' => '13',
+           'created_at' => DB::raw('NOW()'),
+           'updated_at' => DB::raw('NOW()'),
          )
        );
        // Comment the below to stop the seeder

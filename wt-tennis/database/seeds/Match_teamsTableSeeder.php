@@ -60,6 +60,48 @@ class Match_teamsTableSeeder extends Seeder
            'match_id' => '4',
            'created_at' => DB::raw('NOW()'),
            'updated_at' => DB::raw('NOW()'),
+         ),array(
+           'score' => '1',
+           'participant_id' => '1',
+           'match_id' => '5',
+           'created_at' => DB::raw('NOW()'),
+           'updated_at' => DB::raw('NOW()'),
+         ),array(
+           'score' => '1',
+           'participant_id' => '2',
+           'match_id' => '5',
+           'created_at' => DB::raw('NOW()'),
+           'updated_at' => DB::raw('NOW()'),
+         ),array(
+           'score' => '1',
+           'participant_id' => '3',
+           'match_id' => '6',
+           'created_at' => DB::raw('NOW()'),
+           'updated_at' => DB::raw('NOW()'),
+         ),array(
+           'score' => '1',
+           'participant_id' => '6',
+           'match_id' => '6',
+           'created_at' => DB::raw('NOW()'),
+           'updated_at' => DB::raw('NOW()'),
+         ),array(
+           'score' => '1',
+           'participant_id' => '1',
+           'match_id' => '7',
+           'created_at' => DB::raw('NOW()'),
+           'updated_at' => DB::raw('NOW()'),
+         ),array(
+           'score' => '1',
+           'participant_id' => '3',
+           'match_id' => '7',
+           'created_at' => DB::raw('NOW()'),
+           'updated_at' => DB::raw('NOW()'),
+         ),array(
+           'score' => '1',
+           'participant_id' => '1',
+           'match_id' => '8',
+           'created_at' => DB::raw('NOW()'),
+           'updated_at' => DB::raw('NOW()'),
          )
        );
        // Comment the below to stop the seeder
