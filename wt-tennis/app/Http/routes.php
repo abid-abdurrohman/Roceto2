@@ -24,6 +24,7 @@ Route::get('login', 'LogController@login');
 Route::get('register', 'LogController@register');
 
 Route::get('profil', 'ProfileController@index');
+Route::patch('profil{id}', 'ProfileController@update');
 
 Route::get('team/{id}', 'ParticipantUserController@index');
 Route::patch('team/{id}', 'ParticipantUserController@update');

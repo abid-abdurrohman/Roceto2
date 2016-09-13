@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\User;
+use App\Model\Event;
+use App\Model\Category;
+use App\Model\Participant;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,9 +19,10 @@ class ProfileController extends Controller
      */
     public function index()
     {
+        // $participants = Participant::join('categories', 'categories.id', '=', 'participants.category_id')->join('events', 'events.id', '=', 'categories.event_id')->select('events.nama as nama_event', 'categories.nama as nama_category', 'participants.*')->findOrFail()
         $id = Auth::user()->id;
-        $profiles = User::findOrFail($id);
-        return view('profile.index', compact('profiles'));
+        $users = User::findOrFail($id);
+        return view('profile.index', compact('users'));
     }
 
     /**
@@ -73,7 +77,28 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'nick_name' => 'required',
+            'email' => 'required',
+            'mobile' => 'required',
+            'avatar' => 'required',
+            'background' => 'required',
+        ]);
+        $input = $request->all();
+        $users = User::findOrFail($id);
+
+        $photo = $request->avatar->getClientOriginalName();
+        $destination = 'images/user/'.$request->name.'/avatar/';
+        $request->avatar->move($destination, $photo);
+        $input['avatar'] = $destination.$photo;
+        $photo = $request->background->getClientOriginalName();
+        $destination = 'images/user/'.$request->name.'/background/';
+        $request->background->move($destination, $photo);
+        $input['background'] = $destination.$photo;
+        
+        $users->update($input);
+        return redirect()->action('ProfileController@index')->with('info','User has been edited');
     }
 
     /**

@@ -76,10 +76,7 @@ class NewsTableSeeder extends Seeder
            'updated_at' => DB::raw('NOW()'),
           )
         );
-<<<<<<< HEAD
       // Comment the below to stop the seeder
-=======
->>>>>>> 11cb560790c5a09838dc628504c141997fe796b0
         DB::table('news')->insert($news);
     }
 }
