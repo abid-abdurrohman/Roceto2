@@ -4,21 +4,69 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e33b690914fba97934afe271cde543e7",
-    "content-hash": "043f7227bd494c8baa145aa8b215f818",
+    "hash": "ec83c192a735133d87bc57e08bd6c289",
+    "content-hash": "77a5f55ca4710432ff086e51f697e48c",
     "packages": [
         {
-            "name": "ckeditor/ckeditor",
-            "version": "4.5.10",
+            "name": "barryvdh/laravel-dompdf",
+            "version": "v0.7.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/ckeditor/ckeditor-releases.git",
-                "reference": "b889d7d3071a7a9d691e2e89170c745159f9f8c9"
+                "url": "https://github.com/barryvdh/laravel-dompdf.git",
+                "reference": "9b8bd179262ad6b200a11edfe7b53516afcfc42a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ckeditor/ckeditor-releases/zipball/b889d7d3071a7a9d691e2e89170c745159f9f8c9",
-                "reference": "b889d7d3071a7a9d691e2e89170c745159f9f8c9",
+                "url": "https://api.github.com/repos/barryvdh/laravel-dompdf/zipball/9b8bd179262ad6b200a11edfe7b53516afcfc42a",
+                "reference": "9b8bd179262ad6b200a11edfe7b53516afcfc42a",
+                "shasum": ""
+            },
+            "require": {
+                "dompdf/dompdf": "^0.7",
+                "illuminate/support": "5.1.x|5.2.x|5.3.x",
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Barryvdh\\DomPDF\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Barry vd. Heuvel",
+                    "email": "barryvdh@gmail.com"
+                }
+            ],
+            "description": "A DOMPDF Wrapper for Laravel",
+            "keywords": [
+                "dompdf",
+                "laravel",
+                "pdf"
+            ],
+            "time": "2016-08-17 08:17:33"
+        },
+        {
+            "name": "ckeditor/ckeditor",
+            "version": "4.5.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ckeditor/ckeditor-releases.git",
+                "reference": "48155a1e1c7e84736b5a166ad3f33acea2a51255"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ckeditor/ckeditor-releases/zipball/48155a1e1c7e84736b5a166ad3f33acea2a51255",
+                "reference": "48155a1e1c7e84736b5a166ad3f33acea2a51255",
                 "shasum": ""
             },
             "type": "library",
@@ -46,7 +94,7 @@
                 "text",
                 "wysiwyg"
             ],
-            "time": "2016-07-13 13:57:11"
+            "time": "2016-09-07 13:32:39"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -2952,16 +3000,16 @@
         },
         {
             "name": "yajra/laravel-datatables-oracle",
-            "version": "v6.18.0",
+            "version": "v6.18.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables.git",
-                "reference": "4d883b3fa1bb940b2c3bf55d61ae5bc5f2244746"
+                "reference": "1b8c50b9e33a738ecc630e2cbf65138a32932ba7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/4d883b3fa1bb940b2c3bf55d61ae5bc5f2244746",
-                "reference": "4d883b3fa1bb940b2c3bf55d61ae5bc5f2244746",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/1b8c50b9e33a738ecc630e2cbf65138a32932ba7",
+                "reference": "1b8c50b9e33a738ecc630e2cbf65138a32932ba7",
                 "shasum": ""
             },
             "require": {
@@ -3008,7 +3056,7 @@
                 "laravel4",
                 "laravel5"
             ],
-            "time": "2016-08-25 15:57:15"
+            "time": "2016-09-13 07:59:37"
         }
     ],
     "packages-dev": [
