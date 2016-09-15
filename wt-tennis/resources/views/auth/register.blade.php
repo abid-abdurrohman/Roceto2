@@ -7,7 +7,7 @@
       <div class="top-score-title right-score col-md-12">
           <h3>Register<span> Now</span><span class="point-int"> !</span></h3>
            <div class="col-md-12">
-              <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+              <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}" enctype="multipart/form-data">
                   {{ csrf_field() }}
 
                   <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">

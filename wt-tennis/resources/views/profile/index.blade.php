@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <style type="text/css">
 .btn{transition:all 0.8s;-o-transition:all 0.8s;-moz-transition:all 0.8s;-webkit-transition:all 0.8s;border-radius:0px;margin-top:10px}
 .btn-rounded{border-radius:50px}
@@ -8,7 +9,10 @@
 .btn-bordered-primary:hover{color:#FFFFFF;background:#428BCA;border:2px solid #FFFFFF}
 
 </style>
-<div class="col-lg-12">
+
+<section class="container">
+
+<div class=" col-md-12">
 	<div class="card hovercard">
 		<div class="card-background">
 			<img class="card-bkimg" alt="" src="{!! asset('').'/'.$users->background !!}">
@@ -17,21 +21,23 @@
 		<div class="useravatar">
 			<img alt="" src="{!! asset('').'/'.$users->avatar !!}">
 		</div>
-		<div class="card-info"> <span class="card-title">{{$users->nick_name}}</span>
-
+		<div class="card-info"> 
+			<span class="card-title">{{$users->nick_name}}</span>
 		</div>
 	</div>
+
 	<div class="tab-content">
 		<div class="tab-pane fade in active" id="tab1">
-			<div class="tab-pane active" id="home-2"> 
+			<div class="tab-pane active" id="home-2">
 				<div class="row">
+
 					<div class="col-md-3">
 						<!-- Personal-Information -->
 						<div class="panel panel-default panel-fill">
-							<div class="panel-heading"> 
-								<h3 class="panel-title">Personal Information</h3> 
-							</div> 
-							<div class="panel-body"> 
+							<div class="panel-heading">
+								<h3 class="panel-title">Personal Information</h3>
+							</div>
+							<div class="panel-body">
 								<div class="about-info-p">
 									<strong>Full Name</strong>
 									<br/>
@@ -51,11 +57,10 @@
 									<a class="btn btn-bordered-primary" data-toggle="modal" data-target="#con-close-modal"><span class="fa fa-edit"></span> Edit Your Personal</a>
 								</div>
 								@include('profile.modal.edit', [$users->name])
-							</div> 
+							</div>
 						</div>
-						<!-- Personal-Information -->
 					</div>
-
+						<!-- Personal-Information -->
 					<div class="col-md-9">
 						<!-- Personal-Information -->
 						<div class="panel panel-default panel-fill">
@@ -86,6 +91,7 @@
 									</table>
 								</div>
 							</div> 
+							
 						</div>
 						<!-- Personal-Information -->
 					</div>
@@ -95,4 +101,21 @@
 	</div>
 </div>
 
+@include('layouts.bottom-content')       
+</section>
 @endsection
+
+@push('script')
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".btn-pref .btn").click(function () {
+			$(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
+    // $(".tab").addClass("active"); // instead of this do the below
+    $(this).removeClass("btn-default").addClass("btn-primary");
+});
+	});
+</script>
+@endpush
+
+		
+

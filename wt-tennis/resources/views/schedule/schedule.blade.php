@@ -34,9 +34,9 @@
 
            </div><!--Close Top Match-->
 
-           <div id='calendar'></div>
-       
+           <div id='calendar'></div>    
         </section>
+
 @endsection
 @push('script')
 <script>

@@ -33,17 +33,8 @@ Route::post('team/{id}', 'MemberUserController@store');
 Route::patch('team/{id}/member/{member}', 'MemberUserController@update');
 Route::delete('team/{id}/member/{member}', 'MemberUserController@destroy');
 
-Route::get('/individual', function () {
-    return view('participant.individual');
-});
-Route::get('/match', function () {
-    return view('matches.match');
-});
 Route::get('/schedule', function() {
     return view('schedule.schedule');
-});
-Route::get('/bagan', function() {
-    return view('bagan.bagan');
 });
 Route::get('/results', function () {
     return view('results.results');

@@ -264,7 +264,7 @@
 														<td><div class="input-group"><div class="form-control">Team 6</div><span class="input-group-addon"><span class="badge pull-right">0</span></span></div></td>
 
 														<td class="col-md-2" rowspan="2"><div class="input-group"><div class="form-control">Team 5</div><span class="input-group-addon"><span class="badge pull-right">0</span></span></div>
-														</td>
+															</td>
 													</tr>
 													<tr>
 														<td class="col-md-2"><div class="input-group"><div class="form-control">Team 7</div><span class="input-group-addon"><span class="badge pull-right">1</span></span></div></td>
@@ -410,42 +410,26 @@
 											</div>
 										</div>
 									</div>
-
 									<div id="tab4" class="tab">
 									<h3 class="tab-match-title">Voli Compotition</h3>
-
 									</div>
-
 									<div id="tab5" class="tab">
 									<h3 class="tab-match-title">Berenang Compotition</h3>
-
 									</div>
-
 									<div id="tab6" class="tab">
 									<h3 class="tab-match-title">Marathon Compotition</h3>
-
 									</div>
-
 									<div id="tab7" class="tab">
 									<h3 class="tab-match-title">Catur Compotition</h3>
-
 									</div>
-
 									<div id="tab8" class="tab">
-									<h3 class="tab-match-title">Lompat Tinggi Compotition</h3>
-
+									<h3 class="tab-match-title">Lompat Tinggi Compotition</h3
 									</div>
-
-
-
 								</div>
-
 							</div>
 						</div>
 					</div>
-
 				</div><!--Close Top Match-->
 			</div>
 		</section>
-
 		@endsection

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
   <title>Sport Event</title>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <link href="{{ URL::asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" />
-  {{ Html::style('css/bootstrap.css') }}
+
   <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
 
   <link href="{{ URL::asset('css/online/open_sans.css') }}" rel='stylesheet' type='text/css'/>
@@ -58,6 +58,7 @@
     <script src="{{ URL::asset('admin_asset/assets/jquery-datatables-editable/jquery.dataTables.js') }}"></script>
     <script src="{{ URL::asset('admin_asset/assets/datatables/dataTables.bootstrap.js') }}"></script>
     <script src="{{ URL::asset('admin_asset/assets/jquery-datatables-editable/datatables.editable.init.js') }}"></script>
+    <script src="{{ URL::asset('admin_asset/tinymce/tinymce.min.js') }}"></script>
 
 </head>
 <body>
@@ -67,7 +68,7 @@
    <div class="container">
     <div class="col-md-12">
      <div class="box-support">
-       <p class="support-info"><i class="fa fa-envelope-o"></i> info@wttennis.com</p>
+       <p class="support-info"><i class="fa fa-envelope-o"></i> info@roceto.com</p>
      </div>
      <div class="box-login">
        @if (Auth::guest())
@@ -102,136 +103,90 @@
       <div class="box-menu">
         <nav id="cbp-hrmenu" class="cbp-hrmenu">
           <ul id="menu">
-              
-                  <li><a class="lnk-menu {{ Request::segment(1) === 'home' ? 'active' : null }}" href="{{ action('HomeController@index') }}">HOME</a>
-                  </li>
+            <li><a class="lnk-menu {{ Request::segment(1) === 'home' ? 'active' : null }}" href="{{ action('HomeController@index') }}">HOME</a>
+            </li>
+            <li>
+              <?php
+              $konek = mysqli_connect('localhost', 'root','','eo_sport');
+              if(!$konek){
+                die('Could not Connect');
+              }
 
-                  <li>
-                  <?php
-                    $konek = mysqli_connect('localhost', 'root','','eo_sport');
-                    if(!$konek){
-                      die('Could not Connect');
-                    }
+              mysqli_select_db($konek ,'eo_sport');
+              $sql = "SELECT * FROM events";
+              $result = mysqli_query($konek, $sql);
+              ?>
 
-                    mysqli_select_db($konek ,'eo_sport');
-                    $sql = "SELECT * FROM events";
-                    $result = mysqli_query($konek, $sql);
-                  ?>
-
-                    <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'join' ? 'active' : null }}" data-toggle="dropdown"> COMPETITION <b class="caret"></b></a>
-                    <div class="cbp-hrsub sub-little">
-                                  <div class="cbp-hrsub-inner"> 
-                                      <div class="content-sub-menu">
+              <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'join' ? 'active' : null }}" data-toggle="dropdown"> COMPETITION <b class="caret"></b></a>
+              <div class="cbp-hrsub sub-little">
+                <div class="cbp-hrsub-inner">
+                  <div class="content-sub-menu">
 
                     <ul class="menu-pages">
-                    <?php
+                      <?php
                       while ($events = mysqli_fetch_array($result)) {
-                    ?>
-                      <li>
-                        <div class="col-md-9">
-                          <a class="dropdown-toggle" data-toggle="dropdown">
-                          {{ $events['nama'] }}
-                        </a>
-                        </div>
-                        <div class="col-md-3">
-                          <?php
-                          $id = $events['id'];
-                          $sql1 = "SELECT * FROM categories WHERE event_id = $id";
-                          $result1 = mysqli_query($konek, $sql1);
-                          while ($categories = mysqli_fetch_array($result1)) {
-                          ?>
-                          <a href="{{ action('RegisterController@index',$categories['id']) }}" type="button" style="width:45px; text-align:center">{{ substr($categories['nama'],0,1) }}</a>
-                          <?php
-                          }
-                          ?>
-                        </div>
-                         
-                      </li>
-                    <?php
+                        ?>
+                        <li>
+                          <div class="col-md-9">
+                            <a class="dropdown-toggle" data-toggle="dropdown">
+                              {{ $events['nama'] }}
+                            </a>
+                          </div>
+                          <div class="col-md-3">
+                            <?php
+                            $id = $events['id'];
+                            $sql1 = "SELECT * FROM categories WHERE event_id = $id";
+                            $result1 = mysqli_query($konek, $sql1);
+                            while ($categories = mysqli_fetch_array($result1)) {
+                              ?>
+                              <a href="{{ action('RegisterController@index',$categories['id']) }}" type="button" style="width:45px; text-align:center">{{ substr($categories['nama'],0,1) }}</a>
+                              <?php
+                            }
+                            ?>
+                          </div>
+
+                        </li>
+                        <?php
                       }
-                    ?>
+                      ?>
                     </ul>
-                   </div>
-                   </div>
-                   </div>
-                  </li>
-                  @if (Auth::guest())
-                  @else
-                  <li>
-                    <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'tim' ? 'active' : null }}" data-toggle="dropdown"> PARTICIPANT <b class="caret"></b></a>
-                     <div class="cbp-hrsub sub-little">
-                                  <div class="cbp-hrsub-inner"> 
-                                      <div class="content-sub-menu">
+                  </div>
+                </div>
+              </div>
+            </li>
+            @if (Auth::guest())
+            @else
+            <li><a class="lnk-menu {{ Request::segment(1) === 'team' ? 'active' : null }}" href="{{ action('ParticipantUserController@index',1) }}">Team</a></li>
+            @endif
+            <li>
+              <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'events' ? 'active' : null }}" data-toggle="dropdown"> EVENTS <b class="caret"></b></a>
+              <div class="cbp-hrsub sub-little">
+                <div class="cbp-hrsub-inner">
+                  <div class="content-sub-menu">
                     <ul class="menu-pages">
-                      <!-- <li class="divider"></li> -->
-                      <!-- <li><a href="{{ url('/profil/1') }}"><span>Profil</span></a></li> -->
-                      <li><a href="{{ action('ParticipantUserController@index',1) }}"><span>Tim</span></a></li>
-                      <li><a href="{{ url('/individual') }}"><span>Single Player</span></a></li>
-                      <li><a href="{{ action('GalleryUserController@index') }}"><span>Gallery</span></a></li>
-                      <li><a href="{{ action('EventStreamController@show',1) }}"><span>Video</span></a></li>
-                      <li></li>
-                    </ul>
-                    </div>
-                    </div>
-                    </div>
-                  </li>
-                  @endif
-                  <li>
-                    <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'events' ? 'active' : null }}" data-toggle="dropdown"> EVENTS <b class="caret"></b></a>
-                    <div class="cbp-hrsub sub-little">
-                                  <div class="cbp-hrsub-inner"> 
-                                      <div class="content-sub-menu">
-                    <ul class="menu-pages">
-                      <li><a href="{{ url('/match')}}"><span>Points</span></a></li>
-                  
                       <li><a href="{{ url('/schedule') }}"><span>Schedule</span></a></li>
-                  
-                      <li><a href="{{ url('/bagan') }}"><span>Bracket</span></a></li>
-                  
-                      <li><a href="{{ url('/results') }}"><span>Results</span></a></li>                  
+                      <li><a href="{{ action('BracketUserController@show',1) }}"><span>Bracket</span></a></li>
+                      <li><a href="{{ action('EventStreamController@show',1) }}"><span>Video</span></a></li>
+                      <li><a href="{{ url('/results') }}"><span>Results</span></a></li>
                     </ul>
-                    </div>
-                    </div>
-                    </div>
-                  </li>
-                   <li><a class="lnk-menu {{ Request::segment(1) === 'news' ? 'active' : null }}" href="{{ action('NewsUserController@index') }}"> NEWS </a></li>
-                  <li><a class="lnk-menu {{ Request::segment(1) === 'contact' ? 'active' : null }}" href="{{ url('/contact') }}">CONTACT</a></li>
-                    </ul>
-                  </li>
-                
-           
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li><a class="lnk-menu {{ Request::segment(1) === 'gallery' ? 'active' : null }}" href="{{ action('GalleryUserController@index') }}"> Gallery </a></li>
+            <li><a class="lnk-menu {{ Request::segment(1) === 'news' ? 'active' : null }}" href="{{ action('NewsUserController@index') }}"> NEWS </a></li>
+            <li><a class="lnk-menu {{ Request::segment(1) === 'contact' ? 'active' : null }}" href="{{ url('/contact') }}">CONTACT</a></li>
           </ul>
-        </nav>
-      </div>
-  </header>
+        </li>
+      </ul>
+    </nav>
+  </div>
+ </header>
 </section>
 
 
 
 @yield('content')
-
-<!--SECTION SPONSOR-->
-     <section class="container">
-           <div class="client-sport client-sport-nomargin home-pg">
-               <div class="content-banner">
-                     <ul class="sponsor second">
-                      <?php
-                          $sql = "SELECT * FROM sponsors ORDER BY created_at DESC LIMIT 6";
-                          $result = mysqli_query($konek, $sql);
-                          while ($row = mysqli_fetch_array($result)) {
-                      ?>
-                      <li>
-                        <a href="http://{!! $row['website_pt'] !!}" target="_blank">
-                          <img src="{!! asset('').'/'.$row['foto_pt'] !!}" alt="" />
-                        </a>
-                      </li>
-                      <?php
-                          }
-                      ?>
-                    </ul>
-                </div>
-          </div>
-     </section>
 
 
 <!--SECTION FOOTER-->
@@ -276,9 +231,7 @@
           </li>
        </ul>
      <?php } ?>
-
     </div>
-
     <div class="col-md-3 footer-newsletters">
       <h3>Newsletters</h3>
       <form method="post">
@@ -309,6 +262,7 @@
   </div>
 </div>
 </section>
+
 <footer>
  <div class="col-md-12 content-footer">
   <p>© 2014 - 2015 wttennis.com. All rights reserved. </p>

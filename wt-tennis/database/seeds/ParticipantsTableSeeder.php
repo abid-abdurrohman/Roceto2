@@ -24,7 +24,7 @@ class ParticipantsTableSeeder extends Seeder
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
-            'nama_tim' => 'M.U',
+            'nama_tim' => 'Manchester United',
             'no_hp' => '08567782190232',
             'email' => 'admin@mu.com',
             'warna_kostum' => 'Merah Hitam',
@@ -34,7 +34,7 @@ class ParticipantsTableSeeder extends Seeder
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
-            'nama_tim' => 'Barca',
+            'nama_tim' => 'FC Barcelona',
             'no_hp' => '08567782190312',
             'email' => 'admin@barca.com',
             'warna_kostum' => 'Merah Kuning',
@@ -44,10 +44,10 @@ class ParticipantsTableSeeder extends Seeder
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
-            'nama_tim' => 'Arsenal',
+            'nama_tim' => 'AJAX Amsterdam',
             'no_hp' => '08137782190232',
-            'email' => 'admin@arsenal.com',
-            'warna_kostum' => 'Merah Putih',
+            'email' => 'admin@ajax.com',
+            'warna_kostum' => 'Orange Putih',
             'jumlah_pemain' => '12',
             'status' => 'waiting',
             'category_id' => '1',

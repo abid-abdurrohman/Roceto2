@@ -19,10 +19,6 @@ class CreateParticipantTable extends Migration
             $table->string('email');
             $table->string('warna_kostum');
             $table->string('jumlah_pemain');
-            $table->string('atas_nama');
-            $table->string('no_rek');
-            $table->string('nama_bank');
-            $table->text('bukti');
             $table->string('status');
             $table->integer('category_id')->unsigned()->index();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

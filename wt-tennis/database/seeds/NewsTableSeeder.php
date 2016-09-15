@@ -31,8 +31,7 @@ class NewsTableSeeder extends Seeder
             'updated_at' => DB::raw('NOW()'),
           ),array(
            'judul' => 'Merah Putih Bidik Tiga Gelar di Indonesia Masters 2016',
-           'deskripsi' => '<p>&nbsp;</p>
-            <p>Indonesia berambisi meraih tiga titel juara dalam Indonesian Masters 2016 yang digelar di Gedung Dome, Balikpapan, pada 6-11 September 2016. Manajer tim Pelatnas PBSI, Ricky Soebagdja, mengatakan tiga gelar juara tersebut diharapkan datang dari ganda putra, putri, dan campuran.</p>
+           'deskripsi' => '<p>Indonesia berambisi meraih tiga titel juara dalam Indonesian Masters 2016 yang digelar di Gedung Dome, Balikpapan, pada 6-11 September 2016. Manajer tim Pelatnas PBSI, Ricky Soebagdja, mengatakan tiga gelar juara tersebut diharapkan datang dari ganda putra, putri, dan campuran.</p>
             <p>Indonesia memiliki peluang besar untuk meraih gelar juara di ganda putra. Pasalnya, Rian Agung Saputro/Berry Angriawan berhasil menjadi kampiun tahun lalu dan kini juga masih berada di baris terdepan dalam perburuan juara.</p>
             <p>Pemain-pemain muda ganda putri seperti Anggia Shitta Awanda/Ni Ketut Mahadewi Istarani dan Della Destiara Haris/Rosyita Eka Putri Sari diharapkan bisa mengembalikan gelar juara yang lepas pada tahun lalu. Merah Putih harus mewaspadai Rawinda Prajongjai/Jongkolphan Kittiharakul dan Chae Yoo Jung/Kim Seo Young yang merupakan dua pasangan unggulan.</p>
             <p>Selanjutnya di sektor ganda campuran, pasangan muda Ronald Alexander/Melati Daeva Oktavianti menjadi unggulan teratas Indonesia. Tahun lalu sektor ini dimenangi oleh Tontowi Ahmad/Liliyana Natsir lewat laga sesama Indonesia dengan Praveen Jordan/Debby Susanto.</p>
