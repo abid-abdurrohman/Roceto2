@@ -11,20 +11,18 @@ use App\Model\BuktiPembayaran;
 
 use App\Http\Controllers\Controllers;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class BuktiBayarController extends Controller
 {
-    protected $rules = [
-    	'atas_nama' => ['required'],
-    	'no_rek'	=> ['required'],
-    	'bank'		=> ['required'],
-    	'thumbnail'	=> ['required'],
-    ];
-
     public function store($id, Request $request)
     {
-    	return dd($input);
-    	$this ->validate($request, $this->$rules);
+    	$this->validate($request, [
+            'atas_nama' => ['required'],
+            'no_rek'    => ['required'],
+            'bank'      => ['required'],
+            'thumbnail' => ['required'],
+        ]);
     	$input = $request->all();
     	
     	$photo = $request->thumbnail->getClientOriginalName();
@@ -32,7 +30,8 @@ class BuktiBayarController extends Controller
         $request->thumbnail->move($destination, $photo);
 
         $input['thumbnail'] = $destination.$photo;
-        $input['participant_id'] = $id;
+        $participant=Participant::where('user_id', Auth::user()->id)->where('category_id', $id)->first();
+        $input['participant_id'] = $participant->id;
 
     	BuktiPembayaran::create($input);
         return redirect()->action('HomeController@index');

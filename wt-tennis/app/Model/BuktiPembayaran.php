@@ -2,9 +2,9 @@
 
 namespace App\Model;
 
-use Illuminate\Databse\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;
 
-Class BuktiPembayaran extends Model
+class BuktiPembayaran extends Model
 {
 	protected $table = 'bukti_pembayaran';
 	protected $fillable = ['atas_nama', 'no_rek', 'bank', 'thumbnail', 'participant_id'];

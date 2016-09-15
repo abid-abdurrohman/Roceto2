@@ -9,6 +9,8 @@ use App\Model\Event;
 use App\Http\Controllers\Controllers;
 use App\Http\Requests;
 
+use Illuminate\Support\Facades\Auth;
+
 class RegisterController extends Controller
 {
     protected $rules = [
@@ -25,7 +27,6 @@ class RegisterController extends Controller
         $category = Category::findOrFail($id);
         $event_id = $category->event_id;
         $event = Event::findOrFail($event_id);
-        $participant_id = $
         return view('register.register', compact('category', 'event'));
     }
 
@@ -35,7 +36,7 @@ class RegisterController extends Controller
         $input = $request->all();
         $input['category_id'] = $id;
         $input['status'] = 'waiting';
-        $input['user_id'] = 1;
+        $input['user_id'] = Auth::user()->id;
         Participant::create($input);
         return redirect()->action('RegisterController@index', $id);
     }

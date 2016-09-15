@@ -18,7 +18,7 @@ Route::group(['middleware' => ['web']], function () {
 
 /*link menu*/
 
-Route::get('register/{id}/upload', 'BuktiBayarController@store');
+Route::post('register/{id}/upload', 'BuktiBayarController@store');
 
 Route::get('admin/logout', 'Auth\AuthController@getLogout');
 
