@@ -16,7 +16,8 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        $galleries = Gallery::paginate();
+        $galleries = Gallery::join('events', 'events.id', '=', 'galleries.event_id')
+          ->select('events.nama as nama_event', 'galleries.*')->paginate(5);
         return view('admin.gallery.index', compact('galleries'));
     }
 
@@ -46,7 +47,6 @@ class GalleryController extends Controller
             'kategori' => 'required',
         ]);
         $input = $request->all();
-        dd($request->thumbnail);
         $photo = $request->thumbnail->getClientOriginalName();
         $destination = 'images/gallery/'.$request->kategori.'/';
         $request->thumbnail->move($destination, $photo);
@@ -65,8 +65,8 @@ class GalleryController extends Controller
      */
     public function show($id)
     {
-        $gallery = Gallery::findOrFail($id);
-
+        $gallery = Gallery::findOrFail($id)->join('events', 'events.id', '=', 'galleries.event_id')
+          ->select('events.nama as nama_event', 'galleries.*')->first();;
         return view('admin.gallery.show', compact('gallery'));
     }
 

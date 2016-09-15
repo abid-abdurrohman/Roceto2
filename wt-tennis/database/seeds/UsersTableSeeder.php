@@ -11,12 +11,12 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-         $users = 
+         $users =
           array(
             'name' => 'Admin',
             'nick_name' => 'Admin',
             'email' => 'admin@roceto.com',
-            'password' => 'admin',
+            'password' => Hash::make('admin'),
             'avatar' => 'images/users/admin.jpg',
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),

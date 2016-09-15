@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Model\Participant;
 use App\Model\Category;
 use App\Model\Event;
+use App\Model\Member;
 use Illuminate\Http\Request;
 use DB;
 use App\Http\Requests;
@@ -19,7 +20,8 @@ class ParticipantController extends Controller
     public function index()
     {
         $events = Event::lists('nama','id');
-        $participants = Participant::paginate(5);
+        $participants = Participant::join('categories', 'categories.id', '=', 'participants.category_id')
+          ->select('categories.nama as nama_category', 'participants.*')->paginate(5);
         $category = Category::selectRaw('categories.id, categories.nama, categories.event_id')
               ->leftJoin('events','events.id','=','categories.event_id')->get();
         return view('admin.participant.index', compact('participants', 'events', 'category'));
@@ -45,12 +47,12 @@ class ParticipantController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nama_tim' => 'required',
-            'no_hp' => 'required',
-            'email' => 'required',
-            'warna_kostum' => 'required',
-            'jumlah_pemain' => 'required',
-            'kategori' => 'required',
+            'nama_tim' => ['required'],
+            'no_hp' => ['required'],
+            'email' => ['required'],
+            'warna_kostum' => ['required'],
+            'jumlah_pemain' => ['required'],
+            'kategori' => ['required'],
         ]);
         $input = $request->all();
         $input['category_id'] = $request->kategori;
@@ -67,9 +69,10 @@ class ParticipantController extends Controller
      */
     public function show($id)
     {
-        $participants = Participant::findOrFail($id);
-
-        return view('admin.participant.show', compact('participants'));
+        $participants = Participant::join('categories', 'categories.id', '=', 'participants.category_id')
+          ->select('categories.nama as nama_category', 'participants.*')->findOrFail($id);
+        $members = Member::where('participant_id', $id)->get();
+        return view('admin.participant.show', compact('participants', 'members'));
     }
 
     /**
@@ -95,12 +98,12 @@ class ParticipantController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'nama_tim' => 'required',
-            'no_hp' => 'required',
-            'email' => 'required',
-            'warna_kostum' => 'required',
-            'jumlah_pemain' => 'required',
-            'kategori' => 'required',
+            'nama_tim' => ['required'],
+            'no_hp' => ['required'],
+            'email' => ['required'],
+            'warna_kostum' => ['required'],
+            'jumlah_pemain' => ['required'],
+            'kategori' => ['required'],
         ]);
         $participants = Participant::findOrFail($id);
         $participants['category_id'] = $request->kategori;

@@ -10,7 +10,7 @@ class Category extends Model
     protected $fillable = ['nama', 'thumbnail', 'peraturan', 'biaya_pendaftaran', 'kuota', 'event_id'];
 
     public function event() {
-    	 return $this->belongsTo('App\Model\Event');
+    	 return $this->belongsTo('App\Model\Event', 'event_id');
     }
 
     public function participant() {

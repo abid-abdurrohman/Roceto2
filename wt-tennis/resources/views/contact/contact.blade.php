@@ -26,7 +26,7 @@
             </div>
             <div class="form-group">
               <label for="message"> Message:</label>
-              {!! Form::textarea('message', null, ['id' => 'message', 'class' => 'txt-area form-control', 'rows' => '4', 'cols' => '30',
+              {!! Form::textarea('message', null, ['id' => 'message', 'class' => 'form-control', 'rows' => '4', 'cols' => '30',
               'placeholder' => 'Write a Message', 'required'],'') !!}
             </div>
             <div class="form-group">

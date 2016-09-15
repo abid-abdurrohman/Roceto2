@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<!-- Social Share Kit CSS -->
+<link rel="stylesheet" href="{{ URL::asset('socialsharekit/css/social-share-kit.css?v=1.0.10') }}">
+
 <section class="drawer">
   <div class="col-md-12 size-img back-img-shop">
     <div class="effect-cover">
@@ -8,6 +11,7 @@
       <p class="txt-advert-sub">News - Match - Player</p>
     </div>
   </div>
+</section>
   <section id="single_news" class="container secondary-page">
     <div class="general general-results">
      <div class="top-score-title col-md-9">
@@ -19,7 +23,7 @@
         <p>{!! $news->deskripsi !!}</p>
       </div>
 
-      <div class="row" style>
+      <div class="row">
         <p class="desc_news important_news data">by {{ $news->author }}<i class="fa fa-calendar"></i>{{ $news->created_at }} - Depok, Indonesia</p>
         <div class="tab_news">
           @unless ($news->tags->isEmpty())
@@ -31,87 +35,113 @@
         </div>
       </div>
 
+      <div class="row">
+        <div class="top-score-title col-md-12">
+          <div class="col-md-3 col-md-offset-9">
+            <h4>Share with :</h4>
+            @include('news.share', [
+                'url' => request()->fullUrl(),
+                'description' => $news->judul,
+                'image' => asset('').'/'.$news->thumbnail
+            ])
+          </div>
+        </div>
+      </div>
+      <br><hr><br>
       <!--Open comment-->
-      <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-
-      <div class="row" style="margin-top:80px" >
-        <div class="col-sm-12">
-          <div class="panel panel-white post panel-shadow">
-            <div class="post-footer">
-              <ul class="comments-list">
-                <li class="comment">
-                    <?php
-                     $konek = mysqli_connect('localhost', 'root','','eo_sport');
-                          if(!$konek){
-                            die('Could not Connect');
-                          }
-                    mysqli_select_db($konek ,'eo_sport');
-                    ?>
-
-                     <a class="pull-left" href="#">
-                      <img class="avatar" src="http://bootdey.com/img/Content/user_1.jpg" alt="avatar">
-                    </a>
-                    <div class="stats">
-                      <div class="comment-body">
-                        @foreach($comments as $comment)
-                        <div class="comment-heading">
-                          <h4 class="user">{{ $users->nickname }}</h4>
-                          <h5 class="time">5 minutes ago</h5> 
+      <div class="comment-tabs">
+          <ul class="nav nav-tabs" role="tablist">
+              <li class="active"><a href="#comments-logout" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Comments</h4></a></li>
+              <li><a href="#add-comment" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Add comment</h4></a></li>
+          </ul>
+          <div class="tab-content">
+              <div class="tab-pane active" id="comments-logout">
+                  @foreach( $comments as $comment )
+                  <ul class="media-list">
+                    <li class="media">
+                      <a class="pull-left" href="#">
+                        <img class="media-object img-circle" src="{!! asset('').'/'.$comment->avatar_user !!}" alt="profile">
+                      </a>
+                      <div class="media-body">
+                        <div class="well well-lg">
+                            <h4 class="media-heading text-uppercase reviews">{{ $comment->nama_user }} </h4>
+                            <ul class="media-date text-uppercase reviews list-inline">
+                              <li class="dd">{{ substr($comment->created_at,8,2) }}</li>
+                              <li class="mm">{{ substr($comment->created_at,5,2) }}</li>
+                              <li class="aaaa">{{ substr($comment->created_at,0,4) }}</li>
+                            </ul>
+                            <p class="media-comment">
+                                {!! $comment->comment !!}
+                            </p>
+                            <a class="btn btn-info" href="#"><span class="fa fa-reply"></span> Reply</a>
                         </div>
-                        <p>{{ $comment->comment }}</p>
-                        @endforeach
                       </div>
-                    </div>
-                         {!! Form::model(new App\Model\Comment, ['action' => ['CommentUserController@store', $news->id], 'class'=>'form-horizontal']) !!}
-                        <div class="input-group"> 
-                        {!! Form::textarea('comment', null, ['class' => 'form-control', 'rows' => '5',
-        'placeholder' => 'Add a Comment', 'required'],'') !!}
-                          <span class="input-group-addon">
-                            <button type="submit"><i class="fa fa-edit"> </i></button>
-                       {!! Form::close() !!}
-                     <?php ?>  
                     </li>
                   </ul>
-                </div>
+                  @endforeach
               </div>
-            </div>
+              <div class="tab-pane" id="add-comment">
+                  {!! Form::open(array('class' => 'form-horizontal', 'method' => 'POST', 'id' => 'commentForm',
+                  'action' => array('CommentUserController@store', $news->id))) !!}
+                      <div class="form-group">
+                          <label for="email" class="col-sm-2 control-label">Comment</label>
+                          <div class="col-sm-10">
+                            {!! Form::textarea('comment', null, ['placeholder' => 'Write a comment', 'id' => 'addComment',
+                            'class' => 'form-control', 'rows' => 5, 'required'],'') !!}
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <div class="col-sm-offset-2 col-sm-10">
+                              <button class="btn btn-success" type="submit" id="submitComment"><span class="fa fa-send"></span>  Submmit comment</button>
+                          </div>
+                      </div>
+                  {!! Form::close() !!}
+              </div>
           </div>
-          <!--Close comment-->
-        </div>
-        <!--Close Top Match-->
+    </div>
+      <!--Close comment-->
+    </div>
+    <!--right content-->
+    @include('layouts.right-content')
+    </div>
+  </section>
+@endsection
 
-        <!--right content-->
-        @include('layouts.right-content')
-      </section>
-
-      <script src="js/jquery.bxslider.js" type="text/javascript"></script>
-      <script type="text/javascript">
-        $(document).ready(function () {
-          "use strict";
-          if (document.body.clientWidth < 400) {
-            $('#product').bxSlider({
-              minSlides: 1,
-              maxSlides: 3,
-              slideWidth: 300,
-              slideMargin: 10
-            });
-          }
-          else if (document.body.clientWidth < 600) {
-            $('#product').bxSlider({
-              minSlides: 2,
-              maxSlides: 3,
-              slideWidth: 265,
-              slideMargin: 10
-            });
-          }
-          else {
-            $('#product').bxSlider({
-              minSlides: 3,
-              maxSlides: 3,
-              slideWidth: 265,
-              slideMargin: 10
-            });
-          }
-        });
-      </script>
-      @endsection
+@push('scripts')
+<script>
+  tinymce.init({
+    selector: '#addComment', theme: "modern",
+    plugins: [
+    'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+    'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+    'save table contextmenu directionality emoticons template paste textcolor save'
+    ], //The plugins configuration option allows you to enable functionality within the editor.
+    toolbar: 'insertfile undo redo | styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons | save',
+    save_enablewhendirty: true,
+    image_advtab: true,
+    relative_urls: false,
+    external_filemanager_path: "{!! str_finish(asset('../filemanager'),'/') !!}",
+    filemanager_title: "Filemanager" ,
+    external_plugins: { "filemanager" : "../filemanager/plugin.min.js"}
+  });
+</script>
+<script>
+    var popupSize = {
+        width: 780,
+        height: 550
+    };
+    $(document).on('click', '.social-buttons > a', function(e){
+        var
+            verticalPos = Math.floor(($(window).width() - popupSize.width) / 2),
+            horisontalPos = Math.floor(($(window).height() - popupSize.height) / 2);
+        var popup = window.open($(this).prop('href'), 'social',
+            'width='+popupSize.width+',height='+popupSize.height+
+            ',left='+verticalPos+',top='+horisontalPos+
+            ',location=0,menubar=0,toolbar=0,status=0,scrollbars=1,resizable=1');
+        if (popup) {
+            popup.focus();
+            e.preventDefault();
+        }
+    });
+</script>
+@endpush

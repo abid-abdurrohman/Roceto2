@@ -10,7 +10,7 @@ class Event extends Model
     protected $fillable = ['nama', 'detail'];
 
     public function category() {
-    	 return $this->hasMany('App\Model\Category');
+    	 return $this->hasMany('App\Model\Category', 'id');
     }
 
     public function gallery() {

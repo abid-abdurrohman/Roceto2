@@ -20,6 +20,7 @@ class CreateMembersTable extends Migration
             $table->string('no_hp');
             $table->string('posisi');
             $table->string('no_punggung');
+            $table->text('foto');
             $table->integer('participant_id')->unsigned()->index();
             $table->foreign('participant_id')->references('id')->on('participants')->onDelete('cascade');
             $table->timestamps();

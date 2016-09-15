@@ -6,6 +6,7 @@ use App\Model\Event;
 use Illuminate\Http\Request;
 use DB;
 use App\Http\Requests;
+use Yajra\Datatables\Datatables;
 
 class EventController extends Controller
 {
@@ -18,8 +19,14 @@ class EventController extends Controller
     {
         // $events = Event::latest('created_at')->paginate(5);
         $events = Event::paginate(5);
-
+        // $events = Event::all()->take(10);
         return view('admin.event.index', compact('events'));
+    }
+
+    public function getEvent()
+    {
+    	  $events = Event::all();
+    	  return Datatables::of($events)->make(true);
     }
 
     /**
@@ -58,7 +65,6 @@ class EventController extends Controller
     public function show($id)
     {
         $events = Event::findOrFail($id);
-
         return view('admin.event.show', compact('events'));
     }
 

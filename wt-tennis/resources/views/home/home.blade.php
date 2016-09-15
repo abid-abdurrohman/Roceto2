@@ -47,12 +47,12 @@
               ?>
               <div class="col-xs-6 col-md-6" style="margin-bottom:20px">
                 <div class="col-md-4 slide-cont-img"><a href="{{ action('NewsUserController@show',$news['slug']) }}"><img class="scale_image" src="{!! asset('').'/'.$news['thumbnail'] !!}" alt=""/></a></div>
-                <div class="event_date dd-date">{!! $news['created_at'] !!} 
+                <div class="event_date dd-date">{!! $news['created_at'] !!}
                   <div class="post_theme">Exlusive</div>
                 </div><h4> {{ $news['judul'] }}</h4>
-                <p>{!! str_limit($news['deskripsi'], 350) !!}</p> 
-              </div>              
-              <?php } ?> 
+                <p>{!! str_limit($news['deskripsi'], 350) !!}</p>
+              </div>
+              <?php } ?>
             </div>
            </div>
      </section>
@@ -78,14 +78,14 @@
               <p class="subtitle">A small creative team, trying to enrich the lives of others and build brands
                                     that a normal humans can understand.</p>
             <!--SECTION ATP MATCH-->
-              <div class="next-match-co col-xs-8 col-md-8">
+              <div class="next-match-co col-xs-12 col-md-12">
                  <div id="nextmatch-content" class="experience">
                    <div class="col-xs-12 atphead"><div class="match-sing-title"><img src="images/sub-ball.png" alt="" />ATP.HEAD2</div></div>
                    <div class="col-xs-4 pht-1 pht-left">
-                         <div class="img-face-home">
-                            <img src="http://placehold.it/235x224" alt="" />
-                            <p class="name-mc">Team 7A (Basket)</p>
-                         </div>
+                       <div class="img-face-home">
+                          <img src="http://placehold.it/235x224" alt="" />
+                          <p class="name-mc">Team 7A (Basket)</p>
+                       </div>
                   </div>
                   <div class="col-xs-4 pl-point ">
                       <p class="col-xs-12 name-mc-title">BEIJING - FIRST ROUND</p>
@@ -100,67 +100,21 @@
                             <p class="nr1 ris2"> 1 </p>
                             <p class="nr2"> 100% </p>
                       </div>
-
                   </div>
                    <div class="col-xs-4 pht-1 pht-right">
                         <div class="img-face-home">
                             <img src="http://placehold.it/235x224" alt="" />
                             <p class="name-mc">Team 7Aeu (Basket)</p>
                         </div>
-
                   </div>
-                  <div class="col-xs-12 atphead"><div class="match-sing-title inf-bottom">
+                  <div class="col-xs-12 atphead">
+                      <div class="match-sing-title inf-bottom">
                         <p><i class="fa fa-calendar-o"></i>May 16, 2012 14:30 - 16:00 <i class="fa fa-map-marker"></i> London Brion Stadium</p>
-                   </div></div>
+                      </div>
+                      <!-- <div class="score-view-all"><a class="pl-point-button" href="{{ url('/results')}}">View All SCORE</a></div> -->
+                  </div>
                  </div>
               </div>
-              <div class="col-md-4 home-page">
-                   <div class="main">
-                                <div class="tabs animated-slide-2">
-                                 <div class="result-filter">
-                                    <ul class="tab-links">
-                                        <li class="active"><a href="#tab1111">ATP</a></li>
-                                        <li><a href="#tab2222">WTA</a></li>
-                                        <li><a href="#tab3333">DBL</a></li>
-                                    </ul>
-                                    </div>
-                                    <div class="tab-content-point">
-                                        <div id="tab1111" class="tab active">
-                                        <table class="tab-score">
-                                          <tr class="top-scrore-table"><td class="score-position">POS.</td><td>PLAYER</td><td>NAT.</td><td>POINTS</td></tr>
-                                          <tr><td class="score-position">1.</td><td><a href="single_player.html">Nicol Dorian</a></td><td><img src="images/flags/serbia.png" alt="" /></td><td>12770</td></tr>
-                                          <tr><td class="score-position">2.</td><td><a href="single_player.html">Rafael Milk</a></td><td><img src="images/flags/argentina.png" alt="" /></td><td>10670</td></tr>
-                                          <tr><td class="score-position">3.</td><td><a href="single_player.html">Roger Figo</a></td><td><img src="images/flags/uk.png" alt="" /></td><td>7490</td></tr>
-                                          <tr><td class="score-position">4.</td><td><a href="single_player.html">St. Waiker</a></td><td><img src="images/flags/brazil.png" alt="" /></td><td>5985</td></tr>
-                                          <tr><td class="score-position">5.</td><td><a href="single_player.html">David Ruby</a></td><td><img src="images/flags/japan.png" alt="" /></td><td>4765</td></tr>
-
-                                         </table>
-                                        </div>
-                                        <div id="tab2222" class="tab">
-                                        <table class="tab-score">
-                                        <tr class="top-scrore-table"><td class="score-position">POS.</td><td>PLAYER</td><td>NAT.</td><td>POINTS</td></tr>
-                                          <tr><td class="score-position">1.</td><td><a href="single_player.html">Serena Brain</a></td><td><img src="images/flags/usa.png" alt="" /></td><td>1234</td></tr>
-                                          <tr><td class="score-position">2.</td><td><a href="single_player.html">Simona Figo</a></td><td><img src="images/flags/uk.png" alt="" /></td><td>1234</td></tr>
-                                          <tr><td class="score-position">3.</td><td><a href="single_player.html">Nio Red</a></td><td><img src="images/flags/italy.png" alt="" /></td><td>1234</td></tr>
-                                          <tr><td class="score-position">4.</td><td><a href="single_player.html">Petra Curt</a></td><td><img src="images/flags/denmark.png" alt="" /></td><td>1234</td></tr>
-                                          <tr><td class="score-position">5.</td><td><a href="single_player.html">Ag. Rader</a></td><td><img src="images/flags/uk.png" alt="" /></td><td>1234</td></tr>
-                                         </table>
-                                        </div>
-                                        <div id="tab3333" class="tab">
-                                        <table class="tab-score">
-                                        <tr class="top-scrore-table"><td class="score-position">POS.</td><td>PLAYER</td><td>NAT.</td><td>POINTS</td></tr>
-                                          <tr><td class="score-position">1.</td><td><a href="single_player.html">name1</a></td><td>-</td><td>1234</td></tr>
-                                          <tr><td class="score-position">2.</td><td><a href="single_player.html">name2</a></td><td>-</td><td>1234</td></tr>
-                                          <tr><td class="score-position">3.</td><td><a href="single_player.html">name3</a></td><td>-</td><td>1234</td></tr>
-                                          <tr><td class="score-position">4.</td><td><a href="single_player.html">name4</a></td><td>-</td><td>1234</td></tr>
-                                          <tr><td class="score-position">5.</td><td><a href="single_player.html">name5</a></td><td>-</td><td>1234</td></tr>
-                                         </table>
-                                        </div>
-                                    </div>
-                                    <div class="score-view-all"><a class="pl-point-button" href="{{ url('/results')}}">View All</a></div>
-                                </div>
-                            </div>
-                </div>
              </div><!--Close Top Match-->
            </div>
      </section>
@@ -172,7 +126,7 @@
               <h3 class="news-title n-match">Next <span>Match</span><span class="point-little">.</span></h3>
               <p class="subtitle">A small creative team, trying to enrich the lives of others and build brands
                                     that a normal humans can understand.</p>
-                <div class="other-match col-md-4">
+                <div class="other-match col-md-6">
                     <div class="score-next-time">
                         <div class="circle-ico"><p>ATP</p></div>
                     </div>
@@ -194,7 +148,7 @@
                     </div>
 
                 </div>
-                <div class="other-match col-md-4">
+                <div class="other-match col-md-6">
                     <div class="match-team-list">
                         <img class="t-img1" src="images/team1_small.png" alt=""/>
                         <span>Fernand</span>
@@ -223,10 +177,6 @@
                        <p>View all</p>
                     </div>
                 </div>
-                <div class="other-match col-md-4 other-last">
-                   <img src="images/adwertise.jpg" alt="" />
-                </div>
-
             </div>
            </div>
      </section>
@@ -416,7 +366,7 @@
                                 <ul class="filter group albumFilter">
                                     <li data-filter="*" class="current"><a  href="#">ALL</a></li>
                                       <?php
-                                        
+
                                         $sql = "SELECT * FROM events";
                                         $result = mysqli_query($konek, $sql);
                                         while ($events = mysqli_fetch_array($result)) {
@@ -433,7 +383,7 @@
                   </div>
             </div>
 
-          <ul class="portfolio group albumContainer"> 
+          <ul class="portfolio group albumContainer">
             <?php
               $sql = "SELECT * FROM galleries";
               $result = mysqli_query($konek, $sql);
@@ -442,13 +392,12 @@
               <li class="item block cat{{ $galleries['event_id']}} col-xs-3 ">
                       <a href="{{ $galleries['thumbnail'] }}" rel="prettyPhotogalleries[portfolio]"><img src="{{ $galleries['thumbnail'] }}"  alt="{{ $galleries['judul'] }}" /></a>
                     </li>
-            <?php } ?>  
+            <?php } ?>
           </ul>
      </section>
-
     <!--end Gallery-->
- 
-    
+@endsection
+@push('scripts')
 <script>
     $(document).ready(function() {
       if (window.location.hash == '#_=_') {
@@ -458,4 +407,4 @@
       }
     });
 </script>
-@endsection
+@endpush

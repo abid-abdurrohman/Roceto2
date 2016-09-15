@@ -17,7 +17,8 @@ class CategoryMatchController extends Controller
      */
     public function index()
     {
-        $categories = Category::paginate(5);
+        $categories = Category::join('events', 'events.id', '=', 'categories.event_id')
+          ->select('events.nama as nama_event', 'categories.*')->paginate(5);
         $events = Event::all();
         return view('admin.match.category', compact('events', 'categories'));
     }

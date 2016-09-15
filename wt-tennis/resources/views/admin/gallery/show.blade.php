@@ -31,6 +31,7 @@
                                                 <th>Judul</th>
                                                 <th>Deskripsi</th>
                                                 <th>Thumbnail</th>
+                                                <th>Event</th>
                                                 <th>Waktu</th>
                                             </tr>
                                         </thead>
@@ -40,6 +41,7 @@
                                                 <td>{{ $gallery->judul }}</td>
                                                 <td>{{ $gallery->deskripsi }}</td>
                                                 <td>{{ $gallery->thumbnail }}</td>
+                                                <td>{{ $gallery->nama_event }}</td>
                                                 <td>{{ $gallery->created_at }}</td>
                                             </tr>
                                         </tbody>

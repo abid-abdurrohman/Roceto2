@@ -7,7 +7,8 @@ use App\Model\Participant;
 use App\Model\Event;
 use App\Model\Category;
 use App\Model\Match;
-use App\Model\TeamsMatch;
+use App\Model\Member;
+use App\Model\Match_team;
 use App\Http\Requests;
 
 class MatchController extends Controller
@@ -50,12 +51,15 @@ class MatchController extends Controller
             'nama' => 'required',
             'waktu' => 'required',
             'tempat' => 'required',
+            'youtube' => 'required',
+            'deskripsi' => 'required',
         ]);
         $input = $request->all();
         $categories = Category::findOrFail($id);
         $input['category_id'] = $categories->id;
+        $input['status'] = "playing";
         Match::create($input);
-        return redirect()->action('CategoryMatchController@show', $categories->id)->with('success', 'Category has been created');
+        return redirect()->action('CategoryMatchController@show', [$categories->id])->with('success', 'Match has been created');
     }
 
     /**
@@ -67,8 +71,11 @@ class MatchController extends Controller
     public function show($id, $id_match)
     {
         $categories = Category::findOrFail($id);
-        $match = Match::findOrFail($id_match);
-        return view('admin.match.show', compact('categories', 'match'));
+        $matches = Match::findOrFail($id_match);
+        $match_teams = Match_team::where('match_id', $id_match)->join('participants', 'participants.id', '=', 'match_teams.participant_id')
+          ->select('participants.nama_tim as nama_participant', 'match_teams.*')->get();
+        $participants = Participant::where('category_id', $id)->lists('nama_tim', 'id');
+        return view('admin.match.show', compact('categories', 'matches', 'participants', 'match_teams'));
     }
 
     /**
@@ -80,6 +87,8 @@ class MatchController extends Controller
     public function edit($id, $id_match)
     {
         $categories = Category::findOrFail($id);
+        $matches = Match::findOrFail($id_match);
+        return view('admin.match.edit', compact('categories', 'matches'));
     }
 
     /**
@@ -91,7 +100,20 @@ class MatchController extends Controller
      */
     public function update(Request $request, $id, $id_match)
     {
+        $this->validate($request, [
+            'no_match' => 'required',
+            'nama' => 'required',
+            'waktu' => 'required',
+            'tempat' => 'required',
+            'youtube' => 'required',
+            'deskripsi' => 'required',
+        ]);
+        $input = $request->all();
         $categories = Category::findOrFail($id);
+        $matches = Match::findOrFail($id_match);
+        $input['status'] = "playing";
+        $matches->update($input);
+        return redirect()->action('CategoryMatchController@show', [$categories->id])->with('info', 'Match has been edited');
     }
 
     /**
@@ -105,6 +127,6 @@ class MatchController extends Controller
         $categories = Category::findOrFail($id);
         $match = Match::findOrFail($id_match);
         $match->delete();
-        return redirect()->action('CategoryMatchController@show', $categories->id)->with('danger', 'Category has been deleted');
+        return redirect()->action('CategoryMatchController@show', [$categories->id])->with('danger', 'Category has been deleted');
     }
 }

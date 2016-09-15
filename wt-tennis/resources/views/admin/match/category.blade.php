@@ -46,10 +46,10 @@
                                           @foreach ($categories as $category)
                                             <tr>
                                                 <td>{{ $category->id }}</td>
-                                                <td><a href="{{ action('EventController@show', $category->event_id) }}">{{ $category->event_id }}</a></td>
+                                                <td><a href="{{ action('EventController@show', $category->event_id) }}">{{ $category->nama_event }}</a></td>
                                                 <td>{{ $category->nama }}</td>
                                                 <td>
-                                                  <a href="{{ action('CategoryMatchController@show', $category->event_id) }}" class="btn btn-info">Check</a>
+                                                  <a href="{{ action('CategoryMatchController@show', $category->event_id) }}">Check</a>
                                                 </td>
                                             </tr>
                                           @endforeach

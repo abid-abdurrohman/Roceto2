@@ -43,8 +43,8 @@
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Nama Tim</th>
-                                                <th>Nama Kapten</th>
                                                 <th>No. Hp</th>
+                                                <th>Email</th>
                                                 <th>Warna Kostum</th>
                                                 <th>Jumlah Pemain</th>
                                                 <th>Kategori</th>
@@ -57,11 +57,11 @@
                                             <tr>
                                                 <td>{{ $participant->id }}</td>
                                                 <td><a href="{{ action('ParticipantController@show', $participant->id) }}">{{ $participant->nama_tim }}</a></td>
-                                                <td>{{ $participant->nama_kapten }}</td>
                                                 <td>{{ $participant->no_hp }}</td>
+                                                <td>{{ $participant->email }}</td>
                                                 <td>{{ $participant->warna_kostum }}</td>
                                                 <td>{{ $participant->jumlah_pemain }}</td>
-                                                <td><a href="#">{{ $participant->category_id }}</a></td>
+                                                <td><a href="#">{{ $participant->nama_category }}</a></td>
                                                 <td>{{ $participant->created_at }}</td>
                                                 @if ($participant->status=='waiting')
                                                     <td><a href="#" class="btn btn-info" data-toggle="modal" data-target="#Modal-{{ $participant->id }}">Check</a></td>

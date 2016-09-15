@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
   <title>Sport Event</title>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
@@ -10,8 +10,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <link href="{{ URL::asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" />
-  {{ Html::style('css/bootstrap.css') }}
-  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+  <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
 
   <link href="{{ URL::asset('css/online/open_sans.css') }}" rel='stylesheet' type='text/css'/>
   <!--<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css'/>-->
@@ -37,7 +37,9 @@
   <link href="{{ URL::asset('css/responsive.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ URL::asset('css/animate.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ URL::asset('css/submenu.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ URL::asset('css/profil.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ URL::asset('css/comments.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ URL::asset('css/calender.css') }}" rel="stylesheet" type="text/css" />
 
   <!-- Waves-effect -->
   <link href="{{ URL::asset('admin_asset/css/waves-effect.css') }}" rel="stylesheet">
@@ -51,6 +53,13 @@
   <link href="{{ URL::asset('css/video-js.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ URL::asset('css/responsive.css') }}" rel="stylesheet" type="text/css" />
 
+  <!-- Examples -->
+    <script src="{{ URL::asset('admin_asset/assets/magnific-popup/magnific-popup.js') }}"></script>
+    <script src="{{ URL::asset('admin_asset/assets/jquery-datatables-editable/jquery.dataTables.js') }}"></script>
+    <script src="{{ URL::asset('admin_asset/assets/datatables/dataTables.bootstrap.js') }}"></script>
+    <script src="{{ URL::asset('admin_asset/assets/jquery-datatables-editable/datatables.editable.init.js') }}"></script>
+    <script src="{{ URL::asset('admin_asset/tinymce/tinymce.min.js') }}"></script>
+
 </head>
 <body>
 
@@ -59,12 +68,25 @@
    <div class="container">
     <div class="col-md-12">
      <div class="box-support">
-       <p class="support-info"><i class="fa fa-envelope-o"></i> info@wttennis.com</p>
+       <p class="support-info"><i class="fa fa-envelope-o"></i> info@roceto.com</p>
      </div>
      <div class="box-login">
+       @if (Auth::guest())
        <!-- <i class="fa fa-shopping-cart"></i> -->
-       <a href="{{ url('/login') }}">Login</a>
-       <!-- <a href='login.html'>Sign Up</a> -->
+       <a href="{{ action('LogController@login') }}">Login</a>
+       <a href="{{ action('LogController@register') }}">Sign Up</a>
+       @else
+
+       <li class="dropdown">
+           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+               {{ Auth::user()->name }} <span class="caret"></span>
+           </a>
+           <ul class="dropdown-menu" role="menu">
+               <li><a href="{{ action('ProfileController@index') }}"><i class="fa fa-btn fa-sign-out"></i>Profile</a></li>
+               <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+           </ul>
+       </li>
+       @endif
      </div>
     </div>
   </div>
@@ -74,20 +96,13 @@
 <section class="container box-logo">
   <header>
     <div class="content-logo col-md-12">
-    <div class="logo">
-      <img src="{{ URL::asset('img/logo2.png') }}" alt="" />
-    </div>
-
-
-    <div class="bt-menu"><a href="#" class="menu"><span>&equiv;</span> Menu</a></div>
-
-    <div class="box-menu">
+      <div class="logo">
+        <img src="{{ URL::asset('img/logo2.png') }}" alt="" />
+      </div>
       <div class="bt-menu"><a href="#" class="menu"><span>&equiv;</span> Menu</a></div>
       <div class="box-menu">
         <nav id="cbp-hrmenu" class="cbp-hrmenu">
           <ul id="menu">
-              <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right" id="menu">
                   <li><a class="lnk-menu {{ Request::segment(1) === 'home' ? 'active' : null }}" href="{{ action('HomeController@index') }}">HOME</a>
                   </li>
                   <li>
@@ -101,74 +116,71 @@
                     $sql = "SELECT * FROM events";
                     $result = mysqli_query($konek, $sql);
                   ?>
-                    <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'register' ? 'active' : null }}" data-toggle="dropdown"> COMPETITION <b class="caret"></b></a>
-                    <ul class="dropdown-menu multi-level">
-                    <li class="divider"></li>
+
+                    <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'join' ? 'active' : null }}" data-toggle="dropdown"> COMPETITION <b class="caret"></b></a>
+                    <div class="cbp-hrsub sub-little">
+                                  <div class="cbp-hrsub-inner">
+                                      <div class="content-sub-menu">
+
+                    <ul class="menu-pages">
                     <?php
                       while ($events = mysqli_fetch_array($result)) {
                     ?>
-                      <li class="dropdown-submenu">
-                        <a class="dropdown-toggle" data-toggle="dropdown"> {{ $events['nama'] }}</a>
-                        <ul class="dropdown-menu">
-                        <?php
+                      <li>
+                        <div class="col-md-9">
+                          <a class="dropdown-toggle" data-toggle="dropdown">
+                          {{ $events['nama'] }}
+                        </a>
+                        </div>
+                        <div class="col-md-3">
+                          <?php
                           $id = $events['id'];
                           $sql1 = "SELECT * FROM categories WHERE event_id = $id";
                           $result1 = mysqli_query($konek, $sql1);
                           while ($categories = mysqli_fetch_array($result1)) {
-                        ?>
-                          <li class="divider"></li>
-                          <li><a href="{{ action('RegisterController@index',$categories['id']) }}" ><span>{{ $categories['nama'] }}</span></a></li>
-                          <li class="divider"></li>
-                        <?php
+                          ?>
+                          <a href="{{ action('RegisterController@index',$categories['id']) }}" type="button" style="width:45px; text-align:center">{{ substr($categories['nama'],0,1) }}</a>
+                          <?php
                           }
-                        ?>
-                        </ul>
+                          ?>
+                        </div>
+
                       </li>
-                      <li class="divider"></li>
                     <?php
                       }
                     ?>
                     </ul>
+                   </div>
+                   </div>
+                   </div>
                   </li>
-                  <li>
-                    <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'tim' ? 'active' : null }}" data-toggle="dropdown"> PARTICIPANT <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                      <li class="divider"></li>
-                      <li><a href="{{ url('/tim') }}"><span>Tim</span></a></li>
-                      <li class="divider"></li>
-                      <li><a href="{{ url('/individual') }}"><span>Single Player</span></a></li>
-                      <li class="divider"></li>
-                      <li><a href="{{ action('GalleryUserController@index') }}"><span>Gallery</span></a></li>
-                      <li class="divider"></li>
-                      <li><a href="{{ url('/video') }}"><span>Video</span></a></li>
-                      <li class="divider"></li>
-                    </ul>
-                  </li>
+                  @if (Auth::guest())
+                  @else
+                    <li><a class="lnk-menu {{ Request::segment(1) === 'team' ? 'active' : null }}" href="{{ action('ParticipantUserController@index',1) }}">Team</a></li>
+                  @endif
                   <li>
                     <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'events' ? 'active' : null }}" data-toggle="dropdown"> EVENTS <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                      <li class="divider"></li>
-                      <li><a href="{{ url('/match')}}"><span>Points</span></a></li>
-                      <li class="divider"></li>
-                      <li><a href="{{ url('/jadwal') }}"><span>Schedule</span></a></li>
-                      <li class="divider"></li>
-                      <li><a href="{{ url('/bagan') }}"><span>Bracket</span></a></li>
-                      <li class="divider"></li>
+                    <div class="cbp-hrsub sub-little">
+                                  <div class="cbp-hrsub-inner">
+                                      <div class="content-sub-menu">
+                    <ul class="menu-pages">
+                      <li><a href="{{ url('/schedule') }}"><span>Schedule</span></a></li>
+                      <li><a href="{{ action('BracketUserController@show',1) }}"><span>Bracket</span></a></li>
+                      <li><a href="{{ action('EventStreamController@show',1) }}"><span>Video</span></a></li>
                       <li><a href="{{ url('/results') }}"><span>Results</span></a></li>
-                      <li class="divider"></li>
                     </ul>
+                    </div>
+                    </div>
+                    </div>
                   </li>
-                   <li><a class="lnk-menu {{ Request::segment(1) === 'news' ? 'active' : null }}" href="{{ action('NewsUserController@index') }}"> NEWS </a></li>
+                  <li><a class="lnk-menu {{ Request::segment(1) === 'gallery' ? 'active' : null }}" href="{{ action('GalleryUserController@index') }}"> Gallery </a></li>
+                  <li><a class="lnk-menu {{ Request::segment(1) === 'news' ? 'active' : null }}" href="{{ action('NewsUserController@index') }}"> NEWS </a></li>
                   <li><a class="lnk-menu {{ Request::segment(1) === 'contact' ? 'active' : null }}" href="{{ url('/contact') }}">CONTACT</a></li>
                     </ul>
                   </li>
-                </ul>
-              </div><!--/.nav-collapse -->
-            </div>
           </ul>
         </nav>
       </div>
-    </div>
   </header>
 </section>
 
@@ -181,12 +193,19 @@
            <div class="client-sport client-sport-nomargin home-pg">
                <div class="content-banner">
                      <ul class="sponsor second">
-                      <li><img src="{{ URL::asset('img\sponsorship\aqua.jpg') }}" alt="" /></li>
-                      <li><img src="{{ URL::asset('img\sponsorship\danone.jpg') }}" alt="" /></li>
-                      <li><img src="{{ URL::asset('img\sponsorship\nike.jpg') }}" alt="" /></li>
-                      <li><img src="{{ URL::asset('img\sponsorship\pocari.jpg') }}" alt="" /></li>
-                      <li><img src="{{ URL::asset('img\sponsorship\sariroti.jpg') }}" alt="" /></li>
-                      <li><img src="{{ URL::asset('img\sponsorship\yakult.jpg') }}" alt="" /></li>
+                      <?php
+                          $sql = "SELECT * FROM sponsors ORDER BY created_at DESC LIMIT 6";
+                          $result = mysqli_query($konek, $sql);
+                          while ($row = mysqli_fetch_array($result)) {
+                      ?>
+                      <li>
+                        <a href="http://{!! $row['website_pt'] !!}" target="_blank">
+                          <img src="{!! asset('').'/'.$row['foto_pt'] !!}" alt="" />
+                        </a>
+                      </li>
+                      <?php
+                          }
+                      ?>
                     </ul>
                 </div>
           </div>
@@ -216,11 +235,11 @@
           while ($events = mysqli_fetch_array($result)) {
         ?>
           <li>{{ $events['nama'] }}</li>
-        <?php } ?>  
+        <?php } ?>
         </ul>
       </div>
 
-    <div class="col-md-3">    
+    <div class="col-md-3">
        <h3>Last News</h3>
       <?php
           $sql = "SELECT * FROM news ORDER BY created_at DESC LIMIT 3";
@@ -229,12 +248,12 @@
       ?>
        <ul class="footer-last-news">
           <li>
-            <a href="{{ action('NewsUserController@show',$news['slug']) }}"> 
+            <a href="{{ action('NewsUserController@show', $news['slug']) }}">
             <img src="{!! asset('').'/'.$news['thumbnail'] !!}" alt="" /></a>
             <p>{!! str_limit($news['deskripsi'], 100) !!}</p>
           </li>
-       </ul> 
-     <?php } ?>  
+       </ul>
+     <?php } ?>
 
     </div>
 
@@ -263,7 +282,6 @@
         <li><a href=""><i class="fa fa-rss"></i></a></li>
         <li><a href=""><i class="fa fa-youtube"></i></a></li>
         <li><a href=""><i class="fa fa-tumblr"></i></a></li>
-
       </ul>
     </div>
   </div>
@@ -274,7 +292,6 @@
   <p>© 2014 - 2015 wttennis.com. All rights reserved. </p>
 </div>
 </footer>
-
 
 <script src="{{ URL::asset('js/jquery-1.10.2.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/jquery-migrate-1.2.1.min.js') }}" type="text/javascript"></script>
@@ -319,6 +336,9 @@
 <script src="{{ URL::asset('js/jquery.bxslider.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/jquery.accordion.js') }}" type="text/javascript"></script>
 
+<!--Calender-->
+<script src="{{ URL::asset('js/jquery.calender.js') }}" type="text/javascript"></script>
+
 <!--Carousel News-->
 <script src="{{ URL::asset('js/jquery.easing.1.3.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/jquery.mousewheel.js') }}" type="text/javascript"></script>
@@ -330,6 +350,6 @@
 <script src="{{ URL::asset('js/jquery.countdown.js') }}" type="text/javascript"></script>
 
 <script src="{{ URL::asset('js/custom_ini.js') }}" type="text/javascript"></script>
-
+@stack('scripts')
 </body>
 </html>

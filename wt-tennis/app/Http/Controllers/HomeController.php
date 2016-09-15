@@ -4,21 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
-use App\Model\Participant;
-use Illuminate\Mail\Mailer;
 
 class HomeController extends Controller
 {
-    protected $mailer;
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct(Mailer $mailer)
+    public function __construct()
     {
-        //$this->middleware('auth');
-        $this->mailer = $mailer;
+        $this->middleware('auth');
     }
 
     /**
@@ -28,9 +24,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $participant = Participant::all();
-        return view('home.home', compact('participant'));
+        return view('home.home');
     }
-
-
 }

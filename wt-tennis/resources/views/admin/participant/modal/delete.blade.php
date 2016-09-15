@@ -10,7 +10,7 @@
         Note: The participant that has been deleted can not be restored.
       </div>
       <div class="modal-footer">
-        {!! form::open(['method' => 'DELETE', 'action' => ['ParticipantController@update', $participant->id]]) !!}
+        {!! Form::open(['method' => 'DELETE', 'action' => ['ParticipantController@update', $participant->id]]) !!}
           <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
         {!! Form::close() !!}
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

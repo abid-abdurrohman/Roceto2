@@ -30,8 +30,8 @@
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Nama Tim</th>
-                                                <th>Nama Kapten</th>
                                                 <th>No Hp</th>
+                                                <th>Email</th>
                                                 <th>Warna Kostum</th>
                                                 <th>Jumlah Pemain</th>
                                                 <th>Kategori</th>
@@ -43,11 +43,11 @@
                                             <tr>
                                                 <td>{{ $participants->id }}</td>
                                                 <td>{{ $participants->nama_tim }}</td>
-                                                <td>{{ $participants->nama_kapten }}</td>
                                                 <td>{{ $participants->no_hp }}</td>
+                                                <td>{{ $participants->email }}</td>
                                                 <td>{{ $participants->warna_kostum }}</td>
                                                 <td>{{ $participants->jumlah_pemain }}</td>
-                                                <td>{{ $participants->category_id }}</td>
+                                                <td>{{ $participants->nama_category }}</td>
                                                 <td>{{ $participants->created_at }}</td>
                                                 <td>{{ $participants->updated_at }}</td>
                                             </tr>
@@ -55,8 +55,8 @@
                                     </table>
                                 </div>
                             </div>
-                            @if ( !$participants->member->count() )
-                    				    <h4>Belum memiliki member.</h4>
+                            @if ( !$members->count() )
+                    				    <h4>Belum memiliki pemain.</h4>
                     				@else
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -64,14 +64,14 @@
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Nama Member</th>
+                                                <th>Nama Pemain</th>
                                                 <th>Created At</th>
                                                 <th>Updated At</th>
                                                 <th colspan="2">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach( $participants->member as $member )
+                                            @foreach( $members as $member )
                                               <tr>
                                                   <td>{{ $member->id }}</td>
                                                   <td>
