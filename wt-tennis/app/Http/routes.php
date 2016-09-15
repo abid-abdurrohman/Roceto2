@@ -15,6 +15,8 @@ Route::get('', 'HomeController@index');
 
 Route::get('home', 'HomeController@index');
 
+Route::get('register/{id}/upload', 'BuktiBayarController@store');
+
 Route::get('admin/logout', 'Auth\AuthController@getLogout');
 
 Route::get('/login', function () {

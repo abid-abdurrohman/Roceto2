@@ -25,6 +25,7 @@ class RegisterController extends Controller
         $category = Category::findOrFail($id);
         $event_id = $category->event_id;
         $event = Event::findOrFail($event_id);
+        $participant_id = $
         return view('register.register', compact('category', 'event'));
     }
 
@@ -34,8 +35,9 @@ class RegisterController extends Controller
         $input = $request->all();
         $input['category_id'] = $id;
         $input['status'] = 'waiting';
+        $input['user_id'] = 1;
         Participant::create($input);
-        return redirect()->action('HomeController@index');
+        return redirect()->action('RegisterController@index', $id);
     }
 
     public function update($id, Request $request)
@@ -56,7 +58,9 @@ class RegisterController extends Controller
         $input['bukti'] = $destination.$photo;
         $input['category_id'] = $id;
         $input['status'] = 'waiting';
-        Participant::create($input);
+
+        $Participant = Participant::findOrFail($id);
+        $Participant->update($input);
         return redirect()->action('HomeController@index');
 
     }
