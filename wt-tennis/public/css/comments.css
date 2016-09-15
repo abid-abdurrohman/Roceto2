@@ -48,6 +48,7 @@
     background-size: 120px;
     border-radius: 120px;
 }
+<<<<<<< HEAD
 /*input[type="file"]{
     z-index: 999;
     line-height: 0;
@@ -59,6 +60,8 @@
     padding:0;
     left:0;
 }*/
+=======
+>>>>>>> 4c4dc06e3923f3c9449d0803510612f32d5ce8d0
 .uploadPhoto {
     position: absolute;
     top: 25%;

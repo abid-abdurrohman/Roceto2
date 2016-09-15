@@ -6,7 +6,7 @@
                 <h4 class="modal-title">Upload Bukti Pembayaran {{ $event->nama}} - {{ $category->nama }}</h4>
             </div>
             <div class="modal-body">
-              {!! Form::open(['action' => array('RegisterController@update',$category->id), 'class'=>'form-horizontal']) !!}
+              {!! Form::open(['action' => array('BuktiBayarController@store', $category->id), 'files' => true, 'class'=>'form-horizontal']) !!}
                   @include('register.form.formup', ['submit_text' => 'Upload'])
               {!! Form::close() !!}
             </div>

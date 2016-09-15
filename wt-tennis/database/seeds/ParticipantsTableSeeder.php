@@ -21,6 +21,7 @@ class ParticipantsTableSeeder extends Seeder
             'jumlah_pemain' => '15',
             'status' => 'waiting',
             'category_id' => '1',
+            'user_id'      => '1',
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
@@ -31,6 +32,7 @@ class ParticipantsTableSeeder extends Seeder
             'jumlah_pemain' => '12',
             'status' => 'waiting',
             'category_id' => '1',
+            'user_id'      => '1',
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
@@ -41,6 +43,7 @@ class ParticipantsTableSeeder extends Seeder
             'jumlah_pemain' => '12',
             'status' => 'waiting',
             'category_id' => '1',
+            'user_id'      => '1',
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
@@ -51,6 +54,7 @@ class ParticipantsTableSeeder extends Seeder
             'jumlah_pemain' => '12',
             'status' => 'waiting',
             'category_id' => '1',
+            'user_id'      => '1',
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
@@ -61,6 +65,7 @@ class ParticipantsTableSeeder extends Seeder
             'jumlah_pemain' => '15',
             'status' => 'waiting',
             'category_id' => '1',
+            'user_id'      => '1',
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
@@ -71,6 +76,7 @@ class ParticipantsTableSeeder extends Seeder
             'jumlah_pemain' => '12',
             'status' => 'waiting',
             'category_id' => '1',
+            'user_id'      => '1',
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
@@ -81,6 +87,7 @@ class ParticipantsTableSeeder extends Seeder
             'jumlah_pemain' => '12',
             'status' => 'waiting',
             'category_id' => '1',
+            'user_id'      => '1',
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
@@ -91,6 +98,7 @@ class ParticipantsTableSeeder extends Seeder
             'jumlah_pemain' => '12',
             'status' => 'waiting',
             'category_id' => '1',
+            'user_id'      => '1',
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
@@ -101,6 +109,7 @@ class ParticipantsTableSeeder extends Seeder
             'jumlah_pemain' => '12',
             'status' => 'waiting',
             'category_id' => '1',
+            'user_id'      => '1',
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           )
