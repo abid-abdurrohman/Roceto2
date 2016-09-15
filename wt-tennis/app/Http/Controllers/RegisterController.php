@@ -9,6 +9,8 @@ use App\Model\Event;
 use App\Http\Controllers\Controllers;
 use App\Http\Requests;
 
+use Illuminate\Support\Facades\Auth;
+
 class RegisterController extends Controller
 {
     protected $rules = [
@@ -34,8 +36,9 @@ class RegisterController extends Controller
         $input = $request->all();
         $input['category_id'] = $id;
         $input['status'] = 'waiting';
+        $input['user_id'] = Auth::user()->id;
         Participant::create($input);
-        return redirect()->action('HomeController@index');
+        return redirect()->action('RegisterController@index', $id);
     }
 
     public function update($id, Request $request)
@@ -56,7 +59,9 @@ class RegisterController extends Controller
         $input['bukti'] = $destination.$photo;
         $input['category_id'] = $id;
         $input['status'] = 'waiting';
-        Participant::create($input);
+
+        $Participant = Participant::findOrFail($id);
+        $Participant->update($input);
         return redirect()->action('HomeController@index');
 
     }

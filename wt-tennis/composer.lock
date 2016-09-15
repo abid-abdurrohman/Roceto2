@@ -360,17 +360,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/google/google-api-php-client.git",
-                "reference": "2f03c901d656e830eb2a830d4f80d4f787c840bf"
+                "reference": "37adb8a6f4d4b27b9900d62d67bf1d54995a755c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/google-api-php-client/zipball/2f03c901d656e830eb2a830d4f80d4f787c840bf",
-                "reference": "2f03c901d656e830eb2a830d4f80d4f787c840bf",
+                "url": "https://api.github.com/repos/google/google-api-php-client/zipball/37adb8a6f4d4b27b9900d62d67bf1d54995a755c",
+                "reference": "37adb8a6f4d4b27b9900d62d67bf1d54995a755c",
                 "shasum": ""
             },
             "require": {
                 "firebase/php-jwt": "~2.0|~3.0",
-                "google/apiclient-services": "^0.6",
+                "google/apiclient-services": "^0.7",
                 "google/auth": "0.10",
                 "guzzlehttp/guzzle": "~5.2|~6.0",
                 "guzzlehttp/psr7": "^1.2",
@@ -411,20 +411,20 @@
             "keywords": [
                 "google"
             ],
-            "time": "2016-08-23 07:57:57"
+            "time": "2016-09-14 19:33:35"
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.6",
+            "version": "v0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/google/google-api-php-client-services.git",
-                "reference": "68290c3645498cf911d0d2552645bcee5c5f23f2"
+                "reference": "c07a8a9d424024f1a9fc5d62da8ed5467ed25909"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/google-api-php-client-services/zipball/68290c3645498cf911d0d2552645bcee5c5f23f2",
-                "reference": "68290c3645498cf911d0d2552645bcee5c5f23f2",
+                "url": "https://api.github.com/repos/google/google-api-php-client-services/zipball/c07a8a9d424024f1a9fc5d62da8ed5467ed25909",
+                "reference": "c07a8a9d424024f1a9fc5d62da8ed5467ed25909",
                 "shasum": ""
             },
             "require": {
@@ -445,7 +445,7 @@
             "keywords": [
                 "google"
             ],
-            "time": "2016-07-27 20:26:55"
+            "time": "2016-09-14 19:12:27"
         },
         {
             "name": "google/auth",

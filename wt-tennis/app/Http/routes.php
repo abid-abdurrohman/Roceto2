@@ -18,12 +18,15 @@ Route::group(['middleware' => ['web']], function () {
 
 /*link menu*/
 
+Route::post('register/{id}/upload', 'BuktiBayarController@store');
+
 Route::get('admin/logout', 'Auth\AuthController@getLogout');
 
 Route::get('login', 'LogController@login');
 Route::get('register', 'LogController@register');
 
 Route::get('profil', 'ProfileController@index');
+Route::patch('profil{id}', 'ProfileController@update');
 
 Route::get('team/{id}', 'ParticipantUserController@index');
 Route::patch('team/{id}', 'ParticipantUserController@update');

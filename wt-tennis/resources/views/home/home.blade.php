@@ -396,6 +396,12 @@
           </ul>
      </section>
     <!--end Gallery-->
+
+<!--SECTION SPONSOR-->
+
+
+@include('layouts.bottom-content')
+
 @endsection
 @push('scripts')
 <script>

@@ -104,6 +104,7 @@
     <!--right content-->
     @include('layouts.right-content')
     </div>
+    @include('layouts.bottom-content')
   </section>
 @endsection
 
