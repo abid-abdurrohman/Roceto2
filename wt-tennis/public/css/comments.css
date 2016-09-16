@@ -4,7 +4,7 @@
 */
 .page-header { position: relative; }
 .reviews {
-    color: #555;    
+    color: #555;
     font-weight: bold;
     margin: 10px auto 20px;
 }
@@ -14,16 +14,16 @@
 }
 .media .media-object { max-width: 120px; }
 .media-body { position: relative; }
-.media-date { 
-    position: absolute; 
+.media-date {
+    position: absolute;
     right: 25px;
     top: 25px;
 }
 .media-date li { padding: 0; }
 .media-date li:first-child:before { content: ''; }
-.media-date li:before { 
-    content: '.'; 
-    margin-left: -2px; 
+.media-date li:before {
+    content: '.';
+    margin-left: -2px;
     margin-right: 2px;
 }
 .media-comment { margin-bottom: 20px; }
@@ -44,10 +44,27 @@
     position: relative;
     width: 120px;
     height: 120px;
-    background: #eee url('https://s3.amazonaws.com/uifaces/faces/twitter/walterstephanie/128.jpg');    
+    background: #eee url('https://s3.amazonaws.com/uifaces/faces/twitter/walterstephanie/128.jpg');
     background-size: 120px;
     border-radius: 120px;
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+/*input[type="file"]{
+    z-index: 999;
+    line-height: 0;
+    font-size: 0;
+    position: absolute;
+    opacity: 0;
+    filter: alpha(opacity = 0);-ms-filter: "alpha(opacity=0)";
+    margin: 0;
+    padding:0;
+    left:0;
+}*/
+=======
+>>>>>>> 4c4dc06e3923f3c9449d0803510612f32d5ce8d0
+>>>>>>> 7f22d6a649196d4419d407548eba545e7ad12a3f
 .uploadPhoto {
     position: absolute;
     top: 25%;
@@ -55,10 +72,10 @@
     display: none;
     width: 50%;
     height: 50%;
-    color: #fff;    
+    color: #fff;
     text-align: center;
     line-height: 60px;
-    text-transform: uppercase;    
+    text-transform: uppercase;
     background-color: rgba(0,0,0,.3);
     border-radius: 50px;
     cursor: pointer;

@@ -30,6 +30,7 @@ Route::get('login', 'LogController@login');
 Route::get('register', 'LogController@register');
 
 Route::get('profil', 'ProfileController@index');
+Route::patch('profil{id}', 'ProfileController@update');
 
 Route::get('team/{id}', 'ParticipantUserController@index');
 Route::patch('team/{id}', 'ParticipantUserController@update');
@@ -43,6 +44,9 @@ Route::get('/schedule', function() {
 });
 Route::get('/results', function () {
     return view('results.results');
+});
+Route::get('/bagan', function () {
+    return view('bagan.bagan');
 });
 
 Route::get('contact', 'ContactController@index');
@@ -65,6 +69,7 @@ Route::post('join/{id}', 'RegisterController@store');
 Route::patch('join/{id}', 'RegisterController@update');
 
 Route::get('bracket/{id}', 'BracketUserController@show');
+Route::get('bracket/{id}/getPDF', 'BracketUserController@getPDF');
 
 /*link admin*/
 Route::get('admin', 'AdminController@login');

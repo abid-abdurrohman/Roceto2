@@ -353,7 +353,7 @@ $.fn.zabuto_calendar = function (options) {
             var jsonData = $calendarElement.data('jsonData');
             var ajaxSettings = $calendarElement.data('ajaxSettings');
 
-            $calendarElement.data('events', false);
+            $calendarElement.data('events',true);
 
             if (false !== jsonData) {
                 return jsonEvents($calendarElement);
@@ -559,12 +559,12 @@ $.fn.zabuto_calendar_defaults = function () {
         show_previous: true,
         show_next: true,
         cell_border: false,
-        today: false,
+        today: true,
         show_days: true,
         weekstartson: 1,
         nav_icon: false,
-        data: false,
-        ajax: false,
+        data: true,
+        ajax: true,
         legend: false,
         action: false,
         action_nav: false
@@ -602,7 +602,7 @@ $.fn.zabuto_calendar_language = function (lang) {
    $(document).ready(function () {
     $("#my-calendar").zabuto_calendar({
       legend: [
-        {type: "text", label: "Special event", badge: "00"},
+        {type: "text", label: "Special event", badge: "03"},
         {type: "block", label: "Regular event", classname: "purple"},
         {type: "spacer"},
         {type: "text", label: "Bad"},

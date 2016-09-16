@@ -34,7 +34,8 @@
 	<div class="general general-results players">
 		<div class="top-score-title right-score col-md-12">
 			<div class="top-score-title player-vs">
-				<h3>{{ $categories->nama_event }} - {{ $categories->nama }} <span>Bracket</span><span class="point-little">.</span></h3>
+        <h3>Bracket Competition<span class="point-little">.</span></h3>
+        <h3 class="tab-match-title">{{ $categories->nama_event }} - {{ $categories->nama }}</h3>
 				<div class="main">
           @include('bracket.include.bracket',  ['id_category' => $categories->id])
 				</div>
@@ -42,16 +43,22 @@
     </div>
   </div>
 </section>
-<div class="row">
-  <div class="top-score-title col-md-12">
-    <div class="col-md-3 col-md-offset-9">
-      <h4>Share with :</h4>
-      @include('bracket.include.share', [
-          'url' => request()->fullUrl(),
-          'description' => $categories->nama_event.' - '.$categories->nama.' Bracket',
-          'image' => asset('').'/'.$categories->thumbnail
-      ])
+<div class="col-md-12">
+  <div class="col-md-5 col-md-offset-1">
+    <h4>Convert with :</h4>
+    <div class="social-buttons ssk-group ssk-round">
+      <a class="btn btn-default" href="{{ action('BracketUserController@getPDF', $categories->id) }}" target="_blank">
+          <i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF
+      </a>
     </div>
+  </div>
+  <div class="col-md-5 col-md-offset-1">
+    <h4>Share with :</h4>
+    @include('bracket.include.share', [
+        'url' => request()->fullUrl(),
+        'description' => $categories->nama_event.' - '.$categories->nama.' Bracket',
+        'image' => asset('').'/'.$categories->thumbnail
+    ])
   </div>
 </div>
 @endsection
