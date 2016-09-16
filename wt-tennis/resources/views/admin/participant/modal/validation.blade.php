@@ -10,7 +10,7 @@
         Note: Did you checked proof of payment properly?
       </div>
       <div class="modal-footer">
-        {!! form::open(['method' => 'POST', 'action' => ['ParticipantController@validation', $participant->id]]) !!}
+        {!! Form::open(['method' => 'POST', 'action' => ['ParticipantController@validation', $participant->id]]) !!}
           <button type="submit" class="btn btn-info"><i class="fa fa-trash"></i> Validation</button>
         {!! Form::close() !!}
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

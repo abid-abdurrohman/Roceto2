@@ -24,13 +24,13 @@ class BuktiBayarController extends Controller
             'thumbnail' => ['required'],
         ]);
     	$input = $request->all();
-    	
+
     	$photo = $request->thumbnail->getClientOriginalName();
         $destination = 'images/bukti/';
         $request->thumbnail->move($destination, $photo);
 
         $input['thumbnail'] = $destination.$photo;
-        $participant=Participant::where('user_id', Auth::user()->id)->where('category_id', $id)->first();
+        $participant=Participant::where('user_id', Auth::user()->id)->where('event_id', $id)->first();
         $input['participant_id'] = $participant->id;
 
     	BuktiPembayaran::create($input);

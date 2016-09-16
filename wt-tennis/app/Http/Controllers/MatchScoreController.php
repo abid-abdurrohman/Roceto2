@@ -73,12 +73,12 @@ class MatchScoreController extends Controller
      */
     public function edit($id, $id_match, $id_team, $id_score)
     {
-        $categories = Category::findOrFail($id);
+       /* $categories = Category::findOrFail($id);
         $matches = Match::findOrFail($id_match);
         $match_teams = Match_team::findOrFail($id_team);
         $match_scores = Match_score::findOrFail($id_score);
         $members = Member::lists('nama', 'id');
-        return view('admin.match_score.edit', compact('categories', 'matches', 'match_teams', 'match_scores', 'members'));
+        return view('admin.match_score.edit', compact('categories', 'matches', 'match_teams', 'match_scores', 'members'));*/
     }
 
     /**
@@ -112,11 +112,11 @@ class MatchScoreController extends Controller
      */
     public function destroy($id, $id_match, $id_team, $id_score)
     {
-          $categories = Category::findOrFail($id);
+          /*$categories = Category::findOrFail($id);
           $matches = Match::findOrFail($id_match);
           $match_teams = Match_team::findOrFail($id_team);
           $match_score = Match_score::findOrFail($id_score);
           $match_score->delete();
-          return redirect()->action('MatchTeamController@show', [$categories->id, $matches->id, $id_team])->with('danger', 'Category has been deleted');
+          return redirect()->action('MatchTeamController@show', [$categories->id, $matches->id, $id_team])->with('danger', 'Category has been deleted');*/
     }
 }

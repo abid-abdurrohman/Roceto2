@@ -22,6 +22,10 @@ Route::post('register/{id}/upload', 'BuktiBayarController@store');
 
 Route::get('admin/logout', 'Auth\AuthController@getLogout');
 
+Route::get('admin/participant/{id}/bukti_pembayaran', 'ParticipantController@bukti_pembayaran');
+
+
+
 Route::get('login', 'LogController@login');
 Route::get('register', 'LogController@register');
 
@@ -69,7 +73,7 @@ Route::post('admin/pro_login', 'AdminController@pro_login');
 Route::resource('admin/user', 'UserAdminController');
 Route::resource('admin/sponsor', 'SponsorController');
 Route::resource('admin/event', 'EventController');
-Route::resource('admin/event.category', 'CategoryController');
+
 Route::resource('admin/gallery', 'GalleryController');
 Route::post('admin/event/search', 'EventController@search');
 Route::resource('admin/news', 'NewsController');

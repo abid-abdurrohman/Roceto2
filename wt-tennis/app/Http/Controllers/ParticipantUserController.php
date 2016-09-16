@@ -17,7 +17,7 @@ class ParticipantUserController extends Controller
 
     public function update($id, Request $request)
     {
-    	 $this->validate($request, [
+    	 /*$this->validate($request, [
             'nama_tim' => ['required'],
             'no_hp' => ['required'],
             'email' => ['required'],
@@ -28,7 +28,7 @@ class ParticipantUserController extends Controller
         $participants = Participant::findOrFail($id);
         $input['category_id'] = $request->id;
         $participants->update($input);
-        return redirect()->action('ParticipantUserController@index',$id)->with('info','Participant has been edited');
+        return redirect()->action('ParticipantUserController@index',$id)->with('info','Participant has been edited');*/
     }
    
 }
