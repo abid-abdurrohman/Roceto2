@@ -20,7 +20,7 @@ class MatchesTableSeeder extends Seeder
            'status' => 'playing',
            'youtube' => 'https://www.youtube.com/watch?v=rKJ_1uRfyuA',
            'deskripsi' => '<p>Please welcome</p>',
-           'category_id' => '1',
+           'event_id' => '1',
            'created_at' => DB::raw('NOW()'),
            'updated_at' => DB::raw('NOW()'),
          ),array(
@@ -31,7 +31,7 @@ class MatchesTableSeeder extends Seeder
            'status' => 'playing',
            'youtube' => 'https://www.youtube.com/watch?v=gbzuImQrIgo',
            'deskripsi' => '<p>Please welcome</p>',
-           'category_id' => '1',
+           'event_id' => '1',
            'created_at' => DB::raw('NOW()'),
            'updated_at' => DB::raw('NOW()'),
          ),array(
@@ -42,7 +42,7 @@ class MatchesTableSeeder extends Seeder
            'status' => 'playing',
            'youtube' => 'https://www.youtube.com/watch?v=PIlFyXucIhw',
            'deskripsi' => '<p>Please welcome</p>',
-           'category_id' => '1',
+           'event_id' => '1',
            'created_at' => DB::raw('NOW()'),
            'updated_at' => DB::raw('NOW()'),
          ),array(
@@ -53,7 +53,7 @@ class MatchesTableSeeder extends Seeder
            'status' => 'playing',
            'youtube' => 'https://www.youtube.com/watch?v=mx6t6E24SSM',
            'deskripsi' => '<p>Please welcome</p>',
-           'category_id' => '1',
+           'event_id' => '1',
            'created_at' => DB::raw('NOW()'),
            'updated_at' => DB::raw('NOW()'),
          ),array(
@@ -64,7 +64,7 @@ class MatchesTableSeeder extends Seeder
            'status' => 'playing',
            'youtube' => 'https://www.youtube.com/watch?v=mx6t6E24SSM',
            'deskripsi' => '<p>Please welcome</p>',
-           'category_id' => '1',
+           'event_id' => '1',
            'created_at' => DB::raw('NOW()'),
            'updated_at' => DB::raw('NOW()'),
          ),array(
@@ -75,7 +75,7 @@ class MatchesTableSeeder extends Seeder
            'status' => 'playing',
            'youtube' => 'https://www.youtube.com/watch?v=mx6t6E24SSM',
            'deskripsi' => '<p>Please welcome</p>',
-           'category_id' => '1',
+           'event_id' => '1',
            'created_at' => DB::raw('NOW()'),
            'updated_at' => DB::raw('NOW()'),
          ),array(
@@ -86,7 +86,7 @@ class MatchesTableSeeder extends Seeder
            'status' => 'playing',
            'youtube' => 'https://www.youtube.com/watch?v=mx6t6E24SSM',
            'deskripsi' => '<p>Please welcome</p>',
-           'category_id' => '1',
+           'event_id' => '1',
            'created_at' => DB::raw('NOW()'),
            'updated_at' => DB::raw('NOW()'),
          ),array(
@@ -97,7 +97,7 @@ class MatchesTableSeeder extends Seeder
            'status' => 'playing',
            'youtube' => 'https://www.youtube.com/watch?v=mx6t6E24SSM',
            'deskripsi' => '<p>Please welcome</p>',
-           'category_id' => '1',
+           'event_id' => '1',
            'created_at' => DB::raw('NOW()'),
            'updated_at' => DB::raw('NOW()'),
          )

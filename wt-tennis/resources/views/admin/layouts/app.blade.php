@@ -219,6 +219,9 @@
                             <li>
                                 <a href="{{ action('CategoryBracketController@index') }}" class="waves-effect {{ Request::segment(2) === 'category-bracket' ? 'active' : null }}"><i class="fa fa-sitemap"></i><span> Bracket </span></a>
                             </li>
+                            <li>
+                                <a href="{{ action('MatchScoreController@index') }}" class="waves-effect {{ Request::segment(2) === 'category-score' ? 'active' : null }}"><i class="fa fa-sitemap"></i><span> Update Score </span></a>
+                            </li>
 
                             <!-- <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="md md-mail"></i><span> Mail </span><span class="pull-right"><i class="md md-add"></i></span></a>

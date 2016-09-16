@@ -16,6 +16,10 @@ class CreateEventsTable extends Migration
             $table->increments('id');
             $table->string('nama');
             $table->text('detail');
+            $table->text('thumbnail');
+            $table->text('peraturan');
+            $table->integer('biaya_pendaftaran');
+            $table->integer('kuota');
             $table->timestamps();
         });
     }

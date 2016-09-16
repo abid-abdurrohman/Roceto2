@@ -7,11 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     protected $table = 'events';
-    protected $fillable = ['nama', 'detail'];
-
-    public function category() {
-    	 return $this->hasMany('App\Model\Category', 'id');
-    }
+    protected $fillable = ['nama', 'detail', 'thumbnail', 'peraturan', 'biaya_pendaftaran', 'kuota'];
 
     public function gallery() {
     	 return $this->hasMany('App\Model\Gallery');

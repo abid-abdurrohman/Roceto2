@@ -21,8 +21,8 @@ class CreateMatchesTable extends Migration
             $table->string('status');
             $table->text('youtube');
             $table->text('deskripsi');
-            $table->integer('category_id')->unsigned()->index();
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->integer('event_id')->unsigned()->index();
+            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
             $table->timestamps();
         });
     }

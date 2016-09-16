@@ -86,9 +86,11 @@ Route::get('admin/category-match/{id}', 'CategoryMatchController@show');
 Route::get('admin/category-bracket', 'CategoryBracketController@index');
 Route::get('admin/category-result/{id}', 'CategoryBracketController@show_result');
 Route::get('admin/category-bracket/{id}', 'CategoryBracketController@show');
+Route::get('admin/match-score', 'MatchScoreController@index');
+Route::get('admin/match-score/{id}', 'MatchScoreMatchController@show');
 Route::resource('admin/category.match', 'MatchController');
 Route::resource('admin/category.match.team', 'MatchTeamController');
-Route::resource('admin/category.match.team.score', 'MatchScoreController');
+// Route::resource('admin/category.match.team.score', 'MatchScoreController');
 Route::get('admin/event/get_event','EventController@getEvent');
 
 Route::get('redirect/{provider}', 'SocialAuthController@redirect');
