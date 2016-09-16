@@ -12,4 +12,8 @@ class Event extends Model
     public function gallery() {
     	 return $this->hasMany('App\Model\Gallery');
     }
+
+    public function match() {
+    	 return $this->hasMany('App\Model\Match');
+    }
 }

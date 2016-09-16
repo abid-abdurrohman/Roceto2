@@ -6,6 +6,7 @@ use App\Model\Participant;
 use App\Model\Category;
 use App\Model\Event;
 use App\Model\Member;
+use App\Model\BuktiPembayaran;
 use Illuminate\Http\Request;
 use DB;
 use App\Http\Requests;
@@ -19,12 +20,12 @@ class ParticipantController extends Controller
      */
     public function index()
     {
-        $events = Event::lists('nama','id');
+        /*$events = Event::lists('nama','id');
         $participants = Participant::join('categories', 'categories.id', '=', 'participants.category_id')
           ->select('categories.nama as nama_category', 'participants.*')->paginate(5);
         $category = Category::selectRaw('categories.id, categories.nama, categories.event_id')
               ->leftJoin('events','events.id','=','categories.event_id')->get();
-        return view('admin.participant.index', compact('participants', 'events', 'category'));
+        return view('admin.participant.index', compact('participants', 'events', 'category'));*/
     }
 
     /**
@@ -34,8 +35,8 @@ class ParticipantController extends Controller
      */
     public function create()
     {
-        $category = Category::lists('nama','id');
-        return view('admin.participant.create', compact('category'));
+       /* $category = Category::lists('nama','id');
+        return view('admin.participant.create', compact('category'));*/
     }
 
     /**
@@ -55,7 +56,7 @@ class ParticipantController extends Controller
             'kategori' => ['required'],
         ]);
         $input = $request->all();
-        $input['category_id'] = $request->kategori;
+        /*$input['category_id'] = $request->kategori;*/
         $input['status'] = 'waiting';
         Participant::create($input);
         return redirect()->action('ParticipantController@index')->with('success', 'Participant has been created');
@@ -69,10 +70,10 @@ class ParticipantController extends Controller
      */
     public function show($id)
     {
-        $participants = Participant::join('categories', 'categories.id', '=', 'participants.category_id')
+        /*$participants = Participant::join('categories', 'categories.id', '=', 'participants.category_id')
           ->select('categories.nama as nama_category', 'participants.*')->findOrFail($id);
         $members = Member::where('participant_id', $id)->get();
-        return view('admin.participant.show', compact('participants', 'members'));
+        return view('admin.participant.show', compact('participants', 'members'));*/
     }
 
     /**
@@ -84,8 +85,8 @@ class ParticipantController extends Controller
     public function edit($id)
     {
         $participants = Participant::findOrFail($id);
-        $category = Category::lists('nama','id');
-        return view('admin.participant.edit', compact('participants', 'category'));
+       /* $category = Category::lists('nama','id');
+        return view('admin.participant.edit', compact('participants', 'category'));*/
     }
 
     /**
@@ -96,7 +97,7 @@ class ParticipantController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+    {/*
         $this->validate($request, [
             'nama_tim' => ['required'],
             'no_hp' => ['required'],
@@ -108,7 +109,7 @@ class ParticipantController extends Controller
         $participants = Participant::findOrFail($id);
         $participants['category_id'] = $request->kategori;
         $participants->update($request->all());
-        return redirect()->action('ParticipantController@index')->with('info','Participant has been edited');
+        return redirect()->action('ParticipantController@index')->with('info','Participant has been edited')*/;
     }
 
     /**
@@ -142,6 +143,13 @@ class ParticipantController extends Controller
         $participants = participant::findOrFail($id);
         $participants['status'] = 'validated';
         $participants->update();
-        return redirect()->action('ParticipantController@index')->with('info','Participant has been validated');
+        return redirect()->action('ParticipantController@bukti_pembayaran')->with('info','Participant has been validated');
+    }
+
+    public function bukti_pembayaran($id)
+    {
+        $bukti_pembayaran = BuktiPembayaran::where('participant_id', $id)->first();
+        $participant=participant::findOrFail($id);
+        return view('admin.participant.bukti_pembayaran.formin', compact('bukti_pembayaran', 'participant'));
     }
 }

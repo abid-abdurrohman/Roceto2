@@ -6,19 +6,17 @@
                 <h4 class="modal-title">Check Participant</h4>
             </div>
             <div class="modal-body">
-              @if ($participant->bukti=='')
-              <b>Note :</b> This Participant have no payment
-              @else
-              <center>
-              <b>Atas Nama :</b> {{ $participant->atas_nama }} <br>
-              <b>Nomor Rekening :</b> {{ $participant->no_rek }} <br>
-              <b>Bukti Pembayaran:</b> <br>
 
-                <img src="{!! asset('').'/'.$participant->bukti !!}" style="width:350px">
+              <center>
+              <b>Atas Nama :</b> {{ $bukti_pembayaran->atas_nama }} <br>
+              <b>Nomor Rekening :</b> {{ $bukti_pembayaran->no_rek }} <br>
+              <b>Bukti Pembayaran:</b>  <br>
+
+                <img src="{!! asset('').'/'.$bukti_pembayaran->thumbnail !!}" style="width:350px">
                <br>
-              <b>Waktu :</b> {{ $participant->created_at }} <br>
+              <b>Waktu :</b> {{ $bukti_pembayaran->created_at }} <br>
               </center>
-              @endif
+  
             </div>
         </div>
     </div>

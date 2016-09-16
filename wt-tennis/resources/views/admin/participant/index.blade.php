@@ -56,7 +56,7 @@
                                           @foreach ($participants as $participant)
                                             <tr>
                                                 <td>{{ $participant->id }}</td>
-                                                <td><a href="{{ action('ParticipantController@show', $participant->id) }}">{{ $participant->nama_tim }}</a></td>
+                                                <td>{{ $participant->nama_tim }}</td>
                                                 <td>{{ $participant->no_hp }}</td>
                                                 <td>{{ $participant->email }}</td>
                                                 <td>{{ $participant->warna_kostum }}</td>
@@ -64,11 +64,9 @@
                                                 <td><a href="#">{{ $participant->nama_category }}</a></td>
                                                 <td>{{ $participant->created_at }}</td>
                                                 @if ($participant->status=='waiting')
-                                                    <td><a href="#" class="btn btn-info" data-toggle="modal" data-target="#Modal-{{ $participant->id }}">Check</a></td>
-                                                    @include('admin.participant.modal.check', ['id' => $participant->id])
-                                        				    <td><a href="#" class="btn btn-info" data-toggle="modal" data-target="#Validation-{{ $participant->id }}">Approve</a></td>
-                                                    @include('admin.participant.modal.validation', ['id' => $participant->id])
-                                        				@else
+                                                    <td><a href="{{ action('ParticipantController@bukti_pembayaran', $participant->id) }}" class="btn btn-info" >Check</a></td>
+                                                    <td><a href="{{ action('ParticipantController@show', $participant->id) }}" class="btn btn-info">Detail</a></td>
+                                                    @else
                                                 <td>
                                                   <a href="{{ action('ParticipantController@edit', $participant->id) }}">
                                                     <i class="fa fa-edit"></i> Edit

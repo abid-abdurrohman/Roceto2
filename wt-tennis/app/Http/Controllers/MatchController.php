@@ -21,9 +21,9 @@ class MatchController extends Controller
 
     public function index($id)
     {
-        $categories = Category::findOrFail($id);
+       /* $categories = Category::findOrFail($id);
         $matches = Match::where('category_id', $id)->paginate(5);
-        return view('admin.match.index', compact('matches', 'categories'));
+        return view('admin.match.index', compact('matches', 'categories'));*/
     }
 
     /**
@@ -33,9 +33,9 @@ class MatchController extends Controller
      */
     public function create($id)
     {
-        $categories = Category::findOrFail($id);
+       /* $categories = Category::findOrFail($id);
         $matches = Match::where('category_id', $id)->paginate(5);
-        return view('admin.match.index', compact('matches', 'categories'));
+        return view('admin.match.index', compact('matches', 'categories'));*/
     }
 
     /**
@@ -56,7 +56,7 @@ class MatchController extends Controller
         ]);
         $input = $request->all();
         $categories = Category::findOrFail($id);
-        $input['category_id'] = $categories->id;
+        /*$input['category_id'] = $categories->id;*/
         $input['status'] = "playing";
         Match::create($input);
         return redirect()->action('CategoryMatchController@show', [$categories->id])->with('success', 'Match has been created');
@@ -74,8 +74,8 @@ class MatchController extends Controller
         $matches = Match::findOrFail($id_match);
         $match_teams = Match_team::where('match_id', $id_match)->join('participants', 'participants.id', '=', 'match_teams.participant_id')
           ->select('participants.nama_tim as nama_participant', 'match_teams.*')->get();
-        $participants = Participant::where('category_id', $id)->lists('nama_tim', 'id');
-        return view('admin.match.show', compact('categories', 'matches', 'participants', 'match_teams'));
+        /*$participants = Participant::where('category_id', $id)->lists('nama_tim', 'id');
+        return view('admin.match.show', compact('categories', 'matches', 'participants', 'match_teams'));*/
     }
 
     /**

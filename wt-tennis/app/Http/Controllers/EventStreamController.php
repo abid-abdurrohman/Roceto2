@@ -19,7 +19,7 @@ class EventStreamController extends Controller
     {
         $matches = Match::findOrFail($id);
         $participants = Participant::all();
-        $videos = Match::inRandomOrder()->where('category_id', $matches->id)->limit(6)->get();
+        /*$videos = Match::inRandomOrder()->where('category_id', $matches->id)->limit(6)->get();*/
         return view('video.video', compact('matches', 'participants', 'videos'));
     }
 }
