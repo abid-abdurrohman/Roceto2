@@ -24,8 +24,6 @@ Route::get('admin/logout', 'Auth\AuthController@getLogout');
 
 Route::get('admin/participant/{id}/bukti_pembayaran', 'ParticipantController@bukti_pembayaran');
 
-
-
 Route::get('login', 'LogController@login');
 Route::get('register', 'LogController@register');
 
