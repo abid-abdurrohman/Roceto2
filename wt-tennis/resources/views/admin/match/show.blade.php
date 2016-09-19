@@ -9,7 +9,7 @@
                     <h4 class="pull-left page-title">Match</h4>
                     <ol class="breadcrumb pull-right">
                         <li><a href="#">Admin</a></li>
-                        <li><a href="{{ action('CategoryMatchController@show', $categories->id) }}">Match</a></li>
+                        <li><a href="{{ action('EventMatchController@show', $events->id) }}">Match</a></li>
                         <li class="active"></li>
                     </ol>
                 </div>
@@ -47,7 +47,7 @@
                                               <tr>
                                                   <td>{{ $match_team->id }}</td>
                                                   <td>
-                                                    <a href="{{ action('MatchTeamController@show', array($categories->id, $matches->id, $match_team->id)) }}">
+                                                    <a href="{{ action('ParticipantController@show', array($match_team->participant_id)) }}">
                                                     {{ $match_team->nama_participant }}
                                                     </a>
                                                   </td>
@@ -55,12 +55,12 @@
                                                   <td>{{ $match_team->created_at }}</td>
                                                   <td>{{ $match_team->updated_at }}</td>
                                                   <td>
-                                                    <a href="#" data-toggle="modal" data-target="#myModal-{{ $categories->id }}-{{ $matches->id }}-{{ $match_team->id }}">
+                                                    <a href="#" data-toggle="modal" data-target="#myModal-{{ $events->id }}-{{ $matches->id }}-{{ $match_team->id }}">
                                                       <i class="fa fa-trash"></i> Delete
                                                     </a>
                                                   </td>
                                               </tr>
-                                              @include('admin.match_team.modal.delete', ['id_category' => $categories->id, 'id_match' => $matches->id, 'id_team' => $match_team->id])
+                                              @include('admin.match_team.modal.delete', ['id_event' => $events->id, 'id_match' => $matches->id, 'id_team' => $match_team->id])
                                             @endforeach
                                         </tbody>
                                     </table>

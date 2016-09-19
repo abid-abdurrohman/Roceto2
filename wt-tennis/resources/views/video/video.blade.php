@@ -15,36 +15,95 @@
 
     <section id="video" class="container secondary-page">
       <div class="general general-results">
+          <!-- Page-Title -->
            <div class="top-score-title col-md-9">
-                <h3>
-                <?php $i=0 ?>
-                @foreach($matches->match_team as $team)
-                    <?php
-                        $id_participant = $team->participant_id;
-                        $con = mysqli_connect('localhost', 'root','','eo_sport');
-                        if(!$con){
-                          die('Could not Connect');
-                        }
-                        mysqli_select_db($con ,'eo_sport');
-                        $sql = "SELECT nama_tim FROM participants WHERE participants.id=$id_participant";
-                        $result = mysqli_query($con, $sql);
-                        $row = mysqli_fetch_array($result);
-                        echo $row['nama_tim'];
-                        if ($i == 0) {
-                          echo " <span>- VS -</span> ";
-                          $i++;
-                        }
-                    ?>
-                @endforeach
-                </h3>
+             <h3>{{ $match_teams[0]['nama_participant'] }}<span> VS </span>{{ $match_teams[1]['nama_participant'] }}</h3>
+             <div class="row">
+                 <div class="col-sm-6 col-lg-4">
+                     <div class="panel panel-default">
+                         <div class="panel-body">
+                             <div class="media-main">
+                                 <center>
+                                   <img class="thumb-lg img-circle" src="{!! asset('').'/'.$match_teams[0]['logo_participant'] !!}" alt="">
+                                   <h4>{{ $match_teams[0]['nama_participant'] }}</h4>
+                                 </center>
+                             </div>
+                         </div> <!-- panel-body -->
+                     </div> <!-- panel -->
+                 </div> <!-- end col -->
+
+                 <div class="col-sm-6 col-lg-4">
+                     <div class="panel panel-default">
+                         <div class="panel-body">
+                             <div class="media-main">
+                                 <div class="col-md-5">
+                                   <center>
+                                     <h2>{{ $match_teams[0]['team_score'] }}</h2>
+                                   </center>
+                                 </div>
+                                 <div class="col-md-2">
+                                   <center>
+                                     <h2>:</h2>
+                                   </center>
+                                 </div>
+                                 <div class="col-md-5">
+                                   <center>
+                                     <h2>{{ $match_teams[1]['team_score'] }}</h2>
+                                   </center>
+                                 </div>
+                             </div>
+                             <div class="clearfix"></div>
+                         </div> <!-- panel-body -->
+                     </div> <!-- panel -->
+                 </div> <!-- end col -->
+                 <div class="col-sm-6 col-lg-4">
+                     <div class="panel panel-default">
+                         <div class="panel-body">
+                             <div class="media-main">
+                                 <center>
+                                   <img class="thumb-lg img-circle" src="{!! asset('').'/'.$match_teams[1]['logo_participant'] !!}" alt="">
+                                   <h4>{{ $match_teams[1]['nama_participant'] }}</h4>
+                                 </center>
+                             </div>
+                         </div> <!-- panel-body -->
+                     </div> <!-- panel -->
+                 </div> <!-- end col -->
+             </div> <!-- End row -->
+
+             <div class="row">
+                 <div class="col-md-6">
+                     <div class="panel panel-default">
+                         <div class="panel-body">
+                           <div class="media-main">
+                               {!! $match_teams[0]['team_comment'] !!}
+                           </div>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-md-6">
+                     <div class="panel panel-default">
+                         <div class="panel-body">
+                           <div class="media-main">
+                               {!! $match_teams[1]['team_comment'] !!}
+                           </div>
+                         </div>
+                     </div>
+                 </div>
+             </div> <!-- End Row -->
+             <hr>
+                <h3>Streaming <span>Now </span><span class="point-little">!</span></h3>
                 <div class="col-md-12 news-video">
                    <video id="example_video_1" class="video-js vjs-default-skin" controls preload="auto" width="100%" height="395"> </video>
                 </div>
-                <div class="video-desc">
-                    <h3 class="video-tit"><span>{{ $matches->waktu }} </span>{{ $matches->nama }}</h3>
-                    <p class="video-arg">
-                       {!! $matches->deskripsi !!}
-                    </p>
+                <div class="row">
+                    <div class="col-md-12 news-video">
+                        <div class="video-desc">
+                            <h3 class="video-tit"><span>{{ $matches->waktu }} </span>{{ $matches->nama }}</h3>
+                            <p class="video-arg">
+                               {!! $matches->deskripsi !!}
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
                   <div class="top-score-title col-md-12">

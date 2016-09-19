@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\Participant;
 use App\Model\Event;
-use App\Model\Category;
 use App\Model\Match;
 use App\Model\Member;
 use App\Model\Match_team;
@@ -21,9 +20,9 @@ class MatchController extends Controller
 
     public function index($id)
     {
-       /* $categories = Category::findOrFail($id);
-        $matches = Match::where('category_id', $id)->paginate(5);
-        return view('admin.match.index', compact('matches', 'categories'));*/
+       /* $events = Event::findOrFail($id);
+        $matches = Match::where('event_id', $id)->paginate(5);
+        return view('admin.match.index', compact('matches', 'events'));*/
     }
 
     /**
@@ -33,9 +32,9 @@ class MatchController extends Controller
      */
     public function create($id)
     {
-       /* $categories = Category::findOrFail($id);
-        $matches = Match::where('category_id', $id)->paginate(5);
-        return view('admin.match.index', compact('matches', 'categories'));*/
+       /* $events = Event::findOrFail($id);
+        $matches = Match::where('event_id', $id)->paginate(5);
+        return view('admin.match.index', compact('matches', 'events'));*/
     }
 
     /**
@@ -55,11 +54,11 @@ class MatchController extends Controller
             'deskripsi' => 'required',
         ]);
         $input = $request->all();
-        $categories = Category::findOrFail($id);
-        /*$input['category_id'] = $categories->id;*/
+        $events = Event::findOrFail($id);
+        $input['event_id'] = $events->id;
         $input['status'] = "playing";
         Match::create($input);
-        return redirect()->action('CategoryMatchController@show', [$categories->id])->with('success', 'Match has been created');
+        return redirect()->action('EventMatchController@show', [$events->id])->with('success', 'Match has been created');
     }
 
     /**
@@ -70,12 +69,12 @@ class MatchController extends Controller
      */
     public function show($id, $id_match)
     {
-        $categories = Category::findOrFail($id);
+        $events = Event::findOrFail($id);
         $matches = Match::findOrFail($id_match);
         $match_teams = Match_team::where('match_id', $id_match)->join('participants', 'participants.id', '=', 'match_teams.participant_id')
           ->select('participants.nama_tim as nama_participant', 'match_teams.*')->get();
-        /*$participants = Participant::where('category_id', $id)->lists('nama_tim', 'id');
-        return view('admin.match.show', compact('categories', 'matches', 'participants', 'match_teams'));*/
+        $participants = Participant::where('event_id', $id)->lists('nama_tim', 'id');
+        return view('admin.match.show', compact('events', 'matches', 'participants', 'match_teams'));
     }
 
     /**
@@ -86,9 +85,9 @@ class MatchController extends Controller
      */
     public function edit($id, $id_match)
     {
-        $categories = Category::findOrFail($id);
+        $events = Event::findOrFail($id);
         $matches = Match::findOrFail($id_match);
-        return view('admin.match.edit', compact('categories', 'matches'));
+        return view('admin.match.edit', compact('events', 'matches'));
     }
 
     /**
@@ -109,11 +108,11 @@ class MatchController extends Controller
             'deskripsi' => 'required',
         ]);
         $input = $request->all();
-        $categories = Category::findOrFail($id);
+        $events = Event::findOrFail($id);
         $matches = Match::findOrFail($id_match);
         $input['status'] = "playing";
         $matches->update($input);
-        return redirect()->action('CategoryMatchController@show', [$categories->id])->with('info', 'Match has been edited');
+        return redirect()->action('EventMatchController@show', [$events->id])->with('info', 'Match has been edited');
     }
 
     /**
@@ -124,9 +123,9 @@ class MatchController extends Controller
      */
     public function destroy($id, $id_match)
     {
-        $categories = Category::findOrFail($id);
+        $events = Event::findOrFail($id);
         $match = Match::findOrFail($id_match);
         $match->delete();
-        return redirect()->action('CategoryMatchController@show', [$categories->id])->with('danger', 'Category has been deleted');
+        return redirect()->action('EventMatchController@show', [$events->id])->with('danger', 'Event has been deleted');
     }
 }

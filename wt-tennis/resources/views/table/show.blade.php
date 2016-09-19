@@ -11,27 +11,8 @@
   </div>
 
   <section id="summary" class="container secondary-page">
-    <div class="general general-results">    
+    <div class="general general-results">
   <div class="top-score-title player-vs">
-   <h3>Ashe Stadium - <span>Final</span><span class="point-little">.</span></h3>
-    <div class="main">
-      <div class="tabs standard">
-        <div class="col-md-12 player-photo">
-          <div class="col-md-4">
-            <img class="img-face" src="http://placehold.it/120x114" alt="" />
-            <h2>1</h2> 
-          </div>  
-          <div class="col-md-4">
-                <img class="img-face" src="http://placehold.it/120x114" alt="" />
-                <h2>2</h2>
-              </div>  
-              <div class="col-md-4">
-                <img class="img-face" src="http://placehold.it/120x114" alt="" />
-                <h2>3</h2>
-              </div>                                         
-          </div>   
-      </div>                                
-    </div>
     <h3>Point <span>Statistics</span><span class="point-little">.</span></h3>
     <table class="tab-score">
       <tr class="top-scrore-table">

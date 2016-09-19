@@ -15,6 +15,7 @@ class CreateParticipantTable extends Migration
         Schema::create('participants', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama_tim');
+            $table->string('logo_tim');
             $table->string('no_hp');
             $table->string('email');
             $table->string('warna_kostum');

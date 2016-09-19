@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Model\Event;
+use App\Model\Match;
 use App\Http\Requests;
 
-class CategoryMatchScoreController extends Controller
+class EventBracketController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,8 @@ class CategoryMatchScoreController extends Controller
      */
     public function index()
     {
-        //
+        $events = Event::paginate(5);
+        return view('admin.bracket.event', compact('events'));
     }
 
     /**
@@ -47,7 +49,16 @@ class CategoryMatchScoreController extends Controller
      */
     public function show($id)
     {
-        //
+        $events = Event::findOrFail($id);
+        $matches = Match::where('event_id', $id)->paginate(5);
+        return view('admin.bracket.index', compact('matches', 'events'));
+    }
+
+    public function show_result($id)
+    {
+        $events = Event::findOrFail($id);
+        $matches = Match::where('event_id', $id)->paginate(5);
+        return view('admin.bracket.result', compact('matches', 'events'));
     }
 
     /**
