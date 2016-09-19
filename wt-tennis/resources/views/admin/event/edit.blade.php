@@ -19,7 +19,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading"><h3 class="panel-title">Edit {{ $events->nama }}</h3></div>
                         <div class="panel-body">
-                            {!! Form::model($events, ['method' => 'PATCH', 'action' => ['EventController@update', $events->id],
+                            {!! Form::model($events, ['method' => 'PATCH', 'files' => true, 'action' => ['EventController@update', $events->id],
                             'class'=>'form-horizontal']) !!}
                                 @include('admin/event/form/form', ['submit_text' => 'Edit Event'])
                             {!! Form::close() !!}
