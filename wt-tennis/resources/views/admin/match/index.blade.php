@@ -9,8 +9,8 @@
                     <h4 class="pull-left page-title">Matchs</h4>
                     <ol class="breadcrumb pull-right">
                         <li><a href="#">Admin</a></li>
-                        <li><a href="{{ action('CategoryMatchController@index') }}">Category</a></li>
-                        <li class="active">{{ $categories->nama }}</li>
+                        <li><a href="{{ action('EventMatchController@index') }}">Event</a></li>
+                        <li class="active">{{ $events->nama }}</li>
                     </ol>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                                             <tr>
                                                 <td>{{ $match->id }}</td>
                                                 <td>
-                                                    <a href="{{ action('MatchController@show', array($categories->id, $match->id)) }}">
+                                                    <a href="{{ action('MatchController@show', array($events->id, $match->id)) }}">
                                                       {{ $match->nama }}
                                                     </a>
                                                 </td>
@@ -65,17 +65,17 @@
                                                 <td>{{ $match->tempat }}</td>
                                                 <td>{{ $match->created_at }}</td>
                                                 <td>
-                                                  <a href="{{ action('MatchController@edit', array($categories->id, $match->id)) }}">
+                                                  <a href="{{ action('MatchController@edit', array($events->id, $match->id)) }}">
                                                     <i class="fa fa-edit"></i> Edit
                                                   </a>
                                                 </td>
                                                 <td>
-                                                  <a href="#" data-toggle="modal" data-target="#myModal-{{ $match->id }}-{{ $categories->id }}">
+                                                  <a href="#" data-toggle="modal" data-target="#myModal-{{ $match->id }}-{{ $events->id }}">
                                                     <i class="fa fa-trash"></i> Delete
                                                   </a>
                                                 </td>
                                             </tr>
-                                            @include('admin.match.modal.delete', ['id_match' => $match->id, 'id_category' => $categories->id])
+                                            @include('admin.match.modal.delete', ['id_match' => $match->id, 'id_category' => $events->id])
                                           @endforeach
                                         </tbody>
                                     </table>

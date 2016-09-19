@@ -42,18 +42,21 @@ Route::delete('team/{id}/member/{member}', 'MemberUserController@destroy');
 Route::get('/schedule', function() {
     return view('schedule.schedule');
 });
-Route::get('/results', function () {
-    return view('results.results');
-});
 Route::get('/bagan', function () {
     return view('bagan.bagan');
 });
+
+Route::get('tables', 'TableUserController@index');
+Route::get('tables/{id}', 'TableUserController@show');
 
 Route::get('contact', 'ContactController@index');
 Route::post('contact', 'ContactController@store');
 
 Route::get('youtube', 'EventStreamController@index');
 Route::get('youtube/{id}', 'EventStreamController@show');
+
+Route::get('result', 'ResultUserController@index');
+Route::get('result/{id}', 'ResultUserController@show');
 
 /*link news*/
 Route::get('news', 'NewsUserController@index');
@@ -85,14 +88,16 @@ Route::resource('admin/news', 'NewsController');
 Route::resource('admin/news.comment', 'CommentController');
 Route::resource('admin/participant', 'ParticipantController');
 Route::resource('admin/participant.member', 'MemberController');
-Route::get('admin/category-match', 'CategoryMatchController@index');
-Route::get('admin/category-match/{id}', 'CategoryMatchController@show');
-Route::get('admin/category-bracket', 'CategoryBracketController@index');
-Route::get('admin/category-result/{id}', 'CategoryBracketController@show_result');
-Route::get('admin/category-bracket/{id}', 'CategoryBracketController@show');
-Route::resource('admin/category.match', 'MatchController');
-Route::resource('admin/category.match.team', 'MatchTeamController');
-Route::resource('admin/category.match.team.score', 'MatchScoreController');
+Route::get('admin/event-match', 'EventMatchController@index');
+Route::get('admin/event-match/{id}', 'EventMatchController@show');
+Route::get('admin/event-bracket', 'EventBracketController@index');
+Route::get('admin/event-result/{id}', 'EventBracketController@show_result');
+Route::get('admin/event-bracket/{id}', 'EventBracketController@show');
+Route::get('admin/match-score', 'EventMatchScoreController@index');
+Route::get('admin/match-score/{id}', 'EventMatchScoreController@show');
+Route::patch('admin/match-score/{id}/team/{id_team}', 'EventMatchScoreController@update');
+Route::resource('admin/event-match.match', 'MatchController');
+Route::resource('admin/event-match.match.team', 'MatchTeamController');
 Route::get('admin/event/get_event','EventController@getEvent');
 
 Route::get('redirect/{provider}', 'SocialAuthController@redirect');

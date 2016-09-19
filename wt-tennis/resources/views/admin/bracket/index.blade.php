@@ -28,6 +28,7 @@
             <h4 class="pull-left page-title">Bracket</h4>
             <ol class="breadcrumb pull-right">
                 <li><a href="#">Admin</a></li>
+								<li><a href="{{ action('EventBracketController@index') }}">Event-Bracket</a></li>
                 <li class="active">Bracket</li>
             </ol>
         </div>
@@ -36,9 +37,9 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Bracket {{ $events->nama }} {{ $categories->nama }}</h3>
+                    <h3 class="panel-title">Bracket {{ $events->nama }}</h3>
                 </div>
-                @include('admin.bracket.include.bracket')    
+                @include('admin.bracket.include.bracket')
             </div>
         </div>
     </div> <!-- End Row -->

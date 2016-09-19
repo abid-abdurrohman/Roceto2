@@ -5,10 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\Event;
 use App\Model\Match;
-use App\Model\Category;
 use App\Http\Requests;
 
-class CategoryBracketController extends Controller
+class EventBracketController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +16,8 @@ class CategoryBracketController extends Controller
      */
     public function index()
     {
-        $categories = Category::join('events', 'events.id', '=', 'categories.event_id')
-          ->select('events.nama as nama_event', 'categories.*')->paginate(5);
-        $events = Event::all();
-        return view('admin.bracket.category', compact('events', 'categories'));
+        $events = Event::paginate(5);
+        return view('admin.bracket.event', compact('events'));
     }
 
     /**
@@ -52,18 +49,16 @@ class CategoryBracketController extends Controller
      */
     public function show($id)
     {
-        $categories = Category::findOrFail($id);
-        $events = Event::findOrFail($categories->event_id);
-        $matches = Match::where('category_id', $id)->paginate(5);
-        return view('admin.bracket.index', compact('matches', 'categories', 'events'));
+        $events = Event::findOrFail($id);
+        $matches = Match::where('event_id', $id)->paginate(5);
+        return view('admin.bracket.index', compact('matches', 'events'));
     }
 
     public function show_result($id)
     {
-        $categories = Category::findOrFail($id);
-        $events = Event::findOrFail($categories->event_id);
-        $matches = Match::where('category_id', $id)->paginate(5);
-        return view('admin.bracket.result', compact('matches', 'categories', 'events'));
+        $events = Event::findOrFail($id);
+        $matches = Match::where('event_id', $id)->paginate(5);
+        return view('admin.bracket.result', compact('matches', 'events'));
     }
 
     /**

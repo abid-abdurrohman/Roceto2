@@ -19,9 +19,9 @@
 			<!-- http://lorempixel.com/850/280/people/9/ -->
 		</div>
 		<div class="useravatar">
-			<img alt="" src="{!! asset('').'/'.$users->avatar !!}">
+			<img alt="" src="{!! $users->avatar !!}">
 		</div>
-		<div class="card-info"> 
+		<div class="card-info">
 			<span class="card-title">{{$users->nick_name}}</span>
 		</div>
 	</div>
@@ -53,7 +53,7 @@
 									<br/>
 									<p class="text-muted">{{ $users->email }}</p>
 								</div>
-								<div class="about-info-p m-b-0">  
+								<div class="about-info-p m-b-0">
 									<a class="btn btn-bordered-primary" data-toggle="modal" data-target="#con-close-modal"><span class="fa fa-edit"></span> Edit Your Personal</a>
 								</div>
 								@include('profile.modal.edit', [$users->name])
@@ -64,10 +64,10 @@
 					<div class="col-md-9">
 						<!-- Personal-Information -->
 						<div class="panel panel-default panel-fill">
-							<div class="panel-heading"> 
-								<h3 class="panel-title">My Events</h3> 
-							</div> 
-							<div class="panel-body"> 
+							<div class="panel-heading">
+								<h3 class="panel-title">My Events</h3>
+							</div>
+							<div class="panel-body">
 								<div class="table-responsive">
 									<table class="table">
 										<thead>
@@ -90,8 +90,8 @@
 										</tbody>
 									</table>
 								</div>
-							</div> 
-							
+							</div>
+
 						</div>
 						<!-- Personal-Information -->
 					</div>
@@ -101,7 +101,7 @@
 	</div>
 </div>
 
-@include('layouts.bottom-content')       
+@include('layouts.bottom-content')
 </section>
 @endsection
 
@@ -116,6 +116,3 @@
 	});
 </script>
 @endpush
-
-		
-

@@ -1,14 +1,14 @@
 @extends('admin.layouts.app')
-@section('title', 'Data Category')
+@section('title', 'Data Match')
 @section('content')
         <div class="container">
             <!-- Page-Title -->
             <div class="row">
                 <div class="col-sm-12">
-                    <h4 class="pull-left page-title">Category</h4>
+                    <h4 class="pull-left page-title">Match</h4>
                     <ol class="breadcrumb pull-right">
                         <li><a href="#">Admin</a></li>
-                        <li class="active">Category</li>
+                        <li class="active">Match</li>
                     </ol>
                 </div>
             </div>
@@ -16,10 +16,9 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Data Category</h3>
+                            <h3 class="panel-title">Data Match</h3>
                         </div>
                         <div class="panel-body">
-                            @include('admin.match.notification.flash')
                             <div class="row">
                               <div class="col-md-11">
                                 <div id="datatable_filter" class="dataTables_filter">
@@ -37,25 +36,27 @@
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Event</th>
-                                                <th>Nama Kategori</th>
-                                                <th>Action</th>
+                                                <th>Nama Event</th>
+                                                <th>Nama Match</th>
+                                                <th>Waktu Match</th>
+                                                <th colspan="2">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                          @foreach ($categories as $category)
+                                          @foreach ($matches as $match)
                                             <tr>
-                                                <td>{{ $category->id }}</td>
-                                                <td><a href="{{ action('EventController@show', $category->event_id) }}">{{ $category->nama_event }}</a></td>
-                                                <td>{{ $category->nama }}</td>
+                                                <td>{{ $match->id }}</td>
+                                                <td><a href="{{ action('EventController@show', $match->id) }}">{{ $match->nama_event }}</a></td>
+                                                <td>{{ $match->nama }}</td>
+                                                <td>{{ $match->waktu }}</td>
                                                 <td>
-                                                  <a href="{{ action('CategoryMatchController@show', $category->event_id) }}">Check</a>
+                                                  <a href="{{ action('EventMatchScoreController@show', $match->id) }}">Update</a>
                                                 </td>
                                             </tr>
                                           @endforeach
                                         </tbody>
                                     </table>
-                                    {!! $categories->links() !!}
+                                    {!! $matches->links() !!}
                                 </div>
                             </div>
                         </div>
