@@ -121,30 +121,14 @@
               <div class="cbp-hrsub sub-little">
                 <div class="cbp-hrsub-inner">
                   <div class="content-sub-menu">
-
                     <ul class="menu-pages">
                       <?php
                       while ($events = mysqli_fetch_array($result)) {
                         ?>
                         <li>
-                          <div class="col-md-9">
                             <a class="dropdown-toggle" data-toggle="dropdown">
                               {{ $events['nama'] }}
                             </a>
-                          </div>
-                          <div class="col-md-3">
-                            <?php
-                            $id = $events['id'];
-                            $sql1 = "SELECT * FROM categories WHERE event_id = $id";
-                            $result1 = mysqli_query($konek, $sql1);
-                            while ($categories = mysqli_fetch_array($result1)) {
-                              ?>
-                              <a href="{{ action('RegisterController@index',$categories['id']) }}" type="button" style="width:45px; text-align:center">{{ substr($categories['nama'],0,1) }}</a>
-                              <?php
-                            }
-                            ?>
-                          </div>
-
                         </li>
                         <?php
                       }
@@ -167,7 +151,9 @@
                       <li><a href="{{ url('/schedule') }}"><span>Schedule</span></a></li>
                       <li><a href="{{ action('BracketUserController@show',1) }}"><span>Bracket</span></a></li>
                       <li><a href="{{ action('EventStreamController@show',1) }}"><span>Video</span></a></li>
-                      <li><a href="{{ url('/results') }}"><span>Results</span></a></li>
+                      <li><a href="{{ action('ResultUserController@show',1) }}"><span>Results</span></a></li>
+                      <li><a href="{{ action('TableUserController@show',1) }}"><span>Fixtures</span></a></li>
+                      <li><a href="{{ action('TableUserController@show',1) }}"><span>Tables</span></a></li>
                     </ul>
                   </div>
                 </div>

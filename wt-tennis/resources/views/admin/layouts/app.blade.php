@@ -195,6 +195,17 @@
                             <li>
                                 <a href="{{ action('AdminController@index') }}" class="waves-effect {{ Request::segment(2) === 'home' ? 'active' : null }}"><i class="md md-home"></i><span> Dashboard </span></a>
                             </li>
+                            <li class="has_sub">
+                                <a href="#" class="waves-effect"><i class="md md-palette"></i><span> Content </span><span class="pull-right"><i class="md md-add"></i></span></a>
+                                <ul class="list-unstyled">
+                                  <li class="{{ Request::segment(2) === 'news' ? 'active' : null }}">
+                                      <a href="{{ action('NewsController@index') }}" class="waves-effect {{ Request::segment(2) === 'news' ? 'active' : null }}"><i class="fa fa-newspaper-o"></i><span> News </span></a>
+                                  </li>
+                                  <li class="{{ Request::segment(2) === 'gallery' ? 'active' : null }}">
+                                      <a href="{{ action('GalleryController@index') }}" class="waves-effect {{ Request::segment(2) === 'gallery' ? 'active' : null }}"><i class="fa fa-picture-o"></i><span> Gallery </span></a>
+                                  </li>
+                                </ul>
+                            </li>
                             <li>
                                 <a href="{{ action('UserAdminController@index') }}" class="waves-effect {{ Request::segment(2) === 'user' ? 'active' : null }}"><i class="fa fa-user"></i><span> User </span></a>
                             </li>
@@ -208,19 +219,13 @@
                                 <a href="{{ action('EventController@index') }}" class="waves-effect {{ Request::segment(2) === 'event' ? 'active' : null }}"><i class="fa fa-folder-open"></i><span> Events </span></a>
                             </li>
                             <li>
-                                <a href="{{ action('NewsController@index') }}" class="waves-effect {{ Request::segment(2) === 'news' ? 'active' : null }}"><i class="fa fa-newspaper-o"></i><span> News </span></a>
+                                <a href="{{ action('EventMatchController@index') }}" class="waves-effect {{ Request::segment(2) === 'event-match' ? 'active' : null }}"><i class="fa fa-gamepad"></i><span> Match </span></a>
                             </li>
                             <li>
-                                <a href="{{ action('GalleryController@index') }}" class="waves-effect {{ Request::segment(2) === 'gallery' ? 'active' : null }}"><i class="fa fa-picture-o"></i><span> Gallery </span></a>
+                                <a href="{{ action('EventBracketController@index') }}" class="waves-effect {{ Request::segment(2) === 'event-bracket' ? 'active' : null }}"><i class="fa fa-sitemap"></i><span> Bracket </span></a>
                             </li>
                             <li>
-                                <a href="{{ action('CategoryMatchController@index') }}" class="waves-effect {{ Request::segment(2) === 'category-match' ? 'active' : null }}"><i class="fa fa-gamepad"></i><span> Match </span></a>
-                            </li>
-                            <li>
-                                <a href="{{ action('CategoryBracketController@index') }}" class="waves-effect {{ Request::segment(2) === 'category-bracket' ? 'active' : null }}"><i class="fa fa-sitemap"></i><span> Bracket </span></a>
-                            </li>
-                            <li>
-                                <a href="{{ action('MatchScoreController@index') }}" class="waves-effect {{ Request::segment(2) === 'category-score' ? 'active' : null }}"><i class="fa fa-sitemap"></i><span> Update Score </span></a>
+                                <a href="{{ action('EventMatchScoreController@index') }}" class="waves-effect {{ Request::segment(2) === 'match-score' ? 'active' : null }}"><i class="md-system-update"></i><span> Update Score </span></a>
                             </li>
 
                             <!-- <li class="has_sub">
@@ -563,7 +568,7 @@
             });
         </script>
         <!-- App scripts -->
-        @stack('js')
+        @stack('scripts')
 
         @yield('footer')
     </body>

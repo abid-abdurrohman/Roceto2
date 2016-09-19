@@ -1,4 +1,4 @@
-<div class="modal fade" id="myModal-{{ $match->id }}-{{ $categories->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="myModal-{{ $match->id }}-{{ $events->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -9,7 +9,7 @@
         Note: The Match that has been deleted can not be restored.
       </div>
       <div class="modal-footer">
-        {!! Form::open(array('method' => 'DELETE', 'action' => array('MatchController@destroy', $categories->id, $match->id))) !!}
+        {!! Form::open(array('method' => 'DELETE', 'action' => array('MatchController@destroy', $events->id, $match->id))) !!}
           <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
         {!! Form::close() !!}
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

@@ -15,6 +15,7 @@ class ParticipantsTableSeeder extends Seeder
          $participants = array(
           array(
             'nama_tim' => 'Arsenal',
+            'logo_tim' => 'images/participant/1/arsenal.png',
             'no_hp' => '085673829399',
             'email' => 'admin@arsenal.com',
             'warna_kostum' => 'Merah Putih',
@@ -26,6 +27,7 @@ class ParticipantsTableSeeder extends Seeder
             'updated_at' => DB::raw('NOW()'),
           ),array(
             'nama_tim' => 'Manchester United',
+            'logo_tim' => 'images/participant/1/mu.png',
             'no_hp' => '08567782190232',
             'email' => 'admin@mu.com',
             'warna_kostum' => 'Merah Hitam',
@@ -37,6 +39,7 @@ class ParticipantsTableSeeder extends Seeder
             'updated_at' => DB::raw('NOW()'),
           ),array(
             'nama_tim' => 'FC Barcelona',
+            'logo_tim' => 'images/participant/1/barca.png',
             'no_hp' => '08567782190312',
             'email' => 'admin@barca.com',
             'warna_kostum' => 'Merah Kuning',
@@ -48,6 +51,7 @@ class ParticipantsTableSeeder extends Seeder
             'updated_at' => DB::raw('NOW()'),
           ),array(
             'nama_tim' => 'AJAX Amsterdam',
+            'logo_tim' => 'images/participant/1/ajax.png',
             'no_hp' => '08137782190232',
             'email' => 'admin@ajax.com',
             'warna_kostum' => 'Orange Putih',
@@ -59,6 +63,7 @@ class ParticipantsTableSeeder extends Seeder
             'updated_at' => DB::raw('NOW()'),
           ),array(
             'nama_tim' => 'Chelsea',
+            'logo_tim' => 'images/participant/1/chelsea.png',
             'no_hp' => '085673829399',
             'email' => 'admin@chelsea.com',
             'warna_kostum' => 'Biru Putih',
@@ -70,6 +75,7 @@ class ParticipantsTableSeeder extends Seeder
             'updated_at' => DB::raw('NOW()'),
           ),array(
             'nama_tim' => 'Tottenham',
+            'logo_tim' => 'images/participant/1/tottenham.png',
             'no_hp' => '08567782192122',
             'email' => 'admin@tottenham.com',
             'warna_kostum' => 'Hitam Putih',
@@ -81,6 +87,7 @@ class ParticipantsTableSeeder extends Seeder
             'updated_at' => DB::raw('NOW()'),
           ),array(
             'nama_tim' => 'Real Madrid',
+            'logo_tim' => 'images/participant/1/madrid.png',
             'no_hp' => '08567711190245',
             'email' => 'admin@realmadrid.com',
             'warna_kostum' => 'Hitam Emas',
@@ -92,6 +99,7 @@ class ParticipantsTableSeeder extends Seeder
             'updated_at' => DB::raw('NOW()'),
           ),array(
             'nama_tim' => 'Bayern Munchen',
+            'logo_tim' => 'images/participant/1/munchen.png',
             'no_hp' => '08567782121232',
             'email' => 'admin@bayernmunchen.com',
             'warna_kostum' => 'Biru Hitam',
@@ -103,6 +111,7 @@ class ParticipantsTableSeeder extends Seeder
             'updated_at' => DB::raw('NOW()'),
           ),array(
             'nama_tim' => 'Juventus',
+            'logo_tim' => 'images/participant/1/juventus.png',
             'no_hp' => '08567782111132',
             'email' => 'admin@juventus.com',
             'warna_kostum' => 'Putih Hitam',
