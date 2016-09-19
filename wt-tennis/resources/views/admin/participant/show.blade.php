@@ -34,7 +34,6 @@
                                                 <th>Email</th>
                                                 <th>Warna Kostum</th>
                                                 <th>Jumlah Pemain</th>
-                                                <th>Kategori</th>
                                                 <th>Created At</th>
                                                 <th>Updated At</th>
                                             </tr>
@@ -47,7 +46,6 @@
                                                 <td>{{ $participants->email }}</td>
                                                 <td>{{ $participants->warna_kostum }}</td>
                                                 <td>{{ $participants->jumlah_pemain }}</td>
-                                                <td>{{ $participants->nama_category }}</td>
                                                 <td>{{ $participants->created_at }}</td>
                                                 <td>{{ $participants->updated_at }}</td>
                                             </tr>

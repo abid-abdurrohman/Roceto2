@@ -6,7 +6,7 @@
                 <h4 class="modal-title">Create Event</h4>
             </div>
             <div class="modal-body">
-              {!! Form::model(new App\Model\Event, ['action' => 'EventController@store', 'class'=>'form-horizontal']) !!}
+              {!! Form::model(new App\Model\Event, ['action' => 'EventController@store', 'files' => true,  'class'=>'form-horizontal']) !!}
                   @include('admin.event.form.form', ['submit_text' => 'Add Event'])
               {!! Form::close() !!}
             </div>

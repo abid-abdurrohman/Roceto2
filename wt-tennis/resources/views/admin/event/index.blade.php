@@ -45,9 +45,14 @@
                                         @foreach ($events as $event)
                                           <tr>
                                               <td>{{ $event->id }}</td>
-                                              <td><a href="{{ action('EventController@show', $event->id) }}">{{ $event->nama }}</a></td>
+                                              <td>{{ $event->nama }}</a></td>
                                               <td>{{ $event->detail }}</td>
                                               <td>{{ $event->created_at }}</td>
+                                               <td>
+                                                <a href="{{ action('EventController@show', $event->id) }}">
+                                                  <i class="fa fa-tasks"></i> Detail
+                                                </a>
+                                              </td>
                                               <td>
                                                 <a href="{{ action('EventController@edit', $event->id) }}">
                                                   <i class="fa fa-edit"></i> Edit
