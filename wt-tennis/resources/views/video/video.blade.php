@@ -13,83 +13,66 @@
         </div>
     </div>
 
+    
+
+     <section id="parallaxTraining">
+        
+     </section>
+
+      <!--SECTION Match TOP SCORE-->
+             
+             
     <section id="video" class="container secondary-page">
       <div class="general general-results">
           <!-- Page-Title -->
            <div class="top-score-title col-md-9">
              <h3>{{ $match_teams[0]['nama_participant'] }}<span> VS </span>{{ $match_teams[1]['nama_participant'] }}</h3>
-             <div class="row">
-                 <div class="col-sm-6 col-lg-4">
-                     <div class="panel panel-default">
-                         <div class="panel-body">
-                             <div class="media-main">
-                                 <center>
-                                   <img class="thumb-lg img-circle" src="{!! asset('').'/'.$match_teams[0]['logo_participant'] !!}" alt="">
-                                   <h4>{{ $match_teams[0]['nama_participant'] }}</h4>
-                                 </center>
-                             </div>
-                         </div> <!-- panel-body -->
-                     </div> <!-- panel -->
-                 </div> <!-- end col -->
-
-                 <div class="col-sm-6 col-lg-4">
-                     <div class="panel panel-default">
-                         <div class="panel-body">
-                             <div class="media-main">
-                                 <div class="col-md-5">
-                                   <center>
-                                     <h2>{{ $match_teams[0]['team_score'] }}</h2>
-                                   </center>
-                                 </div>
-                                 <div class="col-md-2">
-                                   <center>
-                                     <h2>:</h2>
-                                   </center>
-                                 </div>
-                                 <div class="col-md-5">
-                                   <center>
-                                     <h2>{{ $match_teams[1]['team_score'] }}</h2>
-                                   </center>
-                                 </div>
-                             </div>
-                             <div class="clearfix"></div>
-                         </div> <!-- panel-body -->
-                     </div> <!-- panel -->
-                 </div> <!-- end col -->
-                 <div class="col-sm-6 col-lg-4">
-                     <div class="panel panel-default">
-                         <div class="panel-body">
-                             <div class="media-main">
-                                 <center>
-                                   <img class="thumb-lg img-circle" src="{!! asset('').'/'.$match_teams[1]['logo_participant'] !!}" alt="">
-                                   <h4>{{ $match_teams[1]['nama_participant'] }}</h4>
-                                 </center>
-                             </div>
-                         </div> <!-- panel-body -->
-                     </div> <!-- panel -->
-                 </div> <!-- end col -->
-             </div> <!-- End row -->
-
-             <div class="row">
-                 <div class="col-md-6">
-                     <div class="panel panel-default">
-                         <div class="panel-body">
-                           <div class="media-main">
-                               {!! $match_teams[0]['team_comment'] !!}
-                           </div>
+             <div id="people-top" class="top-match col-xs-12 col-md-12">
+                
+              <!--SECTION ATP MATCH-->
+                <div class="next-match-co col-xs-12 col-md-12">
+                   <div id="nextmatch-content" class="experience">
+                     <div class="col-xs-12 atphead"></div>
+                     <div class="col-xs-4 pht-1 pht-left">
+                         <div class="img-face-home">
+                            <img src="{!! asset('').'/'.$match_teams[0]['logo_participant'] !!}" alt="" />
+                            <p class="name-mc">{{ $match_teams[0]['nama_participant'] }}</p>
                          </div>
-                     </div>
-                 </div>
-                 <div class="col-md-6">
-                     <div class="panel panel-default">
-                         <div class="panel-body">
-                           <div class="media-main">
-                               {!! $match_teams[1]['team_comment'] !!}
-                           </div>
-                         </div>
-                     </div>
-                 </div>
-             </div> <!-- End Row -->
+                    </div>
+                    <div class="col-xs-4 pl-point ">
+                        <p class="col-xs-12 name-mc-title">BEIJING - FIRST ROUND</p>
+                        <div class="col-xs-4 nm-result">
+                              <p class="nr1 ris1"> {{ $match_teams[0]['team_score'] }}</p>
+                              <p class="nr2"> 0% </p>
+                        </div>
+                        <div class="col-xs-4 nm-result-vs">
+                              <p class="nrvs"> - VS - </p>
+                        </div>
+                        <div class="col-xs-4 nm-result">
+                              <p class="nr1 ris2"> {{ $match_teams[1]['team_score'] }} </p>
+                              <p class="nr2"> 100% </p>
+                        </div>
+                    </div>
+                     <div class="col-xs-4 pht-1 pht-right">
+                          <div class="img-face-home">
+                              <img src="{!! asset('').'/'.$match_teams[1]['logo_participant'] !!}" alt="" />
+                              <p class="name-mc">{{ $match_teams[1]['nama_participant'] }}</p>
+                          </div>
+                    </div>
+                   </div>
+                </div>
+                <div style="color:white">
+                   <div id="nextmatch-content">
+                     <div class="col-md-6  pht-left" >
+                        <p>{!! $match_teams[0]['team_comment'] !!}</p>
+                    </div>
+                    <div class="col-md-6  pht-right">
+                        <p>{!! $match_teams[1]['team_comment'] !!}</p>
+                    </div>
+                  </div>
+                </div>
+              </div><!--Close Top Match-->
+             
              <hr>
                 <h3>Streaming <span>Now </span><span class="point-little">!</span></h3>
                 <div class="col-md-12 news-video">
@@ -172,9 +155,11 @@
                       <i class="fa fa-video-camera"></i>
                     </div>
                 </div>
+                @include('layouts.bottom-content')
            </div><!--Close Top Match-->
 
         <!-- Right Column-->
+
            @include('layouts.right-content')
         </section>
 @endsection

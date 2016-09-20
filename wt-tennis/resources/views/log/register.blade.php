@@ -29,5 +29,6 @@
            </div>
       </div><!--Close Login-->
    </div>
+    @include('layouts.bottom-content')
 </section>
 @endsection

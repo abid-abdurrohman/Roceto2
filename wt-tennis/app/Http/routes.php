@@ -12,10 +12,10 @@
 
 Route::group(['middleware' => ['web']], function () {
    Route::auth();
-	 Route::get('', 'HomeController@index');
-   Route::get('home', 'HomeController@index');
 });
 
+	Route::get('', 'HomeController@index');
+   Route::get('home', 'HomeController@index');
 /*link menu*/
 
 Route::post('register/{id}/upload', 'BuktiBayarController@store');
@@ -24,8 +24,6 @@ Route::get('admin/logout', 'Auth\AuthController@getLogout');
 
 Route::get('admin/participant/{id}/bukti_pembayaran', 'ParticipantController@bukti_pembayaran');
 Route::post('admin/participant/{id}/bukti_pembayaran', 'ParticipantController@validation');
-
-
 
 Route::get('login', 'LogController@login');
 Route::get('register', 'LogController@register');
