@@ -80,36 +80,47 @@
             <!--SECTION ATP MATCH-->
               <div class="next-match-co col-xs-12 col-md-12">
                  <div id="nextmatch-content" class="experience">
+                   <?php
+                     $sql = "SELECT participants.nama_tim as nama_participant, participants.logo_tim as logo_participant,
+                     match_teams.score as team_score, match_teams.comment as team_comment, matches.* FROM match_teams INNER JOIN
+                     matches ON matches.id = match_teams.match_id INNER JOIN participants ON participants.id = match_teams.participant_id
+                     ORDER BY matches.waktu DESC LIMIT 2";
+                     $result = mysqli_query($konek, $sql);
+                     while( $row = mysqli_fetch_assoc( $result)){
+                         $match_teams[] = $row; // Inside while loop
+                     }
+                   ?>
                    <div class="col-xs-12 atphead"><div class="match-sing-title"><img src="images/sub-ball.png" alt="" />ATP.HEAD2</div></div>
                    <div class="col-xs-4 pht-1 pht-left">
                        <div class="img-face-home">
-                          <img src="http://placehold.it/235x224" alt="" />
-                          <p class="name-mc">Team 7A (Basket)</p>
+                          <img src="{!! asset('').'/'.$match_teams[0]['logo_participant'] !!}" alt="" />
+                          <p class="name-mc">{{ $match_teams[0]['nama_participant'] }}</p>
                        </div>
                   </div>
                   <div class="col-xs-4 pl-point ">
-                      <p class="col-xs-12 name-mc-title">BEIJING - FIRST ROUND</p>
+                      <p class="col-xs-12 name-mc-title"></p>
+                      <p class="col-xs-12 name-mc-title"></p>
                       <div class="col-xs-4 nm-result">
-                            <p class="nr1 ris1"> 0 </p>
-                            <p class="nr2"> 0% </p>
+                            <p class="nr1 ris1"> {{ $match_teams[0]['team_score'] }} </p>
+                            <p class="nr2"></p>
                       </div>
                       <div class="col-xs-4 nm-result-vs">
                             <p class="nrvs"> - VS - </p>
                       </div>
                       <div class="col-xs-4 nm-result">
-                            <p class="nr1 ris2"> 1 </p>
-                            <p class="nr2"> 100% </p>
+                            <p class="nr1 ris2"> {{ $match_teams[1]['team_score'] }} </p>
+                            <p class="nr2"></p>
                       </div>
                   </div>
                    <div class="col-xs-4 pht-1 pht-right">
                         <div class="img-face-home">
-                            <img src="http://placehold.it/235x224" alt="" />
-                            <p class="name-mc">Team 7Aeu (Basket)</p>
+                            <img src="{!! asset('').'/'.$match_teams[1]['logo_participant'] !!}" alt="" />
+                            <p class="name-mc">{{ $match_teams[1]['nama_participant'] }}</p>
                         </div>
                   </div>
                   <div class="col-xs-12 atphead">
                       <div class="match-sing-title inf-bottom">
-                        <p><i class="fa fa-calendar-o"></i>May 16, 2012 14:30 - 16:00 <i class="fa fa-map-marker"></i> London Brion Stadium</p>
+                        <p><i class="fa fa-calendar-o"></i>{{ $match_teams[1]['waktu'] }} <i class="fa fa-map-marker"></i> {{ $match_teams[1]['tempat'] }}</p>
                       </div>
                       <!-- <div class="score-view-all"><a class="pl-point-button" href="{{ url('/results')}}">View All SCORE</a></div> -->
                   </div>
