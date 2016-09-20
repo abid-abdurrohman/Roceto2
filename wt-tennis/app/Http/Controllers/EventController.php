@@ -50,8 +50,16 @@ class EventController extends Controller
         $this->validate($request, [
             'nama' => 'required',
             'detail' => 'required',
+            'thumbnail' => 'required',
+            'peraturan' => 'required',
+            'biaya_pendaftaran' => 'required',
+            'kuota' => 'required'
         ]);
         $input = $request->all();
+        $photo = $request->thumbnail->getClientOriginalName();
+        $destination = 'images/events/';
+        $request->thumbnail->move($destination, $photo);
+        $input['thumbnail'] = $destination.$photo;
         Event::create($input);
         return redirect()->action('EventController@index')->with('success', 'Event has been created');
     }
@@ -93,9 +101,18 @@ class EventController extends Controller
         $this->validate($request, [
             'nama' => 'required',
             'detail' => 'required',
+            'thumbnail' => 'required',
+            'peraturan' => 'required',
+            'biaya_pendaftaran' => 'required',
+            'kuota' => 'required',
         ]);
         $events = Event::findOrFail($id);
-        $events->update($request->all());
+        $input = $request->all();
+        $photo = $request->thumbnail->getClientOriginalName();
+        $destination = 'images/events/';
+        $request->thumbnail->move($destination, $photo);
+        $input['thumbnail'] = $destination.$photo;
+        $events->update($input);
         return redirect()->action('EventController@index')->with('info','Event has been edited');
     }
 

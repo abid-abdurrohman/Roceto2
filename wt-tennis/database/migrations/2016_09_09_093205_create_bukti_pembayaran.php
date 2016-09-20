@@ -13,6 +13,7 @@ class CreateBuktiPembayaran extends Migration
     public function up()
     {
         Schema::create('bukti_pembayaran', function (Blueprint $table){
+            $table->increments('id');
             $table->string('atas_nama');
             $table->string('no_rek');
             $table->string('bank');

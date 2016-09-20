@@ -5,10 +5,10 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Join Competition {{ $event->nama}} - {{ $category->nama }}</h4>
+                <h4 class="modal-title">Join Competition {{ $events->nama }}</h4>
             </div>
             <div class="modal-body">
-              {!! Form::open(['action' => array('RegisterController@store',$category->id), 'class'=>'form-horizontal']) !!}
+              {!! Form::open(['action' => array('RegisterController@store',$events->id), 'class'=>'form-horizontal']) !!}
                   @include('register.form.form', ['submit_text' => '  Daftar' ])
               {!! Form::close() !!}
             </div>

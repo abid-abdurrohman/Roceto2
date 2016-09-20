@@ -24,17 +24,15 @@ class RegisterController extends Controller
 
     public function index($id)
     {
-        $category = Category::findOrFail($id);
-        $event_id = $category->event_id;
-        $event = Event::findOrFail($event_id);
-        return view('register.register', compact('category', 'event'));
+        $events = Event::findOrFail($id);
+        return view('register.register', compact('events'));
     }
 
     public function store($id, Request $request)
     {
         $this->validate($request, $this->rules);
         $input = $request->all();
-        $input['category_id'] = $id;
+        $input['event_id'] = $id;
         $input['status'] = 'waiting';
         $input['user_id'] = Auth::user()->id;
         Participant::create($input);

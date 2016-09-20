@@ -125,7 +125,7 @@
                       while ($events = mysqli_fetch_array($result)) {
                         ?>
                         <li>
-                            <a class="dropdown-toggle" data-toggle="dropdown">
+                            <a href="{{ action('RegisterController@index', $events['id']) }}" class="dropdown-toggle" data-toggle="dropdown">
                               {{ $events['nama'] }}
                             </a>
                         </li>

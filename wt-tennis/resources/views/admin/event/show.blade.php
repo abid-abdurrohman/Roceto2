@@ -31,6 +31,10 @@
                                                 <th>ID</th>
                                                 <th>Nama</th>
                                                 <th>Detail</th>
+                                                <th>Thumbnail</th>
+                                                <th>Peraturan</th>
+                                                <th>Biaya Pendaftaran</th>
+                                                <th>Kuota</th>
                                                 <th>Created At</th>
                                                 <th>Update At</th>
                                             </tr>
@@ -40,6 +44,10 @@
                                                 <td>{{ $events->id }}</td>
                                                 <td>{{ $events->nama }}</td>
                                                 <td>{{ $events->detail }}</td>
+                                                <td>{{ $events->thumbnail }}</td>
+                                                <td>{{ $events->peraturan }}</td>
+                                                <td>{{ $events->biaya_pendaftaran }}</td>
+                                                <td>{{ $events->kuota }}</td>
                                                 <td>{{ $events->created_at }}</td>
                                                 <td>{{ $events->updated_at }}</td>
                                             </tr>
