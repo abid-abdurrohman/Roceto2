@@ -47,14 +47,18 @@ class ParticipantController extends Controller
     {
         $this->validate($request, [
             'nama_tim' => ['required'],
+            'logo_tim' => ['required'],
             'no_hp' => ['required'],
             'email' => ['required'],
             'warna_kostum' => ['required'],
             'jumlah_pemain' => ['required'],
         ]);
         $input = $request->all();
-        /*$input['category_id'] = $request->kategori;*/
         $input['status'] = 'waiting';
+        $photo = $request->thumbnail->getClientOriginalName();
+        $destination = 'images/participant/';
+        $request->thumbnail->move($destination, $photo);
+        $input['thumbnail'] = $destination.$photo;
         Participant::create($input);
         return redirect()->action('ParticipantController@index')->with('success', 'Participant has been created');
     }
@@ -96,15 +100,21 @@ class ParticipantController extends Controller
     {
         $this->validate($request, [
             'nama_tim' => ['required'],
+            'logo_tim' => ['required'],
             'no_hp' => ['required'],
             'email' => ['required'],
             'warna_kostum' => ['required'],
             'jumlah_pemain' => ['required'],
         ]);
         $participants = Participant::findOrFail($id);
-        $participants['event_id'] = $request->event;
-        $participants->update($request->all());
-        return redirect()->action('ParticipantController@index')->with('info','Participant has been edited');
+        $input = $request->all();
+        $input['event_id'] = $participants->event_id;
+        $photo = $request->logo_tim->getClientOriginalName();
+        $destination = 'images/participant/';
+        $request->logo_tim->move($destination, $photo);
+        $input['logo_tim'] = $destination.$photo;
+        $participants->update($input);
+        return redirect()->action('ParticipantController@show', compact('id'))->with('info','Participant has been edited');
     }
 
     /**
@@ -138,7 +148,7 @@ class ParticipantController extends Controller
         $participants = participant::findOrFail($id);
         $participants['status'] = 'validated';
         $participants->update();
-        return redirect()->action('ParticipantController@bukti_pembayaran')->with('info','Participant has been validated');
+        return redirect()->action('ParticipantController@bukti_pembayaran', compact('id'))->with('info','Participant has been validated');
     }
 
     public function bukti_pembayaran($id)

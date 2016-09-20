@@ -5,6 +5,12 @@
     </div>
 </div>
 <div class="form-group">
+    <label class="col-md-2 control-label">Photo</label>
+    <div class="col-md-10">
+        {!! Form::file('logo_tim', null, ['class' => 'form-control input-md', 'required'],'') !!}
+    </div>
+</div>
+<div class="form-group">
     <label class="col-md-2 control-label">Nomer HP</label>
     <div class="col-md-10">
         {!! Form::text('no_hp', null, ['class' => 'form-control', 'placeholder' => 'Write your phone number', 'required'], '') !!}

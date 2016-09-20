@@ -8,7 +8,7 @@
         <div class="col-sm-12">
             <h4 class="pull-left page-title">Bukti Pembayaran</h4>
             <ol class="breadcrumb pull-right">
-                <li><a href=" {{ action('ParticipantController@show', $participant->id) }} ">Paticipant</a></li>
+                <li><a href=" {{ action('ParticipantController@index', $participant->id) }} ">Participants</a></li>
                 <li><a href="">Bukti Pembayaran</a></li>
             </ol>
         </div>
