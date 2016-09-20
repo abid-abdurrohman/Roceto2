@@ -76,5 +76,6 @@
           </div>
        </div>
     </div>
+    @include('layouts.bottom-content')
 </section>
 @endsection

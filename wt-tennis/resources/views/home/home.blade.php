@@ -1,23 +1,44 @@
 @extends('layouts.app')
 @section('content')
+
 <!--SECTION CONTAINER SLIDER-->
     <section id="summary-slider">
            <div class="general">
            <div class="content-result content-result-news col-md-12">
              <div id="textslide" class="effect-backcolor">
-                <div class="container">
-                    <div class="col-md-12 slide-txt">
-                        <p class='sub-result aft-little welcome linetheme-left'>Creative</p>
-                        <p class='sub-result aft-little linetheme-right'>Sport Event<span class="point-big">.</span></p>
-                    </div>
+                <div class="container" style="padding-top:190px;padding-left:70px">
+                   <div class="col-xs-4 pht-1 pht-left">
+                       <div class="img-face-home">
+                          <img src="http://placehold.it/235x224" alt="" />
+                          
+                       </div>
+                  </div>
+                  <div class="col-xs-4 pl-point ">
+                      <p class="col-xs-12 name-mc-title">BEIJING - FIRST ROUND</p>
+                      <div class="col-xs-4 nm-result">
+                            <p class="nr1 ris1"> 0 </p>
+                            <p class="nr2"> 0% </p>
+                      </div>
+                      <div class="col-xs-4 nm-result-vs">
+                            <p class="nrvs"> - VS - </p>
+                      </div>
+                      <div class="col-xs-4 nm-result">
+                            <p class="nr1 ris2"> 1 </p>
+                            <p class="nr2"> 100% </p>
+                      </div>
+                  </div>
+                   <div class="col-xs-4 pht-1 pht-right">
+                        <div class="img-face-home">
+                            <img src="http://placehold.it/235x224" alt="" />
+                  </div>                    
                 </div>
              </div>
            </div>
            <div id="slidematch" class="col-xs-12 col-md-12">
                   <div class="content-match-team-wrapper">
-                     <span class="gdlr-left">Team TI 7A (Futsal)</span>
+                     <span class="gdlr-left">Real Tennis</span>
                      <span class="gdlr-upcoming-match-versus">VS</span>
-                     <span class="gdlr-right">Team TKJ7B (Futsal)</span>
+                     <span class="gdlr-right">Wednesday Club</span>
                   </div>
                   <div class="content-match-team-time">
                      <span class="gdlr-left">23 Sep 2016 - 14:00</span>
