@@ -30,8 +30,7 @@
                    <div class="col-xs-4 pht-1 pht-right">
                         <div class="img-face-home">
                             <img src="http://placehold.it/235x224" alt="" />
-                  </div>
-                    
+                  </div>                    
                 </div>
              </div>
            </div>
