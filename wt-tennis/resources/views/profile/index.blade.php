@@ -65,7 +65,7 @@
 						<!-- Personal-Information -->
 						<div class="panel panel-default panel-fill">
 							<div class="panel-heading">
-								<h3 class="panel-title">My Events</h3>
+								<h3 class="panel-title">My Competition</h3>
 							</div>
 							<div class="panel-body">
 								<div class="table-responsive">
@@ -73,20 +73,20 @@
 										<thead>
 											<tr>
 												<th>No</th>
-												<th>Event</th>
-												<th>Category</th>
-												<th>Participant</th>
+												<th>Competition</th>
+												<th>Team</th>
 												<th>Status</th>
 											</tr>
 										</thead>
 										<tbody>
+										@foreach ($participants as $participant)
 											<tr>
-												<td>1</td>
-												<td>Moltran Admin</td>
-												<td>01/01/2015</td>
-												<td>07/05/2015</td>
-												<td><span class="label label-info">Work in Progress</span></td>
+												<td></td>
+												<td>{{ $participant->nama_events }}</td>
+												<td>{{ $participant->nama_tim}}</td>
+												<td><span class="label label-info">{{ $participant->status }}</span></td>
 											</tr>
+										@endforeach
 										</tbody>
 									</table>
 								</div>
