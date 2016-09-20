@@ -12,10 +12,10 @@
 
 Route::group(['middleware' => ['web']], function () {
    Route::auth();
-	 Route::get('', 'HomeController@index');
-   Route::get('home', 'HomeController@index');
 });
 
+	Route::get('', 'HomeController@index');
+   Route::get('home', 'HomeController@index');
 /*link menu*/
 
 Route::post('register/{id}/upload', 'BuktiBayarController@store');
