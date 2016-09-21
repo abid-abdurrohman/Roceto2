@@ -59,6 +59,13 @@
                                                     <i class="fa fa-stop"></i> Done
                                                   </a>
                                                 </td>
+                                                @elseif ($match->status == 'available')
+                                                <td></td>
+                                                <td>
+                                                  <a href="#" data-toggle="modal" data-target="#myModal2-{{ $match->id }}">
+                                                    <i class="fa fa-play"></i> Start
+                                                  </a>
+                                                </td>
                                                 @else
                                                 <td>
                                                   <a href="{{ action('EventMatchScoreController@show', $match->id) }}">Detail</a>
@@ -67,6 +74,7 @@
                                                 @endif
                                             </tr>
                                             @include('admin.match_score.modal.endmatch', ['id_match' => $match->id])
+                                            @include('admin.match_score.modal.startmatch', ['id_match' => $match->id])
                                           @endforeach
                                         </tbody>
                                     </table>

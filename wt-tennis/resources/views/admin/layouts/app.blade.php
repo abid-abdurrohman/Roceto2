@@ -232,7 +232,7 @@
                                     <a href="{{ action('EventBracketController@index') }}" class="waves-effect {{ Request::segment(2) === 'event-bracket' ? 'active' : null }}"><i class="fa fa-sitemap"></i><span> Bracket </span></a>
                                 </li>
                                 <li>
-                                    <a href="{{ action('EventMatchScoreController@index') }}" class="waves-effect {{ Request::segment(2) === 'match-score' ? 'active' : null }}"><i class="md-system-update"></i><span> Update Score </span></a>
+                                    <a href="{{ action('EventMatchScoreController@index') }}" class="waves-effect {{ Request::segment(2) === 'match-score' ? 'active' : null }}"><i class="md-system-update"></i><span> Control Match </span></a>
                                 </li>
                                 </ul>
                             </li>

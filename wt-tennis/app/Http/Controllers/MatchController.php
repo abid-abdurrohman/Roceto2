@@ -56,7 +56,7 @@ class MatchController extends Controller
         $input = $request->all();
         $events = Event::findOrFail($id);
         $input['event_id'] = $events->id;
-        $input['status'] = "playing";
+        $input['status'] = "available";
         Match::create($input);
         return redirect()->action('EventMatchController@show', [$events->id])->with('success', 'Match has been created');
     }
@@ -110,7 +110,7 @@ class MatchController extends Controller
         $input = $request->all();
         $events = Event::findOrFail($id);
         $matches = Match::findOrFail($id_match);
-        $input['status'] = "playing";
+        $input['status'] = "available";
         $matches->update($input);
         return redirect()->action('EventMatchController@show', [$events->id])->with('info', 'Match has been edited');
     }

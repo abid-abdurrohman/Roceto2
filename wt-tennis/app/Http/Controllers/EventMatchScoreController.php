@@ -53,4 +53,12 @@ class EventMatchScoreController extends Controller
         $match->update();
         return redirect()->action('EventMatchScoreController@index')->with('info','Match has been done');
     }
+
+    public function startmatch($id)
+    {
+        $match = Match::findOrFail($id);
+        $match['status'] = 'playing';
+        $match->update();
+        return redirect()->action('EventMatchScoreController@show', [$id])->with('info','Match has start');
+    }
 }

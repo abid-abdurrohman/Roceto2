@@ -98,6 +98,7 @@ Route::get('admin/event-bracket/{id}', 'EventBracketController@show');
 Route::get('admin/match-score', 'EventMatchScoreController@index');
 Route::get('admin/match-score/{id}', 'EventMatchScoreController@show');
 Route::post('admin/match-score/{id}', 'EventMatchScoreController@endmatch');
+Route::patch('admin/match-score/{id}', 'EventMatchScoreController@startmatch');
 Route::patch('admin/match-score/{id}/team/{id_team}', 'EventMatchScoreController@update');
 Route::resource('admin/event-match.match', 'MatchController');
 Route::resource('admin/event-match.match.team', 'MatchTeamController');

@@ -33,14 +33,17 @@
                         matches ON matches.id = match_teams.match_id INNER JOIN participants ON participants.id = match_teams.participant_id
                         WHERE matches.id = $id_match AND matches.status = 'done' ORDER BY matches.waktu DESC LIMIT 2";
                         $result2 = mysqli_query($con, $sql2);
-                        $i = 0;
-                        while( $row2 = mysqli_fetch_assoc( $result2)){
-                            $match_teams[$i] = $row2; // Inside while loop
-                            $i++;
-                        }
+                        $count = mysqli_num_rows($result2);
+                        if ($count == 2) {
+                          $i = 0;
+                          while( $row2 = mysqli_fetch_assoc( $result2)){
+                              $match_teams[$i] = $row2; // Inside while loop
+                              $i++;
+                          }
                 ?>
                     <tr>
-
+                      <td>{{ $row['waktu'] }}</td>
+                      <td><i class="fa fa-map-marker"></i> {{ $row['tempat'] }}</td>
                       <td>{{ $match_teams[0]['nama_participant'] }}</td>
                       <td><img src="{!! asset('').'/'.$match_teams[0]['logo_participant'] !!}" style="width:20px" alt="" /></td>
                       <td>{{ $match_teams[0]['team_score'] }}</td>
@@ -56,6 +59,7 @@
                     </tr>
                 <?php
                     }
+                  }
                 ?>
               </table>
             </div>
