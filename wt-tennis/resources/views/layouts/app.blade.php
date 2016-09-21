@@ -149,9 +149,8 @@
                     <ul class="menu-pages">
                       <li><a href="{{ url('/schedule') }}"><span>Schedule</span></a></li>
                       <li><a href="{{ action('BracketUserController@show',1) }}"><span>Bracket</span></a></li>
-                      <li><a href="{{ action('EventStreamController@show',1) }}"><span>Video</span></a></li>
-                      <li><a href="{{ action('ResultUserController@show',1) }}"><span>Results</span></a></li>
-                      <li><a href="{{ action('TableUserController@show',1) }}"><span>Fixtures</span></a></li>
+                      <li><a href="{{ action('ResultUserController@index') }}"><span>Results</span></a></li>
+                      <li><a href="{{ action('FixturesUserController@index') }}"><span>Fixtures</span></a></li>
                       <li><a href="{{ action('TableUserController@show',1) }}"><span>Tables</span></a></li>
                     </ul>
                   </div>

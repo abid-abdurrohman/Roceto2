@@ -30,6 +30,10 @@
         <!-- Waves-effect -->
         <link href="{{ URL::asset('admin_asset/css/waves-effect.css') }}" rel="stylesheet">
 
+        <!--calendar css-->
+        <link href="{{ URL::asset('admin_asset/assets/fullcalendar/fullcalendar.css') }}" rel="stylesheet" />
+        <link href="{{ URL::asset('admin_asset/assets/select2/select2.css') }}" rel="stylesheet" type="text/css" />
+
         <!-- sweet alerts -->
         <link href="{{ URL::asset('admin_asset/assets/sweet-alert/sweet-alert.min.css') }}" rel="stylesheet">
         <!-- DataTables -->
@@ -245,6 +249,9 @@
                                       <a href="#" class="waves-effect {{ Request::segment(2) === 'news' ? 'active' : null }}"><i class="fa fa-file-excel-o"></i><span> Report </span></a>
                                   </li>
                                 </ul>
+                            </li>
+                            <li>
+                                <a href="{{ action('ScheduleController@index') }}" class="waves-effect {{ Request::segment(2) === 'schedule' ? 'active' : null }}"><i class="md md-event"></i><span> Schedule </span></a>
                             </li>
 
                             <!-- <li class="has_sub">

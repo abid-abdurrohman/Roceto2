@@ -89,7 +89,7 @@
                     </div>
                 </div>
             </div> <!-- End Row -->
-
+            @if ($matches->status == 'playing')
             <div class="row">
                 <div class="col-md-6">
                     <div class="panel panel-default">
@@ -118,7 +118,7 @@
                     </div>
                 </div>
             </div> <!-- End Row -->
-
+            @endif
         </div> <!-- container -->
 @endsection
 @push('scripts')
