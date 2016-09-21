@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Model\Participant;
 use App\Model\Category;
@@ -41,6 +43,19 @@ class RegisterController extends Controller
         $input['status'] = 'waiting';
         $input['user_id'] = Auth::user()->id;
         Participant::create($input);
+        $email = $request->get('email');
+        $events = Event::findOrFail($id);
+         Mail::send('emails.bukti_pembayaran',
+          array(
+            'nama_tim' => $request->get('nama_tim'),
+            'no_hp' => $request->get('no_hp'),
+             'email' => $request->get('email'),
+            'nama_event' => $events->nama,
+            'biaya_pendaftaran' => $events->biaya_pendaftaran
+          ), function($message) use($email){
+            $message->to($email)->from('adangnuryana7@gmail.com')->subject('Welcome!');
+          }
+        );
         return redirect()->action('RegisterController@index', $id);
     }
 
