@@ -251,7 +251,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="{{ action('ScheduleController@index') }}" class="waves-effect {{ Request::segment(2) === 'schedule' ? 'active' : null }}"><i class="md-system-update"></i><span> Schedule </span></a>
+                                <a href="{{ action('ScheduleController@index') }}" class="waves-effect {{ Request::segment(2) === 'schedule' ? 'active' : null }}"><i class="md md-event"></i><span> Schedule </span></a>
                             </li>
 
                             <!-- <li class="has_sub">
