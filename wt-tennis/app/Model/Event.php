@@ -16,4 +16,7 @@ class Event extends Model
     public function match() {
     	 return $this->hasMany('App\Model\Match');
     }
+    public function pemasukan() {
+    	return $this->belongsTo('App\Model\Pemasukan');
+    }
 }

@@ -29,4 +29,7 @@ class Participant extends Model
     public function users(){
         return $this->belongsTo('App\Model\User');
     }
+    public function pemasukan(){
+        return $this->belongsTo('App\Model\Pemasukan');
+    }
 }

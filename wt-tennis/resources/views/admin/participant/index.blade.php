@@ -44,12 +44,11 @@
                                                 <th>ID</th>
                                                 <th>Nama Tim</th>
                                                 <th>No. Hp</th>
-                                                <th>Email</th>
                                                 <th>Warna Kostum</th>
                                                 <th>Jumlah Pemain</th>
                                                 <th>Event Id</th>
+                                                <th>User Id</th>
                                                 <th>Status</th>
-
                                                 <th colspan="2">Action</th>
                                             </tr>
                                         </thead>
@@ -59,10 +58,10 @@
                                                 <td>{{ $participant->id }}</td>
                                                 <td>{{ $participant->nama_tim }}</td>
                                                 <td>{{ $participant->no_hp }}</td>
-                                                <td>{{ $participant->email }}</td>
                                                 <td>{{ $participant->warna_kostum }}</td>
                                                 <td>{{ $participant->jumlah_pemain }}</td>
                                                 <td><a href="#">{{ $participant->event_id }}</a></td>
+                                                <td>{{ $participant->user_id }}</td>
                                                 <td>{{ $participant->status }}</td>
 
                                                 @if ($participant->status=='waiting')
