@@ -15,6 +15,7 @@ class RegisterController extends Controller
 {
     protected $rules = [
         'nama_tim' => ['required'],
+        'logo_tim' => ['required'],
         'no_hp' => ['required'],
         'email' => ['required'],
         'warna_kostum' => ['required'],
@@ -32,6 +33,10 @@ class RegisterController extends Controller
     {
         $this->validate($request, $this->rules);
         $input = $request->all();
+         $photo = $request->logo_tim->getClientOriginalName();
+        $destination = 'images/participant/';
+        $request->logo_tim->move($destination, $photo);
+        $input['logo_tim'] = $destination.$photo;
         $input['event_id'] = $id;
         $input['status'] = 'waiting';
         $input['user_id'] = Auth::user()->id;
@@ -39,29 +44,5 @@ class RegisterController extends Controller
         return redirect()->action('RegisterController@index', $id);
     }
 
-    public function update($id, Request $request)
-    {
-        $this->validate($request, [
-        'atas_nama' => ['required'],
-        'no_rek' => ['required'],
-        'nama_bank' => ['required'],
-        'bukti' => ['required']
-        ]);
-
-        $input = $request->all();
-        $photo = $request->bukti->getClientOrginalName();
-        $destination = 'images/bukti/';
-        $request -> bukti->move($destination, $photo);
-
-        $Participant = Participant::findOrFail($id);
-        $input['bukti'] = $destination.$photo;
-        $input['category_id'] = $id;
-        $input['status'] = 'waiting';
-
-        $Participant = Participant::findOrFail($id);
-        $Participant->update($input);
-        return redirect()->action('HomeController@index');
-
-    }
 
 }

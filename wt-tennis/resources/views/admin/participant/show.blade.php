@@ -30,24 +30,31 @@
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Nama Tim</th>
+                                                 <th>Logo Tim</th>
                                                 <th>No Hp</th>
                                                 <th>Email</th>
                                                 <th>Warna Kostum</th>
                                                 <th>Jumlah Pemain</th>
+                                                <th>Biaya</th>
                                                 <th>Created At</th>
                                                 <th>Updated At</th>
+                                                <th colspan="1">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>{{ $participants->id }}</td>
                                                 <td>{{ $participants->nama_tim }}</td>
+                                                <td>{{ $participants->logo_tim }} </td>
                                                 <td>{{ $participants->no_hp }}</td>
                                                 <td>{{ $participants->email }}</td>
                                                 <td>{{ $participants->warna_kostum }}</td>
                                                 <td>{{ $participants->jumlah_pemain }}</td>
+                                                <td>{{ $participants->biaya_pendaftaran }}</td>
                                                 <td>{{ $participants->created_at }}</td>
                                                 <td>{{ $participants->updated_at }}</td>
+                                                <td>
+                                                  <a href="{{ action('ParticipantController@edit', $participants->id) }}" class="btn btn-success">Edit</a></td>
                                             </tr>
                                         </tbody>
                                     </table>

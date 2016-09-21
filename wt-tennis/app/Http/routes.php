@@ -23,6 +23,9 @@ Route::post('register/{id}/upload', 'BuktiBayarController@store');
 Route::get('admin/logout', 'Auth\AuthController@getLogout');
 
 Route::get('admin/participant/{id}/bukti_pembayaran', 'ParticipantController@bukti_pembayaran');
+Route::post('admin/participant/{id}/bukti_pembayaran', 'ParticipantController@validation');
+
+Route::get('admin/pemasukan', 'PemasukanController@index');
 
 Route::get('login', 'LogController@login');
 Route::get('register', 'LogController@register');

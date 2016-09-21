@@ -44,11 +44,11 @@
                                                 <th>ID</th>
                                                 <th>Nama Tim</th>
                                                 <th>No. Hp</th>
-                                                <th>Email</th>
                                                 <th>Warna Kostum</th>
                                                 <th>Jumlah Pemain</th>
-                                                <th>Kategori</th>
-                                                <th>Waktu</th>
+                                                <th>Event Id</th>
+                                                <th>User Id</th>
+                                                <th>Status</th>
                                                 <th colspan="2">Action</th>
                                             </tr>
                                         </thead>
@@ -58,25 +58,19 @@
                                                 <td>{{ $participant->id }}</td>
                                                 <td>{{ $participant->nama_tim }}</td>
                                                 <td>{{ $participant->no_hp }}</td>
-                                                <td>{{ $participant->email }}</td>
                                                 <td>{{ $participant->warna_kostum }}</td>
                                                 <td>{{ $participant->jumlah_pemain }}</td>
-                                                <td><a href="#">{{ $participant->nama_category }}</a></td>
-                                                <td>{{ $participant->created_at }}</td>
+                                                <td><a href="#">{{ $participant->event_id }}</a></td>
+                                                <td>{{ $participant->user_id }}</td>
+                                                <td>{{ $participant->status }}</td>
+
                                                 @if ($participant->status=='waiting')
                                                     <td><a href="{{ action('ParticipantController@bukti_pembayaran', $participant->id) }}" class="btn btn-info" >Check</a></td>
                                                     <td><a href="{{ action('ParticipantController@show', $participant->id) }}" class="btn btn-info">Detail</a></td>
                                                     @else
                                                 <td>
-                                                  <a href="{{ action('ParticipantController@edit', $participant->id) }}">
-                                                    <i class="fa fa-edit"></i> Edit
-                                                  </a>
-                                                </td>
-                                                <td>
-                                                  <a href="#" data-toggle="modal" data-target="#myModal-{{ $participant->id }}">
-                                                    <i class="fa fa-trash"></i> Delete
-                                                  </a>
-                                                </td>
+                                                  <a href="#" data-toggle="modal" data-target="#myModal-{{ $participant->id }}" class="btn btn-danger">Delete</a></td>
+                                                <td><a href="{{ action('ParticipantController@show', $participant->id) }}" class="btn btn-info">Detail</a></td>
                                                 @endif
                                             </tr>
                                             @include('admin.participant.modal.delete', ['id' => $participant->id])

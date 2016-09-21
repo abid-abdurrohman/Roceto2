@@ -8,7 +8,7 @@
         <div class="col-sm-12">
             <h4 class="pull-left page-title">Bukti Pembayaran</h4>
             <ol class="breadcrumb pull-right">
-                <li><a href=" {{ action('ParticipantController@show', $participant->id) }} ">Paticipant</a></li>
+                <li><a href=" {{ action('ParticipantController@index', $participant->id) }} ">Participants</a></li>
                 <li><a href="">Bukti Pembayaran</a></li>
             </ol>
         </div>
@@ -45,8 +45,14 @@
                                         <td>{{ $bukti_pembayaran->participant_id }}</td>
                                         <td>{{ $bukti_pembayaran->created_at }}</td>
                                         <td>{{ $bukti_pembayaran->updated_at }}</td>
-                                        <td><a href="#" class="btn btn-info" data-toggle="modal" data-target="#Validation-{{ $participant->id }}">Approve</a></td>
+                                        <td>
+                                        @if( $bukti_pembayaran->status_participant == 'validated')
+                                        <a href="#" class="btn btn-info" data-toggle="modal" data-target="#Validation-{{ $participant->id }}" disabled>Approve</a></td>
                                             @include('admin.participant.modal.validation', ['id' => $participant->id])
+                                            @else
+                                            <a href="#" class="btn btn-info" data-toggle="modal" data-target="#Validation-{{ $participant->id }}" >Approve</a></td>
+                                            @include('admin.participant.modal.validation', ['id' => $participant->id])
+                                            @endif
                                         <td>
                                     </tr>
                                 </tbody>

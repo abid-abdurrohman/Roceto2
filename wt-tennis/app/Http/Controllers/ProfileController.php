@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\User;
 use App\Model\Event;
-use App\Model\Category;
 use App\Model\Participant;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
@@ -22,7 +21,11 @@ class ProfileController extends Controller
         // $participants = Participant::join('categories', 'categories.id', '=', 'participants.category_id')->join('events', 'events.id', '=', 'categories.event_id')->select('events.nama as nama_event', 'categories.nama as nama_category', 'participants.*')->findOrFail()
         $id = Auth::user()->id;
         $users = User::findOrFail($id);
-        return view('profile.index', compact('users'));
+        $participants = Participant::join('events', 'events.id', '=', 'participants.event_id')
+          ->select('events.nama as nama_events', 'participants.nama_tim', 'participants.status')->where('participants.user_id', $id)->get();
+
+        return view('profile.index', compact('participants', 'users'));
+
     }
 
     /**
@@ -54,7 +57,7 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**

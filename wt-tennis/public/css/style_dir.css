@@ -567,7 +567,7 @@ div.inner {
 #slidematch {
 	text-align: center;
 	padding:0;
-	z-index: 9999;
+	z-index: 10;
 }
 .content-match-team-wrapper {
 	font-size:34px;
@@ -4281,7 +4281,7 @@ textarea.txt-link {
 	color:#b5b5b5;
 }
 #footer-tag .last-tips {
-	z-index: 9999;
+	z-index: 0;
     position: relative;
 }
 #footer-tag .social {
