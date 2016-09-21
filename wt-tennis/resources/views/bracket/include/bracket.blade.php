@@ -6,7 +6,7 @@
       die('Could not Connect');
     }
     mysqli_select_db($con ,'eo_sport');
-    $sql = "SELECT * FROM matches WHERE matches.category_id=$categories->id AND matches.no_match=1";
+    $sql = "SELECT * FROM matches WHERE matches.event_id=$events->id AND matches.no_match=1";
     $result = mysqli_query($con, $sql);
     while ($row = mysqli_fetch_array($result)) {
       $id_match = $row['id'];
@@ -43,7 +43,7 @@
  </ul>
  <ul class="round round-2">
    <?php
-      $sql = "SELECT * FROM matches WHERE matches.category_id=$categories->id AND matches.no_match=2";
+      $sql = "SELECT * FROM matches WHERE matches.event_id=$events->id AND matches.no_match=2";
       $result = mysqli_query($con, $sql);
       while ($row = mysqli_fetch_array($result)) {
         $id_match = $row['id'];
@@ -80,7 +80,7 @@
  </ul>
  <ul class="round round-3">
    <?php
-      $sql = "SELECT * FROM matches WHERE matches.category_id=$categories->id AND matches.no_match=3";
+      $sql = "SELECT * FROM matches WHERE matches.event_id=$events->id AND matches.no_match=3";
       $result = mysqli_query($con, $sql);
       while ($row = mysqli_fetch_array($result)) {
         echo "<li class='spacer'>&nbsp;</li>";
@@ -117,7 +117,7 @@
  </ul>
  <ul class="round round-4">
    <?php
-      $sql = "SELECT * FROM matches WHERE matches.category_id=$categories->id AND matches.no_match=4";
+      $sql = "SELECT * FROM matches WHERE matches.event_id=$events->id AND matches.no_match=4";
       $result = mysqli_query($con, $sql);
       while ($row = mysqli_fetch_array($result)) {
         echo "<li class='spacer'>&nbsp;</li>";

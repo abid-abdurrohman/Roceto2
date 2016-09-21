@@ -19,6 +19,7 @@
                             <h3 class="panel-title">Data Match</h3>
                         </div>
                         <div class="panel-body">
+                            @include('admin.match_score.notification.flash')
                             <div class="row">
                               <div class="col-md-11">
                                 <div id="datatable_filter" class="dataTables_filter">
@@ -49,10 +50,23 @@
                                                 <td><a href="{{ action('EventController@show', $match->id) }}">{{ $match->nama_event }}</a></td>
                                                 <td>{{ $match->nama }}</td>
                                                 <td>{{ $match->waktu }}</td>
+                                                @if ($match->status == 'playing')
                                                 <td>
                                                   <a href="{{ action('EventMatchScoreController@show', $match->id) }}">Update</a>
                                                 </td>
+                                                <td>
+                                                  <a href="#" data-toggle="modal" data-target="#myModal-{{ $match->id }}">
+                                                    <i class="fa fa-stop"></i> Done
+                                                  </a>
+                                                </td>
+                                                @else
+                                                <td>
+                                                  <a href="{{ action('EventMatchScoreController@show', $match->id) }}">Detail</a>
+                                                </td>
+                                                <td></td>
+                                                @endif
                                             </tr>
+                                            @include('admin.match_score.modal.endmatch', ['id_match' => $match->id])
                                           @endforeach
                                         </tbody>
                                     </table>

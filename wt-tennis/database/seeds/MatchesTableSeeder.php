@@ -15,7 +15,7 @@ class MatchesTableSeeder extends Seeder
          array(
            'no_match' => '1',
            'nama' => 'Match 1',
-           'waktu' => '2016-09-16',
+           'waktu' => '2016-09-10',
            'tempat' => 'Depok',
            'status' => 'playing',
            'youtube' => 'https://www.youtube.com/watch?v=rKJ_1uRfyuA',
@@ -26,7 +26,7 @@ class MatchesTableSeeder extends Seeder
          ),array(
            'no_match' => '1',
            'nama' => 'Match 2',
-           'waktu' => '2016-09-16',
+           'waktu' => '2016-09-10',
            'tempat' => 'Jakarta',
            'status' => 'playing',
            'youtube' => 'https://www.youtube.com/watch?v=gbzuImQrIgo',
@@ -37,7 +37,7 @@ class MatchesTableSeeder extends Seeder
          ),array(
            'no_match' => '1',
            'nama' => 'Match 3',
-           'waktu' => '2016-09-16',
+           'waktu' => '2016-09-11',
            'tempat' => 'Bandung',
            'status' => 'playing',
            'youtube' => 'https://www.youtube.com/watch?v=PIlFyXucIhw',
@@ -48,7 +48,7 @@ class MatchesTableSeeder extends Seeder
          ),array(
            'no_match' => '1',
            'nama' => 'Match 4',
-           'waktu' => '2016-09-16',
+           'waktu' => '2016-09-11',
            'tempat' => 'Karawang',
            'status' => 'playing',
            'youtube' => 'https://www.youtube.com/watch?v=mx6t6E24SSM',
@@ -59,7 +59,7 @@ class MatchesTableSeeder extends Seeder
          ),array(
            'no_match' => '2',
            'nama' => 'Match 5',
-           'waktu' => '2016-09-16',
+           'waktu' => '2016-09-13',
            'tempat' => 'Cibinong',
            'status' => 'playing',
            'youtube' => 'https://www.youtube.com/watch?v=mx6t6E24SSM',
@@ -70,7 +70,7 @@ class MatchesTableSeeder extends Seeder
          ),array(
            'no_match' => '2',
            'nama' => 'Match 6',
-           'waktu' => '2016-09-16',
+           'waktu' => '2016-09-13',
            'tempat' => 'Bogor',
            'status' => 'playing',
            'youtube' => 'https://www.youtube.com/watch?v=mx6t6E24SSM',
@@ -81,7 +81,7 @@ class MatchesTableSeeder extends Seeder
          ),array(
            'no_match' => '3',
            'nama' => 'Match 7',
-           'waktu' => '2016-09-16',
+           'waktu' => '2016-09-15',
            'tempat' => 'Cilodong',
            'status' => 'playing',
            'youtube' => 'https://www.youtube.com/watch?v=mx6t6E24SSM',

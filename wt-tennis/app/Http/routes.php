@@ -53,8 +53,8 @@ Route::post('contact', 'ContactController@store');
 Route::get('youtube', 'EventStreamController@index');
 Route::get('youtube/{id}', 'EventStreamController@show');
 
-Route::get('result', 'ResultUserController@index');
-Route::get('result/{id}', 'ResultUserController@show');
+Route::get('results', 'ResultUserController@index');
+Route::get('fixtures', 'FixturesUserController@index');
 
 /*link news*/
 Route::get('news', 'NewsUserController@index');
@@ -81,6 +81,7 @@ Route::resource('admin/sponsor', 'SponsorController');
 Route::resource('admin/event', 'EventController');
 
 Route::resource('admin/gallery', 'GalleryController');
+Route::resource('admin/schedule', 'ScheduleController');
 Route::post('admin/event/search', 'EventController@search');
 Route::resource('admin/news', 'NewsController');
 Route::resource('admin/news.comment', 'CommentController');
@@ -93,6 +94,7 @@ Route::get('admin/event-result/{id}', 'EventBracketController@show_result');
 Route::get('admin/event-bracket/{id}', 'EventBracketController@show');
 Route::get('admin/match-score', 'EventMatchScoreController@index');
 Route::get('admin/match-score/{id}', 'EventMatchScoreController@show');
+Route::post('admin/match-score/{id}', 'EventMatchScoreController@endmatch');
 Route::patch('admin/match-score/{id}/team/{id_team}', 'EventMatchScoreController@update');
 Route::resource('admin/event-match.match', 'MatchController');
 Route::resource('admin/event-match.match.team', 'MatchTeamController');

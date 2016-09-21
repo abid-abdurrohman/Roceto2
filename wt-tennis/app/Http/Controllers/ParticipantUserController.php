@@ -9,7 +9,7 @@ use App\Model\Participant;
 
 class ParticipantUserController extends Controller
 {
-	public function index($id)
+		public function index($id)
     {
         $participants = Participant::findOrFail($id);
         return view('participant.index', compact('participants'));
@@ -30,5 +30,5 @@ class ParticipantUserController extends Controller
         $participants->update($input);
         return redirect()->action('ParticipantUserController@index',$id)->with('info','Participant has been edited');*/
     }
-   
+
 }
