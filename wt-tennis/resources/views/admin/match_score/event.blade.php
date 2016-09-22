@@ -1,14 +1,14 @@
 @extends('admin.layouts.app')
-@section('title', 'Data Match')
+@section('title', 'Data Event')
 @section('content')
         <div class="container">
             <!-- Page-Title -->
             <div class="row">
                 <div class="col-sm-12">
-                    <h4 class="pull-left page-title">Match</h4>
+                    <h4 class="pull-left page-title">Event</h4>
                     <ol class="breadcrumb pull-right">
                         <li><a href="#">Admin</a></li>
-                        <li class="active">Match</li>
+                        <li class="active">Event</li>
                     </ol>
                 </div>
             </div>
@@ -16,10 +16,9 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Data Match</h3>
+                            <h3 class="panel-title">Data Event</h3>
                         </div>
                         <div class="panel-body">
-                            @include('admin.match_score.notification.flash')
                             <div class="row">
                               <div class="col-md-11">
                                 <div id="datatable_filter" class="dataTables_filter">
@@ -38,47 +37,27 @@
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Nama Event</th>
-                                                <th>Nama Match</th>
-                                                <th>Waktu Match</th>
+                                                <th>Detail Event</th>
                                                 <th colspan="2">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                          @foreach ($matches as $match)
+                                          @foreach ($events as $event)
                                             <tr>
-                                                <td>{{ $match->id }}</td>
-                                                <td><a href="{{ action('EventController@show', $match->id) }}">{{ $match->nama_event }}</a></td>
-                                                <td>{{ $match->nama }}</td>
-                                                <td>{{ $match->waktu }}</td>
-                                                @if ($match->status == 'playing')
+                                                <td>{{ $event->id }}</td>
+                                                <td><a href="{{ action('EventController@show', $event->id) }}">{{ $event->nama }}</a></td>
+                                                <td>{{ $event->nama }}</td>
                                                 <td>
-                                                  <a href="{{ action('EventMatchScoreController@show', $match->id) }}">Update</a>
+                                                  <a href="{{ action('EventMatchScoreController@index', $event->id) }}">Check</a>
                                                 </td>
-                                                <td>
-                                                  <a href="#" data-toggle="modal" data-target="#myModal-{{ $match->id }}">
-                                                    <i class="fa fa-stop"></i> Done
-                                                  </a>
-                                                </td>
-                                                @elseif ($match->status == 'available')
-                                                <td></td>
-                                                <td>
-                                                  <a href="#" data-toggle="modal" data-target="#myModal2-{{ $match->id }}">
-                                                    <i class="fa fa-play"></i> Start
-                                                  </a>
-                                                </td>
-                                                @else
-                                                <td>
-                                                  <a href="{{ action('EventMatchScoreController@show', $match->id) }}">Detail</a>
-                                                </td>
-                                                <td></td>
-                                                @endif
+                                                <!-- <td>
+                                                  <a href="{{ action('EventBracketController@show_result', $event->id) }}">Result</a>
+                                                </td> -->
                                             </tr>
-                                            @include('admin.match_score.modal.endmatch', ['id_match' => $match->id])
-                                            @include('admin.match_score.modal.startmatch', ['id_match' => $match->id])
                                           @endforeach
                                         </tbody>
                                     </table>
-                                    {!! $matches->links() !!}
+                                    {!! $events->links() !!}
                                 </div>
                             </div>
                         </div>

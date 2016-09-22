@@ -35,16 +35,16 @@
 		<div class="top-score-title right-score col-md-12">
 			<div class="top-score-title player-vs">
                 <h3>Bracket Competition<span class="point-little">.</span></h3>
-                <h3 class="tab-match-title">{{ $events->nama }}</h3>
+                <h3 class="tab-match-title">{{ $event->nama }}</h3>
                 </hr>
 				<div class="col-md-12 main">
-                    @include('bracket.include.bracket',  ['id_event' => $events->id])
+                    @include('bracket.include.bracket',  ['id_event' => $event->id])
 				</div>
                 <div class="col-md-12">
                   <div class="col-md-6 ">
                     <h4>Convert with :</h4>
                     <div class="social-buttons ssk-group ssk-round">
-                      <a class="btn btn-default" href="{{ action('BracketUserController@getPDF', $events->id) }}" target="_blank">
+                      <a class="btn btn-default" href="{{ action('BracketUserController@getPDF', $event->id) }}" target="_blank">
                           <i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF
                       </a>
                     </div>
@@ -53,8 +53,8 @@
                     <h4>Share with :</h4>
                     @include('bracket.include.share', [
                         'url' => request()->fullUrl(),
-                        'description' => $events->nama.' Bracket',
-                        'image' => asset('').'/'.$events->thumbnail
+                        'description' => $event->nama.' Bracket',
+                        'image' => asset('').'/'.$event->thumbnail
                     ])
                   </div>
                 </div>

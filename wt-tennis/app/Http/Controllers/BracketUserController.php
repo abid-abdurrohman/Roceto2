@@ -11,11 +11,17 @@ use PDF;
 
 class BracketUserController extends Controller
 {
+    public function index()
+    {
+        $events = Event::all();
+        return view('bracket.index', compact('events'));
+    }
+
     public function show($id)
     {
-        $events = Event::findOrFail($id);
+        $event = Event::findOrFail($id);
         $matches = Match::where('event_id', $id)->paginate(5);
-        return view('bracket.show', compact('events', 'matches'));
+        return view('bracket.show', compact('event', 'matches'));
     }
 
     public function getPDF($id)

@@ -1,4 +1,4 @@
-<div class="modal fade" id="myModal-{{ $events->id }}-{{ $match->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="myModal-{{ $events->id }}-{{ $matches->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -9,10 +9,10 @@
         Note: This Match that has ended can not be edit again.
       </div>
       <div class="modal-footer">
-        {!! Form::open(array('method' => 'POST', 'action' => array('EventMatchScoreController@endmatch', $events->id, $match->id))) !!}
+        {!! Form::open(array('method' => 'POST', 'action' => array('EventMatchScoreController@endmatch', $events->id, $matches->id))) !!}
           <button type="submit" class="btn btn-danger"><i class="fa fa-stop"></i> Done This! </button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
         {!! Form::close() !!}
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
       </div>
     </div>
   </div>

@@ -1,4 +1,4 @@
-<div class="modal fade" id="myModal2-{{ $match->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="myModal2-{{ $events->id }}-{{ $match->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -9,7 +9,7 @@
         Note: This Match that has start you must always stay in this application.
       </div>
       <div class="modal-footer">
-        {!! Form::open(array('method' => 'PATCH', 'action' => array('EventMatchScoreController@startmatch', $match->id))) !!}
+        {!! Form::open(array('method' => 'PATCH', 'action' => array('EventMatchScoreController@startmatch', $events->id, $match->id))) !!}
           <button type="submit" class="btn btn-danger"><i class="fa fa-play"></i> Start This! </button>
         {!! Form::close() !!}
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
