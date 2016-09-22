@@ -176,14 +176,14 @@
                           die('Could not Connect');
                         }
                         mysqli_select_db($con ,'eo_sport');
-                        $sql = "SELECT * FROM matches WHERE status='playing' ORDER BY waktu DESC LIMIT 1";
+                        $sql = "SELECT * FROM matches WHERE status='available' ORDER BY waktu DESC LIMIT 1";
                         $result = mysqli_query($con, $sql);
                         while ($row = mysqli_fetch_array($result)) {
                             $id_match = $row['id'];
                             $sql2 = "SELECT participants.nama_tim as nama_participant, participants.logo_tim as logo_participant,
                             match_teams.score as team_score, match_teams.comment as team_comment, matches.* FROM match_teams INNER JOIN
                             matches ON matches.id = match_teams.match_id INNER JOIN participants ON participants.id = match_teams.participant_id
-                            WHERE match_teams.match_id = $id_match AND matches.status = 'playing' ORDER BY matches.waktu DESC LIMIT 2";
+                            WHERE match_teams.match_id = $id_match AND matches.status = 'available' ORDER BY matches.waktu DESC LIMIT 2";
                             $result2 = mysqli_query($con, $sql2);
                             $i = 0;
                             while( $row2 = mysqli_fetch_assoc( $result2)){
@@ -211,14 +211,14 @@
                 </div>
                 <div class="other-match col-md-6">
                     <?php
-                        $sql = "SELECT * FROM matches WHERE status='playing' ORDER BY waktu DESC LIMIT 3";
+                        $sql = "SELECT * FROM matches WHERE status='available' ORDER BY waktu DESC LIMIT 3";
                         $result = mysqli_query($con, $sql);
                         while ($row = mysqli_fetch_array($result)) {
                             $id_match = $row['id'];
                             $sql2 = "SELECT participants.nama_tim as nama_participant, participants.logo_tim as logo_participant,
                             match_teams.score as team_score, match_teams.comment as team_comment, matches.* FROM match_teams INNER JOIN
                             matches ON matches.id = match_teams.match_id INNER JOIN participants ON participants.id = match_teams.participant_id
-                            WHERE match_teams.match_id = $id_match AND matches.status = 'playing' ORDER BY matches.waktu DESC LIMIT 2";
+                            WHERE match_teams.match_id = $id_match AND matches.status = 'available' ORDER BY matches.waktu DESC LIMIT 2";
                             $result2 = mysqli_query($con, $sql2);
                             $i = 0;
                             while( $row2 = mysqli_fetch_assoc( $result2)){

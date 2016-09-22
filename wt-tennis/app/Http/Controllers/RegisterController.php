@@ -22,7 +22,7 @@ class RegisterController extends Controller
         'email' => ['required'],
         'warna_kostum' => ['required'],
         'jumlah_pemain' => ['required'],
-        
+
     ];
 
     public function index($id)
@@ -49,11 +49,15 @@ class RegisterController extends Controller
           array(
             'nama_tim' => $request->get('nama_tim'),
             'no_hp' => $request->get('no_hp'),
-             'email' => $request->get('email'),
+            'email' => $request->get('email'),
             'nama_event' => $events->nama,
             'biaya_pendaftaran' => $events->biaya_pendaftaran
           ), function($message) use($email){
+<<<<<<< HEAD
             $message->to($email)->from('rocetomazzido@gmail.com')->subject('Welcome!');
+=======
+            $message->to($email)->from('muhammadabdurrohman1995@gmail.com')->subject('Welcome!');
+>>>>>>> 5bf153c6b6dda566d0edde20d41c30d50480168a
           }
         );
         return redirect()->action('RegisterController@index', $id);
