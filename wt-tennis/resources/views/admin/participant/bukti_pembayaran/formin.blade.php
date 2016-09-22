@@ -21,6 +21,7 @@
                     
                 </div>
                 <div class="panel-body">
+                @include('admin.participant.notification.flash')
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <table id="datatable" class="table table-striped table-bordered">
