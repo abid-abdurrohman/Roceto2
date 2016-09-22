@@ -22,11 +22,13 @@ class ProfileController extends Controller
         $id = Auth::user()->id;
         $users = User::findOrFail($id);
         $participants = Participant::join('events', 'events.id', '=', 'participants.event_id')
-          ->select('events.nama as nama_events', 'participants.nama_tim', 'participants.status')->where('participants.user_id', $id)->get();
+          ->select('events.nama as nama_events', 'participants.*')->where('participants.user_id', $id)->get();
 
         return view('profile.index', compact('participants', 'users'));
 
     }
+
+    
 
     /**
      * Show the form for creating a new resource.

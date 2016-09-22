@@ -53,14 +53,14 @@
           <div class="news_slide-over"></div>
            <div class="container">
             <?php
-              $konek = mysqli_connect('localhost', 'root','','eo_sport');
-              if(!$konek){
+              $con = mysqli_connect('localhost', 'root','','eo_sport');
+              if(!$con){
                 die('Could not Connect');
               }
 
-              mysqli_select_db($konek ,'eo_sport');
+              mysqli_select_db($con ,'eo_sport');
               $sql = "SELECT * FROM news ORDER BY created_at DESC LIMIT 4";
-              $result = mysqli_query($konek, $sql);
+              $result = mysqli_query($con, $sql);
             ?>
              <div class="col-xs-12 col-md-12 top-slide-info">
              <?php
@@ -106,7 +106,7 @@
                      match_teams.score as team_score, match_teams.comment as team_comment, matches.* FROM match_teams INNER JOIN
                      matches ON matches.id = match_teams.match_id INNER JOIN participants ON participants.id = match_teams.participant_id
                      ORDER BY matches.waktu DESC LIMIT 2";
-                     $result = mysqli_query($konek, $sql);
+                     $result = mysqli_query($con, $sql);
                      while( $row = mysqli_fetch_assoc( $result)){
                          $match_teams[] = $row; // Inside while loop
                      }
@@ -400,7 +400,7 @@
                                       <?php
 
                                         $sql = "SELECT * FROM events";
-                                        $result = mysqli_query($konek, $sql);
+                                        $result = mysqli_query($con, $sql);
                                         while ($events = mysqli_fetch_array($result)) {
                                       ?>
                                       <li data-filter=".cat{{ $events['id']}}"><a  href="#">{{ $events['nama']}}</a></li>
@@ -418,7 +418,7 @@
           <ul class="portfolio group albumContainer">
             <?php
               $sql = "SELECT * FROM galleries";
-              $result = mysqli_query($konek, $sql);
+              $result = mysqli_query($con, $sql);
               while ($galleries = mysqli_fetch_array($result)) {
             ?>
               <li class="item block cat{{ $galleries['event_id']}} col-xs-3 ">
