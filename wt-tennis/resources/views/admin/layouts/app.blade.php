@@ -45,6 +45,14 @@
 
         <!-- Select2 css -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+<!-- 
+        <link href="{{ URL::asset('fullcalendar/fullcalendar.css') }}"/>
+        <link href="{{ URL::asset('fullcalendar/fullcalendar.min.css') }}"/> -->
+        <!--calendar -->
+        <link href="{{ URL::asset('admin_asset/assets/fullcalendar/bootstrap-fullcalendar.css') }}" rel="stylesheet" />
+        <link href="{{ URL::asset('admin_asset/assets/fullcalendar/fullcalendar.css') }}" rel="stylesheet" />
+        <link href="{{ URL::asset('admin_asset/assets/fullcalendar/fullcalendar.min.css') }}" rel="stylesheet" />
+        <link href="{{ URL::asset('admin_asset/assets/select2/select2.css') }}" rel="stylesheet" type="text/css" />
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -252,6 +260,9 @@
                             </li>
                             <li>
                                 <a href="{{ action('ScheduleController@index') }}" class="waves-effect {{ Request::segment(2) === 'schedule' ? 'active' : null }}"><i class="md md-event"></i><span> Schedule </span></a>
+                            </li>
+                            <li>
+                                <a href="{{ url('/scheduling') }}" class="waves-effect {{ Request::segment(2) === 'schedule' ? 'active' : null }}"><i class="fa fa-calendar"></i><span> Schedule </span></a>
                             </li>
 
                             <!-- <li class="has_sub">
@@ -579,8 +590,29 @@
         <!-- Select2 JQuery -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
+        <!-- Schedule -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.0.0/fullcalendar.min.js"></script>
+        <!-- <script src="{{ URL::asset('fullcalendar/lib/jquery.min.js') }}"></script> -->
+
+
+
         <!-- Datatables JQuery -->
         <!-- <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script> -->
+
+        <!-- BEGIN PAGE SCHEDULE -->
+        
+        <script src="{{ URL::asset('admin_asset/assets/fullcalendar/fullcalendar.min.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/assets/fullcalendar/fullcalendar.js') }}"></script>
+        <script src="{{ URL::asset('admin_asset/assets/fullcalendar/moment.min.js') }}"></script>
+
+        <script src="{{ URL::asset('admin_asset/js/modernizr.min.js') }}"></script>
+        <script>
+            var resizefunc = [];
+        </script>
+
+
+        <!-- CUSTOM JS -->
+        <script src="{{ URL::asset('admin_asset/js/jquery.app.js') }}"></script>
 
         <script type="text/javascript">
             /* ==============================================

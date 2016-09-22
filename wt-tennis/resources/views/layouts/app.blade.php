@@ -106,24 +106,26 @@
             </li>
             <li>
               <?php
-              $konek = mysqli_connect('localhost', 'root','','eo_sport');
-              if(!$konek){
+              $con = mysqli_connect('localhost', 'root','','eo_sport');
+              if(!$con){
                 die('Could not Connect');
               }
 
-              mysqli_select_db($konek ,'eo_sport');
+              mysqli_select_db($con ,'eo_sport');
               $sql = "SELECT * FROM events";
-              $result = mysqli_query($konek, $sql);
+              $result = mysqli_query($con, $sql);
+
               ?>
 
               <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'join' ? 'active' : null }}" data-toggle="dropdown"> COMPETITION <b class="caret"></b></a>
               <div class="cbp-hrsub sub-little">
                 <div class="cbp-hrsub-inner">
                   <div class="content-sub-menu">
+                  @if (Auth::guest())
                     <ul class="menu-pages">
                       <?php
-                      while ($events = mysqli_fetch_array($result)) {
-                        ?>
+                      while ($events = mysqli_fetch_array($result)) {                      
+                        ?>                                        
                         <li>
                             <a href="{{ action('RegisterController@index', $events['id']) }}" class="dropdown-toggle" data-toggle="dropdown">
                               {{ $events['nama'] }}
@@ -133,14 +135,38 @@
                       }
                       ?>
                     </ul>
-                  </div>
+                    @else
+                    <ul class="menu-pages">
+                      <?php
+                      while ($events = mysqli_fetch_array($result)) {
+                        $id_user = Auth::user()->id;
+                        $id_event = $events['id'];
+                        $sql2 = "SELECT * FROM participants WHERE user_id = $id_user AND event_id = $id_event";
+                        $result2 = mysqli_query($con, $sql2);
+                        $participants = mysqli_fetch_array($result2);
+                        ?>
+                        @if ($participants['status'] == 'validated')
+                        <li>
+                            <a href="{{ action('ParticipantUserController@index', $participants['id']) }}" class="dropdown-toggle" data-toggle="dropdown">
+                              {{ $events['nama'] }}
+                            </a>
+                        </li>
+                        @else                     
+                        <li>
+                            <a href="{{ action('RegisterController@index', $events['id']) }}" class="dropdown-toggle" data-toggle="dropdown">
+                              {{ $events['nama'] }}
+                            </a>
+                        </li>
+                        @endif
+                        <?php
+                      }
+                      ?>
+                    </ul>
+                    @endif
+                    </div>
                 </div>
               </div>
             </li>
-            @if (Auth::guest())
-            @else
-            <li><a class="lnk-menu {{ Request::segment(1) === 'team' ? 'active' : null }}" href="{{ action('ParticipantUserController@index',1) }}">Team</a></li>
-            @endif
             <li>
               <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'events' ? 'active' : null }}" data-toggle="dropdown"> EVENTS <b class="caret"></b></a>
               <div class="cbp-hrsub sub-little">
@@ -192,7 +218,7 @@
         <ul class="last-tips">
         <?php
           $sql = "SELECT * FROM events";
-          $result = mysqli_query($konek, $sql);
+          $result = mysqli_query($con, $sql);
           while ($events = mysqli_fetch_array($result)) {
         ?>
           <li>{{ $events['nama'] }}</li>
@@ -204,7 +230,7 @@
        <h3>Last News</h3>
       <?php
           $sql = "SELECT * FROM news ORDER BY created_at DESC LIMIT 3";
-          $result = mysqli_query($konek, $sql);
+          $result = mysqli_query($con, $sql);
          while ($news = mysqli_fetch_array($result)) {
       ?>
        <ul class="footer-last-news">

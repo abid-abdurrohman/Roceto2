@@ -75,8 +75,20 @@ Route::patch('join/{id}', 'RegisterController@update');
 Route::get('bracket', 'BracketUserController@index');
 Route::get('bracket/{id}', 'BracketUserController@show');
 Route::get('bracket/{id}/getPDF', 'BracketUserController@getPDF');
+Route::get('schedule', function () {
+    return view('schedule.schedule');
+});
+
+//Event Calendar
+// Route::get('schedule{id?}','ScheduleController@index');
+Route::post('guardaEventos', array('as' => 'guardaEventos','uses' => 'CalendarController@create'));
+// Route::post('actualizaEventos','CalendarController@update');
+// Route::post('eliminaEvento','CalendarController@delete');
 
 /*link admin*/
+Route::get('scheduling', function () {
+    return view('admin.schedule.index');
+});
 Route::get('admin', 'AdminController@login');
 Route::get('admin/home', 'AdminController@index');
 Route::post('admin/pro_login', 'AdminController@pro_login');
