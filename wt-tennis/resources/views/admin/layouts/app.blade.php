@@ -30,6 +30,10 @@
         <!-- Waves-effect -->
         <link href="{{ URL::asset('admin_asset/css/waves-effect.css') }}" rel="stylesheet">
 
+        <!--calendar css-->
+        <link href="{{ URL::asset('admin_asset/assets/fullcalendar/fullcalendar.css') }}" rel="stylesheet" />
+        <link href="{{ URL::asset('admin_asset/assets/select2/select2.css') }}" rel="stylesheet" type="text/css" />
+
         <!-- sweet alerts -->
         <link href="{{ URL::asset('admin_asset/assets/sweet-alert/sweet-alert.min.css') }}" rel="stylesheet">
         <!-- DataTables -->
@@ -220,20 +224,42 @@
                             <li>
                                 <a href="{{ action('SponsorController@index') }}" class="waves-effect {{ Request::segment(2) === 'sponsor' ? 'active' : null }}"><i class="ion-person-stalker"></i><span> Sponsor </span></a>
                             </li>
-                            <li>
-                                <a href="{{ action('ParticipantController@index') }}" class="waves-effect {{ Request::segment(2) === 'participant' ? 'active' : null }}"><i class="fa fa-users"></i><span> Participant </span></a>
+                            <li class="has_sub">
+                                <a href="#" class="waves-effect"><i class="md md-palette"></i><span> Event </span><span class="pull-right"><i class="md md-add"></i></span></a>
+                                <ul class="list-unstyled">
+                                <li>
+                                    <a href="{{ action('EventController@index') }}" class="waves-effect {{ Request::segment(2) === 'event' ? 'active' : null }}"><i class="fa fa-folder-open"></i><span> Events </span></a>
+                                </li>
+                                <li>
+                                    <a href="{{ action('ParticipantController@index') }}" class="waves-effect {{ Request::segment(2) === 'participant' ? 'active' : null }}"><i class="fa fa-users"></i><span> Participant </span></a>
+                                </li>
+                                <li>
+                                    <a href="{{ action('EventMatchController@index') }}" class="waves-effect {{ Request::segment(2) === 'event-match' ? 'active' : null }}"><i class="fa fa-gamepad"></i><span> Match </span></a>
+                                </li>
+                                <li>
+                                    <a href="{{ action('EventBracketController@index') }}" class="waves-effect {{ Request::segment(2) === 'event-bracket' ? 'active' : null }}"><i class="fa fa-sitemap"></i><span> Bracket </span></a>
+                                </li>
+                                <li>
+                                    <a href="{{ action('EventMatchScoreController@event') }}" class="waves-effect {{ Request::segment(2) === 'event-score' ? 'active' : null }}"><i class="md-system-update"></i><span> Control Match </span></a>
+                                </li>
+                                </ul>
+                            </li>
+                            <li class="has_sub">
+                                <a href="#" class="waves-effect"><i class="fa fa-money"></i><span> Laporan Keuangan </span><span class="pull-right"><i class="md md-add"></i></span></a>
+                                <ul class="list-unstyled">
+                                  <li class="{{ Request::segment(2) === 'news' ? 'active' : null }}">
+                                      <a href="{{ action('PemasukanController@index') }}" class="waves-effect {{ Request::segment(2) === 'news' ? 'active' : null }}"><i class="fa fa-mail-forward"></i><span> Pemasukan </span></a>
+                                  </li>
+                                  <li class="{{ Request::segment(2) === 'news' ? 'active' : null }}">
+                                      <a href="#" class="waves-effect {{ Request::segment(2) === 'news' ? 'active' : null }}"><i class="fa fa-mail-reply"></i><span> Pengeluaran </span></a>
+                                  </li>
+                                  <li class="{{ Request::segment(2) === 'news' ? 'active' : null }}">
+                                      <a href="#" class="waves-effect {{ Request::segment(2) === 'news' ? 'active' : null }}"><i class="fa fa-file-excel-o"></i><span> Report </span></a>
+                                  </li>
+                                </ul>
                             </li>
                             <li>
-                                <a href="{{ action('EventController@index') }}" class="waves-effect {{ Request::segment(2) === 'event' ? 'active' : null }}"><i class="fa fa-folder-open"></i><span> Events </span></a>
-                            </li>
-                            <li>
-                                <a href="{{ action('EventMatchController@index') }}" class="waves-effect {{ Request::segment(2) === 'event-match' ? 'active' : null }}"><i class="fa fa-gamepad"></i><span> Match </span></a>
-                            </li>
-                            <li>
-                                <a href="{{ action('EventBracketController@index') }}" class="waves-effect {{ Request::segment(2) === 'event-bracket' ? 'active' : null }}"><i class="fa fa-sitemap"></i><span> Bracket </span></a>
-                            </li>
-                            <li>
-                                <a href="{{ action('EventMatchScoreController@index') }}" class="waves-effect {{ Request::segment(2) === 'match-score' ? 'active' : null }}"><i class="md-system-update"></i><span> Update Score </span></a>
+                                <a href="{{ action('ScheduleController@index') }}" class="waves-effect {{ Request::segment(2) === 'schedule' ? 'active' : null }}"><i class="md md-event"></i><span> Schedule </span></a>
                             </li>
                             <li>
                                 <a href="{{ url('/scheduling') }}" class="waves-effect {{ Request::segment(2) === 'schedule' ? 'active' : null }}"><i class="fa fa-calendar"></i><span> Schedule </span></a>

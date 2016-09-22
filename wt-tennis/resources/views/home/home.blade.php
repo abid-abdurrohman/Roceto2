@@ -10,7 +10,7 @@
                    <div class="col-xs-4 pht-1 pht-left">
                        <div class="img-face-home">
                           <img src="http://placehold.it/235x224" alt="" />
-                          
+
                        </div>
                   </div>
                   <div class="col-xs-4 pl-point ">
@@ -30,7 +30,7 @@
                    <div class="col-xs-4 pht-1 pht-right">
                         <div class="img-face-home">
                             <img src="http://placehold.it/235x224" alt="" />
-                  </div>                    
+                  </div>
                 </div>
              </div>
            </div>
@@ -83,9 +83,16 @@
         <div class="container">
             <div class="col-md-12">
                 <div class="txt-training">
-                  <p>start your</p>
-                  <h2>TRAINING TODAY</h2>
-                  <a href="#">Basic</a><a href="#">Medium</a><a href="#">Expert</a>
+                  <p>JOIN IN </p>
+                  <h2>COMPETITION</h2>
+                  <?php
+                    $sql = "SELECT * FROM events";
+                    $result = mysqli_query($con, $sql);
+                    while ($events = mysqli_fetch_array($result)) {
+                  ?>
+                    <a href="{{ action('RegisterController@index',$events['id']) }}">{{ $events['nama'] }}</a>
+                  <?php } ?>
+
                 </div>
             </div>
         </div>
@@ -163,51 +170,79 @@
                         <div class="circle-ico"><p>ATP</p></div>
                     </div>
                     <div id="getting-started"></div>
+                    <?php
+                        $con = mysqli_connect('localhost', 'root','','eo_sport');
+                        if(!$con){
+                          die('Could not Connect');
+                        }
+                        mysqli_select_db($con ,'eo_sport');
+                        $sql = "SELECT * FROM matches WHERE status='available' ORDER BY waktu DESC LIMIT 1";
+                        $result = mysqli_query($con, $sql);
+                        while ($row = mysqli_fetch_array($result)) {
+                            $id_match = $row['id'];
+                            $sql2 = "SELECT participants.nama_tim as nama_participant, participants.logo_tim as logo_participant,
+                            match_teams.score as team_score, match_teams.comment as team_comment, matches.* FROM match_teams INNER JOIN
+                            matches ON matches.id = match_teams.match_id INNER JOIN participants ON participants.id = match_teams.participant_id
+                            WHERE match_teams.match_id = $id_match AND matches.status = 'available' ORDER BY matches.waktu DESC LIMIT 2";
+                            $result2 = mysqli_query($con, $sql2);
+                            $i = 0;
+                            while( $row2 = mysqli_fetch_assoc( $result2)){
+                                $match_teams[$i] = $row2; // Inside while loop
+                                $row2['nama_participant'];
+                                $i++;
+                            }
+                    ?>
                     <div class="col-xs-5 col-md-5 match-team">
-                        <img class="" src="images/team1.png" alt=""/>
-                        <p>Fernand</p>
+                        <img style="width:80px" src="{!! asset('').'/'.$match_teams[0]['logo_participant'] !!}" alt=""/>
+                        <p>{{ $match_teams[0]['nama_participant'] }}</p>
                     </div>
                     <div class="col-xs-2 col-md-2 match-team-vs">
                         <span class="txt-vs"> - vs - </span>
                     </div>
                     <div class="col-xs-5 col-md-5 match-team">
-                        <img class="" src="images/team2.png" alt=""/>
-                        <p>Brain</p>
+                        <img style="width:80px" src="{!! asset('').'/'.$match_teams[1]['logo_participant'] !!}" alt=""/>
+                        <p>{{ $match_teams[1]['nama_participant'] }}</p>
                     </div>
                     <div class="next-match-place">
-                        <p class='sub-result'>Qatar ExonMobil</p>
-                        <p class="dd-news-date">April 22, 2016 ~ 2:30pm Canada Stadium</p>
+                        <p class='sub-result'>{{ $row['tempat'] }}</p>
+                        <p class="dd-news-date">{{ $row['waktu'] }}</p>
                     </div>
-
+                    <?php } ?>
                 </div>
                 <div class="other-match col-md-6">
+                    <?php
+                        $sql = "SELECT * FROM matches WHERE status='available' ORDER BY waktu DESC LIMIT 3";
+                        $result = mysqli_query($con, $sql);
+                        while ($row = mysqli_fetch_array($result)) {
+                            $id_match = $row['id'];
+                            $sql2 = "SELECT participants.nama_tim as nama_participant, participants.logo_tim as logo_participant,
+                            match_teams.score as team_score, match_teams.comment as team_comment, matches.* FROM match_teams INNER JOIN
+                            matches ON matches.id = match_teams.match_id INNER JOIN participants ON participants.id = match_teams.participant_id
+                            WHERE match_teams.match_id = $id_match AND matches.status = 'available' ORDER BY matches.waktu DESC LIMIT 2";
+                            $result2 = mysqli_query($con, $sql2);
+                            $i = 0;
+                            while( $row2 = mysqli_fetch_assoc( $result2)){
+                                $match_teams[$i] = $row2; // Inside while loop
+                                $row2['nama_participant'];
+                                $i++;
+                            }
+                    ?>
                     <div class="match-team-list">
-                        <img class="t-img1" src="images/team1_small.png" alt=""/>
-                        <span>Fernand</span>
+                        <img style="width:50px" class="t-img1" src="{!! asset('').'/'.$match_teams[0]['logo_participant'] !!}" alt=""/>
+                        <span>{{ $match_teams[0]['nama_participant'] }}</span>
                         <span class="txt-vs"> - vs - </span>
-                        <span>Brain</span>
-                        <img class="t-img2" src="images/team1_small.png" alt=""/>
-                        <p>22/06/2015 14:30 - 16:00</p>
+                        <span>{{ $match_teams[1]['nama_participant'] }}</span>
+                        <img style="width:50px" class="t-img2" src="{!! asset('').'/'.$match_teams[1]['logo_participant'] !!}" alt=""/>
+                        <p>{{ $row['waktu'] }}</p>
                     </div>
-                    <div class="match-team-list">
-                        <img class="t-img1" src="images/team1_small.png" alt=""/>
-                        <span>Fernand</span>
-                        <span class="txt-vs"> - vs - </span>
-                        <span>Brain</span>
-                        <img class="t-img2" src="images/team1_small.png" alt=""/>
-                        <p>22/06/2015 14:30 - 16:00</p>
-                    </div>
-                    <div class="match-team-list">
-                        <img class="t-img1" src="images/team1_small.png" alt=""/>
-                        <span>Fernand</span>
-                        <span class="txt-vs"> - vs - </span>
-                        <span>Brain</span>
-                        <img class="t-img2" src="images/team1_small.png" alt=""/>
-                        <p>22/06/2015 14:30 - 16:00</p>
-                    </div>
+                    <?php
+                      }
+                    ?>
+                    <a href="{{ action('FixturesUserController@index') }}">
                     <div class="team-view-all">
                        <p>View all</p>
                     </div>
+                    </a>
                 </div>
             </div>
            </div>

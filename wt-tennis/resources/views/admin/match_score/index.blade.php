@@ -9,7 +9,7 @@
                     <h4 class="pull-left page-title">Update Match</h4>
                     <ol class="breadcrumb pull-right">
                         <li><a href="#">Admin</a></li>
-                        <li><a href="{{ action('EventMatchScoreController@index') }}">Match</a></li>
+                        <li><a href="{{ action('EventMatchScoreController@index', [$events->id]) }}">Match</a></li>
                         <li class="active">{{ $matches->nama }}</li>
                     </ol>
                 </div>
@@ -33,25 +33,39 @@
                     <div class="panel">
                         <div class="panel-body">
                             <div class="media-main">
-                                <div class="col-md-5">
-                                  <center>
-                                    <h2>{{ $match_teams[0]['team_score'] }}</h2>
-                                  </center>
+                                <div class="col-md-12">
+                                    <div class="col-md-5">
+                                      <center>
+                                        <h2>{{ $match_teams[0]['team_score'] }}</h2>
+                                      </center>
+                                    </div>
+                                    <div class="col-md-2">
+                                      <center>
+                                        <h2>:</h2>
+                                      </center>
+                                    </div>
+                                    <div class="col-md-5">
+                                      <center>
+                                        <h2>{{ $match_teams[1]['team_score'] }}</h2>
+                                      </center>
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                  <center>
-                                    <h2>:</h2>
-                                  </center>
-                                </div>
-                                <div class="col-md-5">
-                                  <center>
-                                    <h2>{{ $match_teams[1]['team_score'] }}</h2>
-                                  </center>
-                                </div>
+
                             </div>
                             <div class="clearfix"></div>
                         </div> <!-- panel-body -->
                     </div> <!-- panel -->
+                    <div class="media-main">
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <a class="btn btn-block btn-md btn-primary waves-effect waves-light" href="#" data-toggle="modal" data-target="#myModal-{{ $events->id }}-{{ $matches->id }}">
+                                  <i class="fa fa-stop"></i> Done
+                                </a>
+                                @include('admin.match_score.modal.endmatch2', ['id_match' => $matches->id])
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
                 </div> <!-- end col -->
                 <div class="col-sm-6 col-lg-4">
                     <div class="panel">
@@ -89,7 +103,7 @@
                     </div>
                 </div>
             </div> <!-- End Row -->
-
+            @if ($matches->status == 'playing')
             <div class="row">
                 <div class="col-md-6">
                     <div class="panel panel-default">
@@ -97,7 +111,7 @@
                             <h3 class="panel-title">Update Team {{ $match_teams[0]['nama_participant'] }}</h3>
                         </div>
                         <div class="panel-body">
-                            {!! Form::model($match_team[0], ['method' => 'PATCH', 'action' => ['EventMatchScoreController@update', $matches->id, $match_team[0]['id']],
+                            {!! Form::model($match_team[0], ['method' => 'PATCH', 'action' => ['EventMatchScoreController@update', $events->id, $matches->id, $match_team[0]['id']],
                             'class'=>'form-horizontal']) !!}
                                 @include('admin/match_score/form/form', ['submit_text' => 'Update Match'])
                             {!! Form::close() !!}
@@ -110,7 +124,7 @@
                             <h3 class="panel-title">Update Team {{ $match_teams[1]['nama_participant'] }}</h3>
                         </div>
                         <div class="panel-body">
-                            {!! Form::model($match_team[1], ['method' => 'PATCH', 'action' => ['EventMatchScoreController@update', $matches->id, $match_team[1]['id']],
+                            {!! Form::model($match_team[1], ['method' => 'PATCH', 'action' => ['EventMatchScoreController@update', $events->id, $matches->id, $match_team[1]['id']],
                             'class'=>'form-horizontal']) !!}
                                 @include('admin/match_score/form/form', ['submit_text' => 'Update Match'])
                             {!! Form::close() !!}
@@ -118,7 +132,7 @@
                     </div>
                 </div>
             </div> <!-- End Row -->
-
+            @endif
         </div> <!-- container -->
 @endsection
 @push('scripts')

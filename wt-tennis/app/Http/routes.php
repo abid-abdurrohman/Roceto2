@@ -25,6 +25,8 @@ Route::get('admin/logout', 'Auth\AuthController@getLogout');
 Route::get('admin/participant/{id}/bukti_pembayaran', 'ParticipantController@bukti_pembayaran');
 Route::post('admin/participant/{id}/bukti_pembayaran', 'ParticipantController@validation');
 
+Route::get('admin/pemasukan', 'PemasukanController@index');
+
 Route::get('login', 'LogController@login');
 Route::get('register', 'LogController@register');
 
@@ -54,8 +56,8 @@ Route::post('contact', 'ContactController@store');
 Route::get('youtube', 'EventStreamController@index');
 Route::get('youtube/{id}', 'EventStreamController@show');
 
-Route::get('result', 'ResultUserController@index');
-Route::get('result/{id}', 'ResultUserController@show');
+Route::get('results', 'ResultUserController@index');
+Route::get('fixtures', 'FixturesUserController@index');
 
 /*link news*/
 Route::get('news', 'NewsUserController@index');
@@ -70,6 +72,7 @@ Route::get('join/{id}', 'RegisterController@index');
 Route::post('join/{id}', 'RegisterController@store');
 Route::patch('join/{id}', 'RegisterController@update');
 
+Route::get('bracket', 'BracketUserController@index');
 Route::get('bracket/{id}', 'BracketUserController@show');
 Route::get('bracket/{id}/getPDF', 'BracketUserController@getPDF');
 Route::get('schedule', function () {
@@ -94,6 +97,7 @@ Route::resource('admin/sponsor', 'SponsorController');
 Route::resource('admin/event', 'EventController');
 
 Route::resource('admin/gallery', 'GalleryController');
+Route::resource('admin/schedule', 'ScheduleController');
 Route::post('admin/event/search', 'EventController@search');
 Route::resource('admin/news', 'NewsController');
 Route::resource('admin/news.comment', 'CommentController');
@@ -104,9 +108,12 @@ Route::get('admin/event-match/{id}', 'EventMatchController@show');
 Route::get('admin/event-bracket', 'EventBracketController@index');
 Route::get('admin/event-result/{id}', 'EventBracketController@show_result');
 Route::get('admin/event-bracket/{id}', 'EventBracketController@show');
-Route::get('admin/match-score', 'EventMatchScoreController@index');
-Route::get('admin/match-score/{id}', 'EventMatchScoreController@show');
-Route::patch('admin/match-score/{id}/team/{id_team}', 'EventMatchScoreController@update');
+Route::get('admin/event-score', 'EventMatchScoreController@event');
+Route::get('admin/event-score/{id}', 'EventMatchScoreController@index');
+Route::get('admin/event-score/{id}/match-score/{id_match}', 'EventMatchScoreController@show');
+Route::post('admin/event-score/{id}/match-score/{id_match}', 'EventMatchScoreController@endmatch');
+Route::patch('admin/event-score/{id}/match-score/{id_match}', 'EventMatchScoreController@startmatch');
+Route::patch('admin/event-score/{id}/match-score/{id_match}/team/{id_team}', 'EventMatchScoreController@update');
 Route::resource('admin/event-match.match', 'MatchController');
 Route::resource('admin/event-match.match.team', 'MatchTeamController');
 Route::get('admin/event/get_event','EventController@getEvent');

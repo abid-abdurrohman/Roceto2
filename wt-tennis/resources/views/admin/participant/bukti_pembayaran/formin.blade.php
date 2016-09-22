@@ -45,8 +45,14 @@
                                         <td>{{ $bukti_pembayaran->participant_id }}</td>
                                         <td>{{ $bukti_pembayaran->created_at }}</td>
                                         <td>{{ $bukti_pembayaran->updated_at }}</td>
-                                        <td><a href="#" class="btn btn-info" data-toggle="modal" data-target="#Validation-{{ $participant->id }}">Approve</a></td>
+                                        <td>
+                                        @if( $bukti_pembayaran->status_participant == 'validated')
+                                        <a href="#" class="btn btn-info"  disabled>Approve</a></td>
                                             @include('admin.participant.modal.validation', ['id' => $participant->id])
+                                            @else
+                                            <a href="#" class="btn btn-info" data-toggle="modal" data-target="#Validation-{{ $participant->id }}" >Approve</a></td>
+                                            @include('admin.participant.modal.validation', ['id' => $participant->id])
+                                            @endif
                                         <td>
                                     </tr>
                                 </tbody>

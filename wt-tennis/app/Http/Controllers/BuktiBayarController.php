@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 use App\Model\Category;
 use App\Model\Participant;
 use App\Model\Event;

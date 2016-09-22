@@ -35,10 +35,10 @@
                                                 <th>Email</th>
                                                 <th>Warna Kostum</th>
                                                 <th>Jumlah Pemain</th>
-                                                <th>User Id</th>
+                                                <th>Biaya</th>
                                                 <th>Created At</th>
                                                 <th>Updated At</th>
-                                                <th>Action</th>
+                                                <th colspan="1">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -50,7 +50,7 @@
                                                 <td>{{ $participants->email }}</td>
                                                 <td>{{ $participants->warna_kostum }}</td>
                                                 <td>{{ $participants->jumlah_pemain }}</td>
-                                                <td>{{ $participants->user_id }}</td>
+                                                <td>{{ $participants->biaya_pendaftaran }}</td>
                                                 <td>{{ $participants->created_at }}</td>
                                                 <td>{{ $participants->updated_at }}</td>
                                                 <td>
