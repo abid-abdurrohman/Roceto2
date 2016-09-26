@@ -6,7 +6,7 @@
                 <h4 class="modal-title">Create Participant</h4>
             </div>
             <div class="modal-body">
-              {!! Form::model(new App\Model\Participant, ['action' => 'ParticipantController@store', 'class'=>'form-horizontal']) !!}
+              {!! Form::model(new App\Model\Participant, ['action' => ['ParticipantController@store', $events->id], 'files' => true,  'class'=>'form-horizontal']) !!}
                   @include('admin.participant.form.form', ['submit_text' => 'Add Participant'])
               {!! Form::close() !!}
             </div>

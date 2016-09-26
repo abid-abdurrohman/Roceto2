@@ -250,8 +250,8 @@
                                 <li class="{{ Request::segment(2) === 'event' ? 'active' : null }}">
                                     <a href="{{ action('EventController@index') }}" class="waves-effect {{ Request::segment(2) === 'event' ? 'active' : null }}"><i class="fa fa-folder-open"></i><span> Events </span></a>
                                 </li>
-                                <li class="{{ Request::segment(2) === 'participant' ? 'active' : null }}">
-                                    <a href="{{ action('ParticipantController@index') }}" class="waves-effect {{ Request::segment(2) === 'participant' ? 'active' : null }}"><i class="fa fa-users"></i><span> Participant </span></a>
+                                <li>
+                                    <a href="{{ action('ParticipantController@event_index') }}" class="waves-effect {{ Request::segment(2) === 'participant-event' ? 'active' : null }}"><i class="fa fa-users"></i><span> Participant </span></a>
                                 </li>
                                 <li class="{{ Request::segment(2) === 'event-match' ? 'active' : null }}">
                                     <a href="{{ action('EventMatchController@index') }}" class="waves-effect {{ Request::segment(2) === 'event-match' ? 'active' : null }}"><i class="fa fa-gamepad"></i><span> Match </span></a>
@@ -668,10 +668,6 @@
 
 
         <!-- CUSTOM JS -->
-<<<<<<< HEAD
-=======
-
->>>>>>> 2b8728d4570ec4071018f3ae5f3959a2dfb75c2f
         <script type="text/javascript">
             /* ==============================================
             Counter Up

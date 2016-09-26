@@ -94,7 +94,7 @@
                                                 <td style="width:5px"><span class="label label-warning">{{ $participant->status }}</span>
                                                 </td>
                                                 @endif 
-                                                <td><a href="{{ action('ParticipantController@show_event', [$participant->event_id]) }}"> Check</a></td>                                               
+                                                <td style="width:100px"><a href="{{ action('ParticipantController@show_event', [$participant->event_id]) }}"> Check  <i class="fa fa-arrow-right"></i></a></td>                                               
                                         @endforeach
                                             </tr>
                                         </tbody>

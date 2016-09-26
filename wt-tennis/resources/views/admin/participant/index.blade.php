@@ -22,9 +22,6 @@
                             @include('admin.participant.notification.flash')
                             <div class="row">
                               <div class="col-md-5">
-                                <a class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#con-close-modal">Add <i class="fa fa-plus"></i></a>
-                                @include('admin.participant.modal.create')
-                                <!-- <a href="{{ action('ParticipantController@create') }}" class="btn btn-primary waves-effect waves-light">Add <i class="fa fa-plus"></i></a> -->
                               </div>
                               <div class="col-md-6">
                                 <div id="datatable_filter" class="dataTables_filter">
@@ -38,17 +35,16 @@
                             </div><br>
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="table-responsive">
                                     <table id="datatable" class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Nama Tim</th>
-                                                <th>No. Hp</th>
-                                                <th>Warna Kostum</th>
-                                                <th>Jumlah Pemain</th>
-                                                <th>Event Id</th>
+                                                <th>Nomer Hp</th>
                                                 <th>User Id</th>
                                                 <th>Status</th>
+                                                <th>Created At</th>
                                                 <th colspan="2">Action</th>
                                             </tr>
                                         </thead>
@@ -58,27 +54,26 @@
                                                 <td>{{ $participant->id }}</td>
                                                 <td>{{ $participant->nama_tim }}</td>
                                                 <td>{{ $participant->no_hp }}</td>
-                                                <td>{{ $participant->warna_kostum }}</td>
-                                                <td>{{ $participant->jumlah_pemain }}</td>
-                                                <td><a href="#">{{ $participant->event_id }}</a></td>
+                                                <td><a href="{{ action('EventController@show', $participant->event_id) }}">{{ $participant->event_id }}</a></td>
                                                 <td>{{ $participant->user_id }}</td>
                                                 <td>{{ $participant->status }}</td>
 
                                                 @if ($participant->status=='waiting')
-                                                    <td><a href="{{ action('ParticipantController@bukti_pembayaran', $participant->id) }}" class="btn btn-info" >Check</a></td>
-                                                    <td><a href="{{ action('ParticipantController@show', $participant->id) }}" class="btn btn-info">Detail</a></td>
+                                                    <td><a href="{{ action('ParticipantController@bukti_pembayaran', [ $events->id,$participant->id]) }}" class="label label-info" >Check</a></td>
+                                                    <td><a href="{{ action('ParticipantController@show', [ $events->id,$participant->id]) }}" class="label label-info">Detail</a></td>
                                                     @else
                                                 <td>
-                                                  <a href="#" data-toggle="modal" data-target="#myModal-{{ $participant->id }}" class="btn btn-danger">Delete</a></td>
-                                                <td><a href="{{ action('ParticipantController@show', $participant->id) }}" class="btn btn-info">Detail</a></td>
+                                                  <a href="#" data-toggle="modal" data-target="#myModal-{{ $events->id }}-{{ $participant->id }}" class="label label-danger">Delete</a></td>
+                                                <td><a href="{{ action('ParticipantController@show', [ $events->id,$participant->id]) }}" class="label label-info">Detail</a></td>
                                                 @endif
                                             </tr>
-                                            @include('admin.participant.modal.delete', ['id' => $participant->id])
+                                            @include('admin.participant.modal.delete', ['id' => $events->id, 'id_participant'=> $participant->id])
                                           @endforeach
                                         </tbody>
                                     </table>
                                     {!! $participants->links() !!}
                                 </div>
+                            </div>
                             </div>
                         </div>
                     </div>
