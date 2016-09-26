@@ -53,13 +53,9 @@ class RegisterController extends Controller
             'nama_event' => $events->nama,
             'biaya_pendaftaran' => $events->biaya_pendaftaran
           ), function($message) use($email){
-<<<<<<< HEAD
             $message->to($email)->from('rocetomazzido@gmail.com')->subject('Welcome!');
-=======
             $message->to($email)->from('muhammadabdurrohman1995@gmail.com')->subject('Welcome!');
->>>>>>> 5bf153c6b6dda566d0edde20d41c30d50480168a
-          }
-        );
+          });
         return redirect()->action('RegisterController@index', $id);
     }
 

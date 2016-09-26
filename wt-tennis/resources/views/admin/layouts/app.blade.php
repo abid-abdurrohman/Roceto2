@@ -231,7 +231,7 @@
                                     <a href="{{ action('EventController@index') }}" class="waves-effect {{ Request::segment(2) === 'event' ? 'active' : null }}"><i class="fa fa-folder-open"></i><span> Events </span></a>
                                 </li>
                                 <li>
-                                    <a href="{{ action('ParticipantController@index') }}" class="waves-effect {{ Request::segment(2) === 'participant' ? 'active' : null }}"><i class="fa fa-users"></i><span> Participant </span></a>
+                                    <a href="{{ action('ParticipantController@event_index') }}" class="waves-effect {{ Request::segment(2) === 'participant-event' ? 'active' : null }}"><i class="fa fa-users"></i><span> Participant </span></a>
                                 </li>
                                 <li>
                                     <a href="{{ action('EventMatchController@index') }}" class="waves-effect {{ Request::segment(2) === 'event-match' ? 'active' : null }}"><i class="fa fa-gamepad"></i><span> Match </span></a>
@@ -257,9 +257,6 @@
                                       <a href="#" class="waves-effect {{ Request::segment(2) === 'news' ? 'active' : null }}"><i class="fa fa-file-excel-o"></i><span> Report </span></a>
                                   </li>
                                 </ul>
-                            </li>
-                            <li>
-                                <a href="{{ action('ScheduleController@index') }}" class="waves-effect {{ Request::segment(2) === 'schedule' ? 'active' : null }}"><i class="md md-event"></i><span> Schedule </span></a>
                             </li>
                             <li>
                                 <a href="{{ url('/scheduling') }}" class="waves-effect {{ Request::segment(2) === 'schedule' ? 'active' : null }}"><i class="fa fa-calendar"></i><span> Schedule </span></a>
@@ -612,7 +609,7 @@
 
 
         <!-- CUSTOM JS -->
-        <script src="{{ URL::asset('admin_asset/js/jquery.app.js') }}"></script>
+
 
         <script type="text/javascript">
             /* ==============================================

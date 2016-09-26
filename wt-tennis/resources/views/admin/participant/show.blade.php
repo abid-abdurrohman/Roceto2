@@ -9,7 +9,7 @@
                     <h4 class="pull-left page-title">Participants</h4>
                     <ol class="breadcrumb pull-right">
                         <li><a href="#">Admin</a></li>
-                        <li><a href="{{ action('ParticipantController@index') }}">Participants</a></li>
+                        <li><a href="{{ action('ParticipantController@index', [ $events->id, $participants->id]) }}">Participants</a></li>
                         <li class="active">{{$participants->nama}}</li>
                     </ol>
                 </div>
@@ -54,7 +54,7 @@
                                                 <td>{{ $participants->created_at }}</td>
                                                 <td>{{ $participants->updated_at }}</td>
                                                 <td>
-                                                  <a href="{{ action('ParticipantController@edit', $participants->id) }}" class="btn btn-success">Edit</a></td>
+                                                  <a href="{{ action('ParticipantController@edit', [ $events->id, $participants->id]) }}" class="label label-success">Edit</a></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -80,19 +80,19 @@
                                               <tr>
                                                   <td>{{ $member->id }}</td>
                                                   <td>
-                                                    <a href="{{ action('MemberController@show', [$participants->id, $member->id]) }}">
+                                                    <a href="{{ action('MemberController@show', [$events->id, $participants->id, $member->id]) }}">
                                                       {{ $member->nama }}
                                                     </a>
                                                   </td>
                                                   <td>{{ $member->created_at }}</td>
                                                   <td>{{ $member->updated_at }}</td>
                                                   <td>
-                                                    <a href="{{ action('MemberController@edit', array($participants->id, $member->id)) }}">
+                                                    <a href="{{ action('MemberController@edit', [$events->id, $participants->id, $member->id]) }}">
                                                       <i class="fa fa-edit"></i> Edit
                                                     </a>
                                                   </td>
                                                   <td>
-                                                    <a href="#" data-toggle="modal" data-target="#myModal-{{ $participants->id }}-{{ $member->id }}">
+                                                    <a href="#" data-toggle="modal" data-target="#myModal-{{ $events->id }}-{{ $participants->id }}-{{ $member->id }}">
                                                       <i class="fa fa-trash"></i> Delete
                                                     </a>
                                                   </td>
@@ -104,7 +104,7 @@
                                 </div>
                             </div>
                             @endif
-                            <a href="{{ action('MemberController@create', $participants->id) }}" class="btn btn-primary waves-effect waves-light">Add <i class="fa fa-plus"></i></a>
+                            <a href="{{ action('MemberController@create', [$events->id, $participants->id]) }}" class="btn btn-primary waves-effect waves-light">Add <i class="fa fa-plus"></i></a>
                         </div>
                     </div>
                 </div>

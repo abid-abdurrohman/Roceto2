@@ -22,9 +22,6 @@ Route::post('register/{id}/upload', 'BuktiBayarController@store');
 
 Route::get('admin/logout', 'Auth\AuthController@getLogout');
 
-Route::get('admin/participant/{id}/bukti_pembayaran', 'ParticipantController@bukti_pembayaran');
-Route::post('admin/participant/{id}/bukti_pembayaran', 'ParticipantController@validation');
-
 Route::get('admin/pemasukan', 'PemasukanController@index');
 
 Route::get('login', 'LogController@login');
@@ -101,7 +98,12 @@ Route::resource('admin/schedule', 'ScheduleController');
 Route::post('admin/event/search', 'EventController@search');
 Route::resource('admin/news', 'NewsController');
 Route::resource('admin/news.comment', 'CommentController');
-Route::resource('admin/participant', 'ParticipantController');
+Route::get('admin/participant-event', 'ParticipantController@event_index');
+Route::get('admin/participant-event/{id}', 'ParticipantController@show_event');
+Route::resource('admin/participant-event.participant', 'ParticipantController');
+Route::get('admin/participant-event.participant/{id}/bukti_pembayaran', 'ParticipantController@bukti_pembayaran');
+Route::post('admin/participant-event.participant/{id}/bukti_pembayaran', 'ParticipantController@validation');
+
 Route::resource('admin/participant.member', 'MemberController');
 Route::get('admin/event-match', 'EventMatchController@index');
 Route::get('admin/event-match/{id}', 'EventMatchController@show');
