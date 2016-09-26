@@ -65,8 +65,9 @@
                             </div>
                             <div class="modal-body">
                               <p>If you want to comment this news. Login first</p>
-                              <div style="padding-left:500px">
-                                <a href="{{ action('LogController@login') }}" type="button" class="btn btn-primary waves-effect waves-light" >Login</a>
+                              <div style="padding-left:400px">
+                                <a href="{{ action('LogController@login') }}" type="button" class="btn btn-primary waves-effect waves-light" ><i class="fa fa-btn fa-sign-in"></i> Login</a>
+                                <a type="button" class="btn btn-default" data-dismiss="modal">Cancel</a>
                               </div>
                             </div>
                         </div><!-- /.modal-content -->

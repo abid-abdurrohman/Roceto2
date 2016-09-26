@@ -65,12 +65,20 @@ class NewsTableSeeder extends Seeder
            'created_at' => DB::raw('NOW()'),
            'updated_at' => DB::raw('NOW()'),
           ),array(
-           'judul' => '',
-           'deskripsi' => '',
-           'kategori' => '',
-           'author' => '',
-           'slug' => '',
-           'thumbnail' => '',
+           'judul' => 'Event Catur Nasional Berhadiah Rp35 Juta',
+           'deskripsi' => 'Persatuan Catur Seluruh Indonesia (Percasi) Kerinci akan membuka turnamen Catur Nasional Wabup Cup 2016. Perlombaan catur nasional ini merupakan yang pertama kali digelar di Kerinci.
+            Bertempat di lokasi wisata Danau Kerinci perlombaan catur ini bakal diikuti sekitar 500 peserta. Tak tangung-tanggung, dalam perlombaan ini total hadiah yang disiapkan Percasi Kerinci sebesar Rp35 juta. Wakil Bupati Kerinci, Zainal Abidin mengatakan even ini akan digelar pada Oktober mendatang.
+            Wabup mengatakan tujuan perlombaan ini selain untuk memasyarakatkan olah raga, yakni untuk memperkenalkan wisata alam Kerinci. Sesuai dengan lokasi turnamen yang digelar di objek wisata pinggiran danau Kerinci.
+            "Lomba Catur Nasional Wabup Cup 2016 akan dimulai Oktober cuma tanggal yang belum kita tentukan," kata Wabup ditemui di ruangannya, Jumat (16/9).
+            Wabup Zainal mengatakan peserta perlombaan terbuka umum, baik dari Percasi maupun lainnya. Tidak hanya dari Kabupaten Kerinci maupun daerah tetangga lainnya. Tetapi juga dari provinsi yang ada di Sumatera. Bahkan hingga saat ini, kata Wabup, provinsi yang ada di Sumatera telah merekomendasikan untuk mengikuti turnamen, kecuali Provinsi Aceh.
+            "Yang akan mengikuti sudah ada dari Makassar, Medan, Lampung, Kalau di Sumatera dari aceh yang belum. Kita mengundang orang luar untuk datang ke Kerinci, sehingga bisa kenal dengan Kerinci dan wisatanya," ungkapnya
+            Disampaikan Wabup, menurut panitia peserta yang akan hadir sekitar 500 peserta dari Kerinci dan berbagai daerah.
+            Dalam pembukaannya nanti juga akan diundang grand master catur Indonesia.
+            "Total hadiah Rp 35 juta plus tropi Wakil Bupati Kerinci. Kita berharap even ini berlangsung sukses," sebutnya.',
+           'kategori' => 'news',
+           'author' => 'admin',
+           'slug' => 'Event-Catur-Nasional-Berhadiah-Rp35-Juta',
+           'thumbnail' => 'images/news/news/catur-lomba.jpg',
            'created_at' => DB::raw('NOW()'),
            'updated_at' => DB::raw('NOW()'),
           )

@@ -23,6 +23,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="row">
+                              <div class="table-responsive">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <table id="datatable" class="table table-striped table-bordered">
                                         <thead>
@@ -42,7 +43,7 @@
                                                 <td>{{ $user->name }}</td>
                                                 <td>{{ $user->nick_name }}</td>
                                                 <td>{{ $user->email }}</td>
-                                                <td>{{ $user->password }}</td>
+                                                <td>{{ str_limit($user->password, 20) }}<br></td>
                                                 <td>{{ $user->avatar }}</td>
                                                 <td>{{ $user->created_at }}</td>
                                             </tr>
@@ -53,6 +54,8 @@
                         </div>
                     </div>
                 </div>
+              </div>
             </div> <!-- End Row -->
+
         </div> <!-- container -->
 @endsection

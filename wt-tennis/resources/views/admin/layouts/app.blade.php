@@ -42,17 +42,16 @@
         <link href="{{ URL::asset('admin_asset/css/helper.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ URL::asset('admin_asset/css/style.css') }}" rel="stylesheet" type="text/css" />
 
+        <!--venobox lightbox-->
+        <link href="{{ URL::asset('admin_asset/assets/magnific-popup/magnific-popup.css') }}" rel="stylesheet" type="text/css" />
 
         <!-- Select2 css -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-<!-- 
         <link href="{{ URL::asset('fullcalendar/fullcalendar.css') }}"/>
-        <link href="{{ URL::asset('fullcalendar/fullcalendar.min.css') }}"/> -->
+        <link href="{{ URL::asset('fullcalendar/fullcalendar.min.css') }}"/>
         <!--calendar -->
         <link href="{{ URL::asset('admin_asset/assets/fullcalendar/bootstrap-fullcalendar.css') }}" rel="stylesheet" />
         <link href="{{ URL::asset('admin_asset/assets/fullcalendar/fullcalendar.css') }}" rel="stylesheet" />
         <link href="{{ URL::asset('admin_asset/assets/fullcalendar/fullcalendar.min.css') }}" rel="stylesheet" />
-        <link href="{{ URL::asset('admin_asset/assets/select2/select2.css') }}" rel="stylesheet" type="text/css" />
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -591,10 +590,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
         <!-- Schedule -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.0.0/fullcalendar.min.js"></script>
-        <!-- <script src="{{ URL::asset('fullcalendar/lib/jquery.min.js') }}"></script> -->
-
-
 
         <!-- Datatables JQuery -->
         <!-- <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script> -->
@@ -605,15 +600,53 @@
         <script src="{{ URL::asset('admin_asset/assets/fullcalendar/fullcalendar.js') }}"></script>
         <script src="{{ URL::asset('admin_asset/assets/fullcalendar/moment.min.js') }}"></script>
 
-        <script src="{{ URL::asset('admin_asset/js/modernizr.min.js') }}"></script>
-        <script>
-            var resizefunc = [];
+       <script type="text/javascript" src="{{ URL::asset('admin_asset/assets/gallery/isotope.js') }}"></script>
+        <script type="text/javascript" src="{{ URL::asset('admin_asset/assets/magnific-popup/magnific-popup.js') }}"></script> 
+          
+        <script type="text/javascript">
+            $(window).load(function(){
+                var $container = $('.portfolioContainer');
+                $container.isotope({
+                    filter: '*',
+                    animationOptions: {
+                        duration: 750,
+                        easing: 'linear',
+                        queue: false
+                    }
+                });
+
+                $('.portfolioFilter a').click(function(){
+                    $('.portfolioFilter .current').removeClass('current');
+                    $(this).addClass('current');
+
+                    var selector = $(this).attr('data-filter');
+                    $container.isotope({
+                        filter: selector,
+                        animationOptions: {
+                            duration: 750,
+                            easing: 'linear',
+                            queue: false
+                        }
+                    });
+                    return false;
+                }); 
+            });
+            $(document).ready(function() {
+                $('.image-popup').magnificPopup({
+                    type: 'image',
+                    closeOnContentClick: true,
+                    mainClass: 'mfp-fade',
+                    gallery: {
+                        enabled: true,
+                        navigateByImgClick: true,
+                        preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+                    }
+                });
+            });
         </script>
 
 
         <!-- CUSTOM JS -->
-        <script src="{{ URL::asset('admin_asset/js/jquery.app.js') }}"></script>
-
         <script type="text/javascript">
             /* ==============================================
             Counter Up

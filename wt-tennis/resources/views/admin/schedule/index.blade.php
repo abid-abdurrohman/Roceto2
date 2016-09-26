@@ -1,5 +1,4 @@
 @extends('admin.layouts.app')
-<<<<<<< HEAD
 @section('title', 'Data Gallery')
 @section('content')
 <div class="content">
@@ -134,10 +133,4 @@
                     </div> <!-- container -->
                                
                 </div> <!-- content --> 
- 
-=======
-@section('title', 'Data Schedule')
-@section('content')
-
->>>>>>> 5bf153c6b6dda566d0edde20d41c30d50480168a
 @endsection
