@@ -9,7 +9,7 @@
                     <h4 class="pull-left page-title">Participants</h4>
                     <ol class="breadcrumb pull-right">
                         <li><a href="#">Admin</a></li>
-                        <li><a href="{{ action('ParticipantController@index', [ $events->id, $participants->id]) }}">Participants</a></li>
+                        <li><a href="{{ action('ParticipantController@show_event', [ $events->id, $participants->id]) }}">Participants</a></li>
                         <li class="active">{{$participants->nama}}</li>
                     </ol>
                 </div>
@@ -60,9 +60,15 @@
                                     </table>
                                 </div>
                             </div>
-                            @if ( !$members->count() )
-                    				    <h4>Belum memiliki pemain.</h4>
-                    				@else
+                           
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- End Row -->
+
+                             @if ( !$members->count() )
+                                        <h4>Belum memiliki pemain.</h4>
+                                    @else
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <table id="datatable" class="table table-striped table-bordered">
@@ -104,10 +110,7 @@
                                 </div>
                             </div>
                             @endif
-                            <a href="{{ action('MemberController@create', [$events->id, $participants->id]) }}" class="btn btn-primary waves-effect waves-light">Add <i class="fa fa-plus"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- End Row -->
+                             <a href="{{ action('MemberController@create', [$events->id, $participants->id]) }}" class="btn btn-primary waves-effect waves-light">Add <i class="fa fa-plus"></i></a>
+
         </div> <!-- container -->
 @endsection

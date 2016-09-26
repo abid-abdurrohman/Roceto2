@@ -35,10 +35,12 @@
                                     <table id="datatable" class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
+                                            
                                                 <th>ID</th>
                                                 <th>Nama Event</th>
                                                 <th>Detail Event</th>
-                                                <th colspan="2">Action</th>
+                                                <th colspan="2"><center>Action</center></th>
+                                            
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -48,7 +50,7 @@
                                                 <td><a href="{{ action('EventController@show', $event->id) }}">{{ $event->nama }}</a></td>
                                                 <td>{{ $event->nama }}</td>
                                                 <td>
-                                                  <a href="{{ action('ParticipantController@show_event', $event->id) }}">Check</a>
+                                                  <center><a href="{{ action('ParticipantController@show_event', $event->id) }}" class="label label-info">Check</a></center>
                                                 </td>
                                                 <!-- <td>
                                                   <a href="{{ action('EventBracketController@show_result', $event->id) }}">Result</a>

@@ -8,6 +8,7 @@
                     <h4 class="pull-left page-title">Participants</h4>
                     <ol class="breadcrumb pull-right">
                         <li><a href="#">Admin</a></li>
+                         <li><a href="{{ action('ParticipantController@event_index') }}">Participant Event</a></li>
                         <li class="active">Participants</li>
                     </ol>
                 </div>
