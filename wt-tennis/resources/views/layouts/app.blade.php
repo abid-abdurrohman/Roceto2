@@ -137,10 +137,6 @@
                 </div>
               </div>
             </li>
-            @if (Auth::guest())
-            @else
-            <li><a class="lnk-menu {{ Request::segment(1) === 'team' ? 'active' : null }}" href="{{ action('ParticipantUserController@index',1) }}">Team</a></li>
-            @endif
             <li>
               <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'events' ? 'active' : null }}" data-toggle="dropdown"> EVENTS <b class="caret"></b></a>
               <div class="cbp-hrsub sub-little">

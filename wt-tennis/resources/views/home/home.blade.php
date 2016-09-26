@@ -53,14 +53,14 @@
           <div class="news_slide-over"></div>
            <div class="container">
             <?php
-              $konek = mysqli_connect('localhost', 'root','','eo_sport');
-              if(!$konek){
+              $con = mysqli_connect('localhost', 'root','','eo_sport');
+              if(!$con){
                 die('Could not Connect');
               }
 
-              mysqli_select_db($konek ,'eo_sport');
+              mysqli_select_db($con ,'eo_sport');
               $sql = "SELECT * FROM news ORDER BY created_at DESC LIMIT 4";
-              $result = mysqli_query($konek, $sql);
+              $result = mysqli_query($con, $sql);
             ?>
              <div class="col-xs-12 col-md-12 top-slide-info">
              <?php
@@ -87,10 +87,12 @@
                   <h2>COMPETITION</h2>
                   <?php
                     $sql = "SELECT * FROM events";
-                    $result = mysqli_query($konek, $sql);
+                    $result = mysqli_query($con, $sql);
                     while ($events = mysqli_fetch_array($result)) {
                   ?>
-                    <a href="{{ action('RegisterController@index',$events['id']) }}">{{ $events['nama'] }}</a>
+                    <div class="col-md-3" style="padding:20px">
+                      <a class="btn btn-danger" href="{{ action('RegisterController@index',$events['id']) }}">{{ $events['nama'] }}</a>
+                    </div>
                   <?php } ?>
 
                 </div>
@@ -98,9 +100,18 @@
         </div>
       </div>
      </section>
-    <!--SECTION Match TOP SCORE-->
+     <!--SECTION Match TOP SCORE-->
+
      <section id="atp-match">
-           <div class="container">
+        <div class="container">
+           <?php
+             $sql = "SELECT participants.nama_tim as nama_participant, participants.logo_tim as logo_participant,
+             match_teams.score as team_score, match_teams.comment as team_comment, matches.* FROM match_teams INNER JOIN
+             matches ON matches.id = match_teams.match_id INNER JOIN participants ON participants.id = match_teams.participant_id
+             WHERE matches.status = 'done' ORDER BY matches.waktu DESC LIMIT 2";
+             $result = mysqli_query($con, $sql);
+             if (mysqli_num_rows($result)!=0) {
+           ?>
            <div id="people-top" class="top-match col-xs-12 col-md-12">
               <h3 class="news-title n-match">Last <span>Match</span><span class="point-little">.</span></h3>
               <p class="subtitle">A small creative team, trying to enrich the lives of others and build brands
@@ -109,11 +120,6 @@
               <div class="next-match-co col-xs-12 col-md-12">
                  <div id="nextmatch-content" class="experience">
                    <?php
-                     $sql = "SELECT participants.nama_tim as nama_participant, participants.logo_tim as logo_participant,
-                     match_teams.score as team_score, match_teams.comment as team_comment, matches.* FROM match_teams INNER JOIN
-                     matches ON matches.id = match_teams.match_id INNER JOIN participants ON participants.id = match_teams.participant_id
-                     ORDER BY matches.waktu DESC LIMIT 2";
-                     $result = mysqli_query($konek, $sql);
                      while( $row = mysqli_fetch_assoc( $result)){
                          $match_teams[] = $row; // Inside while loop
                      }
@@ -155,7 +161,8 @@
                  </div>
               </div>
              </div><!--Close Top Match-->
-           </div>
+             <?php } ?>
+         </div>
      </section>
 
  <!--SECTION NEXT MATCH-->
@@ -171,11 +178,6 @@
                     </div>
                     <div id="getting-started"></div>
                     <?php
-                        $con = mysqli_connect('localhost', 'root','','eo_sport');
-                        if(!$con){
-                          die('Could not Connect');
-                        }
-                        mysqli_select_db($con ,'eo_sport');
                         $sql = "SELECT * FROM matches WHERE status='available' ORDER BY waktu DESC LIMIT 1";
                         $result = mysqli_query($con, $sql);
                         while ($row = mysqli_fetch_array($result)) {
@@ -191,6 +193,7 @@
                                 $row2['nama_participant'];
                                 $i++;
                             }
+                            if (mysqli_num_rows($result2)!=0) {
                     ?>
                     <div class="col-xs-5 col-md-5 match-team">
                         <img style="width:80px" src="{!! asset('').'/'.$match_teams[0]['logo_participant'] !!}" alt=""/>
@@ -207,7 +210,10 @@
                         <p class='sub-result'>{{ $row['tempat'] }}</p>
                         <p class="dd-news-date">{{ $row['waktu'] }}</p>
                     </div>
-                    <?php } ?>
+                    <?php
+                            }
+                        }
+                    ?>
                 </div>
                 <div class="other-match col-md-6">
                     <?php
@@ -223,9 +229,9 @@
                             $i = 0;
                             while( $row2 = mysqli_fetch_assoc( $result2)){
                                 $match_teams[$i] = $row2; // Inside while loop
-                                $row2['nama_participant'];
                                 $i++;
                             }
+                            if (mysqli_num_rows($result2)!=0) {
                     ?>
                     <div class="match-team-list">
                         <img style="width:50px" class="t-img1" src="{!! asset('').'/'.$match_teams[0]['logo_participant'] !!}" alt=""/>
@@ -236,6 +242,7 @@
                         <p>{{ $row['waktu'] }}</p>
                     </div>
                     <?php
+                          }
                       }
                     ?>
                     <a href="{{ action('FixturesUserController@index') }}">
@@ -255,74 +262,36 @@
                         <h3>Quota<span class="point-little">.</span></h3>
                         <p class="subtitle">A small creative team, trying to enrich the lives of others and build brands
                                     that a normal humans can understand.</p>
-                        <div class="col-xs-12 circle-percentage">
-                          <div class="col-xs-3">
-                            <div class="pie_progress" role="progressbar" data-goal="90" data-barcolor="#f59123" data-barsize="10">
+                        <div class="col-md-12 circle-percentage">
+                          <?php
+                              $sql = "SELECT * FROM events";
+                              $result = mysqli_query($con, $sql);
+                              while ($row = mysqli_fetch_array($result)) {
+                                $id_event = $row['id'];
+                                $sql2 = "SELECT * FROM participants WHERE event_id = '$id_event' AND status = 'validated'";
+                                $result2 = mysqli_query($con, $sql2);
+                                $count = mysqli_num_rows($result2);
+                                $kuota = ($count*100)/($row['kuota']+0.000001);
+                          ?>
+                          <div class="col-md-3" style="padding:20px">
+                            <div class="pie_progress" role="progressbar" data-goal="{{ $kuota }}" data-barcolor="#f59123" data-barsize="10">
                              <div class="pie_content">
-                                <div class="pie_progress__number">90%</div>
-                                <div class="pie_progress__content">Futsal</div>
+                                <div class="pie_progress__number">{{ $kuota }}%</div>
+                                <div class="pie_progress__content">{{ $row['nama'] }}</div>
                              </div>
                             </div>
                           </div>
-                          <div class="col-xs-3">
+                          <?php
+                              }
+                          ?>
+                          {{-- <div class="col-xs-3">
                             <div class="pie_progress" role="progressbar" data-goal="83" data-barcolor="#2c333b" data-barsize="10">
                              <div class="pie_content">
                                 <div class="pie_progress__number">83</div>
                                 <div class="pie_progress__content">Basket</div>
                              </div>
                             </div>
-                          </div>
-                          <div class="col-xs-3">
-                            <div class="pie_progress" role="progressbar" data-goal="45" data-barcolor="#f59123" data-barsize="10">
-                             <div class="pie_content">
-                                <div class="pie_progress__number">45%</div>
-                                <div class="pie_progress__content">Bulu Tangkis</div>
-                             </div>
-                            </div>
-                          </div>
-                          <div class="col-xs-3">
-                            <div class="pie_progress" role="progressbar" data-goal="73" data-barcolor="#2c333b" data-barsize="10">
-                             <div class="pie_content">
-                                <div class="pie_progress__number">73%</div>
-                                <div class="pie_progress__content">Voli</div>
-                             </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="col-xs-12 circle-percentage">
-                          <div class="col-xs-3">
-                            <div class="pie_progress" role="progressbar" data-goal="78" data-barcolor="#2c333b" data-barsize="10">
-                             <div class="pie_content">
-                                <div class="pie_progress__number">78%</div>
-                                <div class="pie_progress__content">Berenang</div>
-                             </div>
-                            </div>
-                          </div>
-                          <div class="col-xs-3">
-                            <div class="pie_progress" role="progressbar" data-goal="65" data-barcolor="#f59123" data-barsize="10">
-                             <div class="pie_content">
-                                <div class="pie_progress__number">65%</div>
-                                <div class="pie_progress__content">Marathon</div>
-                             </div>
-                            </div>
-                          </div>
-                          <div class="col-xs-3">
-                            <div class="pie_progress" role="progressbar" data-goal="32" data-barcolor="#2c333b" data-barsize="10">
-                             <div class="pie_content">
-                                <div class="pie_progress__number">32%</div>
-                                <div class="pie_progress__content">Catur</div>
-                             </div>
-                            </div>
-                          </div>
-                          <div class="col-xs-3">
-                            <div class="pie_progress" role="progressbar" data-goal="28" data-barcolor="#f59123" data-barsize="10">
-                             <div class="pie_content">
-                                <div class="pie_progress__number">28%</div>
-                                <div class="pie_progress__content">Lompat Tinggi</div>
-                             </div>
-                            </div>
-                          </div>
+                          </div> --}}
                         </div>
 
                         <div class="clear"></div>
@@ -332,7 +301,7 @@
                 </div>
      </section>
  <!-- PARALLAX BLACK TENNIS-->
-     <section class="bbtxt-content">
+     {{-- <section class="bbtxt-content">
 
            <div class="container">
                     <div class="col-xs-12 bbtxt-box">
@@ -415,7 +384,7 @@
                         </div>
                     </div>
                   </div>
-     </section>
+     </section> --}}
 
 
 <!--SECTION LAST PHOTO-->
@@ -435,7 +404,7 @@
                                       <?php
 
                                         $sql = "SELECT * FROM events";
-                                        $result = mysqli_query($konek, $sql);
+                                        $result = mysqli_query($con, $sql);
                                         while ($events = mysqli_fetch_array($result)) {
                                       ?>
                                       <li data-filter=".cat{{ $events['id']}}"><a  href="#">{{ $events['nama']}}</a></li>
@@ -453,7 +422,7 @@
           <ul class="portfolio group albumContainer">
             <?php
               $sql = "SELECT * FROM galleries";
-              $result = mysqli_query($konek, $sql);
+              $result = mysqli_query($con, $sql);
               while ($galleries = mysqli_fetch_array($result)) {
             ?>
               <li class="item block cat{{ $galleries['event_id']}} col-xs-3 ">
@@ -465,7 +434,6 @@
     <!--end Gallery-->
 
 <!--SECTION SPONSOR-->
-
 
 @include('layouts.bottom-content')
 

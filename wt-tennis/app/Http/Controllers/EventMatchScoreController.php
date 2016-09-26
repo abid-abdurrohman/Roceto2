@@ -59,6 +59,15 @@ class EventMatchScoreController extends Controller
         $match = Match::findOrFail($id_match);
         $match['status'] = 'done';
         $match->update();
+        // $match_teams = Match_team::where('match_id', $id_match)->get();
+        // foreach ($match_teams as $match_team){
+        //     $team_list[$match_team->id] = $match_team->score;
+        // }
+        //
+        // foreach ($match_teams as $match_team){
+        //     $teams = Match_team::findOrFail($match_team->id);
+        //     $teams['status'] = "win"
+        // }
         return redirect()->action('EventMatchScoreController@index', [$id])->with('info','Match has been done');
     }
 

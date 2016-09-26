@@ -110,14 +110,15 @@ class Match_teamsTableSeeder extends Seeder
            'match_id' => '7',
            'created_at' => DB::raw('NOW()'),
            'updated_at' => DB::raw('NOW()'),
-         ),array(
-           'score' => '0',
-           'comment' => 'Mesut Ozil (15:25)',
-           'participant_id' => '1',
-           'match_id' => '8',
-           'created_at' => DB::raw('NOW()'),
-           'updated_at' => DB::raw('NOW()'),
          )
+        //  ,array(
+        //    'score' => '0',
+        //    'comment' => 'Mesut Ozil (15:25)',
+        //    'participant_id' => '1',
+        //    'match_id' => '8',
+        //    'created_at' => DB::raw('NOW()'),
+        //    'updated_at' => DB::raw('NOW()'),
+        //  )
        );
        // Comment the below to stop the seeder
        DB::table('match_teams')->insert($match_teams);

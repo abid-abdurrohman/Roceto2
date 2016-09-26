@@ -6,13 +6,17 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Model\Participant;
+use App\Model\Member;
+use App\Model\Event;
 
 class ParticipantUserController extends Controller
 {
 		public function index($id)
     {
         $participants = Participant::findOrFail($id);
-        return view('participant.index', compact('participants'));
+				$events = Event::findOrfail($participants->event_id);
+				$jml_member = Member::where('participant_id',$id)->count();
+        return view('participant.index', compact('participants', 'jml_member', 'events'));
     }
 
     public function update($id, Request $request)

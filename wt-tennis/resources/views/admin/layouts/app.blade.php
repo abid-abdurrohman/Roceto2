@@ -6,54 +6,51 @@
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
         <meta name="author" content="Coderthemes">
 
-        <link rel="shortcut icon" href="images/favicon_1.ico">
+        <link rel="shortcut icon" href="{{ URL::asset('admin_asset/images/favicon_1.ico') }}">
 
         <title>@yield('title')</title>
 
-        <script src="{{ URL::asset('admin_asset/tinymce/tinymce.min.js') }}"></script>
-
         <!-- Base Css Files -->
-        <link href="{{ URL::asset('admin_asset/css/bootstrap.min.css') }}" rel="stylesheet" />
+        {{ Html::style('admin_asset/css/bootstrap.min.css') }}
 
-        <!-- ckeditor -->
-        <link rel="stylesheet" href="{{ URL::asset('admin_asset/dist/css/skins/_all-skins.min.css') }}">
-        <script src="{{ URL::asset('admin_asset/ckeditor/ckeditor.js') }}"></script>
+        <!-- all skins -->
+        {{ Html::style('admin_asset/dist/css/skins/_all-skins.min.css') }}
 
         <!-- Font Icons -->
-        <link href="{{ URL::asset('admin_asset/assets/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" />
-        <link href="{{ URL::asset('admin_asset/assets/ionicon/css/ionicons.min.css') }}" rel="stylesheet" />
-        <link href="{{ URL::asset('admin_asset/css/material-design-iconic-font.min.css') }}" rel="stylesheet">
+        {{ Html::style('admin_asset/assets/font-awesome/css/font-awesome.min.css') }}
+        {{ Html::style('admin_asset/assets/ionicon/css/ionicons.min.css') }}
+        {{ Html::style('admin_asset/css/material-design-iconic-font.min.css') }}
 
         <!-- animate css -->
-        <link href="{{ URL::asset('admin_asset/css/animate.css') }}" rel="stylesheet" />
+        {{ Html::style('admin_asset/css/animate.css') }}
 
         <!-- Waves-effect -->
-        <link href="{{ URL::asset('admin_asset/css/waves-effect.css') }}" rel="stylesheet">
+        {{ Html::style('admin_asset/css/waves-effect.css') }}
 
         <!--calendar css-->
-        <link href="{{ URL::asset('admin_asset/assets/fullcalendar/fullcalendar.css') }}" rel="stylesheet" />
-        <link href="{{ URL::asset('admin_asset/assets/select2/select2.css') }}" rel="stylesheet" type="text/css" />
+        {{ Html::style('admin_asset/assets/fullcalendar/fullcalendar.css') }}
+        {{ Html::style('admin_asset/assets/select2/select2.css') }}
 
         <!-- sweet alerts -->
-        <link href="{{ URL::asset('admin_asset/assets/sweet-alert/sweet-alert.min.css') }}" rel="stylesheet">
+        {{ Html::style('admin_asset/assets/sweet-alert/sweet-alert.min.css') }}
+
         <!-- DataTables -->
-        <link href="{{ URL::asset('admin_asset/assets/datatables/jquery.dataTables.min.css') }}" rel="stylesheet" type="text/css" />
+        {{ Html::style('admin_asset/assets/datatables/jquery.dataTables.min.css') }}
+
         <!-- Custom Files -->
-        <link href="{{ URL::asset('admin_asset/css/helper.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ URL::asset('admin_asset/css/style.css') }}" rel="stylesheet" type="text/css" />
-
-
-        <!-- Select2 css -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+        {{ Html::style('admin_asset/css/helper.css') }}
+        {{ Html::style('admin_asset/css/style.css') }}
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
+        <!--[if lt IE 9]-->
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
 
-        <script src="{{ URL::asset('admin_asset/js/modernizr.min.js') }}"></script>
+        {{ Html::script('admin_asset/js/modernizr.min.js') }}
+
+        <!-- tinymce -->
+        {{ Html::script('admin_asset/tinymce/tinymce.min.js') }}
     </head>
 
     <body class="fixed-left">
@@ -88,9 +85,9 @@
 
                             <ul class="nav navbar-nav navbar-right pull-right">
                                 @if (Auth::guest())
-                                    <li class="dropdown hidden-xs"><a href="{{ url('/login') }}">Login</a></li>
+                                    {{-- <li class="dropdown hidden-xs"><a href="{{ url('/login') }}">Login</a></li>
                                     <li class="dropdown hidden-xs"><a href="{{ url('/register') }}">Register</a></li>
-                                @else
+                                @else --}}
                                 <li class="dropdown hidden-xs">
                                     <a href="#" data-target="#" class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="true">
                                         <i class="md md-notifications"></i> <span class="badge badge-xs badge-danger">3</span>
@@ -210,183 +207,71 @@
                                   </li>
                                 </ul>
                             </li>
-                            <li>
-                                <a href="{{ action('UserAdminController@index') }}" class="waves-effect {{ Request::segment(2) === 'user' ? 'active' : null }}"><i class="fa fa-user"></i><span> User </span></a>
+                            <li class="has_sub">
+                                <a href="#" class="waves-effect"><i class="md md-invert-colors-on"></i><span> Requirement </span><span class="pull-right"><i class="md md-add"></i></span></a>
+                                <ul class="list-unstyled">
+                                  <li class="{{ Request::segment(2) === 'tag' ? 'active' : null }}">
+                                      <a href="{{ action('TagController@index') }}" class="waves-effect {{ Request::segment(2) === 'tag' ? 'active' : null }}"><i class="fa fa-tags"></i><span> Tags </span></a>
+                                  </li>
+                                  <li class="{{ Request::segment(2) === 'event-rank' ? 'active' : null }}">
+                                      <a href="{{ action('EventRankController@index') }}" class="waves-effect {{ Request::segment(2) === 'event-rank' ? 'active' : null }}"><i class="fa fa-trophy"></i><span> Ranks </span></a>
+                                  </li>
+                                </ul>
                             </li>
-                            <li>
-                                <a href="{{ action('SponsorController@index') }}" class="waves-effect {{ Request::segment(2) === 'sponsor' ? 'active' : null }}"><i class="ion-person-stalker"></i><span> Sponsor </span></a>
+                            <li class="has_sub">
+                                <a href="#" class="waves-effect"><i class="fa fa-folder-open"></i><span> Data </span><span class="pull-right"><i class="md md-add"></i></span></a>
+                                <ul class="list-unstyled">
+                                  <li class="{{ Request::segment(2) === 'user' ? 'active' : null }}">
+                                      <a href="{{ action('UserAdminController@index') }}" class="waves-effect {{ Request::segment(2) === 'user' ? 'active' : null }}"><i class="fa fa-user"></i><span> User </span></a>
+                                  </li>
+                                  <li class="{{ Request::segment(2) === 'sponsor' ? 'active' : null }}">
+                                      <a href="{{ action('SponsorController@index') }}" class="waves-effect {{ Request::segment(2) === 'sponsor' ? 'active' : null }}"><i class="ion-person-stalker"></i><span> Sponsor </span></a>
+                                  </li>
+                                </ul>
                             </li>
                             <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="md md-palette"></i><span> Event </span><span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
-                                <li>
+                                <li class="{{ Request::segment(2) === 'event' ? 'active' : null }}">
                                     <a href="{{ action('EventController@index') }}" class="waves-effect {{ Request::segment(2) === 'event' ? 'active' : null }}"><i class="fa fa-folder-open"></i><span> Events </span></a>
                                 </li>
-                                <li>
+                                <li class="{{ Request::segment(2) === 'participant' ? 'active' : null }}">
                                     <a href="{{ action('ParticipantController@index') }}" class="waves-effect {{ Request::segment(2) === 'participant' ? 'active' : null }}"><i class="fa fa-users"></i><span> Participant </span></a>
                                 </li>
-                                <li>
+                                <li class="{{ Request::segment(2) === 'event-match' ? 'active' : null }}">
                                     <a href="{{ action('EventMatchController@index') }}" class="waves-effect {{ Request::segment(2) === 'event-match' ? 'active' : null }}"><i class="fa fa-gamepad"></i><span> Match </span></a>
                                 </li>
-                                <li>
+                                <li class="{{ Request::segment(2) === 'event-bracket' ? 'active' : null }}">
                                     <a href="{{ action('EventBracketController@index') }}" class="waves-effect {{ Request::segment(2) === 'event-bracket' ? 'active' : null }}"><i class="fa fa-sitemap"></i><span> Bracket </span></a>
                                 </li>
-                                <li>
+                                <li class="{{ Request::segment(2) === 'event-score' ? 'active' : null }}">
                                     <a href="{{ action('EventMatchScoreController@event') }}" class="waves-effect {{ Request::segment(2) === 'event-score' ? 'active' : null }}"><i class="md-system-update"></i><span> Control Match </span></a>
+                                </li>
+                                <li class="{{ Request::segment(2) === 'event-statistic' ? 'active' : null }}">
+                                    <a href="{{ action('EventStatisticController@index') }}" class="waves-effect {{ Request::segment(2) === 'event-statistic' ? 'active' : null }}"><i class="fa fa-table"></i><span> Statistic </span></a>
+                                </li>
+                                <li class="{{ Request::segment(2) === 'result' ? 'active' : null }}">
+                                    <a href="{{ action('ResultController@index') }}" class="waves-effect {{ Request::segment(2) === 'result' ? 'active' : null }}"><i class="fa fa-th-list"></i><span> Result </span></a>
                                 </li>
                                 </ul>
                             </li>
                             <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="fa fa-money"></i><span> Laporan Keuangan </span><span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
-                                  <li class="{{ Request::segment(2) === 'news' ? 'active' : null }}">
-                                      <a href="{{ action('PemasukanController@index') }}" class="waves-effect {{ Request::segment(2) === 'news' ? 'active' : null }}"><i class="fa fa-mail-forward"></i><span> Pemasukan </span></a>
+                                  <li class="{{ Request::segment(2) === 'pemasukan' ? 'active' : null }}">
+                                      <a href="{{ action('PemasukanController@index') }}" class="waves-effect {{ Request::segment(2) === 'pemasukan' ? 'active' : null }}"><i class="fa fa-mail-forward"></i><span> Pemasukan </span></a>
                                   </li>
-                                  <li class="{{ Request::segment(2) === 'news' ? 'active' : null }}">
-                                      <a href="#" class="waves-effect {{ Request::segment(2) === 'news' ? 'active' : null }}"><i class="fa fa-mail-reply"></i><span> Pengeluaran </span></a>
+                                  <li class="{{ Request::segment(2) === 'pengeluaran' ? 'active' : null }}">
+                                      <a href="#" class="waves-effect {{ Request::segment(2) === 'pengeluaran' ? 'active' : null }}"><i class="fa fa-mail-reply"></i><span> Pengeluaran </span></a>
                                   </li>
-                                  <li class="{{ Request::segment(2) === 'news' ? 'active' : null }}">
-                                      <a href="#" class="waves-effect {{ Request::segment(2) === 'news' ? 'active' : null }}"><i class="fa fa-file-excel-o"></i><span> Report </span></a>
+                                  <li class="{{ Request::segment(2) === 'report' ? 'active' : null }}">
+                                      <a href="#" class="waves-effect {{ Request::segment(2) === 'report' ? 'active' : null }}"><i class="fa fa-file-excel-o"></i><span> Report </span></a>
                                   </li>
                                 </ul>
                             </li>
-                            <li>
+                            <li class="{{ Request::segment(2) === 'schedule' ? 'active' : null }}">
                                 <a href="{{ action('ScheduleController@index') }}" class="waves-effect {{ Request::segment(2) === 'schedule' ? 'active' : null }}"><i class="md md-event"></i><span> Schedule </span></a>
                             </li>
-
-                            <!-- <li class="has_sub">
-                                <a href="#" class="waves-effect"><i class="md md-mail"></i><span> Mail </span><span class="pull-right"><i class="md md-add"></i></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="inbox.html">Inbox</a></li>
-                                    <li><a href="email-compose.html">Compose Mail</a></li>
-                                    <li><a href="email-read.html">View Mail</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="calendar.html" class="waves-effect"><i class="md md-event"></i><span> Calendar </span></a>
-                            </li>
-
-                            <li class="has_sub">
-                                <a href="#" class="waves-effect"><i class="md md-palette"></i> <span> Elements </span> <span class="pull-right"><i class="md md-add"></i></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="typography.html">Typography</a></li>
-                                    <li><a href="buttons.html">Buttons</a></li>
-                                    <li><a href="panels.html">Panels</a></li>
-                                    <li><a href="checkbox-radio.html">Checkboxs-Radios</a></li>
-                                    <li><a href="tabs-accordions.html">Tabs &amp; Accordions</a></li>
-                                    <li><a href="modals.html">Modals</a></li>
-                                    <li><a href="bootstrap-ui.html">BS Elements</a></li>
-                                    <li><a href="progressbars.html">Progress Bars</a></li>
-                                    <li><a href="notification.html">Notification</a></li>
-                                    <li><a href="sweet-alert.html">Sweet-Alert</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="has_sub">
-                                <a href="#" class="waves-effect"><i class="md md-invert-colors-on"></i><span> Components </span><span class="pull-right"><i class="md md-add"></i></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="grid.html">Grid</a></li>
-                                    <li><a href="portlets.html">Portlets</a></li>
-                                    <li><a href="widgets.html">Widgets</a></li>
-                                    <li><a href="nestable-list.html">Nesteble</a></li>
-                                    <li><a href="ui-sliders.html">Sliders </a></li>
-                                    <li><a href="gallery.html">Gallery </a></li>
-                                    <li><a href="pricing.html">Pricing Table </a></li>
-                                </ul>
-                            </li>
-
-                            <li class="has_sub">
-                                <a href="#" class="waves-effect"><i class="md md-redeem"></i> <span> Icons </span> <span class="pull-right"><i class="md md-add"></i></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="material-icon.html">Material Design</a></li>
-                                    <li><a href="ion-icons.html">Ion Icons</a></li>
-                                    <li><a href="font-awesome.html">Font awesome</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="has_sub">
-                                <a href="#" class="waves-effect"><i class="md md-now-widgets"></i><span> Forms </span><span class="pull-right"><i class="md md-add"></i></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="form-elements.html">General Elements</a></li>
-                                    <li><a href="form-validation.html">Form Validation</a></li>
-                                    <li><a href="form-advanced.html">Advanced Form</a></li>
-                                    <li><a href="form-wizard.html">Form Wizard</a></li>
-                                    <li><a href="form-editor.html">WYSIWYG Editor</a></li>
-                                    <li><a href="code-editor.html">Code Editors</a></li>
-                                    <li><a href="form-uploads.html">Multiple File Upload</a></li>
-                                    <li><a href="form-xeditable.html">X-editable</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="has_sub">
-                                <a href="#" class="waves-effect"><i class="md md-view-list"></i><span> Data Tables </span><span class="pull-right"><i class="md md-add"></i></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="tables.html">Basic Tables</a></li>
-                                    <li><a href="table-datatable.html">Data Table</a></li>
-                                    <li><a href="tables-editable.html">Editable Table</a></li>
-                                    <li><a href="responsive-table.html">Responsive Table</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="has_sub">
-                                <a href="#" class="waves-effect"><i class="md md-poll"></i><span> Charts </span><span class="pull-right"><i class="md md-add"></i></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="morris-chart.html">Morris Chart</a></li>
-                                    <li><a href="chartjs.html">Chartjs</a></li>
-                                    <li><a href="flot-chart.html">Flot Chart</a></li>
-                                    <li><a href="peity-chart.html">Peity Charts</a></li>
-                                    <li><a href="charts-sparkline.html">Sparkline Charts</a></li>
-                                    <li><a href="chart-radial.html">Radial charts</a></li>
-                                    <li><a href="other-chart.html">Other Chart</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="has_sub">
-                                <a href="#" class="waves-effect"><i class="md md-place"></i><span> Maps </span><span class="pull-right"><i class="md md-add"></i></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="gmap.html"> Google Map</a></li>
-                                    <li><a href="vector-map.html"> Vector Map</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="has_sub">
-                                <a href="#" class="waves-effect"><i class="md md-pages"></i><span> Pages </span><span class="pull-right"><i class="md md-add"></i></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="profile.html">Profile</a></li>
-                                    <li><a href="timeline.html">Timeline</a></li>
-                                    <li><a href="invoice.html">Invoice</a></li>
-                                    <li><a href="email-template.html">Email template</a></li>
-                                    <li><a href="contact.html">Contact-list</a></li>
-                                    <li><a href="login.html">Login</a></li>
-                                    <li><a href="register.html">Register</a></li>
-                                    <li><a href="recoverpw.html">Recover Password</a></li>
-                                    <li><a href="lock-screen.html">Lock Screen</a></li>
-                                    <li><a href="blank.html">Blank Page</a></li>
-                                    <li><a href="maintenance.html">Maintenance</a></li>
-                                    <li><a href="coming-soon.html">Coming-soon</a></li>
-                                    <li><a href="404.html">404 Error</a></li>
-                                    <li><a href="404_alt.html">404 alt</a></li>
-                                    <li><a href="500.html">500 Error</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="md md-share"></i><span>Multi Level </span><span class="pull-right"><i class="md md-add"></i></span></a>
-                                <ul>
-                                    <li class="has_sub">
-                                        <a href="javascript:void(0);" class="waves-effect"><span>Menu Level 1.1</span> <span class="pull-right"><i class="md md-add"></i></span></a>
-                                        <ul style="">
-                                            <li><a href="javascript:void(0);"><span>Menu Level 2.1</span></a></li>
-                                            <li><a href="javascript:void(0);"><span>Menu Level 2.2</span></a></li>
-                                            <li><a href="javascript:void(0);"><span>Menu Level 2.3</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);"><span>Menu Level 1.2</span></a>
-                                    </li>
-                                </ul>
-                            </li> -->
                         </ul>
                         <div class="clearfix"></div>
                     </div>
@@ -531,53 +416,50 @@
         </script>
 
         <!-- jQuery  -->
-        <script src="{{ URL::asset('admin_asset/js/jquery.min.js') }}"></script>
-        <script src="{{ URL::asset('admin_asset/js/bootstrap.min.js') }}"></script>
-        <script src="{{ URL::asset('admin_asset/js/waves.js') }}"></script>
-        <script src="{{ URL::asset('admin_asset/js/wow.min.js') }}"></script>
-        <script src="{{ URL::asset('admin_asset/js/jquery.nicescroll.js') }}" type="text/javascript"></script>
-        <script src="{{ URL::asset('admin_asset/js/jquery.scrollTo.min.js') }}"></script>
-        <script src="{{ URL::asset('admin_asset/assets/chat/moment-2.2.1.js') }}"></script>
-        <script src="{{ URL::asset('admin_asset/assets/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
-        <script src="{{ URL::asset('admin_asset/assets/jquery-detectmobile/detect.js') }}"></script>
-        <script src="{{ URL::asset('admin_asset/assets/fastclick/fastclick.js') }}"></script>
-        <script src="{{ URL::asset('admin_asset/assets/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
-        <script src="{{ URL::asset('admin_asset/assets/jquery-blockui/jquery.blockUI.js') }}"></script>
+        {{ Html::script('admin_asset/js/jquery.min.js') }}
+        {{ Html::script('admin_asset/js/bootstrap.min.js') }}
+        {{ Html::script('admin_asset/js/waves.js') }}
+        {{ Html::script('admin_asset/js/wow.min.js') }}
+        {{ Html::script('admin_asset/js/jquery.nicescroll.js') }}
+        {{ Html::script('admin_asset/js/jquery.scrollTo.min.js') }}
+        {{ Html::script('admin_asset/assets/chat/moment-2.2.1.js') }}
+        {{ Html::script('admin_asset/assets/jquery-sparkline/jquery.sparkline.min.js') }}
+        {{ Html::script('admin_asset/assets/jquery-detectmobile/detect.js') }}
+        {{ Html::script('admin_asset/assets/fastclick/fastclick.js') }}
+        {{ Html::script('admin_asset/assets/jquery-slimscroll/jquery.slimscroll.js') }}
+        {{ Html::script('admin_asset/assets/jquery-blockui/jquery.blockUI.js') }}
 
         <!-- sweet alerts -->
-        <script src="{{ URL::asset('admin_asset/assets/sweet-alert/sweet-alert.min.js') }}"></script>
-        <script src="{{ URL::asset('admin_asset/assets/sweet-alert/sweet-alert.init.js') }}"></script>
+        {{ Html::script('admin_asset/assets/sweet-alert/sweet-alert.min.js') }}
+        {{ Html::script('admin_asset/assets/sweet-alert/sweet-alert.init.js') }}
 
         <!-- flot Chart -->
-        <script src="{{ URL::asset('admin_asset/assets/flot-chart/jquery.flot.js') }}"></script>
-        <script src="{{ URL::asset('admin_asset/assets/flot-chart/jquery.flot.time.js') }}"></script>
-        <script src="{{ URL::asset('admin_asset/assets/flot-chart/jquery.flot.tooltip.min.js') }}"></script>
-        <script src="{{ URL::asset('admin_asset/assets/flot-chart/jquery.flot.resize.js') }}"></script>
-        <script src="{{ URL::asset('admin_asset/assets/flot-chart/jquery.flot.pie.js') }}"></script>
-        <script src="{{ URL::asset('admin_asset/assets/flot-chart/jquery.flot.selection.js') }}"></script>
-        <script src="{{ URL::asset('admin_asset/assets/flot-chart/jquery.flot.stack.js') }}"></script>
-        <script src="{{ URL::asset('admin_asset/assets/flot-chart/jquery.flot.crosshair.js') }}"></script>
+        {{ Html::script('admin_asset/assets/flot-chart/jquery.flot.js') }}
+        {{ Html::script('admin_asset/assets/flot-chart/jquery.flot.time.js') }}
+        {{ Html::script('admin_asset/assets/flot-chart/jquery.flot.tooltip.min.js') }}
+        {{ Html::script('admin_asset/assets/flot-chart/jquery.flot.resize.js') }}
+        {{ Html::script('admin_asset/assets/flot-chart/jquery.flot.pie.js') }}
+        {{ Html::script('admin_asset/assets/flot-chart/jquery.flot.selection.js') }}
+        {{ Html::script('admin_asset/assets/flot-chart/jquery.flot.stack.js') }}
+        {{ Html::script('admin_asset/assets/flot-chart/jquery.flot.crosshair.js') }}
 
         <!-- Counter-up -->
-        <script src="{{ URL::asset('admin_asset/assets/counterup/waypoints.min.js') }}" type="text/javascript"></script>
-        <script src="{{ URL::asset('admin_asset/assets/counterup/jquery.counterup.min.js') }}" type="text/javascript"></script>
+        {{ Html::script('admin_asset/assets/counterup/waypoints.min.js') }}
+        {{ Html::script('admin_asset/assets/counterup/jquery.counterup.min.js') }}
 
         <!-- CUSTOM JS -->
-        <script src="{{ URL::asset('admin_asset/js/jquery.app.js') }}"></script>
-        <script src="{{ URL::asset('admin_asset/assets/datatables/jquery.dataTables.min.js') }}"></script>
-        <script src="{{ URL::asset('admin_asset/assets/datatables/dataTables.bootstrap.js') }}"></script>
+        {{ Html::script('admin_asset/js/jquery.app.js') }}
+        {{ Html::script('admin_asset/assets/datatables/jquery.dataTables.min.js') }}
+        {{ Html::script('admin_asset/assets/datatables/dataTables.bootstrap.js') }}
 
         <!-- Dashboard -->
-        <script src="{{ URL::asset('admin_asset/js/jquery.dashboard.js') }}"></script>
+        {{ Html::script('admin_asset/js/jquery.dashboard.js') }}
 
         <!-- Chat -->
-        <script src="{{ URL::asset('admin_asset/js/jquery.chat.js') }}"></script>
+        {{ Html::script('admin_asset/js/jquery.chat.js') }}
 
         <!-- Todo -->
-        <script src="{{ URL::asset('admin_asset/js/jquery.todo.js') }}"></script>
-
-        <!-- Select2 JQuery -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+        {{ Html::script('admin_asset/js/jquery.todo.js') }}
 
         <!-- Datatables JQuery -->
         <!-- <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script> -->
