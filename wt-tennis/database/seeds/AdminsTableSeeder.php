@@ -15,7 +15,7 @@ class AdminsTableSeeder extends Seeder
         // DB::table('admins')->truncate();
         $admin = array(
         	'username' => 'admin@roceto.com',
-        	'password' => encrypt('admin'),
+        	'password' => Hash::make('admin'),
         	'created_at' => DB::raw('NOW()'),
         	'updated_at' => DB::raw('NOW()'),
         );

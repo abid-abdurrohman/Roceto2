@@ -16,6 +16,7 @@ class CreateMatchTeamsTable extends Migration
             $table->increments('id');
             $table->integer('score');
             $table->text('comment');
+            $table->string('status');
             $table->integer('participant_id')->unsigned()->index();
             $table->foreign('participant_id')->references('id')->on('participants')->onDelete('cascade');
             $table->integer('match_id')->unsigned()->index();

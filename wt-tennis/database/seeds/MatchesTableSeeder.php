@@ -89,18 +89,19 @@ class MatchesTableSeeder extends Seeder
            'event_id' => '1',
            'created_at' => DB::raw('NOW()'),
            'updated_at' => DB::raw('NOW()'),
-         ),array(
-           'no_match' => '4',
-           'nama' => 'Match 8',
-           'waktu' => '2016-09-16',
-           'tempat' => 'Cikini',
-           'status' => 'available',
-           'youtube' => 'https://www.youtube.com/watch?v=mx6t6E24SSM',
-           'deskripsi' => '<p>Please welcome</p>',
-           'event_id' => '1',
-           'created_at' => DB::raw('NOW()'),
-           'updated_at' => DB::raw('NOW()'),
          )
+        //  ,array(
+        //    'no_match' => '4',
+        //    'nama' => 'Match 8',
+        //    'waktu' => '2016-09-16',
+        //    'tempat' => 'Cikini',
+        //    'status' => 'available',
+        //    'youtube' => 'https://www.youtube.com/watch?v=mx6t6E24SSM',
+        //    'deskripsi' => '<p>Please welcome</p>',
+        //    'event_id' => '1',
+        //    'created_at' => DB::raw('NOW()'),
+        //    'updated_at' => DB::raw('NOW()'),
+        //  )
        );
        // Comment the below to stop the seeder
        DB::table('matches')->insert($matches);

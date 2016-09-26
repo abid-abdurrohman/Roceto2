@@ -1,5 +1,4 @@
 @extends('admin.layouts.app')
-<<<<<<< HEAD
 @section('title', 'Data Gallery')
 @section('content')
 <div class="content">
@@ -55,7 +54,7 @@
                                                             </div>
                                                             <div class="external-event bg-purple" data-class="bg-purple" style="position: relative;">
                                                                 <i class="fa fa-move"></i>My Event Four
-                                                            </div> 
+                                                            </div>
                                                         </div>
 
                                                         <!-- checkbox -->
@@ -132,12 +131,7 @@
                         </div> <!-- end row -->
 
                     </div> <!-- container -->
-                               
-                </div> <!-- content --> 
- 
-=======
-@section('title', 'Data Schedule')
-@section('content')
 
->>>>>>> 5bf153c6b6dda566d0edde20d41c30d50480168a
+                </div> <!-- content -->
+
 @endsection

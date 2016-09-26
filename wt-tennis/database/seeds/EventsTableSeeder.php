@@ -15,7 +15,7 @@ class EventsTableSeeder extends Seeder
           array(
             'nama' => 'Futsal',
             'detail' => 'Futsal',
-            'thumbnail' => 'images/event/Futsal.jpg',
+            'thumbnail' => 'images/events/Futsal.jpg',
             'peraturan' => '<ol>
                             <li>Peraturan Perlomban</li>
                             <li>Biaya Pendaftaran</li>
@@ -28,7 +28,7 @@ class EventsTableSeeder extends Seeder
           ),array(
             'nama' => 'Basket',
             'detail' => 'Basket',
-            'thumbnail' => 'images/event/635917587797106346-USP-NCAA-BASKETBALL-UTAH-AT-OREGON-79491238.JPG',
+            'thumbnail' => 'images/events/635917587797106346-USP-NCAA-BASKETBALL-UTAH-AT-OREGON-79491238.JPG',
             'peraturan' => '<ol>
                             <li>Peraturan Perlomban</li>
                             <li>Biaya Pendaftaran</li>
@@ -41,7 +41,7 @@ class EventsTableSeeder extends Seeder
           ),array(
             'nama' => 'Bulu Tangkis',
             'detail' => 'Bulu Tangkis',
-            'thumbnail' => 'images/event/tenis.JPG',
+            'thumbnail' => 'images/events/tenis.JPG',
             'peraturan' => '<ol>
                             <li>Peraturan Perlomban</li>
                             <li>Biaya Pendaftaran</li>
