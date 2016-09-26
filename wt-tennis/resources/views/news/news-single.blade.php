@@ -48,11 +48,33 @@
         </div>
       </div>
       <br><hr><br>
+
       <!--Open comment-->
       <div class="comment-tabs">
           <ul class="nav nav-tabs" role="tablist">
               <li class="active"><a href="#comments-logout" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Comments</h4></a></li>
+              @if (Auth::guest())
+               <li><a href="#add-comment" role="tab" data-toggle="modal" data-target="#myModal"><h4 class="reviews text-capitalize">Add comment</h4></a></li>
+                <!-- sample modal content -->
+                <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h4 class="modal-title" id="myModalLabel">Please Login</h4>
+                            </div>
+                            <div class="modal-body">
+                              <p>If you want to comment this news. Login first</p>
+                              <div style="padding-left:500px">
+                                <a href="{{ action('LogController@login') }}" type="button" class="btn btn-primary waves-effect waves-light" >Login</a>
+                              </div>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+              @else
               <li><a href="#add-comment" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Add comment</h4></a></li>
+              @endif
           </ul>
           <div class="tab-content">
               <div class="tab-pane active" id="comments-logout">
@@ -73,7 +95,6 @@
                             <p class="media-comment">
                                 {!! $comment->comment !!}
                             </p>
-                            <a class="btn btn-info" href="#"><span class="fa fa-reply"></span> Reply</a>
                         </div>
                       </div>
                     </li>
@@ -106,6 +127,7 @@
     </div>
     @include('layouts.bottom-content')
   </section>
+
 @endsection
 
 @push('scripts')

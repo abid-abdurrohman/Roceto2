@@ -120,6 +120,11 @@
               <div class="next-match-co col-xs-12 col-md-12">
                  <div id="nextmatch-content" class="experience">
                    <?php
+                     $sql = "SELECT participants.nama_tim as nama_participant, participants.logo_tim as logo_participant,
+                     match_teams.score as team_score, match_teams.comment as team_comment, matches.* FROM match_teams INNER JOIN
+                     matches ON matches.id = match_teams.match_id INNER JOIN participants ON participants.id = match_teams.participant_id
+                     ORDER BY matches.waktu DESC LIMIT 2";
+                     $result = mysqli_query($con, $sql);
                      while( $row = mysqli_fetch_assoc( $result)){
                          $match_teams[] = $row; // Inside while loop
                      }
