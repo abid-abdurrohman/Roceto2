@@ -248,7 +248,7 @@
                                     <a href="{{ action('EventMatchScoreController@event') }}" class="waves-effect {{ Request::segment(2) === 'event-score' ? 'active' : null }}"><i class="md-system-update"></i><span> Control Match </span></a>
                                 </li>
                                 <li class="{{ Request::segment(2) === 'event-statistic' ? 'active' : null }}">
-                                    <a href="{{ action('EventStatisticController@index') }}" class="waves-effect {{ Request::segment(2) === 'event-statistic' ? 'active' : null }}"><i class="fa fa-table"></i><span> Statistic </span></a>
+                                    <a href="{{ action('EventStatisticController@index') }}" class="waves-effect {{ Request::segment(2) === 'event-statistic' ? 'active' : null }}"><i class="fa fa-line-chart"></i><span> Statistic </span></a>
                                 </li>
                                 <li class="{{ Request::segment(2) === 'result' ? 'active' : null }}">
                                     <a href="{{ action('ResultController@index') }}" class="waves-effect {{ Request::segment(2) === 'result' ? 'active' : null }}"><i class="fa fa-th-list"></i><span> Result </span></a>
