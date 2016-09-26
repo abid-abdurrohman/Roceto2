@@ -22,14 +22,14 @@
     <div class="general general-results players">
       <div class="top-score-title right-score col-md-9">
         <h3> {{ $participants->nama_tim }} <span>Team</span><span class="point-little">.</span></h3>
-        
+
         <table class="table" style="border:10px">
           <tbody>
             <tr>
                <td>Email</td>
               <td >:</td>
               <td>{{ $participants->email}}</td>
-            </tr>            
+            </tr>
             <tr>
               <td style="width:180px"> No. Hp</td>
               <td style="width:20px;">:</td>
@@ -49,14 +49,14 @@
               <td>Status</td>
               <td >:</td>
               <td>{{ $participants->status}}</td>
-            </tr>              
+            </tr>
           </tbody>
         </table>
 
-      <div class="div-content">  
+      <div class="div-content">
         <a class="btn btn-bordered-warning col-md-offset-8 col-md-4" data-toggle="modal" data-target="#con-close-modal4"><span class="fa fa-edit"></span> Edit Your Tim</a>
          @include('participant.modal.edit_participant')
-      </div><br> 
+      </div><br>
 
       <hr>
 
@@ -67,16 +67,16 @@
             <img src="{!! asset('').'/'.$members->foto !!}" style="width:148px; height:198px; " alt="" />
             <p> {{ $members->nama }} </p>
           </a>
-        <div class="div-content">  
+        <div class="div-content">
           <a class="btn btn-rounded btn-bordered-warning  col-md-offset-1 col-md-3" data-toggle="modal" data-target="#con-close-modal5-{{ $members->id }}"><i class="fa fa-edit" aria-hidden="true"></i></a>
           @include('participant.modal.edit_player', ['id' => $members->id])
           <a class="btn btn-rounded btn-bordered-warning  col-md-offset-2 col-md-3" data-toggle="modal" data-target="#myModal-{{ $members->id }}"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
           @include('participant.modal.delete_player', ['id' => $members->id])
-        </div> 
+        </div>
         </div>
         @include('participant.modal.player', ['nama' => $members->nama])
-        @endforeach  
-
+        @endforeach
+        @if ($jml_member < $events->jumlah_pemain)
         <div class="col-md-3 atp-player">
           <a data-toggle="modal" data-target="#con-close-modal2">
             <img src="{{ URL::asset('images/player/face.jpg') }}" alt="" />
@@ -84,6 +84,7 @@
           </a>
         </div>
         @include('participant.modal.players')
+        @endif
 
 
 

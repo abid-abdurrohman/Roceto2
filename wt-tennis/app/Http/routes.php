@@ -95,7 +95,10 @@ Route::post('admin/pro_login', 'AdminController@pro_login');
 Route::resource('admin/user', 'UserAdminController');
 Route::resource('admin/sponsor', 'SponsorController');
 Route::resource('admin/event', 'EventController');
-
+Route::resource('admin/tag', 'TagController');
+Route::get('admin/event-rank', 'EventRankController@index');
+Route::get('admin/event-rank/{id}', 'EventRankController@show');
+Route::resource('admin/event-rank.rank', 'RankController');
 Route::resource('admin/gallery', 'GalleryController');
 Route::resource('admin/schedule', 'ScheduleController');
 Route::post('admin/event/search', 'EventController@search');
@@ -117,7 +120,10 @@ Route::patch('admin/event-score/{id}/match-score/{id_match}/team/{id_team}', 'Ev
 Route::resource('admin/event-match.match', 'MatchController');
 Route::resource('admin/event-match.match.team', 'MatchTeamController');
 Route::get('admin/event/get_event','EventController@getEvent');
-
+Route::get('admin/event-statistic', 'EventStatisticController@index');
+Route::get('admin/event-statistic/{id}', 'EventStatisticController@show');
+Route::resource('admin/event-statistic.statistic', 'StatisticController');
+Route::get('admin/result', 'ResultController@index');
 Route::get('redirect/{provider}', 'SocialAuthController@redirect');
 Route::get('callback/{provider}', 'SocialAuthController@callback');
 

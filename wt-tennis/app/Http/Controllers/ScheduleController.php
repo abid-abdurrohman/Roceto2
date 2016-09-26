@@ -3,16 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-<<<<<<< HEAD
-use App\Model\Schedule;
-=======
 
->>>>>>> 5bf153c6b6dda566d0edde20d41c30d50480168a
+use App\Model\Schedule;
+
 use App\Http\Requests;
 
 class ScheduleController extends Controller
 {
-<<<<<<< HEAD
 
 	public function create(){
 		//Valores recibidos via ajax
@@ -29,9 +26,9 @@ class ScheduleController extends Controller
         $schedules->title=$title;
 
         $schedules->save();
-	};
-    
-=======
+	}
+
+
     /**
      * Display a listing of the resource.
      *
@@ -47,10 +44,7 @@ class ScheduleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -107,5 +101,4 @@ class ScheduleController extends Controller
     {
         //
     }
->>>>>>> 5bf153c6b6dda566d0edde20d41c30d50480168a
 }
