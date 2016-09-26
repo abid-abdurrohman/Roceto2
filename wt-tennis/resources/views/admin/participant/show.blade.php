@@ -37,7 +37,6 @@
                                                 <th>Jumlah Pemain</th>
                                                 <th>Biaya</th>
                                                 <th>Created At</th>
-                                                <th>Updated At</th>
                                                 <th colspan="1">Action</th>
                                             </tr>
                                         </thead>
@@ -52,7 +51,6 @@
                                                 <td>{{ $participants->jumlah_pemain }}</td>
                                                 <td>{{ $participants->biaya_pendaftaran }}</td>
                                                 <td>{{ $participants->created_at }}</td>
-                                                <td>{{ $participants->updated_at }}</td>
                                                 <td>
                                                   <a href="{{ action('ParticipantController@edit', [ $events->id, $participants->id]) }}" class="label label-success">Edit</a></td>
                                             </tr>

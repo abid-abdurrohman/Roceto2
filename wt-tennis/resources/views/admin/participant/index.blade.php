@@ -45,7 +45,6 @@
                                                 <th>Nomer Hp</th>
                                                 <th>User Id</th>
                                                 <th>Status</th>
-                                                <th>Created At</th>
                                                 <th colspan="2">Action</th>
                                             </tr>
                                         </thead>
@@ -55,7 +54,6 @@
                                                 <td>{{ $participant->id }}</td>
                                                 <td>{{ $participant->nama_tim }}</td>
                                                 <td>{{ $participant->no_hp }}</td>
-                                                <td><a href="{{ action('EventController@show', $participant->event_id) }}">{{ $participant->event_id }}</a></td>
                                                 <td>{{ $participant->user_id }}</td>
                                                 <td>{{ $participant->status }}</td>
 
