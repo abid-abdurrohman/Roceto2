@@ -109,6 +109,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('admin/participant-event.participant', 'ParticipantController');
     Route::get('admin/participant-event.participant/{id}/bukti_pembayaran', 'ParticipantController@bukti_pembayaran');
     Route::post('admin/participant-event.participant/{id}/bukti_pembayaran', 'ParticipantController@validation');
+    Route::post('admin/participant/search', 'ParticipantController@search');
     Route::resource('admin/participant-event.participant.member', 'MemberController');
     Route::get('admin/role-user', 'RoleUserController@index');
     Route::post('admin/role-user', 'RoleUserController@store');
