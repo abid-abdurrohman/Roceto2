@@ -39,13 +39,13 @@
                                 <div class="table-responsive">
                                     <table id="datatable" class="table table-striped table-bordered">
                                         <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Nama Tim</th>
-                                                <th>Nomer Hp</th>
-                                                <th>User Id</th>
-                                                <th>Status</th>
-                                                <th colspan="2">Action</th>
+                                            <tr class="success">
+                                                <th><center>ID</center></th>
+                                                <th><center>Tim</center></th>
+                                                <th><center>No Hp</center></th>
+                                                <th><center>User Id</center></th>
+                                                <th><center>Status</center></th>
+                                                <th colspan="2"><center>Action</center></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -58,12 +58,17 @@
                                                 <td>{{ $participant->status }}</td>
 
                                                 @if ($participant->status=='waiting')
-                                                    <td><a href="{{ action('ParticipantController@bukti_pembayaran', [ $events->id,$participant->id]) }}" class="label label-info" >Check</a></td>
-                                                    <td><a href="{{ action('ParticipantController@show', [ $events->id,$participant->id]) }}" class="label label-info">Detail</a></td>
+                                                    <td><center><a href="{{ action('ParticipantController@bukti_pembayaran', [ $events->id, $participant->id]) }}" class="label label-info" >Check</a></center></td>
+                                                    <td><center><a href="{{ action('ParticipantController@show', [ $events->id,$participant->id]) }}" class="label label-info">Detail</a></center></td>
                                                     @else
                                                 <td>
-                                                  <a href="#" data-toggle="modal" data-target="#myModal-{{ $events->id }}-{{ $participant->id }}" class="label label-danger">Delete</a></td>
-                                                <td><a href="{{ action('ParticipantController@show', [ $events->id,$participant->id]) }}" class="label label-info">Detail</a></td>
+                                                <center>
+                                                  <a href="#" data-toggle="modal" data-target="#myModal-{{ $events->id }}-{{ $participant->id }}" class="label label-danger">Delete</a>
+                                                </center>
+                                                  </td>
+                                                <td><center><a href="{{ action('ParticipantController@show', [ $events->id,$participant->id]) }}" class="label label-info">Detail</a>
+                                                </center>
+                                                </td>
                                                 @endif
                                             </tr>
                                             @include('admin.participant.modal.delete', ['id' => $events->id, 'id_participant'=> $participant->id])

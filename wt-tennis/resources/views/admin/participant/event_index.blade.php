@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title', 'Data Event')
+@section('title', 'Data Event Participant')
 @section('content')
         <div class="container">
             <!-- Page-Title -->
@@ -16,7 +16,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Data Event</h3>
+                            <h3 class="panel-title">Data Event Participant</h3>
                         </div>
                         <div class="panel-body">
                             <div class="row">
@@ -36,11 +36,11 @@
                                         <thead>
                                             <tr>
                                             
-                                                <th>ID</th>
-                                                <th>Nama Event</th>
-                                                <th>Detail Event</th>
+                                                <th><center>ID</center></th>
+                                                <th><center>Nama Event</center></th>
+                                                <th><center>Detail Event</center></th>
                                                 <th colspan="2"><center>Action</center></th>
-                                            
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -50,7 +50,7 @@
                                                 <td><a href="{{ action('EventController@show', $event->id) }}">{{ $event->nama }}</a></td>
                                                 <td>{{ $event->nama }}</td>
                                                 <td>
-                                                  <center><a href="{{ action('ParticipantController@show_event', $event->id) }}" class="label label-info">Check</a></center>
+                                                  <center><a href="{{ action('ParticipantController@show_event', $event->id) }}" >Check <li class="fa fa-arrow-circle-right"></li></a> </center>
                                                 </td>
                                                 <!-- <td>
                                                   <a href="{{ action('EventBracketController@show_result', $event->id) }}">Result</a>

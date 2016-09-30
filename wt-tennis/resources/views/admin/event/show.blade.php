@@ -19,7 +19,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Data </h3>
+                            <h3 class="panel-title">Detail Event {{ $events->nama }} </h3>
                         </div>
                         <div class="panel-body">
                             @include('admin.event.notification.flash')
@@ -28,15 +28,15 @@
                                     <table id="datatable" class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
-                                                <th>Nama</th>
-                                                <th>Detail</th>
-                                                <th>Thumbnail</th>
-                                                <th>Peraturan</th>
-                                                <th>Biaya Pendaftaran</th>
-                                                <th>Kuota</th>
-                                                <th>Created At</th>
-                                                <th>Update At</th>
+                                                <th><center>ID</center></th>
+                                                <th><center>Nama</center></th>
+                                                <th><center>Detail</center></th>
+                                                <th><center>Thumbnail</center></th>
+                                                <th><center>Peraturan</center></th>
+                                                <th><center>Biaya</center></th>
+                                                <th><center>Kuota</center></th>
+                                                <th><center>Created At</center></th>
+                                                <th><center>Update At</center></th>
                                             </tr>
                                         </thead>
                                         <tbody>

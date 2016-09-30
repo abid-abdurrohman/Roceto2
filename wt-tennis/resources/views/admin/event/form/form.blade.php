@@ -8,7 +8,7 @@
     ], //The plugins configuration option allows you to enable functionality within the editor.
     toolbar: 'insertfile undo redo | styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | save',
     menubar: "",
-    save_enablewhendirty: false,
+    save_enablewhendirty: true,
   });
 </script>
 

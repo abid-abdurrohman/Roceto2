@@ -20,6 +20,9 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::post('register/{id}/upload', 'BuktiBayarController@store');
 
+Route::get('register/pembayaran', 'ParticipantController@pembayaran');
+Route::post('register/pembayaran', 'ParticipantController@postPembayaran');
+
 Route::get('admin/logout', 'Auth\AuthController@getLogout');
 
 Route::get('admin/pemasukan', 'PemasukanController@index');
@@ -104,8 +107,9 @@ Route::resource('admin/news.comment', 'CommentController');
 Route::get('admin/participant-event', 'ParticipantController@event_index');
 Route::get('admin/participant-event/{id}', 'ParticipantController@show_event');
 Route::resource('admin/participant-event.participant', 'ParticipantController');
-Route::get('admin/participant-event.participant/{id}/bukti_pembayaran', 'ParticipantController@bukti_pembayaran');
-Route::post('admin/participant-event.participant/{id}/bukti_pembayaran', 'ParticipantController@validation');
+Route::get('admin/participant-event/{id}/participant/{id_participant}/bukti_pembayaran', 'ParticipantController@bukti_pembayaran');
+Route::post('admin/participant-event/{id}/participant/{id_participant}/bukti_pembayaran', 'ParticipantController@validation');
+
 
 Route::resource('admin/participant.member', 'MemberController');
 Route::get('admin/event-match', 'EventMatchController@index');
@@ -130,4 +134,4 @@ Route::get('redirect/{provider}', 'SocialAuthController@redirect');
 Route::get('callback/{provider}', 'SocialAuthController@callback');
 
 Route::post('admin/participant/search', 'ParticipantController@search');
-Route::post('admin/participant/validation/{id}', 'ParticipantController@validation');
+Route::post('admin/participant/validation/{id}/participant/{id_participant}', 'ParticipantController@validation');

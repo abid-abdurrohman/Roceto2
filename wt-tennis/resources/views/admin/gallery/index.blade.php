@@ -1,18 +1,18 @@
 @extends('admin.layouts.app')
 @section('title', 'Data Gallery')
 @section('content')
-        <div class="container">
-            <!-- Page-Title -->
-            <div class="row">
-                <div class="col-sm-12">
-                    <h4 class="pull-left page-title">Gallery</h4>
-                    <ol class="breadcrumb pull-right">
-                        <li><a href="#">Admin</a></li>
-                        <li class="active">Gallery</li>
-                    </ol>
-                </div>
-            </div>
-            <div class="row">
+<div class="container">
+    <!-- Page-Title -->
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 class="pull-left page-title">Gallery</h4>
+            <ol class="breadcrumb pull-right">
+                <li><a href="#">Admin</a></li>
+                <li class="active">Gallery</li>
+            </ol>
+        </div>
+    </div>
+     <div class="row">
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -74,10 +74,37 @@
                                     </table>
                                     {!! $galleries->links() !!}
                                 </div>
-                            </div>
+                            </div> <!--END ROW-->
                         </div>
                     </div>
                 </div>
-            </div> <!-- End Row -->
-        </div> <!-- container -->
+            </div> <!-- End Row --><br>
+
+    <!-- <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 ">
+            <div class="portfolioFilter">
+                <a data-filter="*" class="current">All</a>
+                @foreach($events as $event)
+                <a href="#" data-filter=".{{ $event->event_id }}">{{ $event->nama }}</a>
+                @endforeach
+            </div>
+        </div>
+    </div>
+
+    <div class="row port">
+        <div class="portfolioContainer">
+        @foreach($photos as $photo)
+            <div class="col-sm-6 col-lg-3 col-md-4 {{ $photo->event_id }} ">              
+                <div class="gal-detail thumb">
+                    <a href="{{ $photo->thumbnail }}" class="image-popup" title="Screenshot-1">
+                        <img src="{{ $photo->thumbnail }}" class="thumb-img" >
+                    </a>
+                    <h4>Gallary Image</h4>
+                </div>
+            </div>
+        @endforeach               
+        </div>
+    </div> --> <!-- End row -->
+
+</div> <!-- container -->
 @endsection

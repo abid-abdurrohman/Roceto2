@@ -15,57 +15,22 @@
 
 <section class="container">
 
-	<div class=" col-md-12">
-		<div class="card hovercard">
-			<div class="card-background">
-				<img class="card-bkimg" alt="" src="{!! asset('').'/'.$users->background !!}">
-				<!-- http://lorempixel.com/850/280/people/9/ -->
-			</div>
-			<div class="useravatar">
-				<img alt="" src="{!! $users->avatar !!}">
-			</div>
-			<div class="card-info">
-				<span class="card-title">{{$users->nick_name}}</span>
-			</div>
-		</div>
-
-		<div class="tab-content">
-			<div class="tab-pane fade in active" id="tab1">
-				<div class="tab-pane active" id="home-2">
-					<div class="row">
-
-						<div class="col-md-3">
-							<!-- Personal-Information -->
-							<div class="panel panel-default panel-fill">
-								<div class="panel-heading match-team">
-									<p>Personal Information</p>
+						<div class="col-md-12">
+							<div class="card hovercard">
+								<div class="card-background">
+								<img class="card-bkimg" alt="" src="{!! asset('').'/'.$users->background !!}">
 								</div>
-								<div class="panel-body">
-									<div class="about-info-p">
-										<p><b>Full Name</b></p>
-										<p class="text-muted">{{ $users->name }}</p>
-									</div>
-									<div class="about-info-p">
-										<p><strong>Mobile</strong></p>
-										<p class="text-muted">{{ $users->mobile }}</p>
-									</div>
-									<div class="about-info-p">
-										<p><strong>Email</strong></p>
-										<p class="text-muted">{{ $users->email }}</p>
-									</div>
-									<div class="about-info-p m-b-0">
-										<a class="btn btn-bordered-primary" data-toggle="modal" data-target="#con-close-modal"><span class="fa fa-edit"></span> Edit Your Personal</a>
-									</div>
-									@include('profile.modal.edit', [$users->name])
+								<div class="useravatar">
+									<img alt="" src="{!! $users->avatar !!}">
 								</div>
-							</div>
+							<div class="card-info">
+							<span class="card-title">{{$users->nick_name}}</span>
 						</div>
-						<!-- Personal-Information -->
-						<div class="col-md-9">
+					</div>
 							<!-- Personal-Information -->
 						<div class="panel panel-default panel-fill">
 							<div class="panel-heading match-team">
-								<p>The Competition</p>
+								<p>Your Payment {{ $users->name }}</p>
 							</div>
 							<div class="panel-body">
 								<div class="table-responsive">
@@ -74,10 +39,10 @@
                                             <tr>
                                                 <th>No</th>
 												<th>Competition</th>
-												<th>Single or Team</th>
-												<th>No. Hp</th>
-												<th>Status</th>
-												<th colspan="2"><center>Action</center></th>
+												<th>Participant</th>
+												<th>User</th>
+												<th>Payment</th>
+												<th colspan="1"><center>Action</center></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -85,15 +50,10 @@
                                         @foreach ($participants as $participant)
 											<tr>
 												<td>{{ $no++ }}</td>
-												<td>{{ $participant->nama_events }}</td>
-												<td>{{ $participant->nama_tim}}</td>
-												<td>{{ $participant->no_hp}}</td>
-												@if ($participant->status == "validated")
-                                                <td style="width:5px"><span class="label label-success">{{ $participant->status }}</span>
-                                                </td>
-                                                
-                                                <td style="width:5px"><a href="{{ action('ParticipantUserController@index', [$participant->id]) }}" class="btn btn-bordered-edit">Manage</a>
-												</td>
+												<td>{{ $participant->nama_event }}</td>
+												<td>{{ $participant->nama_tim }}</td>
+												<td>{{ $participant->user_id }}</td>
+												<td>Rp. {{ $participant->payment }}</td>
 
 												<td style="width:5px">
 													<a href="" class="btn btn-bordered-danger" data-toggle="modal" data-target="#myModal">Cancel</a>
@@ -116,21 +76,24 @@
 								                        </div><!-- /.modal-content -->
 								                    </div><!-- /.modal-dialog -->
 								                </div><!-- /.modal -->
-
-                                                @else
-                                                <td style="width:5px"><span class="label label-warning">{{ $participant->status }}</span>
-                                                </td>
-												<td style="width:5px"><a href=""><a class="btn btn-bordered-danger">Cancel</a></a></td>
-												<td> </td>
-                                                @endif
                                             </tr>
                                         @endforeach
                                         </tbody>
+                                        <tr>
+                                              <td colspan="4"><center><b>Total</b></center></td>
+                                              <td><b>Rp. {{ $sum }}</b></td>
+                                              <td colspan="1"></td>
+                                          </tr>
                                     </table>
                                 </div>
                             </div>
                         </div>
 									<!-- Personal-Information -->
+							<!-- Kondisi Kirim Email dan Upload bukti bayar -->
+
+							<div class="accordion waves-effect waves-light col-md-12" id="section11" data-toggle="modal" data-target="#con-close-modal2" style="text-align:center; font-size:20px; "  >Next</div>
+							@include('register.modal.email')
+
 								</div>
 							</div>
 						</div>
