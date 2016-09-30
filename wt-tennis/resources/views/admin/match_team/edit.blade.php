@@ -1,15 +1,15 @@
 @extends('admin.layouts.app')
-@section('title', 'Edit Data Member')
+@section('title', 'Edit Data Match Team')
 @section('content')
         <div class="container">
 
             <!-- Page-Title -->
             <div class="row">
                 <div class="col-sm-12">
-                    <h4 class="pull-left page-title">Member</h4>
+                    <h4 class="pull-left page-title">Match Teams</h4>
                     <ol class="breadcrumb pull-right">
                         <li><a href="#">Admin</a></li>
-                        <li><a href="{{ action('ParticipantController@show', [$events->id, $participant->id]) }}">Member</a></li>
+                        <li><a href="{{ action('MatchController@show', [$events->id, $matches->id]) }}"> Match Teams</a></li>
                         <li class="active">Edit</li>
                     </ol>
                 </div>
@@ -17,10 +17,11 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="panel panel-default">
-                        <div class="panel-heading"><h3 class="panel-title">Edit {{ $member->nama }}</h3></div>
+                        <div class="panel-heading"><h3 class="panel-title">Edit {{ $match_team->nama }}</h3></div>
                         <div class="panel-body">
-                            {!! Form::model($member, ['method' => 'PATCH', 'files'=>true, 'action' => ['MemberController@update', $events->id, $participant->id, $member->id],'class' => 'form-horizontal']) !!}
-                                @include('admin/member/form/form', ['submit_text' => 'Edit Participant'])
+                            {!! Form::model($match_team, ['method' => 'PATCH', 'action' => ['MatchTeamController@update', $events->id, $matches->id, $match_team->id],
+                            'class'=>'form-horizontal']) !!}
+                                @include('admin/match_team/form/form', ['submit_text' => 'Edit Match Team'])
                             {!! Form::close() !!}
                         </div> <!-- panel-body -->
                     </div> <!-- panel -->

@@ -9,7 +9,8 @@
             <h4 class="pull-left page-title">Participants</h4>
             <ol class="breadcrumb pull-right">
                 <li><a href="#">Admin</a></li>
-                <li><a href="{{ action('ParticipantController@index', [ $events->id, $participants->id]) }}">Participants</a></li>
+                <li><a href="{{ action('ParticipantController@event_index') }}">Participants Events</a></li>
+                <li><a href="{{ action('ParticipantController@show_event', [$events->id]) }}">Participants</a></li>
                 <li class="active">{{$participants->nama}}</li>
             </ol>
         </div>
@@ -45,7 +46,7 @@
                                     <tr>
                                         <td>{{ $participants->id }}</td>
                                         <td>{{ $participants->nama_tim }}</td>
-                                        <td>{{ $participants->logo_tim }} </td>
+                                        <td><a href="{!! asset('').'/'.$participants->logo_tim  !!}" class="image-popup" title="{{ $participants->logo_tim  }}"> {{ $participants->logo_tim }} </a></td>
                                         <td>{{ $participants->no_hp }}</td>
                                         <td>{{ $participants->email }}</td>
                                         <td>{{ $participants->warna_kostum }}</td>
@@ -81,6 +82,7 @@
                     @else
 
           <a href="{{ action('MemberController@create', [$events->id, $participants->id]) }}" class="btn btn-primary waves-effect waves-light">Add <i class="fa fa-plus"></i></a>
+          
                     <div class="row" style="padding-top:10px">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <table id="datatable" class="table table-striped table-bordered">

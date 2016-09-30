@@ -8,7 +8,7 @@
                     <h4 class="pull-left page-title">Event</h4>
                     <ol class="breadcrumb pull-right">
                         <li><a href="#">Admin</a></li>
-                        <li class="active">Event</li>
+                        <li class="active">Participant Event</li>
                     </ol>
                 </div>
             </div>

@@ -107,7 +107,7 @@ Route::resource('admin/participant-event.participant', 'ParticipantController');
 Route::get('admin/participant-event.participant/{id}/bukti_pembayaran', 'ParticipantController@bukti_pembayaran');
 Route::post('admin/participant-event.participant/{id}/bukti_pembayaran', 'ParticipantController@validation');
 
-Route::resource('admin/participant.member', 'MemberController');
+Route::resource('admin/participant-event.participant.member', 'MemberController');
 Route::get('admin/event-match', 'EventMatchController@index');
 Route::get('admin/event-match/{id}', 'EventMatchController@show');
 Route::get('admin/event-bracket', 'EventBracketController@index');

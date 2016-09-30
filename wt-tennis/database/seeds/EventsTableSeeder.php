@@ -23,6 +23,7 @@ class EventsTableSeeder extends Seeder
                             </ol>',
             'biaya_pendaftaran' => '200000',
             'kuota' => '8',
+            'jumlah_pemain' => '10',
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
@@ -36,6 +37,7 @@ class EventsTableSeeder extends Seeder
                             </ol>',
             'biaya_pendaftaran' => '250000',
             'kuota' => '8',
+            'jumlah_pemain' => '10',
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
@@ -48,7 +50,8 @@ class EventsTableSeeder extends Seeder
                             <li>Kuota Perlombaan<br /><br /></li>
                             </ol>',
             'biaya_pendaftaran' => '220000',
-            'kuota' => '8',
+            'kuota' => '4',
+            'jumlah_pemain' => '3',
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
@@ -58,6 +61,7 @@ class EventsTableSeeder extends Seeder
             'peraturan' => '',
             'biaya_pendaftaran' => '',
             'kuota' => '',
+            'jumlah_pemain' => '10',
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
@@ -67,6 +71,7 @@ class EventsTableSeeder extends Seeder
             'peraturan' => '',
             'biaya_pendaftaran' => '',
             'kuota' => '',
+            'jumlah_pemain' => '5',
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
@@ -85,6 +90,7 @@ class EventsTableSeeder extends Seeder
             'peraturan' => '',
             'biaya_pendaftaran' => '',
             'kuota' => '',
+            'jumlah_pemain' => '5',
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
@@ -94,6 +100,7 @@ class EventsTableSeeder extends Seeder
             'peraturan' => '',
             'biaya_pendaftaran' => '',
             'kuota' => '',
+            'jumlah_pemain' => '5',
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           )

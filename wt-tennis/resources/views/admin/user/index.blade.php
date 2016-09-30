@@ -51,7 +51,7 @@
                                               <td><a href="{{ action('UserAdminController@show', $user->id) }}">{{ $user->name }}</a></td>
                                               <td>{{ $user->nick_name }}</td>
                                               <td>{{ $user->email }}</td>
-                                              <td><a href="{{ action('UserAdminController@index'), $user->avatar }}"> </a> </td> 
+                                              <td><a href="{!! asset('').'/'.$user->avatar !!}" class="image-popup" title="{{ $user->avatar }}"> {{ $user->avatar }} </td> 
                                               <td>{{ $user->created_at }}</td>
                                               <td>
                                                 <a href="{{ action('UserAdminController@edit', $user->id) }}">
