@@ -34,22 +34,27 @@
         <!-- sweet alerts -->
         {{ Html::style('admin_asset/assets/sweet-alert/sweet-alert.min.css') }}
 
+        <!--venobox lightbox-->
+        <link href="{{ URL::asset('admin_asset/assets/magnific-popup/magnific-popup.css') }}" rel="stylesheet" type="text/css" />
+
         <!-- DataTables -->
         {{ Html::style('admin_asset/assets/datatables/jquery.dataTables.min.css') }}
+
 
         <!-- Custom Files -->
         {{ Html::style('admin_asset/css/helper.css') }}
         {{ Html::style('admin_asset/css/style.css') }}
         <!-- Select2 css -->
+
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 <!--
+>>>>>>> 2b8728d4570ec4071018f3ae5f3959a2dfb75c2f
         <link href="{{ URL::asset('fullcalendar/fullcalendar.css') }}"/>
-        <link href="{{ URL::asset('fullcalendar/fullcalendar.min.css') }}"/> -->
+        <link href="{{ URL::asset('fullcalendar/fullcalendar.min.css') }}"/>
         <!--calendar -->
         <link href="{{ URL::asset('admin_asset/assets/fullcalendar/bootstrap-fullcalendar.css') }}" rel="stylesheet" />
         <link href="{{ URL::asset('admin_asset/assets/fullcalendar/fullcalendar.css') }}" rel="stylesheet" />
         <link href="{{ URL::asset('admin_asset/assets/fullcalendar/fullcalendar.min.css') }}" rel="stylesheet" />
-        <link href="{{ URL::asset('admin_asset/assets/select2/select2.css') }}" rel="stylesheet" type="text/css" />
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -250,8 +255,8 @@
                                 <li class="{{ Request::segment(2) === 'event' ? 'active' : null }}">
                                     <a href="{{ action('EventController@index') }}" class="waves-effect {{ Request::segment(2) === 'event' ? 'active' : null }}"><i class="fa fa-folder-open"></i><span> Events </span></a>
                                 </li>
-                                <li class="{{ Request::segment(2) === 'participant' ? 'active' : null }}">
-                                    <a href="{{ action('ParticipantController@index') }}" class="waves-effect {{ Request::segment(2) === 'participant' ? 'active' : null }}"><i class="fa fa-users"></i><span> Participant </span></a>
+                                <li>
+                                    <a href="{{ action('ParticipantController@event_index') }}" class="waves-effect {{ Request::segment(2) === 'participant-event' ? 'active' : null }}"><i class="fa fa-users"></i><span> Participant </span></a>
                                 </li>
                                 <li class="{{ Request::segment(2) === 'event-match' ? 'active' : null }}">
                                     <a href="{{ action('EventMatchController@index') }}" class="waves-effect {{ Request::segment(2) === 'event-match' ? 'active' : null }}"><i class="fa fa-gamepad"></i><span> Match </span></a>
@@ -287,140 +292,6 @@
                             <li class="{{ Request::segment(2) === 'schedule' ? 'active' : null }}">
                                 <a href="{{ action('ScheduleController@index') }}" class="waves-effect {{ Request::segment(2) === 'schedule' ? 'active' : null }}"><i class="md md-event"></i><span> Schedule </span></a>
                             </li>
-
-                            <!-- <li class="has_sub">
-                                <a href="#" class="waves-effect"><i class="md md-mail"></i><span> Mail </span><span class="pull-right"><i class="md md-add"></i></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="inbox.html">Inbox</a></li>
-                                    <li><a href="email-compose.html">Compose Mail</a></li>
-                                    <li><a href="email-read.html">View Mail</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="calendar.html" class="waves-effect"><i class="md md-event"></i><span> Calendar </span></a>
-                            </li>
-
-                            <li class="has_sub">
-                                <a href="#" class="waves-effect"><i class="md md-palette"></i> <span> Elements </span> <span class="pull-right"><i class="md md-add"></i></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="typography.html">Typography</a></li>
-                                    <li><a href="buttons.html">Buttons</a></li>
-                                    <li><a href="panels.html">Panels</a></li>
-                                    <li><a href="checkbox-radio.html">Checkboxs-Radios</a></li>
-                                    <li><a href="tabs-accordions.html">Tabs &amp; Accordions</a></li>
-                                    <li><a href="modals.html">Modals</a></li>
-                                    <li><a href="bootstrap-ui.html">BS Elements</a></li>
-                                    <li><a href="progressbars.html">Progress Bars</a></li>
-                                    <li><a href="notification.html">Notification</a></li>
-                                    <li><a href="sweet-alert.html">Sweet-Alert</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="has_sub">
-                                <a href="#" class="waves-effect"><i class="md md-invert-colors-on"></i><span> Components </span><span class="pull-right"><i class="md md-add"></i></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="grid.html">Grid</a></li>
-                                    <li><a href="portlets.html">Portlets</a></li>
-                                    <li><a href="widgets.html">Widgets</a></li>
-                                    <li><a href="nestable-list.html">Nesteble</a></li>
-                                    <li><a href="ui-sliders.html">Sliders </a></li>
-                                    <li><a href="gallery.html">Gallery </a></li>
-                                    <li><a href="pricing.html">Pricing Table </a></li>
-                                </ul>
-                            </li>
-
-                            <li class="has_sub">
-                                <a href="#" class="waves-effect"><i class="md md-redeem"></i> <span> Icons </span> <span class="pull-right"><i class="md md-add"></i></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="material-icon.html">Material Design</a></li>
-                                    <li><a href="ion-icons.html">Ion Icons</a></li>
-                                    <li><a href="font-awesome.html">Font awesome</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="has_sub">
-                                <a href="#" class="waves-effect"><i class="md md-now-widgets"></i><span> Forms </span><span class="pull-right"><i class="md md-add"></i></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="form-elements.html">General Elements</a></li>
-                                    <li><a href="form-validation.html">Form Validation</a></li>
-                                    <li><a href="form-advanced.html">Advanced Form</a></li>
-                                    <li><a href="form-wizard.html">Form Wizard</a></li>
-                                    <li><a href="form-editor.html">WYSIWYG Editor</a></li>
-                                    <li><a href="code-editor.html">Code Editors</a></li>
-                                    <li><a href="form-uploads.html">Multiple File Upload</a></li>
-                                    <li><a href="form-xeditable.html">X-editable</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="has_sub">
-                                <a href="#" class="waves-effect"><i class="md md-view-list"></i><span> Data Tables </span><span class="pull-right"><i class="md md-add"></i></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="tables.html">Basic Tables</a></li>
-                                    <li><a href="table-datatable.html">Data Table</a></li>
-                                    <li><a href="tables-editable.html">Editable Table</a></li>
-                                    <li><a href="responsive-table.html">Responsive Table</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="has_sub">
-                                <a href="#" class="waves-effect"><i class="md md-poll"></i><span> Charts </span><span class="pull-right"><i class="md md-add"></i></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="morris-chart.html">Morris Chart</a></li>
-                                    <li><a href="chartjs.html">Chartjs</a></li>
-                                    <li><a href="flot-chart.html">Flot Chart</a></li>
-                                    <li><a href="peity-chart.html">Peity Charts</a></li>
-                                    <li><a href="charts-sparkline.html">Sparkline Charts</a></li>
-                                    <li><a href="chart-radial.html">Radial charts</a></li>
-                                    <li><a href="other-chart.html">Other Chart</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="has_sub">
-                                <a href="#" class="waves-effect"><i class="md md-place"></i><span> Maps </span><span class="pull-right"><i class="md md-add"></i></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="gmap.html"> Google Map</a></li>
-                                    <li><a href="vector-map.html"> Vector Map</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="has_sub">
-                                <a href="#" class="waves-effect"><i class="md md-pages"></i><span> Pages </span><span class="pull-right"><i class="md md-add"></i></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="profile.html">Profile</a></li>
-                                    <li><a href="timeline.html">Timeline</a></li>
-                                    <li><a href="invoice.html">Invoice</a></li>
-                                    <li><a href="email-template.html">Email template</a></li>
-                                    <li><a href="contact.html">Contact-list</a></li>
-                                    <li><a href="login.html">Login</a></li>
-                                    <li><a href="register.html">Register</a></li>
-                                    <li><a href="recoverpw.html">Recover Password</a></li>
-                                    <li><a href="lock-screen.html">Lock Screen</a></li>
-                                    <li><a href="blank.html">Blank Page</a></li>
-                                    <li><a href="maintenance.html">Maintenance</a></li>
-                                    <li><a href="coming-soon.html">Coming-soon</a></li>
-                                    <li><a href="404.html">404 Error</a></li>
-                                    <li><a href="404_alt.html">404 alt</a></li>
-                                    <li><a href="500.html">500 Error</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="md md-share"></i><span>Multi Level </span><span class="pull-right"><i class="md md-add"></i></span></a>
-                                <ul>
-                                    <li class="has_sub">
-                                        <a href="javascript:void(0);" class="waves-effect"><span>Menu Level 1.1</span> <span class="pull-right"><i class="md md-add"></i></span></a>
-                                        <ul style="">
-                                            <li><a href="javascript:void(0);"><span>Menu Level 2.1</span></a></li>
-                                            <li><a href="javascript:void(0);"><span>Menu Level 2.2</span></a></li>
-                                            <li><a href="javascript:void(0);"><span>Menu Level 2.3</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);"><span>Menu Level 1.2</span></a>
-                                    </li>
-                                </ul>
-                            </li> -->
                         </ul>
                         <div class="clearfix"></div>
                     </div>
@@ -611,10 +482,6 @@
         {{ Html::script('admin_asset/js/jquery.todo.js') }}
 
         <!-- Schedule -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.0.0/fullcalendar.min.js"></script>
-        <!-- <script src="{{ URL::asset('fullcalendar/lib/jquery.min.js') }}"></script> -->
-
-
 
         <!-- Datatables JQuery -->
         <!-- <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script> -->
@@ -625,14 +492,53 @@
         <script src="{{ URL::asset('admin_asset/assets/fullcalendar/fullcalendar.js') }}"></script>
         <script src="{{ URL::asset('admin_asset/assets/fullcalendar/moment.min.js') }}"></script>
 
-        <script src="{{ URL::asset('admin_asset/js/modernizr.min.js') }}"></script>
-        <script>
-            var resizefunc = [];
+       <script type="text/javascript" src="{{ URL::asset('admin_asset/assets/gallery/isotope.js') }}"></script>
+        <script type="text/javascript" src="{{ URL::asset('admin_asset/assets/magnific-popup/magnific-popup.js') }}"></script>
+
+        <script type="text/javascript">
+            $(window).load(function(){
+                var $container = $('.portfolioContainer');
+                $container.isotope({
+                    filter: '*',
+                    animationOptions: {
+                        duration: 750,
+                        easing: 'linear',
+                        queue: false
+                    }
+                });
+
+                $('.portfolioFilter a').click(function(){
+                    $('.portfolioFilter .current').removeClass('current');
+                    $(this).addClass('current');
+
+                    var selector = $(this).attr('data-filter');
+                    $container.isotope({
+                        filter: selector,
+                        animationOptions: {
+                            duration: 750,
+                            easing: 'linear',
+                            queue: false
+                        }
+                    });
+                    return false;
+                });
+            });
+            $(document).ready(function() {
+                $('.image-popup').magnificPopup({
+                    type: 'image',
+                    closeOnContentClick: true,
+                    mainClass: 'mfp-fade',
+                    gallery: {
+                        enabled: true,
+                        navigateByImgClick: true,
+                        preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+                    }
+                });
+            });
         </script>
 
 
         <!-- CUSTOM JS -->
-
         <script type="text/javascript">
             /* ==============================================
             Counter Up

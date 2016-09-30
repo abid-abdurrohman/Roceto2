@@ -28,6 +28,14 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::get('', 'HomeController@index');
 Route::get('home', 'HomeController@index');
+/*link menu*/
+
+Route::post('register/{id}/upload', 'BuktiBayarController@store');
+
+Route::get('admin/logout', 'Auth\AuthController@getLogout');
+
+Route::get('admin/pemasukan', 'PemasukanController@index');
+
 Route::get('login', 'LogController@login');
 Route::get('register', 'LogController@register');
 Route::get('redirect/{provider}', 'SocialAuthController@redirect');
@@ -64,7 +72,6 @@ Route::get('bracket/{id}/getPDF', 'BracketUserController@getPDF');
 
 Route::group(['middleware' => 'admin'], function () {
     /*link admin*/
-    Route::get('admin/pemasukan', 'PemasukanController@index');
     // Route::get('admin', 'AdminController@login');
     Route::get('admin', 'AdminController@index');
     Route::post('admin/pro_login', 'AdminController@pro_login');
@@ -78,8 +85,6 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/event/search', 'EventController@search');
     Route::resource('admin/news', 'NewsController');
     Route::resource('admin/news.comment', 'CommentController');
-    Route::resource('admin/participant', 'ParticipantController');
-    Route::resource('admin/participant.member', 'MemberController');
     Route::get('admin/event-match', 'EventMatchController@index');
     Route::get('admin/event-match/{id}', 'EventMatchController@show');
     Route::get('admin/event-bracket', 'EventBracketController@index');
@@ -99,10 +104,13 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('admin/event-statistic.statistic', 'StatisticController');
     Route::get('admin/result', 'ResultController@index');
     Route::get('admin/logout', 'Auth\AuthController@getLogout');
-    Route::get('admin/participant/{id}/bukti_pembayaran', 'ParticipantController@bukti_pembayaran');
-    Route::post('admin/participant/{id}/bukti_pembayaran', 'ParticipantController@validation');
-    Route::post('admin/participant/search', 'ParticipantController@search');
-    Route::post('admin/participant/validation/{id}', 'ParticipantController@validation');
+    Route::get('admin/participant-event', 'ParticipantController@event_index');
+    Route::get('admin/participant-event/{id}', 'ParticipantController@show_event');
+    Route::resource('admin/participant-event.participant', 'ParticipantController');
+    Route::get('admin/participant-event.participant/{id}/bukti_pembayaran', 'ParticipantController@bukti_pembayaran');
+    Route::post('admin/participant-event.participant/{id}/bukti_pembayaran', 'ParticipantController@validation');
+    Route::resource('admin/participant-event.participant.member', 'MemberController');
     Route::get('admin/role-user', 'RoleUserController@index');
     Route::post('admin/role-user', 'RoleUserController@store');
+    Route::get('admin/pemasukan', 'PemasukanController@index');
 });

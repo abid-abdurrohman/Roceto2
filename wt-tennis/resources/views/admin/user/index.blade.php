@@ -30,6 +30,7 @@
                               </div>
                             </div><br>
                             <div class="row">
+                              <div class="table-responsive">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                   <table id="datatable" class="table table-striped table-bordered">
                                       <thead>
@@ -50,7 +51,7 @@
                                               <td><a href="{{ action('UserAdminController@show', $user->id) }}">{{ $user->name }}</a></td>
                                               <td>{{ $user->nick_name }}</td>
                                               <td>{{ $user->email }}</td>
-                                              <td>{{ $user->avatar }}</td>
+                                              <td><a href="{!! asset('').'/'.$user->avatar !!}" class="image-popup" title="{{ $user->avatar }}"> {{ $user->avatar }} </td> 
                                               <td>{{ $user->created_at }}</td>
                                               <td>
                                                 <a href="{{ action('UserAdminController@edit', $user->id) }}">
@@ -70,6 +71,7 @@
                                   {!! $users->links() !!}
                                 </div>
                             </div>
+                           </div>
                         </div>
                     </div>
                 </div>

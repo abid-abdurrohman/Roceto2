@@ -73,8 +73,23 @@ class MatchController extends Controller
         $matches = Match::findOrFail($id_match);
         $match_teams = Match_team::where('match_id', $id_match)->join('participants', 'participants.id', '=', 'match_teams.participant_id')
           ->select('participants.nama_tim as nama_participant', 'match_teams.*')->get();
+<<<<<<< HEAD
         $participants = Participant::where('event_id', $id)->where('status', 'validated')->lists('nama_tim', 'id');
         return view('admin.match.show', compact('events', 'matches', 'participants', 'match_teams'));
+=======
+        $teams = Match_team::join('matches', 'matches.id', '=', 'match_teams.match_id')
+          ->join('participants', 'participants.id', '=', 'match_teams.participant_id')
+          ->select('participants.nama_tim as nama_participant', 'participants.logo_tim as logo_participant',
+          'match_teams.score as team_score', 'match_teams.comment as team_comment', 'matches.*')
+          ->where('match_id', $id_match)->get()->toArray();
+        $participants = Participant::where('event_id', $id)->where('status','validated')->lists('nama_tim', 'id');
+        $count = Match_team::join('matches', 'matches.id', '=', 'match_teams.match_id')
+          ->join('participants', 'participants.id', '=', 'match_teams.participant_id')
+          ->select('participants.nama_tim as nama_participant', 'participants.logo_tim as logo_participant',
+          'match_teams.score as team_score', 'match_teams.comment as team_comment', 'matches.*')
+          ->where('match_id', $id_match)->get();
+        return view('admin.match.show', compact('events', 'matches', 'participants', 'match_teams', 'teams', 'count'));
+>>>>>>> 043dfa65eceafa9d596d4bc868b299683c0a74f4
     }
 
     /**

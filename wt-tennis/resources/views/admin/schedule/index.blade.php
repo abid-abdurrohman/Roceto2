@@ -131,7 +131,12 @@
                         </div> <!-- end row -->
 
                     </div> <!-- container -->
+<<<<<<< HEAD
+                               
+                </div> <!-- content --> 
+=======
 
                 </div> <!-- content -->
 
+>>>>>>> 2b8728d4570ec4071018f3ae5f3959a2dfb75c2f
 @endsection

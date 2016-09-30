@@ -24,7 +24,7 @@
                               <div class="col-md-5">
                                 <a class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#con-close-modal">Add <i class="fa fa-plus"></i></a>
                                 @include('admin.news.modal.create')
-                              </div>
+                              </div>  
                               <div class="col-md-6">
                                 <div id="datatable_filter" class="dataTables_filter">
                                     <label>Search:
@@ -34,6 +34,7 @@
                               </div>
                             </div><br>
                             <div class="row">
+                              <div class="table-responsive">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <table id="datatable" class="table table-striped table-bordered">
                                         <thead>
@@ -70,6 +71,7 @@
                                     {!! $news->links() !!}
                                 </div>
                             </div>
+                          </div>
                         </div>
                     </div>
                 </div>

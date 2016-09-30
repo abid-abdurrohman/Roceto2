@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\User;
+use App\Model\Participant;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Hash;
 
@@ -60,7 +61,9 @@ class UserAdminController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
-        return view('admin.user.show', compact('user'));
+        $participants = Participant::join('events', 'events.id', '=', 'participants.event_id')
+        ->where('participants.user_id', $id)->select('events.nama as nama_event', 'participants.*')->get();
+        return view('admin.user.show', compact('user', 'participants'));
     }
 
     /**
@@ -93,6 +96,13 @@ class UserAdminController extends Controller
         ]);
         $users = User::findOrFail($id);
         $users->update($request->all());
+
+        $photo = $request->avatar->getClientOriginalName();
+        $destination = 'images/user/'.$request->name.'/avatar/';
+        $request->avatar->move($destination, $photo);
+        $input['avatar'] = $destination.$photo;
+
+        $users->update($input);
         return redirect()->action('UserAdminController@index')->with('info','User has been edited');
     }
 

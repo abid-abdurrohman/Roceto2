@@ -14,11 +14,14 @@ class GalleryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
+        $events = Event::all();
+        $photos = Gallery::all();
         $galleries = Gallery::join('events', 'events.id', '=', 'galleries.event_id')
           ->select('events.nama as nama_event', 'galleries.*')->paginate(5);
-        return view('admin.gallery.index', compact('galleries'));
+        return view('admin.gallery.index', compact('events', 'photos', 'galleries'));
     }
 
     /**

@@ -19,7 +19,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading"><h3 class="panel-title">Edit {{ $users->nama }}</h3></div>
                         <div class="panel-body">
-                            {!! Form::model($users, ['method' => 'PATCH', 'action' => ['UserAdminController@update', $users->id],
+                            {!! Form::model($users, ['method' => 'PATCH', 'files' => true, 'action' => ['UserAdminController@update', $users->id],
                             'class'=>'form-horizontal']) !!}
                                 @include('admin/user/form/form', ['submit_text' => 'Edit User'])
                             {!! Form::close() !!}
