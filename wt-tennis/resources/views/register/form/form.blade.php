@@ -1,35 +1,29 @@
 <div class="form-group">
-    <label class="col-md-2 control-label">Nama</label>
+    <label class="col-md-2 control-label"><center>Nama</center></label>
     <div class="col-md-10">
         {!! Form::text('nama_tim', null, ['class' => 'form-control', 'placeholder' => 'Write your name', 'required'], '') !!}
     </div>
 </div>
 <div class="form-group">
-    <label class="col-md-2 control-label">Photo</label>
+    <label class="col-md-2 control-label"><center>Photo</center></label>
     <div class="col-md-10">
         {!! Form::file('logo_tim', null, ['class' => 'form-control input-md', 'required'],'') !!}
     </div>
 </div>
 <div class="form-group">
-    <label class="col-md-2 control-label">Nomer HP</label>
+    <label class="col-md-2 control-label"><center>Nomer HP</center></label>
     <div class="col-md-10">
         {!! Form::text('no_hp', null, ['class' => 'form-control', 'placeholder' => 'Write your phone number', 'required'], '') !!}
     </div>
 </div>
 <div class="form-group">
-    <label class="col-md-2 control-label">Email</label>
-    <div class="col-md-10">
-        {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Write your mail', 'required'], '') !!}
-    </div>
-</div>
-<div class="form-group">
-    <label class="col-md-2 control-label">Warna Kostum</label>
+    <label class="col-md-2 control-label"><center>Warna Kostum</center></label>
     <div class="col-md-10">
         {!! Form::text('warna_kostum', null, ['class' => 'form-control', 'placeholder' => 'Write yours color', 'required'], '') !!}
     </div>
 </div>
 <div class="form-group">
-    <label class="col-md-2 control-label">Jumlah Pemain</label>
+    <label class="col-md-2 control-label"><center>Jumlah Pemain</center></label>
     <div class="col-md-10">
         {!! Form::text('jumlah_pemain', null, ['class' => 'form-control', 'placeholder' => 'Write a num', 'required'], '') !!}
     </div>

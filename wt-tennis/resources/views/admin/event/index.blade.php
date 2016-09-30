@@ -34,10 +34,10 @@
                                   <table id="datatable" class="table table-striped table-bordered">
                                       <thead>
                                           <tr>
-                                              <th>ID</th>
-                                              <th>Nama Event</th>
-                                              <th>Detail Event</th>
-                                              <th>Waktu</th>
+                                              <th><center>ID</center></th>
+                                              <th><center>Nama Event</center></th>
+                                              <th><center>Detail Event</center></th>
+                                              <th><center>Waktu</center></th>
                                               <th colspan="3"><center>Action</center></th>
                                           </tr>
                                       </thead>

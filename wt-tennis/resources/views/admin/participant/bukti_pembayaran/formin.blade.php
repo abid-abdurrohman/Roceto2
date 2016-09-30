@@ -8,7 +8,7 @@
         <div class="col-sm-12">
             <h4 class="pull-left page-title">Bukti Pembayaran</h4>
             <ol class="breadcrumb pull-right">
-                <li><a href=" {{ action('ParticipantController@index', $participant->id) }} ">Participants</a></li>
+                <li><a href=" {{ action('ParticipantController@show_event', [ $events->id]) }} ">Participants</a></li>
                 <li><a href="">Bukti Pembayaran</a></li>
             </ol>
         </div>
@@ -48,11 +48,11 @@
                                         <td>{{ $bukti_pembayaran->updated_at }}</td>
                                         <td>
                                         @if( $bukti_pembayaran->status_participant == 'validated')
-                                        <a href="#" class="btn btn-info"  disabled>Approve</a></td>
-                                            @include('admin.participant.modal.validation', ['id' => $participant->id])
+                                        <a href="#" class="btn btn-info"  disabled>Approve</a>
+                                            @include('admin.participant.modal.validation', ['id' => $events->id , 'id_participant' =>$participant->id])
                                             @else
-                                            <a href="#" class="btn btn-info" data-toggle="modal" data-target="#Validation-{{ $participant->id }}" >Approve</a></td>
-                                            @include('admin.participant.modal.validation', ['id' => $participant->id])
+                                            <a href="#" class="btn btn-info" data-toggle="modal" data-target="#myModal-{{ $events->id }}-{{ $participant->id }}" >Approve</a>
+                                            @include('admin.participant.modal.validation', ['id' => $events->id, 'id_participant' =>$participant->id ])
                                             @endif
                                         <td>
                                     </tr>

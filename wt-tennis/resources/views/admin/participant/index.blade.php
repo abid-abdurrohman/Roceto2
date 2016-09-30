@@ -8,9 +8,14 @@
                     <h4 class="pull-left page-title">Participants</h4>
                     <ol class="breadcrumb pull-right">
                         <li><a href="#">Admin</a></li>
+<<<<<<< HEAD
+                         <li><a href="{{ action('ParticipantController@event_index') }}">Participant Event</a></li>
+                        <li class="active">Participants</li>
+=======
                         <li><a href="{{ action('ParticipantController@event_index')}}">Participants Events</a></li>                        
                         <li class="active">Participant</li>
                         
+>>>>>>> 0f9f3dbc03cf55916a9ad0045ba70ed188e69714
                     </ol>
                 </div>
             </div>
@@ -40,14 +45,13 @@
                                 <div class="table-responsive">
                                     <table id="datatable" class="table table-striped table-bordered">
                                         <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Nama Tim</th>
-                                                <th>Nomer Hp</th>
-                                                <th>User Id</th>
-                                                <th>Status</th>
-                                                <th>Created At</th>
-                                                <th colspan="2">Action</th>
+                                            <tr class="success">
+                                                <th><center>ID</center></th>
+                                                <th><center>Tim</center></th>
+                                                <th><center>No Hp</center></th>
+                                                <th><center>User Id</center></th>
+                                                <th><center>Status</center></th>
+                                                <th colspan="2"><center>Action</center></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -56,17 +60,21 @@
                                                 <td>{{ $participant->id }}</td>
                                                 <td>{{ $participant->nama_tim }}</td>
                                                 <td>{{ $participant->no_hp }}</td>
-                                                <td><a href="{{ action('EventController@show', $participant->event_id) }}">{{ $participant->event_id }}</a></td>
                                                 <td>{{ $participant->user_id }}</td>
                                                 <td>{{ $participant->status }}</td>
 
                                                 @if ($participant->status=='waiting')
-                                                    <td><a href="{{ action('ParticipantController@bukti_pembayaran', [ $events->id,$participant->id]) }}" class="label label-info" >Check</a></td>
-                                                    <td><a href="{{ action('ParticipantController@show', [ $events->id,$participant->id]) }}" class="label label-info">Detail</a></td>
+                                                    <td><center><a href="{{ action('ParticipantController@bukti_pembayaran', [ $events->id, $participant->id]) }}" class="label label-info" >Check</a></center></td>
+                                                    <td><center><a href="{{ action('ParticipantController@show', [ $events->id,$participant->id]) }}" class="label label-info">Detail</a></center></td>
                                                     @else
                                                 <td>
-                                                  <a href="#" data-toggle="modal" data-target="#myModal-{{ $events->id }}-{{ $participant->id }}" class="label label-danger">Delete</a></td>
-                                                <td><a href="{{ action('ParticipantController@show', [ $events->id,$participant->id]) }}" class="label label-info">Detail</a></td>
+                                                <center>
+                                                  <a href="#" data-toggle="modal" data-target="#myModal-{{ $events->id }}-{{ $participant->id }}" class="label label-danger">Delete</a>
+                                                </center>
+                                                  </td>
+                                                <td><center><a href="{{ action('ParticipantController@show', [ $events->id,$participant->id]) }}" class="label label-info">Detail</a>
+                                                </center>
+                                                </td>
                                                 @endif
                                             </tr>
                                             @include('admin.participant.modal.delete', ['id' => $events->id, 'id_participant'=> $participant->id])

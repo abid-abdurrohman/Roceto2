@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Mail;
+
 use App\Model\Participant;
 use App\Model\Category;
 use App\Model\Event;
 use App\Model\Member;
 use App\Model\BuktiPembayaran;
 use App\Model\Pemasukan;
+use App\Model\User;
 use Illuminate\Http\Request;
 use DB;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class ParticipantController extends Controller
 {
@@ -169,12 +173,43 @@ class ParticipantController extends Controller
     {
         $events = Event::findOrFail($id);
         $bukti_pembayaran = BuktiPembayaran::join('participants', 'participants.id', '=' , 'bukti_pembayaran.participant_id')->where('participant_id', $id_participant)->select('participants.status as status_participant', 'bukti_pembayaran.*')->first();
-        $participant=participant::findOrFail($id_participant);
+        $participant= Participant::findOrFail($id_participant);
         return view('admin.participant.bukti_pembayaran.formin', compact('bukti_pembayaran', 'participant', 'events'));
     }
     public function event_index()
     {
         $event_index = Event::paginate(5);
         return view('admin.participant.event_index', compact('event_index'));
+    }
+
+    public function pembayaran()
+    {
+        $id_user = Auth::user()->id;
+        $users = User::findOrFail($id_user);
+        $participants = Participant::join('events' , 'events.id', '=' , 'participants.event_id')
+        ->select('events.nama as nama_event', 'events.biaya_pendaftaran as payment' , 'participants.*')->where('participants.user_id', $id_user)->get();
+        $sum = Participant::join('events' , 'events.id', '=' , 'participants.event_id')->where('participants.user_id', $id_user)->select('events.nama as nama_event', 'events.biaya_pendaftaran as payment' , 'participants.*')->sum('events.biaya_pendaftaran');
+
+        
+        return view('register.pembayaran.pembayaran', compact('users', 'participants', 'sum'));
+
+    }
+    public function postPembayaran(request $request)
+    {
+        $id_user = Auth::user()->id;
+        $users = User::findOrFail($id_user);
+        
+        $sum = Participant::join('events' , 'events.id', '=' , 'participants.event_id')->where('participants.user_id', $id_user)->select('events.nama as nama_event', 'events.biaya_pendaftaran as payment' , 'participants.*')->sum('events.biaya_pendaftaran');
+
+        $users['email'] = $users->email;
+        Mail::send('emails.bukti_pembayaran',
+            array (
+            'nama' => $users->name,
+            'biaya_pendaftaran' => $sum,
+                ), function($message) use($users){
+            $message->to($users->email)->from('rocetomazzido@gmail.com')->subject('Welcome!');
+          }
+            );
+        return redirect()->action('ParticipantController@pembayaran');
     }
 }

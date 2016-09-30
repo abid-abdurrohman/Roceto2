@@ -76,7 +76,9 @@
        <a href="{{ action('LogController@login') }}">Login</a>
        <a href="{{ action('LogController@register') }}">Sign Up</a>
        @else
+
        <li class="dropdown">
+       <a href="{{ action('ParticipantController@pembayaran') }}"><i class="fa fa-bell"></i> Bayar</a>
            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                {{ Auth::user()->name }} <span class="caret"></span>
            </a>

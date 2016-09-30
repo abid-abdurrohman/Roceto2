@@ -60,11 +60,15 @@
             <li class="desc-prod" style="text-align:justify">Wasit berhak untuk memperhatikan permainan para pemain dan mencatat jumlah pelanggaran dan memberi tahu wasit pembantu apabila terjadi pelanggaran berturut-turut.</li>
           </div> -->
           <br>
-          <div class="accordion waves-effect waves-light col-md-6" id="section11" data-toggle="modal" data-target="#con-close-modal" style="text-align:center">Ayo Join!</div>
-          @include('register.modal.register')
-          <span><span></span></span>
-          <div class="accordion waves-effect waves-light col-md-6" id="section11" data-toggle="modal" data-target="#con-close-modal2" style="text-align:center">Upload Bukti Daftar!</div>
-          @include('register.modal.upload')
+          @if($participant  == null)
+            <div class="accordion waves-effect waves-light col-md-12" id="section11" data-toggle="modal" data-target="#con-close-modal" style="text-align:center">Ayo Join!</div>
+            @include('register.modal.register')
+          @elseif($participant->status =='waiting')
+            <div class="accordion waves-effect waves-light col-md-12" id="section11" data-toggle="modal" data-target="#con-close-modal2" style="text-align:center" disabled >Upload Bukti Daftar!</div>
+          @else
+            <div class="accordion waves-effect waves-light col-md-12" id="section11" data-toggle="modal" data-target="#con-close-modal2" style="text-align:center">Upload Bukti Daftar!</div>
+            @include('register.modal.upload')
+          @endif
          </div>
        </div>
      </div>

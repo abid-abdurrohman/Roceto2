@@ -28,7 +28,9 @@ class RegisterController extends Controller
     public function index($id)
     {
         $events = Event::findOrFail($id);
-        return view('register.register', compact('events'));
+        $user=Auth::user()->id;
+        $participant= Participant::where('user_id', $user)->where('event_id', $id)->first();
+        return view('register.register', compact('events', 'participant'));
     }
 
     public function store($id, Request $request)

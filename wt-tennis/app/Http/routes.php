@@ -32,6 +32,9 @@ Route::get('home', 'HomeController@index');
 
 Route::post('register/{id}/upload', 'BuktiBayarController@store');
 
+Route::get('register/pembayaran', 'ParticipantController@pembayaran');
+Route::post('register/pembayaran', 'ParticipantController@postPembayaran');
+
 Route::get('admin/logout', 'Auth\AuthController@getLogout');
 
 Route::get('admin/pemasukan', 'PemasukanController@index');
@@ -115,3 +118,52 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/role-user', 'RoleUserController@store');
     Route::get('admin/pemasukan', 'PemasukanController@index');
 });
+<<<<<<< HEAD
+Route::get('admin', 'AdminController@login');
+Route::get('admin/home', 'AdminController@index');
+Route::post('admin/pro_login', 'AdminController@pro_login');
+Route::resource('admin/user', 'UserAdminController');
+Route::resource('admin/sponsor', 'SponsorController');
+Route::resource('admin/event', 'EventController');
+Route::resource('admin/tag', 'TagController');
+Route::get('admin/event-rank', 'EventRankController@index');
+Route::get('admin/event-rank/{id}', 'EventRankController@show');
+Route::resource('admin/event-rank.rank', 'RankController');
+Route::resource('admin/gallery', 'GalleryController');
+Route::resource('admin/schedule', 'ScheduleController');
+Route::post('admin/event/search', 'EventController@search');
+Route::resource('admin/news', 'NewsController');
+Route::resource('admin/news.comment', 'CommentController');
+Route::get('admin/participant-event', 'ParticipantController@event_index');
+Route::get('admin/participant-event/{id}', 'ParticipantController@show_event');
+Route::resource('admin/participant-event.participant', 'ParticipantController');
+Route::get('admin/participant-event/{id}/participant/{id_participant}/bukti_pembayaran', 'ParticipantController@bukti_pembayaran');
+Route::post('admin/participant-event/{id}/participant/{id_participant}/bukti_pembayaran', 'ParticipantController@validation');
+
+
+Route::resource('admin/participant.member', 'MemberController');
+Route::get('admin/event-match', 'EventMatchController@index');
+Route::get('admin/event-match/{id}', 'EventMatchController@show');
+Route::get('admin/event-bracket', 'EventBracketController@index');
+Route::get('admin/event-result/{id}', 'EventBracketController@show_result');
+Route::get('admin/event-bracket/{id}', 'EventBracketController@show');
+Route::get('admin/event-score', 'EventMatchScoreController@event');
+Route::get('admin/event-score/{id}', 'EventMatchScoreController@index');
+Route::get('admin/event-score/{id}/match-score/{id_match}', 'EventMatchScoreController@show');
+Route::post('admin/event-score/{id}/match-score/{id_match}', 'EventMatchScoreController@endmatch');
+Route::patch('admin/event-score/{id}/match-score/{id_match}', 'EventMatchScoreController@startmatch');
+Route::patch('admin/event-score/{id}/match-score/{id_match}/team/{id_team}', 'EventMatchScoreController@update');
+Route::resource('admin/event-match.match', 'MatchController');
+Route::resource('admin/event-match.match.team', 'MatchTeamController');
+Route::get('admin/event/get_event','EventController@getEvent');
+Route::get('admin/event-statistic', 'EventStatisticController@index');
+Route::get('admin/event-statistic/{id}', 'EventStatisticController@show');
+Route::resource('admin/event-statistic.statistic', 'StatisticController');
+Route::get('admin/result', 'ResultController@index');
+Route::get('redirect/{provider}', 'SocialAuthController@redirect');
+Route::get('callback/{provider}', 'SocialAuthController@callback');
+
+Route::post('admin/participant/search', 'ParticipantController@search');
+Route::post('admin/participant/validation/{id}/participant/{id_participant}', 'ParticipantController@validation');
+=======
+>>>>>>> 0f9f3dbc03cf55916a9ad0045ba70ed188e69714
