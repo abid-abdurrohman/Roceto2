@@ -95,9 +95,9 @@
 
                             <ul class="nav navbar-nav navbar-right pull-right">
                                 @if (Auth::guest())
-                                    {{-- <li class="dropdown hidden-xs"><a href="{{ url('/login') }}">Login</a></li>
+                                    <li class="dropdown hidden-xs"><a href="{{ url('/login') }}">Login</a></li>
                                     <li class="dropdown hidden-xs"><a href="{{ url('/register') }}">Register</a></li>
-                                @else --}}
+                                @else
                                 <li class="dropdown hidden-xs">
                                     <a href="#" data-target="#" class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="true">
                                         <i class="md md-notifications"></i> <span class="badge badge-xs badge-danger">3</span>
@@ -162,11 +162,13 @@
                                     <a href="#" class="right-bar-toggle waves-effect waves-light"><i class="md md-chat"></i></a>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="" class="dropdown-toggle profile" data-toggle="dropdown" aria-expanded="true"><img src="{{ URL::asset('admin_asset/images/avatar-1.jpg') }}" alt="user-img" class="img-circle"> </a>
+                                    <a href="" class="dropdown-toggle profile" data-toggle="dropdown" aria-expanded="true">
+                                      <img src="{!! asset('').Auth::user()->avatar !!}" alt="user-img" class="img-circle">
+                                    </a>
                                     <ul class="dropdown-menu">
                                         <li><a href="javascript:void(0)"><i class="md md-face-unlock"></i> Profile</a></li>
-                                        <li><a href="javascript:void(0)"><i class="md md-settings"></i> Settings</a></li>
-                                        <li><a href="javascript:void(0)"><i class="md md-lock"></i> Lock screen</a></li>
+                                        {{-- <li><a href="javascript:void(0)"><i class="md md-settings"></i> Settings</a></li>
+                                        <li><a href="javascript:void(0)"><i class="md md-lock"></i> Lock screen</a></li> --}}
                                         <li><a href="{{ url('/logout') }}"><i class="md md-settings-power"></i> Logout</a></li>
                                     </ul>
                                 </li>
@@ -184,15 +186,15 @@
                 <div class="sidebar-inner slimscrollleft">
                     <div class="user-details">
                         <div class="pull-left">
-                            <img src="{{ URL::asset('admin_asset/images/users/avatar-1.jpg') }}" alt="" class="thumb-md img-circle">
+                            <img src="{!! asset('').Auth::user()->avatar !!}" alt="" class="thumb-md img-circle">
                         </div>
                         <div class="user-info">
                             <div class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">John Doe <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="javascript:void(0)"><i class="md md-face-unlock"></i> Profile<div class="ripple-wrapper"></div></a></li>
-                                    <li><a href="javascript:void(0)"><i class="md md-settings"></i> Settings</a></li>
-                                    <li><a href="javascript:void(0)"><i class="md md-lock"></i> Lock screen</a></li>
+                                    {{-- <li><a href="javascript:void(0)"><i class="md md-settings"></i> Settings</a></li>
+                                    <li><a href="javascript:void(0)"><i class="md md-lock"></i> Lock screen</a></li> --}}
                                     <li><a href="javascript:void(0)"><i class="md md-settings-power"></i> Logout</a></li>
                                 </ul>
                             </div>
@@ -223,8 +225,8 @@
                                   <li class="{{ Request::segment(2) === 'tag' ? 'active' : null }}">
                                       <a href="{{ action('TagController@index') }}" class="waves-effect {{ Request::segment(2) === 'tag' ? 'active' : null }}"><i class="fa fa-tags"></i><span> Tags </span></a>
                                   </li>
-                                  <li class="{{ Request::segment(2) === 'event-rank' ? 'active' : null }}">
-                                      <a href="{{ action('EventRankController@index') }}" class="waves-effect {{ Request::segment(2) === 'event-rank' ? 'active' : null }}"><i class="fa fa-trophy"></i><span> Ranks </span></a>
+                                  <li class="{{ Request::segment(2) === 'rank' ? 'active' : null }}">
+                                      <a href="{{ action('RankController@index') }}" class="waves-effect {{ Request::segment(2) === 'rank' ? 'active' : null }}"><i class="fa fa-trophy"></i><span> Ranks </span></a>
                                   </li>
                                 </ul>
                             </li>
@@ -234,13 +236,16 @@
                                   <li class="{{ Request::segment(2) === 'user' ? 'active' : null }}">
                                       <a href="{{ action('UserAdminController@index') }}" class="waves-effect {{ Request::segment(2) === 'user' ? 'active' : null }}"><i class="fa fa-user"></i><span> User </span></a>
                                   </li>
+                                  <li class="{{ Request::segment(2) === 'role-user' ? 'active' : null }}">
+                                      <a href="{{ action('RoleUserController@index') }}" class="waves-effect {{ Request::segment(2) === 'role-user' ? 'active' : null }}"><i class="fa fa-user"></i><span> Role User </span></a>
+                                  </li>
                                   <li class="{{ Request::segment(2) === 'sponsor' ? 'active' : null }}">
                                       <a href="{{ action('SponsorController@index') }}" class="waves-effect {{ Request::segment(2) === 'sponsor' ? 'active' : null }}"><i class="ion-person-stalker"></i><span> Sponsor </span></a>
                                   </li>
                                 </ul>
                             </li>
                             <li class="has_sub">
-                                <a href="#" class="waves-effect"><i class="md md-palette"></i><span> Event </span><span class="pull-right"><i class="md md-add"></i></span></a>
+                                <a href="#" class="waves-effect"><i class="fa fa-life-buoy"></i><span> Event </span><span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
                                 <li class="{{ Request::segment(2) === 'event' ? 'active' : null }}">
                                     <a href="{{ action('EventController@index') }}" class="waves-effect {{ Request::segment(2) === 'event' ? 'active' : null }}"><i class="fa fa-folder-open"></i><span> Events </span></a>
@@ -255,7 +260,7 @@
                                     <a href="{{ action('EventBracketController@index') }}" class="waves-effect {{ Request::segment(2) === 'event-bracket' ? 'active' : null }}"><i class="fa fa-sitemap"></i><span> Bracket </span></a>
                                 </li>
                                 <li class="{{ Request::segment(2) === 'event-score' ? 'active' : null }}">
-                                    <a href="{{ action('EventMatchScoreController@event') }}" class="waves-effect {{ Request::segment(2) === 'event-score' ? 'active' : null }}"><i class="md-system-update"></i><span> Control Match </span></a>
+                                    <a href="{{ action('EventMatchScoreController@event') }}" class="waves-effect {{ Request::segment(2) === 'event-score' ? 'active' : null }}"><i class="fa fa-toggle-right"></i><span> Control Match </span></a>
                                 </li>
                                 <li class="{{ Request::segment(2) === 'event-statistic' ? 'active' : null }}">
                                     <a href="{{ action('EventStatisticController@index') }}" class="waves-effect {{ Request::segment(2) === 'event-statistic' ? 'active' : null }}"><i class="fa fa-line-chart"></i><span> Statistic </span></a>

@@ -35,6 +35,6 @@ class Participant extends Model
     }
 
     public function statistic() {
-         return $this->hasMany('App\Model\Statistic');
+         return $this->hasOne('App\Model\Statistic');
     }
 }

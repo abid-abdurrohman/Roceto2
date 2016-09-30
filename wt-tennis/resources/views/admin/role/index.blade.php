@@ -1,14 +1,14 @@
 @extends('admin.layouts.app')
-@section('title', 'Data Rank')
+@section('title', 'Role User')
 @section('content')
         <div class="container">
             <!-- Page-Title -->
             <div class="row">
                 <div class="col-sm-12">
-                    <h4 class="pull-left page-title">Ranks</h4>
+                    <h4 class="pull-left page-title">Role Users</h4>
                     <ol class="breadcrumb pull-right">
                         <li><a href="#">Admin</a></li>
-                        <li class="active">Ranks</li>
+                        <li class="active">Role Users</li>
                     </ol>
                 </div>
             </div>
@@ -16,14 +16,14 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Data Ranks</h3>
+                            <h3 class="panel-title">Role Users</h3>
                         </div>
                         <div class="panel-body">
-                            @include('admin.rank.notification.flash')
+                            @include('admin.user.notification.flash')
                             <div class="row">
                               <div class="col-md-5">
                                 <a class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#con-close-modal">Add <i class="fa fa-plus"></i></a>
-                                @include('admin.rank.modal.create')
+                                @include('admin.user.modal.create')
                               </div>
                               <div class="col-md-6">
                               </div>
@@ -34,37 +34,38 @@
                                       <thead>
                                           <tr>
                                               <th>ID</th>
-                                              <th>Title</th>
-                                              <th>Daskripsi</th>
-                                              <th>Point</th>
-                                              <th>Waktu</th>
-                                              <th colspan="2">Action</th>
+                                              <th>Nama User</th>
+                                              <th>Email</th>
+                                              <th>User</th>
+                                              <th>Author</th>
+                                              <th>Admin</th>
+                                              <th>Action</th>
                                           </tr>
                                       </thead>
                                       <tbody>
-                                        @foreach ($ranks as $rank)
+                                        @foreach ($users as $user)
+                                          {!! Form::open(['action' => 'RoleUserController@store',  'class'=>'form-horizontal']) !!}
                                           <tr>
-                                              <td>{{ $rank->id }}</td>
-                                              <td><a href="{{ action('RankController@show', [$rank->id]) }}">{{ $rank->title }}</a></td>
-                                              <td>{{ $rank->deskripsi }}</td>
-                                              <td>{{ $rank->point }}</td>
-                                              <td>{{ $rank->created_at }}</td>
+                                              <td>{{ $user->id }}</td>
+                                              <td><a href="{{ action('UserAdminController@show', $user->id) }}">{{ $user->name }}</a></td>
                                               <td>
-                                                <a href="{{ action('RankController@edit', [$rank->id]) }}">
-                                                  <i class="fa fa-edit"></i> Edit
-                                                </a>
+                                                {{ $user->email }}
+                                                <input type="hidden" name="email" value="{{ $user->email }}">
                                               </td>
+                                              <td><input type="checkbox" {{ $user->hasRole('User') ? 'checked' : '' }} name="role_user"></td>
+                                              <td><input type="checkbox" {{ $user->hasRole('Author') ? 'checked' : '' }} name="role_author"></td>
+                                              <td><input type="checkbox" {{ $user->hasRole('Admin') ? 'checked' : '' }} name="role_admin"></td>
                                               <td>
-                                                <a href="#" data-toggle="modal" data-target="#myModal-{{ $rank->id }}">
-                                                  <i class="fa fa-trash"></i> Delete
-                                                </a>
+                                                <button class="btn btn-default" type="submit">
+                                                  Submit
+                                                </button>
                                               </td>
                                           </tr>
-                                          @include('admin.rank.modal.delete', ['id' => $rank->id])
+                                          {!! Form::close() !!}
                                         @endforeach
                                       </tbody>
                                   </table>
-                                  {!! $ranks->links() !!}
+                                  {!! $users->links() !!}
                                 </div>
                             </div>
                         </div>

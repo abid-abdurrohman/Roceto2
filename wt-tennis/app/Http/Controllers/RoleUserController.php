@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\Rank;
+use App\Model\User;
+use App\Model\Role;
 use App\Http\Requests;
 
-class RankController extends Controller
+class RoleUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,8 @@ class RankController extends Controller
      */
     public function index()
     {
-        $ranks = Rank::paginate(5);
-        return view('admin.rank.index', compact('ranks'));
+        $users = User::paginate(5);
+        return view('admin.role.index', compact('users'));
     }
 
     /**
@@ -26,8 +27,7 @@ class RankController extends Controller
      */
     public function create()
     {
-        $ranks = Rank::all();
-        return view('admin.rank.create', compact('ranks'));
+        //
     }
 
     /**
@@ -38,14 +38,18 @@ class RankController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'title' => 'required',
-            'deskripsi' => 'required',
-            'point' => 'required',
-        ]);
-        $input = $request->all();
-        Rank::create($input);
-        return redirect()->action('RankController@index')->with('success', 'Rank has been created');
+        $user = User::where('email', $request['email'])->first();
+        $user->role()->detach();
+        if ($request['role_user']) {
+           $user->role()->attach(Role::where('nama', 'User')->first());
+        }
+        if ($request['role_author']) {
+           $user->role()->attach(Role::where('nama', 'Author')->first());
+        }
+        if ($request['role_admin']) {
+           $user->role()->attach(Role::where('nama', 'Admin')->first());
+        }
+        return redirect()->back();
     }
 
     /**
@@ -56,8 +60,7 @@ class RankController extends Controller
      */
     public function show($id)
     {
-        $rank = Rank::findOrFail($id);
-        return view('admin.rank.show', compact('rank'));
+        //
     }
 
     /**
@@ -68,8 +71,7 @@ class RankController extends Controller
      */
     public function edit($id)
     {
-        $ranks = Rank::findOrFail($id);
-        return view('admin.rank.edit', compact('ranks'));
+        //
     }
 
     /**
@@ -81,15 +83,7 @@ class RankController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'title' => 'required',
-            'deskripsi' => 'required',
-            'point' => 'required',
-        ]);
-        $input = $request->all();
-        $rank = Rank::findOrFail($id);
-        $rank->update($input);
-        return redirect()->action('RankController@index')->with('info', 'Rank has been updated');
+        //
     }
 
     /**
@@ -100,8 +94,6 @@ class RankController extends Controller
      */
     public function destroy($id)
     {
-        $ranks = Rank::findOrFail($id);
-        $ranks->delete();
-        return redirect()->action('RankController@index')->with('danger','Rank has been deleted');
+        //
     }
 }

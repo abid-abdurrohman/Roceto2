@@ -73,7 +73,7 @@ class MatchController extends Controller
         $matches = Match::findOrFail($id_match);
         $match_teams = Match_team::where('match_id', $id_match)->join('participants', 'participants.id', '=', 'match_teams.participant_id')
           ->select('participants.nama_tim as nama_participant', 'match_teams.*')->get();
-        $participants = Participant::where('event_id', $id)->lists('nama_tim', 'id');
+        $participants = Participant::where('event_id', $id)->where('status', 'validated')->lists('nama_tim', 'id');
         return view('admin.match.show', compact('events', 'matches', 'participants', 'match_teams'));
     }
 

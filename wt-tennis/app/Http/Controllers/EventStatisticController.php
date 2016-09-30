@@ -32,7 +32,7 @@ class EventStatisticController extends Controller
         ->where('participants.event_id', $id)
         ->select('participants.nama_tim as nama_participant', 'ranks.title as nama_rank', 'statistics.*')->paginate(5);
         $participants = Participant::where('event_id', $id)->lists('nama_tim', 'id');
-        $ranks = Rank::where('event_id', $id)->lists('title', 'id');
+        $ranks = Rank::lists('title', 'id');
         return view('admin.statistic.index', compact('statistics', 'events', 'participants', 'ranks'));
     }
 }

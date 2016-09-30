@@ -15,11 +15,11 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
       'Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode',
-      // 'Illuminate\Cookie\Middleware\EncryptCookies',
-      // 'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
-      // 'Illuminate\Session\Middleware\StartSession',
-      // 'Illuminate\View\Middleware\ShareErrorsFromSession',
-      // 'App\Http\Middleware\VerifyCsrfToken',
+      'Illuminate\Cookie\Middleware\EncryptCookies',
+      'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
+      'Illuminate\Session\Middleware\StartSession',
+      'Illuminate\View\Middleware\ShareErrorsFromSession',
+      'App\Http\Middleware\VerifyCsrfToken',
       // 'App\Http\Middleware\AdminMiddleware',
     ];
 
@@ -28,19 +28,28 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
-    protected $middlewareGroups = [
-        'web' => [
-            \App\Http\Middleware\EncryptCookies::class,
-            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-            \Illuminate\Session\Middleware\StartSession::class,
-            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \App\Http\Middleware\VerifyCsrfToken::class,
-        ],
+     protected $middlewareGroups = [
+       'web' => [
+         \App\Http\Middleware\EncryptCookies::class,
+         \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+         \Illuminate\Session\Middleware\StartSession::class,
+         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+         \App\Http\Middleware\VerifyCsrfToken::class,
+       ],
 
-        'api' => [
-            'throttle:60,1',
-            'auth:api',
-        ],
+       'admin' => [
+         \App\Http\Middleware\EncryptCookies::class,
+         \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+         \Illuminate\Session\Middleware\StartSession::class,
+         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+         \App\Http\Middleware\VerifyCsrfToken::class,
+         \App\Http\Middleware\Admin::class,
+       ],
+
+       'api' => [
+         \App\Http\Middleware\AllowOrigin::class,
+         // 'throttle:60,1',
+       ],
     ];
 
     /**
@@ -56,6 +65,7 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'admin' => \App\Http\Middleware\AdminMiddleware::class,
+        'adminRole'  => \App\Http\Middleware\Admin::class,
+        'roles' => \App\Http\Middleware\CheckRole::class,
     ];
 }
