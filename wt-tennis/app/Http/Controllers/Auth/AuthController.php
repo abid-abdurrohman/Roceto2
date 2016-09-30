@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Model\User;
+use App\Model\Role;
 use Validator;
 use Session;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
@@ -64,11 +66,28 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        // Create the User and store the object
+        $newUser = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+
+        // Add extra data
+        $userRole = Role::where('nama', 'User')->first();
+        $newUser->role()->attach($userRole->id);
+
+        // Return the new User object
+        return $newUser;
+        // $user = new User();
+        // $user->name = $data['name'];
+        // $user->email = $data['email'];
+        // $user->password = bcrypt($data['password']);
+        // $user->save();
+        // $user->role()->attach(Role::where('nama', 'User')->first());
+        // Auth::login($user);
+        // return redirect()->route('/home');
+
     }
 
     public function getLogout()

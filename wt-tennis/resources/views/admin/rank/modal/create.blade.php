@@ -6,7 +6,7 @@
                 <h4 class="modal-title">Create Rank</h4>
             </div>
             <div class="modal-body">
-              {!! Form::model(new App\Model\Rank, ['action' => ['RankController@store', $events->id], 'class'=>'form-horizontal']) !!}
+              {!! Form::model(new App\Model\Rank, ['action' => ['RankController@store'], 'class'=>'form-horizontal']) !!}
                   @include('admin.rank.form.form', ['submit_text' => 'Add Rank'])
               {!! Form::close() !!}
             </div>

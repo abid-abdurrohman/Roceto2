@@ -1399,7 +1399,7 @@ body.fixed-left .side-menu.left {
   vertical-align: middle;
 }
 #sidebar-menu > ul > li > a:hover {
-  background: #f3f3f3;
+  background: #B8CAF0;
 }
 #sidebar-menu > ul > li > a > i {
   display: inline-block;
@@ -1420,10 +1420,10 @@ body.fixed-left .side-menu.left {
 }
 #sidebar-menu > ul > li > a.active,
 #sidebar-menu > ul > li > a.active.subdrop {
-  background: #f3f3f3 !important;
+  background: #B8CAF0 !important;
 }
 .subdrop {
-  background: #f3f3f3;
+  background: #B8CAF0;
 }
 
 #sidebar-menu ul ul {
@@ -1457,7 +1457,7 @@ body.fixed-left .side-menu.left {
   padding-left: 10px;
 }
 #wrapper.enlarged .left.side-menu #sidebar-menu > ul > li > a:hover {
-  background-color: #f3f3f3 !important;
+  background-color: #B8CAF0 !important;
 }
 #wrapper.enlarged .left.side-menu {
   width: 50px;

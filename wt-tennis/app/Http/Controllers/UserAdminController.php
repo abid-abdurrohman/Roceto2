@@ -96,6 +96,13 @@ class UserAdminController extends Controller
         ]);
         $users = User::findOrFail($id);
         $users->update($request->all());
+
+        $photo = $request->avatar->getClientOriginalName();
+        $destination = 'images/user/'.$request->name.'/avatar/';
+        $request->avatar->move($destination, $photo);
+        $input['avatar'] = $destination.$photo;
+
+        $users->update($input);
         return redirect()->action('UserAdminController@index')->with('info','User has been edited');
     }
 

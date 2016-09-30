@@ -8,8 +8,14 @@
                     <h4 class="pull-left page-title">Participants</h4>
                     <ol class="breadcrumb pull-right">
                         <li><a href="#">Admin</a></li>
+<<<<<<< HEAD
                          <li><a href="{{ action('ParticipantController@event_index') }}">Participant Event</a></li>
                         <li class="active">Participants</li>
+=======
+                        <li><a href="{{ action('ParticipantController@event_index')}}">Participants Events</a></li>                        
+                        <li class="active">Participant</li>
+                        
+>>>>>>> 0f9f3dbc03cf55916a9ad0045ba70ed188e69714
                     </ol>
                 </div>
             </div>

@@ -9,7 +9,7 @@
                     <h4 class="pull-left page-title">Rank</h4>
                     <ol class="breadcrumb pull-right">
                         <li><a href="#">Admin</a></li>
-                        <li><a href="{{ action('RankController@index', $events->id) }}">Rank</a></li>
+                        <li><a href="{{ action('RankController@index') }}">Rank</a></li>
                         <li class="active">{{$rank->title}}</li>
                     </ol>
                 </div>

@@ -45,17 +45,17 @@
                                         @foreach ($ranks as $rank)
                                           <tr>
                                               <td>{{ $rank->id }}</td>
-                                              <td><a href="{{ action('RankController@show', [$events->id, $rank->id]) }}">{{ $rank->title }}</a></td>
+                                              <td><a href="{{ action('RankController@show', [$rank->id]) }}">{{ $rank->title }}</a></td>
                                               <td>{{ $rank->deskripsi }}</td>
                                               <td>{{ $rank->point }}</td>
                                               <td>{{ $rank->created_at }}</td>
                                               <td>
-                                                <a href="{{ action('RankController@edit', [$events->id, $rank->id]) }}">
+                                                <a href="{{ action('RankController@edit', [$rank->id]) }}">
                                                   <i class="fa fa-edit"></i> Edit
                                                 </a>
                                               </td>
                                               <td>
-                                                <a href="#" data-toggle="modal" data-target="#myModal-{{ $events->id }}-{{ $rank->id }}">
+                                                <a href="#" data-toggle="modal" data-target="#myModal-{{ $rank->id }}">
                                                   <i class="fa fa-trash"></i> Delete
                                                 </a>
                                               </td>

@@ -79,7 +79,11 @@ class MatchTeamController extends Controller
      */
     public function edit($id, $id_match, $id_team)
     {
-        //
+        $events = Event::findOrFail($id);
+        $matches = Member::findOrFail($id_match);
+        $match_team = Match_team::findOrFail($id_team);
+        $participants = Participant::where('event_id', $id)->where('status','validated')->lists('nama_tim', 'id');
+        return view('admin.match_team.edit', compact('events', 'matches', 'match_team', 'participants'));
     }
 
     /**
@@ -91,7 +95,15 @@ class MatchTeamController extends Controller
      */
     public function update(Request $request, $id, $id_match, $id_team)
     {
-        //
+        $this->validate($request, [
+            'participant_id' => 'required',
+        ]);
+        $input = $request->all();
+        $events = Event::findOrFail($id);
+        $matches = Match::findOrFail($id_match);
+        $match_teams = Match_team::findOrFail($id_team);
+        $match_teams->update($input);
+        return redirect()->action('MatchController@show', [$events->id, $matches->id])->with('info', 'Team has been updated');
     }
 
     /**

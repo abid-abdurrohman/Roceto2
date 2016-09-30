@@ -365,7 +365,7 @@ div.input-group-option{
 .content-result.content-result-news {
     height:750px;
 	padding:0;
-	background: url("../images/background.jpg") no-repeat 100% 100%; 
+	background:url("../images/backgr.jpg") no-repeat 100% 100%;
     background-position: center center; 
 	-webkit-background-size: cover;
     -moz-background-size: cover;

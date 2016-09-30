@@ -14,7 +14,42 @@
                     </ol>
                 </div>
             </div>
+            @if ($count->count() == '2')
+            <div class="row">
+                <div class="col-sm-6 col-lg-5">
+                  <div class="panel">
+                    <div class="panel-body">
+                        <div class="media-main">
+                          <center>
+                            <img class="thumb-lg" src="{!! asset('').'/'.$teams[0]['logo_participant'] !!}" alt="">
+                            <h4>{{ $teams[0]['nama_participant'] }}</h4>
+                          </center>
+                        </div>
+                    </div>
+                  </div>  
+                </div> <!-- end col -->
+                <div class="col-sm-6 col-lg-2">
+                  <div class="media-main">
+                    <center>
+                      <h1 style="padding-top:130px; padding-bottom:130px; ">VS</h1>
+                    </center>
+                  </div>
+                </div> <!-- end col --> 
 
+                <div class="col-sm-6 col-lg-5">
+                  <div class="panel">
+                    <div class="panel-body">
+                      <div class="media-main">
+                        <center>
+                          <img class="thumb-lg" src="{!! asset('').'/'.$teams[1]['logo_participant'] !!}" alt="">
+                          <h4>{{ $teams[1]['nama_participant'] }}</h4>
+                        </center>
+                      </div>
+                    </div>
+                  </div>
+                </div> <!-- end col -->                
+            </div> <!-- End row -->
+            @endif
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel panel-default">
@@ -39,7 +74,7 @@
                                                 <th>Score</th>
                                                 <th>Created At</th>
                                                 <th>Updated At</th>
-                                                <th>Action</th>
+                                                <th colspan="2">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -47,13 +82,18 @@
                                               <tr>
                                                   <td>{{ $match_team->id }}</td>
                                                   <td>
-                                                    <a href="{{ action('ParticipantController@show', array($match_team->participant_id)) }}">
+                                                    <a href="{{ action('ParticipantController@show', array($events->id, $match_team->participant_id)) }}">
                                                     {{ $match_team->nama_participant }}
                                                     </a>
                                                   </td>
                                                   <td>{{ $match_team->score }}</td>
                                                   <td>{{ $match_team->created_at }}</td>
                                                   <td>{{ $match_team->updated_at }}</td>
+                                                  <td>
+                                                    <a href="{{ action('MatchTeamController@edit', array($events->id, $matches->id, $match_team->id)) }}">
+                                                      <i class="fa fa-edit"></i> Edit
+                                                    </a>
+                                                  </td>
                                                   <td>
                                                     <a href="#" data-toggle="modal" data-target="#myModal-{{ $events->id }}-{{ $matches->id }}-{{ $match_team->id }}">
                                                       <i class="fa fa-trash"></i> Delete
@@ -70,5 +110,6 @@
                     </div>
                 </div>
             </div> <!-- End Row -->
+
         </div> <!-- container -->
 @endsection

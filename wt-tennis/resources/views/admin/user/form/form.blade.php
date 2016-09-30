@@ -30,8 +30,7 @@
 <div class="form-group">
     <label class="col-md-2 control-label">Avatar</label>
     <div class="col-md-10">
-        {!! Form::file('avatar', null, ['class' => 'form-control', 'placeholder' => 'Write a name',
-        'required'],'') !!}
+        {!! Form::file('avatar', null, ['class' => 'form-control', 'required'],'') !!}
     </div>
 </div>
 <div class="form-group" style="margin:1px">

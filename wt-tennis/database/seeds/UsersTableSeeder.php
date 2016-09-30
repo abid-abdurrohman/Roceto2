@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Model\User;
+use App\Model\Role;
 
 class UsersTableSeeder extends Seeder
 {
@@ -11,82 +13,89 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-         $users = array(
-          array(
-            'name' => 'Admin',
-            'nick_name' => 'Admin',
-            'email' => 'admin@roceto.com',
-            'password' => Hash::make('admin'),
-            'avatar' => 'images/users/admin.jpg',
-            'created_at' => DB::raw('NOW()'),
-            'updated_at' => DB::raw('NOW()'),
-          ), array(
-            'name' => 'Adang',
-            'nick_name' => 'Adang',
-            'email' => 'adang@roceto.com',
-            'password' => Hash::make('adang'),
-            'avatar' => 'images/users/admin.jpg',
-            'created_at' => DB::raw('NOW()'),
-            'updated_at' => DB::raw('NOW()'),
-          ), array(
-            'name' => 'Nisa',
-            'nick_name' => 'Nisa',
-            'email' => 'nisa@roceto.com',
-            'password' => Hash::make('nisa'),
-            'avatar' => 'images/users/admin.jpg',
-            'created_at' => DB::raw('NOW()'),
-            'updated_at' => DB::raw('NOW()'),
-          ), array(
-            'name' => 'Abid',
-            'nick_name' => 'Abid',
-            'email' => 'abid@roceto.com',
-            'password' => Hash::make('abid'),
-            'avatar' => 'images/users/admin.jpg',
-            'created_at' => DB::raw('NOW()'),
-            'updated_at' => DB::raw('NOW()'),
-          ), array(
-            'name' => 'Majid',
-            'nick_name' => 'Majid',
-            'email' => 'majid@roceto.com',
-            'password' => Hash::make('majid'),
-            'avatar' => 'images/users/admin.jpg',
-            'created_at' => DB::raw('NOW()'),
-            'updated_at' => DB::raw('NOW()'),
-          ), array(
-            'name' => 'Dika',
-            'nick_name' => 'Dika',
-            'email' => 'dika@roceto.com',
-            'password' => Hash::make('dika'),
-            'avatar' => 'images/users/admin.jpg',
-            'created_at' => DB::raw('NOW()'),
-            'updated_at' => DB::raw('NOW()'),
-          ), array(
-            'name' => 'Unggul',
-            'nick_name' => 'Unggul',
-            'email' => 'unggul@roceto.com',
-            'password' => Hash::make('unggul'),
-            'avatar' => 'images/users/admin.jpg',
-            'created_at' => DB::raw('NOW()'),
-            'updated_at' => DB::raw('NOW()'),
-          ), array(
-            'name' => 'Jundi',
-            'nick_name' => 'Jundi',
-            'email' => 'jundi@roceto.com',
-            'password' => Hash::make('jundi'),
-            'avatar' => 'images/users/admin.jpg',
-            'created_at' => DB::raw('NOW()'),
-            'updated_at' => DB::raw('NOW()'),
-          ), array(
-            'name' => 'Tica',
-            'nick_name' => 'Tica',
-            'email' => 'tica@roceto.com',
-            'password' => Hash::make('tica'),
-            'avatar' => 'images/users/admin.jpg',
-            'created_at' => DB::raw('NOW()'),
-            'updated_at' => DB::raw('NOW()'),
-          ),
-          );
-        // Comment the below to stop the seeder
-        DB::table('users')->insert($users);
+         $role_user = Role::where('nama', 'User')->first();
+         $role_author = Role::where('nama', 'Author')->first();
+         $role_admin = Role::where('nama', 'Admin')->first();
+
+         $user = new User();
+         $user->name = 'Admin';
+         $user->nick_name = 'Admin';
+         $user->email = 'admin@roceto.com';
+         $user->password = Hash::make('admin');
+         $user->avatar = 'images/users/admin.jpg';
+         $user->save();
+         $user->role()->attach($role_admin);
+
+         $user = new User();
+         $user->name = 'Adang';
+         $user->nick_name = 'Adang';
+         $user->email = 'adang@roceto.com';
+         $user->password = Hash::make('adang');
+         $user->avatar = 'images/users/admin.jpg';
+         $user->save();
+         $user->role()->attach($role_user);
+
+         $user = new User();
+         $user->name = 'Nisa';
+         $user->nick_name = 'Nisa';
+         $user->email = 'nisa@roceto.com';
+         $user->password = Hash::make('nisa');
+         $user->avatar = 'images/users/admin.jpg';
+         $user->save();
+         $user->role()->attach($role_user);
+
+         $user = new User();
+         $user->name = 'Abid';
+         $user->nick_name = 'Abid';
+         $user->email = 'abid@roceto.com';
+         $user->password = Hash::make('abid');
+         $user->avatar = 'images/users/admin.jpg';
+         $user->save();
+         $user->role()->attach($role_user);
+
+         $user = new User();
+         $user->name = 'Majid';
+         $user->nick_name = 'Majid';
+         $user->email = 'majid@roceto.com';
+         $user->password = Hash::make('majid');
+         $user->avatar = 'images/users/admin.jpg';
+         $user->save();
+         $user->role()->attach($role_user);
+
+         $user = new User();
+         $user->name = 'Dika';
+         $user->nick_name = 'Dika';
+         $user->email = 'dika@roceto.com';
+         $user->password = Hash::make('dika');
+         $user->avatar = 'images/users/admin.jpg';
+         $user->save();
+         $user->role()->attach($role_user);
+
+         $user = new User();
+         $user->name = 'Unggul';
+         $user->nick_name = 'Unggul';
+         $user->email = 'unggul@roceto.com';
+         $user->password = Hash::make('unggul');
+         $user->avatar = 'images/users/admin.jpg';
+         $user->save();
+         $user->role()->attach($role_user);
+
+         $user = new User();
+         $user->name = 'Izzudin';
+         $user->nick_name = 'Izzudin';
+         $user->email = 'izzudin@roceto.com';
+         $user->password = Hash::make('izzudin');
+         $user->avatar = 'images/users/admin.jpg';
+         $user->save();
+         $user->role()->attach($role_user);
+
+         $user = new User();
+         $user->name = 'Tica';
+         $user->nick_name = 'Tica';
+         $user->email = 'tica@roceto.com';
+         $user->password = Hash::make('tica');
+         $user->avatar = 'images/users/admin.jpg';
+         $user->save();
+         $user->role()->attach($role_user);
     }
 }

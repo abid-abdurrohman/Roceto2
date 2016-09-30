@@ -9,7 +9,7 @@
                     <h4 class="pull-left page-title">Ranks</h4>
                     <ol class="breadcrumb pull-right">
                         <li><a href="#">Admin</a></li>
-                        <li><a href="{{ action('RankController@index', [$events->id]) }}">Ranks</a></li>
+                        <li><a href="{{ action('RankController@index') }}">Ranks</a></li>
                         <li class="active">Edit</li>
                     </ol>
                 </div>
@@ -19,7 +19,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading"><h3 class="panel-title">Edit {{ $ranks->nama }}</h3></div>
                         <div class="panel-body">
-                            {!! Form::model($ranks, ['method' => 'PATCH', 'action' => ['RankController@update', $events->id,
+                            {!! Form::model($ranks, ['method' => 'PATCH', 'action' => ['RankController@update',
                             $ranks->id], 'class'=>'form-horizontal']) !!}
                                 @include('admin/rank/form/form', ['submit_text' => 'Edit Rank'])
                             {!! Form::close() !!}

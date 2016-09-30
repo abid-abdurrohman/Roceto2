@@ -6,31 +6,11 @@
            <div class="general">
            <div class="content-result content-result-news col-md-12">
              <div id="textslide" class="effect-backcolor">
-                <div class="container" style="padding-top:190px;padding-left:70px">
-                   <div class="col-xs-4 pht-1 pht-left">
-                       <div class="img-face-home">
-                          <img src="http://placehold.it/235x224" alt="" />
-
-                       </div>
-                  </div>
-                  <div class="col-xs-4 pl-point ">
-                      <p class="col-xs-12 name-mc-title">BEIJING - FIRST ROUND</p>
-                      <div class="col-xs-4 nm-result">
-                            <p class="nr1 ris1"> 0 </p>
-                            <p class="nr2"> 0% </p>
-                      </div>
-                      <div class="col-xs-4 nm-result-vs">
-                            <p class="nrvs"> - VS - </p>
-                      </div>
-                      <div class="col-xs-4 nm-result">
-                            <p class="nr1 ris2"> 1 </p>
-                            <p class="nr2"> 100% </p>
-                      </div>
-                  </div>
-                   <div class="col-xs-4 pht-1 pht-right">
-                        <div class="img-face-home">
-                            <img src="http://placehold.it/235x224" alt="" />
-                  </div>
+                <div class="container">
+                    <div class="col-md-12 slide-txt">
+                        <p class='sub-result aft-little welcome linetheme-left'>Creative</p>
+                        <p class='sub-result aft-little linetheme-right'>Web Design<span class="point-big">.</span></p>
+                    </div>
                 </div>
              </div>
            </div>
@@ -393,7 +373,7 @@
 
 
 <!--SECTION LAST PHOTO-->
-     <section id="news-section">
+     <!-- <section id="news-section">
            <div class="container">
                    <div class="top-match col-xs-12 col-md-12">
                       <div class="news-content">
@@ -435,7 +415,7 @@
                     </li>
             <?php } ?>
           </ul>
-     </section>
+     </section> -->
     <!--end Gallery-->
 
 <!--SECTION SPONSOR-->

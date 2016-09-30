@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\Event;
 use App\Model\Rank;
 use App\Http\Requests;
 
@@ -14,9 +13,10 @@ class RankController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        //
+        $ranks = Rank::paginate(5);
+        return view('admin.rank.index', compact('ranks'));
     }
 
     /**
@@ -24,9 +24,10 @@ class RankController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create()
     {
-        //
+        $ranks = Rank::all();
+        return view('admin.rank.create', compact('ranks'));
     }
 
     /**
@@ -35,7 +36,7 @@ class RankController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
         $this->validate($request, [
             'title' => 'required',
@@ -43,10 +44,8 @@ class RankController extends Controller
             'point' => 'required',
         ]);
         $input = $request->all();
-        $events = Event::findOrFail($id);
-        $input['event_id'] = $events->id;
         Rank::create($input);
-        return redirect()->action('EventRankController@show', [$events->id])->with('success', 'Rank has been created');
+        return redirect()->action('RankController@index')->with('success', 'Rank has been created');
     }
 
     /**
@@ -55,11 +54,10 @@ class RankController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id, $id_rank)
+    public function show($id)
     {
-        $rank = Rank::findOrFail($id_rank);
-        $events = Event::findOrFail($id);
-        return view('admin.rank.show', compact('rank', 'events'));
+        $rank = Rank::findOrFail($id);
+        return view('admin.rank.show', compact('rank'));
     }
 
     /**
@@ -68,11 +66,10 @@ class RankController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id, $id_rank)
+    public function edit($id)
     {
-        $ranks = Rank::findOrFail($id_rank);
-        $events = Event::findOrFail($id);
-        return view('admin.rank.edit', compact('ranks', 'events'));
+        $ranks = Rank::findOrFail($id);
+        return view('admin.rank.edit', compact('ranks'));
     }
 
     /**
@@ -82,7 +79,7 @@ class RankController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id, $id_rank)
+    public function update(Request $request, $id)
     {
         $this->validate($request, [
             'title' => 'required',
@@ -90,11 +87,9 @@ class RankController extends Controller
             'point' => 'required',
         ]);
         $input = $request->all();
-        $events = Event::findOrFail($id);
-        $rank = Rank::findOrFail($id_rank);
-        $input['event_id'] = $events->id;
+        $rank = Rank::findOrFail($id);
         $rank->update($input);
-        return redirect()->action('EventRankController@show', [$events->id])->with('info', 'Rank has been updated');
+        return redirect()->action('RankController@index')->with('info', 'Rank has been updated');
     }
 
     /**
@@ -103,11 +98,10 @@ class RankController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id, $id_rank)
+    public function destroy($id)
     {
-        $events = Event::findOrFail($id);
-        $ranks = Rank::findOrFail($id_rank);
+        $ranks = Rank::findOrFail($id);
         $ranks->delete();
-        return redirect()->action('EventRankController@show', [$events->id])->with('danger','Rank has been deleted');
+        return redirect()->action('RankController@index')->with('danger','Rank has been deleted');
     }
 }

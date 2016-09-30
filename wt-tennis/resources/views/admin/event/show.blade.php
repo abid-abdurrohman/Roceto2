@@ -44,7 +44,7 @@
                                                 <td>{{ $events->id }}</td>
                                                 <td>{{ $events->nama }}</td>
                                                 <td>{{ $events->detail }}</td>
-                                                <td>{{ $events->thumbnail }}</td>
+                                                <td><a href="{!! asset('').'/'.$events->thumbnail !!}" class="image-popup" title="{{ $events->nama }}"> {{ $events->thumbnail }}</a> </td>
                                                 <td>{{ $events->peraturan }}</td>
                                                 <td>{{ $events->biaya_pendaftaran }}</td>
                                                 <td>{{ $events->kuota }}</td>

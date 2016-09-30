@@ -18,10 +18,6 @@ class Event extends Model
     }
 
     public function pemasukan() {
-    	return $this->belongsTo('App\Model\Pemasukan');
-    }
-
-    public function rank() {
-    	 return $this->hasMany('App\Model\Rank');
+    	 return $this->belongsTo('App\Model\Pemasukan');
     }
 }
