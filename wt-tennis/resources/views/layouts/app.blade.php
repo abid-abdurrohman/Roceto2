@@ -40,6 +40,7 @@
   <link href="{{ URL::asset('css/profil.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ URL::asset('css/comments.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ URL::asset('css/calender.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ URL::asset('css/carousel.css') }}" rel="stylesheet" type="text/css" />
 
   <!-- Waves-effect -->
   <link href="{{ URL::asset('admin_asset/css/waves-effect.css') }}" rel="stylesheet">
@@ -305,6 +306,8 @@
 <script src="{{ URL::asset('js/menu/modernizr.custom.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/menu/cbpHorizontalMenu.js') }}" type="text/javascript"></script>
 <!--END MENU-->
+
+<script src="{{ URL::asset('js/crousel.js') }}" type="text/javascript"></script>
 
 <!--Mini Flexslide-->
 <script src="{{ URL::asset('js/minislide/jquery.flexslider.js') }}" type="text/javascript"></script>

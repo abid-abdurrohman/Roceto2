@@ -7,7 +7,7 @@
                 <h4 class="modal-title">Join Competition</h4>
             </div>
             <div class="modal-body">
-              {!! Form::open(['action' => array('RegisterController@store'), 'files' => true,  'class'=>'form-horizontal']) !!}
+              {!! Form::open(['action' => array('RegisterController@store', $events->id), 'files' => true,  'class'=>'form-horizontal']) !!}
                   @include('register.form.form', ['submit_text' => '  Daftar' ])
               {!! Form::close() !!}
             </div>

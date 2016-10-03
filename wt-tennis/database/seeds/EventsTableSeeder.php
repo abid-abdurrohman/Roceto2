@@ -81,6 +81,7 @@ class EventsTableSeeder extends Seeder
             'peraturan' => '',
             'biaya_pendaftaran' => '',
             'kuota' => '',
+            'jumlah_pemain' => '2',
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
