@@ -43,7 +43,6 @@ Route::group(['middleware' => ['web']], function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::get('profil', 'ProfileController@index');
     Route::patch('profil{id}', 'ProfileController@update');
-    Route::post('register/{id}/upload', 'BuktiBayarController@store');
     Route::post('team/{id}', 'MemberUserController@store');
     Route::get('team/{id}', 'ParticipantUserController@index');
     Route::patch('team/{id}', 'ParticipantUserController@update');
