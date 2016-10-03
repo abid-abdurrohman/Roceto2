@@ -53,6 +53,9 @@
   <link href="{{ URL::asset('css/video-js.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ URL::asset('css/responsive.css') }}" rel="stylesheet" type="text/css" />
 
+  <!-- sweet alerts -->
+  {{ Html::style('admin_asset/assets/sweet-alert/sweet-alert.min.css') }}
+
   <!-- Examples -->
     <script src="{{ URL::asset('admin_asset/assets/magnific-popup/magnific-popup.js') }}"></script>
     <script src="{{ URL::asset('admin_asset/assets/jquery-datatables-editable/jquery.dataTables.js') }}"></script>
@@ -104,78 +107,27 @@
       <div class="box-menu">
         <nav id="cbp-hrmenu" class="cbp-hrmenu">
           <ul id="menu">
-            <li><a class="lnk-menu {{ Request::segment(1) === 'home' ? 'active' : null }}" href="{{ action('HomeController@index') }}">HOME</a>
+            <li><a class="lnk-menu {{ Request::segment(1) === null ? 'active' : null }}" href="{{ action('HomeController@index') }}">HOME</a>
             </li>
             <li>
-              <?php
-              $con = mysqli_connect('localhost', 'root','','eo_sport');
-              if(!$con){
-                die('Could not Connect');
-              }
-
-              mysqli_select_db($con ,'eo_sport');
-              $sql = "SELECT * FROM events";
-              $result = mysqli_query($con, $sql);
-
-              ?>
-
               <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'join' ? 'active' : null }}" data-toggle="dropdown"> COMPETITION <b class="caret"></b></a>
               <div class="cbp-hrsub sub-little">
                 <div class="cbp-hrsub-inner">
                   <div class="content-sub-menu">
-                  @if (Auth::guest())
                     <ul class="menu-pages">
-                      <?php
-                      while ($events = mysqli_fetch_array($result)) {                      
-                        ?>                                        
-                        <li>
-                            <a href="{{ action('RegisterController@index', $events['id']) }}" class="dropdown-toggle" data-toggle="dropdown">
-                              {{ $events['nama'] }}
-                            </a>
-                        </li>
-                        <?php
-                      }
-                      ?>
+                      @include('../composers.event_menu', $events)
                     </ul>
-                    @else
-                    <ul class="menu-pages">
-                      <?php
-                      while ($events = mysqli_fetch_array($result)) {
-                        $id_user = Auth::user()->id;
-                        $id_event = $events['id'];
-                        $sql2 = "SELECT * FROM participants WHERE user_id = $id_user AND event_id = $id_event";
-                        $result2 = mysqli_query($con, $sql2);
-                        $participants = mysqli_fetch_array($result2);
-                        ?>
-                        @if ($participants['status'] == 'validated')
-                        <li>
-                            <a href="{{ action('ParticipantUserController@index', $participants['id']) }}" class="dropdown-toggle" data-toggle="dropdown">
-                              {{ $events['nama'] }}
-                            </a>
-                        </li>
-                        @else                     
-                        <li>
-                            <a href="{{ action('RegisterController@index', $events['id']) }}" class="dropdown-toggle" data-toggle="dropdown">
-                              {{ $events['nama'] }}
-                            </a>
-                        </li>
-                        @endif
-                        <?php
-                      }
-                      ?>
-                    </ul>
-                    @endif
-                    </div>
+                  </div>
                 </div>
               </div>
             </li>
             <li>
-              <a href="#" class="dropdown-toggle lnk-menu {{ Request::segment(1) === 'events' ? 'active' : null }}" data-toggle="dropdown"> EVENTS <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle lnk-menu {{ (Request::segment(1) === 'schedule')||(Request::segment(1) === 'bracket')||(Request::segment(1) === 'results')||(Request::segment(1) === 'fixtures')||(Request::segment(1) === 'tables') ? 'active' : null }}" data-toggle="dropdown"> EVENTS <b class="caret"></b></a>
               <div class="cbp-hrsub sub-little">
                 <div class="cbp-hrsub-inner">
                   <div class="content-sub-menu">
                     <ul class="menu-pages">
-                      <li><a href="{{ url('/schedule') }}"><span>Schedule</span></a></li>
+                      <li><a href="{{ action('ScheduleUserController@index') }}"><span>Schedule</span></a></li>
                       <li><a href="{{ action('BracketUserController@index') }}"><span>Bracket</span></a></li>
                       <li><a href="{{ action('ResultUserController@index') }}"><span>Results</span></a></li>
                       <li><a href="{{ action('FixturesUserController@index') }}"><span>Fixtures</span></a></li>
@@ -200,7 +152,6 @@
 
 @yield('content')
 
-
 <!--SECTION FOOTER-->
 <section id="footer-tag">
  <div class="container">
@@ -218,31 +169,23 @@
         <div class="footer-map"></div>
         <h3 class='last-cat'>Competition</h3>
         <ul class="last-tips">
-        <?php
-          $sql = "SELECT * FROM events";
-          $result = mysqli_query($con, $sql);
-          while ($events = mysqli_fetch_array($result)) {
-        ?>
-          <li>{{ $events['nama'] }}</li>
-        <?php } ?>
+        @foreach ($events as $event)
+          <li>{{ $event->nama }}</li>
+        @endforeach
         </ul>
       </div>
 
     <div class="col-md-3">
        <h3>Last News</h3>
-      <?php
-          $sql = "SELECT * FROM news ORDER BY created_at DESC LIMIT 3";
-          $result = mysqli_query($con, $sql);
-         while ($news = mysqli_fetch_array($result)) {
-      ?>
-       <ul class="footer-last-news">
-          <li>
-            <a href="{{ action('NewsUserController@show', $news['slug']) }}">
-            <img src="{!! asset('').'/'.$news['thumbnail'] !!}" alt="" /></a>
-            <p>{!! str_limit($news['deskripsi'], 100) !!}</p>
-          </li>
-       </ul>
-     <?php } ?>
+       @foreach ($news as $news)
+         <ul class="footer-last-news">
+            <li>
+              <a href="{{ action('NewsUserController@show', $news->slug) }}">
+              <img src="{!! asset('').$news->thumbnail !!}" alt="" /></a>
+              <p>{!! str_limit($news->deskripsi, 100) !!}</p>
+            </li>
+         </ul>
+       @endforeach
     </div>
     <div class="col-md-3 footer-newsletters">
       <h3>Newsletters</h3>
@@ -264,9 +207,9 @@
       <ul class="social">
         <li><a href=""><i class="fa fa-facebook"></i></a></li>
         <li><a href=""><i class="fa fa-twitter"></i></a></li>
-        <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+        {{-- <li><a href=""><i class="fa fa-linkedin"></i></a></li>
         <li><a href=""><i class="fa fa-digg"></i></a></li>
-        <li><a href=""><i class="fa fa-rss"></i></a></li>
+        <li><a href=""><i class="fa fa-rss"></i></a></li> --}}
         <li><a href=""><i class="fa fa-youtube"></i></a></li>
         <li><a href=""><i class="fa fa-tumblr"></i></a></li>
       </ul>
@@ -277,7 +220,7 @@
 
 <footer>
  <div class="col-md-12 content-footer">
-  <p>© 2014 - 2015 wttennis.com. All rights reserved. </p>
+  <p>© 2016 - 2017 roceto.com. All rights reserved. </p>
 </div>
 </footer>
 

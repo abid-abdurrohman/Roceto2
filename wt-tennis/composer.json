@@ -12,7 +12,8 @@
         "laravel/socialite": "^2.0",
         "google/apiclient": "~2.0@dev",
         "yajra/laravel-datatables-oracle": "^6.18",
-        "barryvdh/laravel-dompdf": "^0.7.0"
+        "barryvdh/laravel-dompdf": "^0.7.0",
+        "intervention/image": "^2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -18,7 +18,7 @@
 	<div class=" col-md-12">
 		<div class="card hovercard">
 			<div class="card-background">
-				<img class="card-bkimg" alt="" src="{!! asset('').'/'.$users->background !!}">
+				<img class="card-bkimg" alt="" src="{!! $users->background !!}">
 				<!-- http://lorempixel.com/850/280/people/9/ -->
 			</div>
 			<div class="useravatar">
@@ -91,7 +91,7 @@
 												@if ($participant->status == "validated")
                                                 <td style="width:5px"><span class="label label-success">{{ $participant->status }}</span>
                                                 </td>
-                                                
+
                                                 <td style="width:5px"><a href="{{ action('ParticipantUserController@index', [$participant->id]) }}" class="btn btn-bordered-edit">Manage</a>
 												</td>
 

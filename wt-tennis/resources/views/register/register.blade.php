@@ -16,7 +16,7 @@
       <h3> Kategori Lomba <span>{{ $events->nama }}</span><span class="point-little">.</span></h3>
       <div class="col-md-12 content-zoom">
         <div class="col-md-6 content-img-zoom">
-         <img id="img_01" src="{!! asset('').'/'.$events->thumbnail !!}" width="400" height="340" />
+         <img id="img_01" src="{!! asset('').$events->thumbnail !!}" width="400" height="340" />
        </div>
        <div class="col-md-6 content-desc-zoom">
          <h3>{{ $events->nama }}</h3>

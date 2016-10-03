@@ -17,7 +17,7 @@
      <div class="top-score-title col-md-9">
       <h3>{!! $news->judul !!}<span class="point-little">.</span></h3>
       <div class="col-md-4">
-        <img class="img-djoko" src="{!! asset('').'/'.$news->thumbnail !!}" alt="" />
+        <img class="img-djoko" src="{!! asset('').$news->thumbnail !!}" alt="" />
       </div>
       <div class="data-news-pg">
         <p>{!! $news->deskripsi !!}</p>
@@ -42,7 +42,7 @@
             @include('news.share', [
                 'url' => request()->fullUrl(),
                 'description' => $news->judul,
-                'image' => asset('').'/'.$news->thumbnail
+                'image' => asset('').$news->thumbnail
             ])
           </div>
         </div>
@@ -83,7 +83,11 @@
                   <ul class="media-list">
                     <li class="media">
                       <a class="pull-left" href="#">
-                        <img class="media-object img-circle" src="{!! asset('').'/'.$comment->avatar_user !!}" alt="profile">
+                        @if (substr($comment->avatar_user,0,6) == 'images')
+                            <img class="media-object img-circle" src="{!! asset('').$comment->avatar_user !!}" alt="profile">
+                        @else
+                            <img class="media-object img-circle" src="{!! $comment->avatar_user !!}" alt="profile">
+                        @endif
                       </a>
                       <div class="media-body">
                         <div class="well well-lg">

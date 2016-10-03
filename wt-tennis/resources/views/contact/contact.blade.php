@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
-@include('contact.direction')
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAY7wGSKUT2V59H8Kw2Or5WSnxPh-soJIU&callback=initMap"
+    type="text/javascript"></script>
 <section id="contact" class="secondary-page">
     <div class="general">
      <!--Google Maps-->
@@ -49,3 +50,70 @@
   @include('layouts.bottom-content')
 </section>
 @endsection
+@push('scripts')
+    <script type="text/javascript">
+        /********************************************
+        GOOGLE MAPS
+        ********************************************/
+
+        // The following example creates a marker in Stockholm, Sweden
+        // using a DROP animation. Clicking on the marker will toggle
+        // the animation between a BOUNCE animation and no animation.
+        $(document).ready(function ($) {
+            "use strict";
+            var stockholm = new google.maps.LatLng(-6.3620991, 106.8338115);
+            var parliament = new google.maps.LatLng(-6.3620991, 106.8338115);
+            var image = "{{ URL::asset('images/marker2.png') }}";
+            var marker;
+            var map;
+
+            function initialize() {
+                var styleArray = [
+            {
+                featureType: 'all',
+                stylers: [
+                { saturation: -1000 }
+                ]
+            }, {
+                featureType: 'road.arterial',
+                elementType: 'geometry',
+                stylers: [
+                { hue: '#00ffee' },
+                { saturation: -100 },
+                { "lightness": -8 },
+                { "gamma": 1.18 }
+                ]
+            }
+            ];
+                var mapOptions = {
+                    zoom: 14,
+                    styles: styleArray,
+                    center: stockholm
+                };
+
+                map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+                marker = new google.maps.Marker({
+                    map: map,
+                    draggable: true,
+                    animation: google.maps.Animation.DROP,
+                    icon: image,
+                    position: parliament
+                });
+                google.maps.event.addListener(marker, 'click', toggleBounce);
+            }
+
+            function toggleBounce() {
+
+                if (marker.getAnimation() != null) {
+                    marker.setAnimation(null);
+                } else {
+                    marker.setAnimation(google.maps.Animation.BOUNCE);
+                }
+            }
+
+            google.maps.event.addDomListener(window, 'load', initialize);
+
+        });
+    </script>
+@endpush

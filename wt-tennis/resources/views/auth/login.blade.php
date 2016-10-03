@@ -20,6 +20,18 @@
        <div class="top-score-title right-score col-md-12">
            <h3>Login<span> Now</span><span class="point-int"> !</span></h3>
             <div class="col-md-12">
+                @if(Session::has('status'))
+                  <div class="alert alert-success alert-dismissable">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                      Information : <a href="#" class="alert-link">{{ Session::get('status') }} </a>.
+                  </div>
+                @endif
+                @if(Session::has('warning'))
+                  <div class="alert alert-warning alert-dismissable">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                      Information : <a href="#" class="alert-link">{{ Session::get('warning') }} </a>.
+                  </div>
+                @endif
                 <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                     {{ csrf_field() }}
                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">

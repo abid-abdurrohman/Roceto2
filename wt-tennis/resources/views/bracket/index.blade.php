@@ -73,7 +73,7 @@
                       @include('bracket.include.share', [
                           'url' => request()->fullUrl(),
                           'description' => $event->nama.' Bracket',
-                          'image' => asset('').'/'.$event->thumbnail
+                          'image' => asset('').$event->thumbnail
                       ])
                     </div>
                   </div>
@@ -96,7 +96,7 @@
                       @include('bracket.include.share', [
                           'url' => request()->fullUrl(),
                           'description' => $event->nama.' Bracket',
-                          'image' => asset('').'/'.$event->thumbnail
+                          'image' => asset('').$event->thumbnail
                       ])
                     </div>
                   </div>
