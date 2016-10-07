@@ -3,11 +3,11 @@ $(document).ready(function () {
 
     $(function () {
         "use strict";
-        $('#textslide p.creative').transition({ scale: 1, opacity: 1, delay: 1000, duration: 2000 });
-        $('#textslide p.linetheme-left').transition({ x: '0px', opacity: 1, delay: 2000, duration: 1500 });
-        $('#textslide p.linetheme-right').transition({ x: '0px', opacity: 1, delay: 2000, duration: 1500 });
-        $('#textslide .titl-theme').transition({ opacity: 1, delay: 2500, duration: 2000 });
-        $('.slide-txt img').transition({ opacity: 1, delay: 1000, duration: 2000 });
+        $('#textslide p.creative').animate({ scale: 1, opacity: 1, delay: 1000, duration: 2000 });
+        $('#textslide p.linetheme-left').animate({ x: '0px', opacity: 1, delay: 2000, duration: 1500 });
+        $('#textslide p.linetheme-right').animate({ x: '0px', opacity: 1, delay: 2000, duration: 1500 });
+        $('#textslide .titl-theme').animate({ opacity: 1, delay: 2500, duration: 2000 });
+        $('.slide-txt img').animate({ opacity: 1, delay: 1000, duration: 2000 });
     });
 
     /****************************

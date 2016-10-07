@@ -7,7 +7,7 @@
 <section class="drawer">
   <div class="col-md-12 size-img back-img-shop">
     <div class="effect-cover">
-      <h3 class="txt-advert animated">The best news ATP WTP</h3>
+      <h3 class="txt-advert animated">The best news ROCETO</h3>
       <p class="txt-advert-sub">News - Match - Player</p>
     </div>
   </div>
@@ -17,7 +17,7 @@
      <div class="top-score-title col-md-9">
       <h3>{!! $news->judul !!}<span class="point-little">.</span></h3>
       <div class="col-md-4">
-        <img class="img-djoko" src="{!! asset('').'/'.$news->thumbnail !!}" alt="" />
+        <img class="img-djoko" src="{!! asset('').$news->thumbnail !!}" alt="" />
       </div>
       <div class="data-news-pg">
         <p>{!! $news->deskripsi !!}</p>
@@ -29,7 +29,7 @@
           @unless ($news->tags->isEmpty())
           <i class="fa fa-tag"></i><span>TAGS:</span>
           @foreach ($news->tags as $tag)
-          <a href="#" class="tag">{{ $tag->nama }}</a>
+          <a href="{{ action('TagUserController@index', $tag->id) }}" class="tag">{{ $tag->nama }}</a>
           @endforeach
           @endunless
         </div>
@@ -42,7 +42,7 @@
             @include('news.share', [
                 'url' => request()->fullUrl(),
                 'description' => $news->judul,
-                'image' => asset('').'/'.$news->thumbnail
+                'image' => asset('').$news->thumbnail
             ])
           </div>
         </div>
@@ -83,7 +83,11 @@
                   <ul class="media-list">
                     <li class="media">
                       <a class="pull-left" href="#">
-                        <img class="media-object img-circle" src="{!! asset('').'/'.$comment->avatar_user !!}" alt="profile">
+                        @if (substr($comment->avatar_user,0,6) == 'images')
+                            <img class="media-object img-circle" src="{!! asset('').$comment->avatar_user !!}" alt="profile">
+                        @else
+                            <img class="media-object img-circle" src="{!! $comment->avatar_user !!}" alt="profile">
+                        @endif
                       </a>
                       <div class="media-body">
                         <div class="well well-lg">

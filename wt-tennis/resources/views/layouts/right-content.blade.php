@@ -22,10 +22,10 @@
 <div class="top-score-title col-md-12 right-title" style="margin-top:-40px">
   <h3>Info</h3>
   <div class="col-md-12">
-    <p><i class="fa fa-phone"></i>0044 (800) 123 4567 891 </p>
-    <p><i class="fa fa-envelope-o"></i>info@tennisclub.com </p>
-    <p><i class="fa fa-globe"></i>Street 2, Road The Circus</p>
-    <p><i class="fa fa-map-marker"></i>London UK, ABC, 1234</p>
+    <p><i class="fa fa-phone"></i> 021 412182018 </p>
+    <p><i class="fa fa-envelope-o"></i>info@roceto.com </p>
+    <p><i class="fa fa-globe"></i>Mawar Raya Street no.12</p>
+    <p><i class="fa fa-map-marker"></i>Depok Jawa Barat, 1234</p>
   </div>
 </div>
 

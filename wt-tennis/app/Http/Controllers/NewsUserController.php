@@ -13,7 +13,7 @@ class NewsUserController extends Controller
 {
     public function index()
     {
-      	$news = News::paginate(5);
+      	$news = News::latest()->paginate(5);
       	return view('news.news', compact('news'));
     }
 
@@ -26,4 +26,5 @@ class NewsUserController extends Controller
         return view('news.news-single', compact('news', 'other_news', 'comments'));
     }
 
+    
 }

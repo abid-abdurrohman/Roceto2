@@ -45,11 +45,11 @@
                         <td>{{ $row['waktu'] }}</td>
                         <td><i class="fa fa-map-marker"></i> {{ $row['tempat'] }}</td>
                         <td>{{ $match_teams[0]['nama_participant'] }}</td>
-                        <td><img src="{!! asset('').'/'.$match_teams[0]['logo_participant'] !!}" style="width:20px" alt="" /></td>
+                        <td><img src="{!! asset('').$match_teams[0]['logo_participant'] !!}" style="width:20px" alt="" /></td>
                         <td></td>
                         <td> - </td>
                         <td></td>
-                        <td><img src="{!! asset('').'/'.$match_teams[1]['logo_participant'] !!}" style="width:20px" alt="" /></td>
+                        <td><img src="{!! asset('').$match_teams[1]['logo_participant'] !!}" style="width:20px" alt="" /></td>
                         <td>{{ $match_teams[1]['nama_participant'] }}</td>
                         <td>
                           <a href="{{ action('EventStreamController@show', $id_match) }}">

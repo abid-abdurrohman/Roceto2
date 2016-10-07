@@ -22,7 +22,12 @@ class EventsTableSeeder extends Seeder
                             <li>Kuota Perlombaan</li>
                             </ol>',
             'biaya_pendaftaran' => '200000',
+<<<<<<< HEAD
             'kuota' => '8',
+=======
+            'kuota' => '16',
+            'jumlah_pemain' => '10',
+>>>>>>> 85fff12fbe3598adc2d42676b3b265c7d485963f
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
@@ -35,7 +40,12 @@ class EventsTableSeeder extends Seeder
                             <li>Kuota Perlombaan<br /><br /></li>
                             </ol>',
             'biaya_pendaftaran' => '250000',
+<<<<<<< HEAD
             'kuota' => '8',
+=======
+            'kuota' => '16',
+            'jumlah_pemain' => '10',
+>>>>>>> 85fff12fbe3598adc2d42676b3b265c7d485963f
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
@@ -48,7 +58,12 @@ class EventsTableSeeder extends Seeder
                             <li>Kuota Perlombaan<br /><br /></li>
                             </ol>',
             'biaya_pendaftaran' => '220000',
+<<<<<<< HEAD
             'kuota' => '4',
+=======
+            'kuota' => '16',
+            'jumlah_pemain' => '3',
+>>>>>>> 85fff12fbe3598adc2d42676b3b265c7d485963f
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
@@ -76,6 +91,7 @@ class EventsTableSeeder extends Seeder
             'peraturan' => '',
             'biaya_pendaftaran' => '',
             'kuota' => '',
+            'jumlah_pemain' => '2',
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(

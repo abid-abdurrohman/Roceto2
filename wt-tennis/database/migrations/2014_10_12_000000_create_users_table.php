@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->text('avatar');
             $table->text('background');
             $table->boolean('is_admin');
+            $table->boolean('activated')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

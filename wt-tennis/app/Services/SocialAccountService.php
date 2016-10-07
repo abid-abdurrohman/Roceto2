@@ -5,9 +5,15 @@ namespace App\Services;
 use Laravel\Socialite\Contracts\Provider;
 use App\Model\SocialAccount;
 use App\Model\User;
+use App\Services\ActivationService;
 
 class SocialAccountService
 {
+    public function __construct(ActivationService $activationService)
+    {
+        $this->activationService = $activationService;
+    }
+    
     public function createOrGetUser(Provider $provider)
     {
         $providerUser = $provider->user();
@@ -32,10 +38,14 @@ class SocialAccountService
                     'email' => $providerUser->getEmail(),
                     'name' => $providerUser->getName(),
                     'avatar' => $providerUser->getAvatar(),
+                    'activated' => 1,
                 ]);
             }
             $account->user()->associate($user);
             $account->save();
+
+            $this->activationService->sendWelcomeMail($user);
+
             return $user;
         }
     }

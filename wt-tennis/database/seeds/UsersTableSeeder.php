@@ -24,6 +24,10 @@ class UsersTableSeeder extends Seeder
          $user->password = Hash::make('admin');
          $user->avatar = 'images/users/admin.jpg';
          $user->is_admin = 1;
+<<<<<<< HEAD
+=======
+         $user->activated = 1;
+>>>>>>> 85fff12fbe3598adc2d42676b3b265c7d485963f
          $user->save();
          $user->role()->attach($role_admin);
 
@@ -33,7 +37,11 @@ class UsersTableSeeder extends Seeder
          $user->email = 'adang@roceto.com';
          $user->password = Hash::make('adang');
          $user->avatar = 'images/users/admin.jpg';
+<<<<<<< HEAD
          $user->is_admin = 1;
+=======
+         $user->activated = 1;
+>>>>>>> 85fff12fbe3598adc2d42676b3b265c7d485963f
          $user->save();
          $user->role()->attach($role_user);
 
@@ -43,6 +51,7 @@ class UsersTableSeeder extends Seeder
          $user->email = 'nisa@roceto.com';
          $user->password = Hash::make('nisa');
          $user->avatar = 'images/users/admin.jpg';
+         $user->activated = 1;
          $user->save();
          $user->role()->attach($role_user);
 
@@ -52,6 +61,7 @@ class UsersTableSeeder extends Seeder
          $user->email = 'abid@roceto.com';
          $user->password = Hash::make('abid');
          $user->avatar = 'images/users/admin.jpg';
+         $user->activated = 1;
          $user->save();
          $user->role()->attach($role_user);
 
@@ -61,6 +71,7 @@ class UsersTableSeeder extends Seeder
          $user->email = 'majid@roceto.com';
          $user->password = Hash::make('majid');
          $user->avatar = 'images/users/admin.jpg';
+         $user->activated = 1;
          $user->save();
          $user->role()->attach($role_user);
 
@@ -70,6 +81,7 @@ class UsersTableSeeder extends Seeder
          $user->email = 'dika@roceto.com';
          $user->password = Hash::make('dika');
          $user->avatar = 'images/users/admin.jpg';
+         $user->activated = 1;
          $user->save();
          $user->role()->attach($role_user);
 
@@ -79,6 +91,7 @@ class UsersTableSeeder extends Seeder
          $user->email = 'unggul@roceto.com';
          $user->password = Hash::make('unggul');
          $user->avatar = 'images/users/admin.jpg';
+         $user->activated = 1;
          $user->save();
          $user->role()->attach($role_user);
 
@@ -88,6 +101,7 @@ class UsersTableSeeder extends Seeder
          $user->email = 'izzudin@roceto.com';
          $user->password = Hash::make('izzudin');
          $user->avatar = 'images/users/admin.jpg';
+         $user->activated = 1;
          $user->save();
          $user->role()->attach($role_user);
 
@@ -97,6 +111,7 @@ class UsersTableSeeder extends Seeder
          $user->email = 'tica@roceto.com';
          $user->password = Hash::make('tica');
          $user->avatar = 'images/users/admin.jpg';
+         $user->activated = 1;
          $user->save();
          $user->role()->attach($role_user);
     }

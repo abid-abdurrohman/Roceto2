@@ -50,19 +50,20 @@
                                 <div class="portfolioContainer">
                                 @foreach($photos as $photo)
                                     <div class="col-sm-6 col-lg-3 col-md-4 {{ $photo->event_id }} ">        
-                                        <div class="gal-detail thumb">
+                                        <div class="gal-detail thumb" style="height:200px">
                                             <a href="{!! asset('').$photo->thumbnail !!}" class="image-popup" title="{{ $photo->deskripsi }}">
                                                 <img src="{!! asset('').$photo->thumbnail !!}" class="thumb-img" >
                                             </a>
-                                            <h4>{{ $photo->judul }}</h4>
-                                        </div>
-                                        <div class="">
+                                            <h4>{{ $photo->judul }} &nbsp; <a href="{{ action('GalleryController@edit', $photo->id) }}"> <i class="fa fa-edit">
                                             
+                                            </i></a>-<a href="#" data-toggle="modal" data-target="#myModal-{{ $photo->id }}"> <i class="fa fa-trash"></i></a>  </h4>
                                         </div>
+                                        @include('admin.gallery.modal.delete', ['id'=>$photo->id])
                                     </div>
-                                @endforeach               
+                                    @endforeach               
                                 </div>
                             </div> <!-- End row -->
+
                         </div>
                     </div>
                 </div>
