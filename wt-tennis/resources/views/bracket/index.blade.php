@@ -25,8 +25,8 @@
 <section class="drawer">
 	<div class="col-md-12 size-img back-img-single">
 		<div class="effect-cover">
-			<h3 class="txt-advert animated">The best ROGER FEDERER</h3>
-			<p class="txt-advert-sub">Player on the ATP World Tour </p>
+			<h3 class="txt-advert animated">Bracket for Tournament</h3>
+			<p class="txt-advert-sub">Player on the ROCETO World Tour </p>
 		</div>
 	</div>
 </section>
@@ -73,7 +73,7 @@
                       @include('bracket.include.share', [
                           'url' => request()->fullUrl(),
                           'description' => $event->nama.' Bracket',
-                          'image' => asset('').'/'.$event->thumbnail
+                          'image' => asset('').$event->thumbnail
                       ])
                     </div>
                   </div>
@@ -96,7 +96,7 @@
                       @include('bracket.include.share', [
                           'url' => request()->fullUrl(),
                           'description' => $event->nama.' Bracket',
-                          'image' => asset('').'/'.$event->thumbnail
+                          'image' => asset('').$event->thumbnail
                       ])
                     </div>
                   </div>

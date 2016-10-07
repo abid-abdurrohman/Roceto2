@@ -29,6 +29,8 @@
 
         <!--calendar css-->
         {{ Html::style('admin_asset/assets/fullcalendar/fullcalendar.css') }}
+        
+        <!-- Select2 -->
         {{ Html::style('admin_asset/assets/select2/select2.css') }}
 
         <!-- sweet alerts -->
@@ -47,8 +49,6 @@
         <!-- Select2 css -->
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-<!--
->>>>>>> 2b8728d4570ec4071018f3ae5f3959a2dfb75c2f
         <link href="{{ URL::asset('fullcalendar/fullcalendar.css') }}"/>
         <link href="{{ URL::asset('fullcalendar/fullcalendar.min.css') }}"/>
         <!--calendar -->
@@ -255,13 +255,8 @@
                                 <li class="{{ Request::segment(2) === 'event' ? 'active' : null }}">
                                     <a href="{{ action('EventController@index') }}" class="waves-effect {{ Request::segment(2) === 'event' ? 'active' : null }}"><i class="fa fa-folder-open"></i><span> Events </span></a>
                                 </li>
-
-                                <li class="{{ Request::segment(2) === 'participant' ? 'active' : null }}">
-                                    <a href="{{ action('ParticipantController@event_index') }}" class="waves-effect {{ Request::segment(2) === 'participant' ? 'active' : null }}"><i class="fa fa-users"></i><span> Participant </span></a>
-
-                                <li>
+                                <li class="{{ Request::segment(2) === 'participant-event' ? 'active' : null }}">
                                     <a href="{{ action('ParticipantController@event_index') }}" class="waves-effect {{ Request::segment(2) === 'participant-event' ? 'active' : null }}"><i class="fa fa-users"></i><span> Participant </span></a>
-
                                 </li>
                                 <li class="{{ Request::segment(2) === 'event-match' ? 'active' : null }}">
                                     <a href="{{ action('EventMatchController@index') }}" class="waves-effect {{ Request::segment(2) === 'event-match' ? 'active' : null }}"><i class="fa fa-gamepad"></i><span> Match </span></a>
@@ -294,8 +289,6 @@
                                   </li>
                                 </ul>
                             </li>
-                            <li>
-                                <a href="{{ url('/scheduling') }}" class="waves-effect {{ Request::segment(2) === 'schedule' ? 'active' : null }}"><i class="fa fa-calendar"></i><span> Schedule </span></a>
                             <li class="{{ Request::segment(2) === 'schedule' ? 'active' : null }}">
                                 <a href="{{ action('ScheduleController@index') }}" class="waves-effect {{ Request::segment(2) === 'schedule' ? 'active' : null }}"><i class="md md-event"></i><span> Schedule </span></a>
                             </li>
@@ -455,6 +448,9 @@
         {{ Html::script('admin_asset/assets/fastclick/fastclick.js') }}
         {{ Html::script('admin_asset/assets/jquery-slimscroll/jquery.slimscroll.js') }}
         {{ Html::script('admin_asset/assets/jquery-blockui/jquery.blockUI.js') }}
+
+         <!--Select2-->
+        {{ Html::script('admin_asset/assets/select2/select2.min.js') }}
 
         <!-- sweet alerts -->
         {{ Html::script('admin_asset/assets/sweet-alert/sweet-alert.min.js') }}

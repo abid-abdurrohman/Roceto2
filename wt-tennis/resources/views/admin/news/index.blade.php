@@ -24,7 +24,7 @@
                               <div class="col-md-5">
                                 <a class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#con-close-modal">Add <i class="fa fa-plus"></i></a>
                                 @include('admin.news.modal.create')
-                              </div>  
+                              </div>
                               <div class="col-md-6">
                                 <div id="datatable_filter" class="dataTables_filter">
                                     <label>Search:

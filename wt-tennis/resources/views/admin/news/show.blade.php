@@ -26,7 +26,7 @@
                                   <section id="single_news" class="container secondary-page">
                                     <div class="general general-results">
                                       <div class="top-score-title col-md-9">
-                                        <img src="{!! asset('').'/'.$news->thumbnail !!}" style="width:500px">
+                                        <img src="{!! asset('').$news->thumbnail !!}" style="width:500px">
                                         <h3>{{ $news->judul }}<span class="point-little">.</span></h3>
                                         <p class="desc_news">{!! $news->deskripsi !!}</p>
                                         <p class="desc_news important_news data">by {{ $news->author }}<i class="fa fa-calendar"></i>{{ $news->created_at }} - Depok, Indonesia</p>

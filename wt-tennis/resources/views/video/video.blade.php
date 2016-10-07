@@ -13,29 +13,29 @@
         </div>
     </div>
 
-    
+
 
      <section id="parallaxTraining">
-        
+
      </section>
 
       <!--SECTION Match TOP SCORE-->
-             
-             
+
+
     <section id="video" class="container secondary-page">
       <div class="general general-results">
           <!-- Page-Title -->
            <div class="top-score-title col-md-9">
              <h3>{{ $match_teams[0]['nama_participant'] }}<span> VS </span>{{ $match_teams[1]['nama_participant'] }}</h3>
              <div id="people-top" class="top-match col-xs-12 col-md-12">
-                
+
               <!--SECTION ATP MATCH-->
                 <div class="next-match-co col-xs-12 col-md-12">
                    <div id="nextmatch-content" class="experience">
                      <div class="col-xs-12 atphead"></div>
                      <div class="col-xs-4 pht-1 pht-left">
                          <div class="img-face-home">
-                            <img src="{!! asset('').'/'.$match_teams[0]['logo_participant'] !!}" alt="" />
+                            <img src="{!! asset('').$match_teams[0]['logo_participant'] !!}" alt="" />
                             <p class="name-mc">{{ $match_teams[0]['nama_participant'] }}</p>
                          </div>
                     </div>
@@ -55,7 +55,7 @@
                     </div>
                      <div class="col-xs-4 pht-1 pht-right">
                           <div class="img-face-home">
-                              <img src="{!! asset('').'/'.$match_teams[1]['logo_participant'] !!}" alt="" />
+                              <img src="{!! asset('').$match_teams[1]['logo_participant'] !!}" alt="" />
                               <p class="name-mc">{{ $match_teams[1]['nama_participant'] }}</p>
                           </div>
                     </div>
@@ -72,7 +72,7 @@
                   </div>
                 </div>
               </div><!--Close Top Match-->
-             
+
              <hr>
                 <h3>Streaming <span>Now </span><span class="point-little">!</span></h3>
                 <div class="col-md-12 news-video">

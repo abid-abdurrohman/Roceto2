@@ -5,11 +5,11 @@
 <section class="drawer">
             <div class="col-md-12 size-img back-img-news">
                     <div class="effect-cover">
-                        <h3 class="txt-advert animated">ATP World Tour Fan Credential</h3>
+                        <h3 class="txt-advert animated">News World Tour of Roceto</h3>
                         <p class="txt-advert-sub animated">Your all-access pass to experience the action on tour</p>
                     </div>
               </div>
-        
+
         <section id="news" class="container secondary-page">
           <div class="general general-results players">
            <div class="top-score-title right-score col-md-12">
@@ -17,7 +17,7 @@
                 @foreach($news as $newss)
                 <div class="col-md-12 news-page">
                   <div class="col-md-4">
-                    <img class="img-djoko" src="{!! asset('').'/'.$newss->thumbnail !!}" alt="" />
+                    <img class="img-djoko" src="{!! asset('').$newss->thumbnail !!}" alt="" />
                   </div>
                   <div class="col-md-8 data-news-pg">
                     <p class="news-dd">{{ $newss->created_at }}</p>

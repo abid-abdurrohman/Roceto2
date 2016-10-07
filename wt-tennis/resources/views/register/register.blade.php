@@ -5,8 +5,8 @@
 <section class="drawer">
   <div class="col-md-12 size-img back-img-shop">
     <div class="effect-cover">
-      <h3 class="txt-advert animated">The best Product for player</h3>
-      <p class="txt-advert-sub">Rackets - Ball - Bags - Shoes</p>
+      <h3 class="txt-advert animated">Registration Competition</h3>
+      <p class="txt-advert-sub">Competiton of Roceto 22-09-2016</p>
     </div>
   </div>
 
@@ -16,7 +16,7 @@
       <h3> Kategori Lomba <span>{{ $events->nama }}</span><span class="point-little">.</span></h3>
       <div class="col-md-12 content-zoom">
         <div class="col-md-6 content-img-zoom">
-         <img id="img_01" src="{!! asset('').'/'.$events->thumbnail !!}" width="400" height="340" />
+         <img id="img_01" src="{!! asset('').$events->thumbnail !!}" width="400" height="340" />
        </div>
        <div class="col-md-6 content-desc-zoom">
          <h3>{{ $events->nama }}</h3>
@@ -62,7 +62,7 @@
           <br>
           @if($participant  == null)
             <div class="accordion waves-effect waves-light col-md-12" id="section11" data-toggle="modal" data-target="#con-close-modal" style="text-align:center">Ayo Join!</div>
-            @include('register.modal.register')
+            @include('register.modal.register', $events)
           @elseif($participant->status =='waiting')
             <div class="accordion waves-effect waves-light col-md-12" id="section11" data-toggle="modal" data-target="#con-close-modal2" style="text-align:center" disabled >Upload Bukti Daftar!</div>
           @else
@@ -81,3 +81,13 @@
 </section>
 
 @endsection
+@push('scripts')
+  <script type="text/javascript">
+  $(document).ready(function () {
+    $(function () {
+      "use strict";
+                $('.accordion').accordion({ defaultOpen: 'section1' }); //some_id section1 in demo
+              });
+  });
+</script>
+@endpush

@@ -1,4 +1,4 @@
-﻿
+
 /*****      CSS STRUCTURE   INDEX      ****/
 
 /***** 
@@ -263,7 +263,7 @@ ul,ol {
 /***** SUMMARY BODY *****/
 #summary-slider {
 	float: left;
-	width: 100%;
+	width: 100%;	
 }
 .separator {
 	background-color: #333;
@@ -363,7 +363,7 @@ div.input-group-option{
 
 
 .content-result.content-result-news {
-    height:750px;
+    height:490px;
 	padding:0;
 	background:url("../images/backgr.jpg") no-repeat 100% 100%;
     background-position: center center; 
@@ -643,7 +643,7 @@ div.inner {
 	font-weight: 300;
 	font-size:65px;
 }
-.content-result p.sub-result.creative
+.content-result p.sub-result.creative{
 	font-weight: 200;
 	font-size: 25px;
 	text-transform: none
@@ -903,49 +903,49 @@ div.inner {
 	text-transform: uppercase;
 }
 .back-img {	
-	background:transparent url(http://placehold.it/1200x350) no-repeat top center;
+	background:transparent url("../images/back_news.jpg") no-repeat top center;
 	-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;	
 }
 .back-img-news {	
-	background:transparent url(http://placehold.it/1200x350) no-repeat center center;
+	background:transparent url("../images/back_news.jpg") no-repeat center center;
 	-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
 .back-img-match {
-	background:transparent url(http://placehold.it/1200x350) no-repeat center center;
-	-webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-.back-img-shop {
-	background:transparent url(http://placehold.it/1200x350) no-repeat bottom center;
-	-webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-.back-img-shop2 {
-	background:transparent url(http://placehold.it/1200x350) no-repeat bottom center;
+	background:transparent url("../images/back_news.jpg") no-repeat center center;
 	-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
 .back-img-single {
-	background:transparent url(http://placehold.it/1200x350) no-repeat top center;
+	background:transparent url("../images/back_news.jpg") no-repeat top center;
 	-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
 .back-img-video {
-	background:transparent url(http://placehold.it/1200x350) no-repeat center center;
+	background:transparent url("../images/back_news.jpg") no-repeat center center;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.back-img-video {
+	background:transparent url("../images/back_news.jpg") no-repeat center center;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.back-img-shop{
+	background:transparent url("../images/back_news.jpg") no-repeat center center;
 	-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
