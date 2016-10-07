@@ -3,7 +3,6 @@
 @section('content')
 <div class="container">
 
-<<<<<<< HEAD
             <!-- Page-Title -->
             <div class="row">
                 <div class="col-sm-12">
@@ -13,7 +12,6 @@
                         <li><a href="{{ action('ParticipantController@show_event', [ $events->id, $participants->id]) }}">Participants</a></li>
                         <li class="active">{{$participants->nama}}</li>
                     </ol>
-=======
     <!-- Page-Title -->
     <div class="row">
         <div class="col-sm-12">
@@ -72,8 +70,6 @@
                               </table>
                           </div>
                       </div>
-
->>>>>>> 0f9f3dbc03cf55916a9ad0045ba70ed188e69714
 
 
             <div class="row">
@@ -139,10 +135,8 @@
                     <h4>Belum memiliki pemain.</h4>
                     @else
 
-<<<<<<< HEAD
-=======
           <a href="{{ action('MemberController@create', [$events->id, $participants->id]) }}" class="btn btn-primary waves-effect waves-light">Add <i class="fa fa-plus"></i></a>
->>>>>>> 0f9f3dbc03cf55916a9ad0045ba70ed188e69714
+
           
                     <div class="row" style="padding-top:10px">
                         <div class="col-md-12 col-sm-12 col-xs-12">

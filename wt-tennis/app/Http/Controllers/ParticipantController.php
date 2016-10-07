@@ -54,9 +54,7 @@ class ParticipantController extends Controller
             'nama_tim' => ['required'],
             'logo_tim' => ['required'],
             'no_hp' => ['required'],
-            'email' => ['required'],
             'warna_kostum' => ['required'],
-            'jumlah_pemain' => ['required'], 
         ]);
         $events = Event::findOrFail($id);
         $input = $request->all();
@@ -111,9 +109,7 @@ class ParticipantController extends Controller
             'nama_tim' => ['required'],
             'logo_tim' => ['required'],
             'no_hp' => ['required'],
-            'email' => ['required'],
             'warna_kostum' => ['required'],
-            'jumlah_pemain' => ['required'],
         ]);
         $events = Event::findOrFail($id);
         $participants = Participant::findOrFail($id_participant);
@@ -210,6 +206,16 @@ class ParticipantController extends Controller
             $message->to($users->email)->from('rocetomazzido@gmail.com')->subject('Welcome!');
           }
             );
-        return redirect()->action('ParticipantController@pembayaran');
+        return redirect()->action('ParticipantController@regis_buktipem');
+    }
+
+    public function regis_buktipem(request $request)
+    {
+        $id_user = Auth::user()->id;
+        $users = User::findOrFail($id_user);
+        $sum = Participant::join('events' , 'events.id', '=' , 'participants.event_id')->where('participants.user_id', $id_user)->select('events.nama as nama_event', 'events.biaya_pendaftaran as payment' , 'participants.*')->sum('events.biaya_pendaftaran');
+        $count = Participant::join('events' , 'events.id', '=' , 'participants.event_id')->where('participants.user_id', $id_user)->select('events.*', 'participants.*')->count('events.id');
+
+        return view('register.pembayaran.pembayaran_upload', compact('users', 'sum', 'count'));
     }
 }

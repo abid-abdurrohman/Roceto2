@@ -13,13 +13,13 @@ class AdminsTableSeeder extends Seeder
     {
         // uncomment the below to wipe the table clean before populating
         // DB::table('admins')->truncate();
-        $admin = array(
+        $admins = array(
         	'username' => 'admin@roceto.com',
         	'password' => Hash::make('admin'),
         	'created_at' => DB::raw('NOW()'),
         	'updated_at' => DB::raw('NOW()'),
         );
         // Comment the below to stop the seeder
-        DB::table('admins')->insert($admin);
+        DB::table('admins')->insert($admins);
     }
 }

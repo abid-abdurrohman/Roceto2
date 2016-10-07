@@ -30,7 +30,7 @@
 							<!-- Personal-Information -->
 						<div class="panel panel-default panel-fill">
 							<div class="panel-heading match-team">
-								<p>Your Payment {{ $users->name }}</p>
+								<p> {{ $users->name }}'s Payment</p>
 							</div>
 							<div class="panel-body">
 								<div class="table-responsive">

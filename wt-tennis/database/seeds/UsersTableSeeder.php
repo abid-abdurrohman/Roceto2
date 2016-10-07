@@ -23,6 +23,7 @@ class UsersTableSeeder extends Seeder
          $user->email = 'admin@roceto.com';
          $user->password = Hash::make('admin');
          $user->avatar = 'images/users/admin.jpg';
+         $user->is_admin = 1;
          $user->save();
          $user->role()->attach($role_admin);
 
@@ -32,6 +33,7 @@ class UsersTableSeeder extends Seeder
          $user->email = 'adang@roceto.com';
          $user->password = Hash::make('adang');
          $user->avatar = 'images/users/admin.jpg';
+         $user->is_admin = 1;
          $user->save();
          $user->role()->attach($role_user);
 
