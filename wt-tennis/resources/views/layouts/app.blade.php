@@ -182,7 +182,7 @@
             <li>
               <a href="{{ action('NewsUserController@show', $news->slug) }}">
               <img src="{!! asset('').$news->thumbnail !!}" alt="" /></a>
-              <p>{!! str_limit($news->deskripsi, 100) !!}</p>
+              <p>{!! str_limit($news->deskripsi, 85) !!}</p>
             </li>
          </ul>
        @endforeach

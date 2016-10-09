@@ -1,6 +1,28 @@
 @extends('admin.layouts.app')
 @section('title', 'Detail Match')
 @section('content')
+
+<style type="text/css">
+    /*
+    *  Flex Layout Specifics
+    */
+    main{ display:flex;flex-direction:row; }
+    .round{ display:flex;flex-direction:column;justify-content:center;width:200px;list-style:none;padding:0; }
+    .round .spacer{ flex-grow:1; }
+    .round .spacer:first-child,
+    .round .spacer:last-child{ flex-grow:.5; }
+    .round .game-spacer{flex-grow:1;border-right: solid; }
+    /*
+    *  General Styles
+    */
+    li.game{ padding-left:20px; }
+    li.game.winner{ font-weight:bold; }
+    li.game span{  }
+    li.game-top{ border-bottom:0px solid #aaa; }
+    li.game-spacer{ border-right:0px solid #aaa;min-height:40px; }
+    li.game-bottom{ border-top:0px solid #aaa; }
+</style>
+
         <div class="container">
 
             <!-- Page-Title -->
@@ -16,6 +38,27 @@
             </div>
 
             <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel-group panel-group-joined" id="accordion-test">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseOne" class="collapsed">
+                                        Bracket Competition
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    @include('admin.match.include.bracket')
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -25,9 +68,10 @@
                             @include('admin.match.notification.flash')
                             <div class="row">
                               <div class="col-md-5">
-                                <a class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#con-close-modal">Add <i class="fa fa-plus"></i></a>
-                                @include('admin.match.modal.create')
-                                <!-- <a href="{{ action('EventController@create') }}" class="btn btn-primary waves-effect waves-light">Add <i class="fa fa-plus"></i></a> -->
+                                @if (($id_part == 1 && $count < ($events->kuota/2))||($id_part == 2 && $count < ($events->kuota/4))||($id_part == 3 && $count < ($events->kuota/8))||($id_part == 3 && $count < ($events->kuota/16)))
+                                    <a class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#con-close-modal">Add <i class="fa fa-plus"></i></a>
+                                    @include('admin.match.modal.create', [$events, $id_part])
+                                @endif
                               </div>
                               <div class="col-md-6">
                                 <div id="datatable_filter" class="dataTables_filter">
@@ -49,7 +93,7 @@
                                                 <th>Waktu</th>
                                                 <th>Tempat</th>
                                                 <th>Created At</th>
-                                                <th colspan="2">Action</th>
+                                                <th colspan="3">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -57,25 +101,47 @@
                                             <tr>
                                                 <td>{{ $match->id }}</td>
                                                 <td>
-                                                    <a href="{{ action('MatchController@show', array($events->id, $match->id)) }}">
+                                                    <a href="{{ action('MatchController@show', [$events->id, $id_part, $match->id]) }}">
                                                       {{ $match->nama }}
                                                     </a>
                                                 </td>
                                                 <td>{{ $match->waktu }}</td>
                                                 <td>{{ $match->tempat }}</td>
                                                 <td>{{ $match->created_at }}</td>
+                                                @if ($match->status == 'playing')
+                                                <td colspan="2">
+                                                  <a href="{{ action('EventMatchScoreController@show', [$events->id, $id_part, $match->id]) }}">Update</a>
+                                                </td>
                                                 <td>
-                                                  <a href="{{ action('MatchController@edit', array($events->id, $match->id)) }}">
+                                                  <a href="#" data-toggle="modal" data-target="#myModal-{{ $events->id }}-{{ $id_part }}-{{ $match->id }}">
+                                                    <i class="fa fa-stop"></i> Done
+                                                  </a>
+                                                </td>
+                                                @elseif ($match->status == 'available')
+                                                <td>
+                                                  <a href="{{ action('MatchController@edit', [$events->id, $id_part, $match->id]) }}">
                                                     <i class="fa fa-edit"></i> Edit
                                                   </a>
                                                 </td>
                                                 <td>
-                                                  <a href="#" data-toggle="modal" data-target="#myModal-{{ $match->id }}-{{ $events->id }}">
+                                                  <a href="#" data-toggle="modal" data-target="#myModal-{{ $match->id }}-{{ $id_part }}-{{ $events->id }}">
                                                     <i class="fa fa-trash"></i> Delete
                                                   </a>
                                                 </td>
+                                                <td>
+                                                  <a href="#" data-toggle="modal" data-target="#myModal2-{{ $events->id }}-{{ $id_part }}-{{ $match->id }}">
+                                                    <i class="fa fa-play"></i> Start
+                                                  </a>
+                                                </td>
+                                                @else
+                                                <td colspan="3">
+                                                  <a href="{{ action('EventMatchScoreController@show', [$events->id, $id_part, $match->id]) }}">Detail</a>
+                                                </td>
+                                                @endif
                                             </tr>
-                                            @include('admin.match.modal.delete', ['id_match' => $match->id, 'id_category' => $events->id])
+                                            @include('admin.match.modal.delete', ['id_match' => $match->id, 'id_part' => $id_part, 'id_category' => $events->id])
+                                            @include('admin.match_score.modal.endmatch', ['id_match' => $match->id])
+                                            @include('admin.match_score.modal.startmatch', ['id_match' => $match->id])
                                           @endforeach
                                         </tbody>
                                     </table>
@@ -86,5 +152,8 @@
                     </div>
                 </div>
             </div> <!-- End Row -->
+
+
+
         </div> <!-- container -->
 @endsection

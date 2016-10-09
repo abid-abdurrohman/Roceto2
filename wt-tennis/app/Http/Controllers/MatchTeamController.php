@@ -18,7 +18,7 @@ class MatchTeamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id, $id_match)
+    public function index($id, $id_part, $id_match)
     {
         //
     }
@@ -28,7 +28,7 @@ class MatchTeamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id, $id_match)
+    public function create($id, $id_part, $id_match)
     {
         //
     }
@@ -39,7 +39,7 @@ class MatchTeamController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id, $id_match)
+    public function store(Request $request, $id, $id_part, $id_match)
     {
         $this->validate($request, [
             'participant_id' => 'required',
@@ -49,7 +49,7 @@ class MatchTeamController extends Controller
         $matches = Match::findOrFail($id_match);
         $input['match_id'] = $matches->id;
         Match_team::create($input);
-        return redirect()->action('MatchController@show', [$events->id, $matches->id])->with('success', 'Team has been created');
+        return redirect()->action('MatchController@show', [$events->id, $id_part, $matches->id])->with('success', 'Team has been created');
     }
 
     /**
@@ -58,7 +58,7 @@ class MatchTeamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id, $id_match, $id_team)
+    public function show($id, $id_part, $id_match, $id_team)
     {
         $events = Event::findOrFail($id);
         $matches = Match::findOrFail($id_match);
@@ -68,7 +68,7 @@ class MatchTeamController extends Controller
           ->select('participants.nama_tim as nama_participant', 'match_teams.*')->findOrFail($id_team);
         $match_scores = Match_score::where('match_team_id', $id_team)->join('members', 'members.id', '=', 'match_scores.member_id')
           ->select('members.nama as nama_member', 'match_scores.*')->get();
-        return view('admin.match_team.show', compact('events', 'matches', 'match_teams', 'members', 'match_scores'));
+        return view('admin.match_team.show', compact('events', 'matches', 'match_teams', 'members', 'match_scores', 'id_part'));
     }
 
     /**
@@ -77,13 +77,13 @@ class MatchTeamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id, $id_match, $id_team)
+    public function edit($id, $id_part, $id_match, $id_team)
     {
         $events = Event::findOrFail($id);
         $matches = Member::findOrFail($id_match);
         $match_team = Match_team::findOrFail($id_team);
         $participants = Participant::where('event_id', $id)->where('status','validated')->lists('nama_tim', 'id');
-        return view('admin.match_team.edit', compact('events', 'matches', 'match_team', 'participants'));
+        return view('admin.match_team.edit', compact('events', 'matches', 'match_team', 'participants', 'id_part'));
     }
 
     /**
@@ -93,7 +93,7 @@ class MatchTeamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id, $id_match, $id_team)
+    public function update(Request $request, $id, $id_part, $id_match, $id_team)
     {
         $this->validate($request, [
             'participant_id' => 'required',
@@ -103,7 +103,7 @@ class MatchTeamController extends Controller
         $matches = Match::findOrFail($id_match);
         $match_teams = Match_team::findOrFail($id_team);
         $match_teams->update($input);
-        return redirect()->action('MatchController@show', [$events->id, $matches->id])->with('info', 'Team has been updated');
+        return redirect()->action('MatchController@show', [$events->id, $id_part, $matches->id])->with('info', 'Team has been updated');
     }
 
     /**
@@ -112,12 +112,12 @@ class MatchTeamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id, $id_match, $id_team)
+    public function destroy($id, $id_part, $id_match, $id_team)
     {
         $events = Event::findOrFail($id);
         $matches = Match::findOrFail($id_match);
         $match_teams = Match_team::findOrFail($id_team);
         $match_teams->delete();
-        return redirect()->action('MatchController@show', [$events->id, $matches->id])->with('danger', 'Event has been deleted');
+        return redirect()->action('MatchController@show', [$events->id, $id_part, $matches->id])->with('danger', 'Event has been deleted');
     }
 }

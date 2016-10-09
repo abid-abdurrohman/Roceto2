@@ -259,12 +259,6 @@
                                 <li class="{{ Request::segment(2) === 'event-match' ? 'active' : null }}">
                                     <a href="{{ action('EventMatchController@index') }}" class="waves-effect {{ Request::segment(2) === 'event-match' ? 'active' : null }}"><i class="fa fa-gamepad"></i><span> Match </span></a>
                                 </li>
-                                <li class="{{ Request::segment(2) === 'event-bracket' ? 'active' : null }}">
-                                    <a href="{{ action('EventBracketController@index') }}" class="waves-effect {{ Request::segment(2) === 'event-bracket' ? 'active' : null }}"><i class="fa fa-sitemap"></i><span> Bracket </span></a>
-                                </li>
-                                <li class="{{ Request::segment(2) === 'event-score' ? 'active' : null }}">
-                                    <a href="{{ action('EventMatchScoreController@event') }}" class="waves-effect {{ Request::segment(2) === 'event-score' ? 'active' : null }}"><i class="fa fa-toggle-right"></i><span> Control Match </span></a>
-                                </li>
                                 <li class="{{ Request::segment(2) === 'event-statistic' ? 'active' : null }}">
                                     <a href="{{ action('EventStatisticController@index') }}" class="waves-effect {{ Request::segment(2) === 'event-statistic' ? 'active' : null }}"><i class="fa fa-line-chart"></i><span> Statistic </span></a>
                                 </li>
@@ -446,6 +440,9 @@
         {{ Html::script('admin_asset/assets/fastclick/fastclick.js') }}
         {{ Html::script('admin_asset/assets/jquery-slimscroll/jquery.slimscroll.js') }}
         {{ Html::script('admin_asset/assets/jquery-blockui/jquery.blockUI.js') }}
+
+        <!-- Select2 -->
+        {{ Html::script('admin_asset/assets/select2/select2.min.js') }}
 
         <!-- sweet alerts -->
         {{ Html::script('admin_asset/assets/sweet-alert/sweet-alert.min.js') }}

@@ -7,7 +7,7 @@
             </div>
             <div class="modal-body">
               {!! Form::model(new App\Model\Match_team, array('class' => 'form-horizontal', 'method' => 'POST',
-              'action' => array('MatchTeamController@store', $events->id, $matches->id))) !!}
+              'action' => array('MatchTeamController@store', $events->id, $id_part, $matches->id))) !!}
                   @include('admin.match_team.form.form', ['submit_text' => 'Add Team'])
               {!! Form::close() !!}
             </div>

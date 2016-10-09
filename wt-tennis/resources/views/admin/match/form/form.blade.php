@@ -11,13 +11,6 @@
   });
 </script>
 <div class="form-group">
-    <label class="col-md-2 control-label">No Match</label>
-    <div class="col-md-10">
-        {!! Form::select('no_match', array('1' => '1', '2' => '2', '3' => '3', '4' => '4'), null, ['class' => 'form-control',
-        'required'],'') !!}
-    </div>
-</div>
-<div class="form-group">
     <label class="col-md-2 control-label">Nama Match</label>
     <div class="col-md-10">
         {!! Form::text('nama', null, ['class' => 'form-control', 'placeholder' => 'Write a name',
@@ -34,13 +27,6 @@
     <label class="col-md-2 control-label">Tempat</label>
     <div class="col-md-10">
         {!! Form::text('tempat', null, ['class' => 'form-control', 'placeholder' => 'Write a place',
-        'required'],'') !!}
-    </div>
-</div>
-<div class="form-group">
-    <label class="col-md-2 control-label">Youtube URL</label>
-    <div class="col-md-10">
-        {!! Form::text('youtube', null, ['class' => 'form-control', 'placeholder' => 'Write a youtube URL',
         'required'],'') !!}
     </div>
 </div>
