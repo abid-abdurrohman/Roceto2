@@ -20,13 +20,13 @@ class ContactController extends Controller
             'email' => 'required',
             'message' => 'required',
         ]);
-        Mail::send('emails.welcome',
+        Mail::send('emails.contact',
           array(
             'nama' => $request->get('nama'),
             'email' => $request->get('email'),
             'bodyMessage' => $request->get('message')
           ), function($message){
-            $message->to('maudyannisa@gmail.com')->from('muhammadabdurrohman1995@gmail.com')->subject('Welcome!');
+            $message->to('rocetomazzido@gmail.com')->from('rocetomazzido@gmail.com')->subject('New Message From Roceto Website');
           }
         );
         return redirect()->action('ContactController@index')->with('success', 'Email has been delivered');

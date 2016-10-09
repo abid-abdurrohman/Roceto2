@@ -18,11 +18,12 @@ class MatchController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index($id)
+    public function index($id, $id_part)
     {
-       /* $events = Event::findOrFail($id);
-        $matches = Match::where('event_id', $id)->paginate(5);
-        return view('admin.match.index', compact('matches', 'events'));*/
+        $events = Event::findOrFail($id);
+        $count = Match::where('event_id', $id)->where('no_match', $id_part)->count();
+        $matches = Match::where('event_id', $id)->where('no_match', $id_part)->paginate(5);
+        return view('admin.match.index', compact('matches', 'events', 'id_part', 'count'));
     }
 
     /**
@@ -30,7 +31,7 @@ class MatchController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create($id, $id_part)
     {
        /* $events = Event::findOrFail($id);
         $matches = Match::where('event_id', $id)->paginate(5);
@@ -43,22 +44,21 @@ class MatchController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(Request $request, $id, $id_part)
     {
         $this->validate($request, [
-            'no_match' => 'required',
             'nama' => 'required',
             'waktu' => 'required',
             'tempat' => 'required',
-            'youtube' => 'required',
             'deskripsi' => 'required',
         ]);
         $input = $request->all();
         $events = Event::findOrFail($id);
         $input['event_id'] = $events->id;
+        $input['no_match'] = $id_part;
         $input['status'] = "available";
         Match::create($input);
-        return redirect()->action('EventMatchController@show', [$events->id])->with('success', 'Match has been created');
+        return redirect()->action('MatchController@index', [$events->id, $id_part])->with('success', 'Match has been created');
     }
 
     /**
@@ -67,7 +67,7 @@ class MatchController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id, $id_match)
+    public function show($id, $id_part, $id_match)
     {
         $events = Event::findOrFail($id);
         $matches = Match::findOrFail($id_match);
@@ -78,13 +78,37 @@ class MatchController extends Controller
           ->select('participants.nama_tim as nama_participant', 'participants.logo_tim as logo_participant',
           'match_teams.score as team_score', 'match_teams.comment as team_comment', 'matches.*')
           ->where('match_id', $id_match)->get()->toArray();
-        $participants = Participant::where('event_id', $id)->where('status','validated')->lists('nama_tim', 'id');
+        if ($id_part == 1) {
+           $participants = Participant::where('event_id', $id)->where('status','validated')->lists('nama_tim', 'id');
+        }elseif ($id_part == 2) {
+           $participants = Match_team::join('matches', 'matches.id', '=', 'match_teams.match_id')
+           ->join('participants', 'participants.id', '=', 'match_teams.participant_id')
+           ->where('participants.event_id', $id)
+           ->where('matches.status', 'done')->where('matches.no_match', 1)->where('participants.status','validated')
+           ->where('match_teams.status', 'win')->select('participants.nama_tim', 'participants.id as id_participant')
+           ->lists('nama_tim', 'id_participant');
+        }elseif ($id_part == 3) {
+           $participants = Match_team::join('matches', 'matches.id', '=', 'match_teams.match_id')
+           ->join('participants', 'participants.id', '=', 'match_teams.participant_id')
+           ->where('participants.event_id', $id)
+           ->where('matches.status', 'done')->where('matches.no_match', 2)->where('participants.status','validated')
+           ->where('match_teams.status', 'win')->select('participants.nama_tim', 'participants.id as id_participant')
+           ->lists('nama_tim', 'id_participant');
+        }elseif ($id_part == 4) {
+           $participants = Match_team::join('matches', 'matches.id', '=', 'match_teams.match_id')
+           ->join('participants', 'participants.id', '=', 'match_teams.participant_id')
+           ->where('participants.event_id', $id)
+           ->where('matches.status', 'done')->where('matches.no_match', 3)->where('participants.status','validated')
+           ->where('match_teams.status', 'win')->select('participants.nama_tim', 'participants.id as id_participant')
+           ->lists('nama_tim', 'id_participant');
+        }
+
         $count = Match_team::join('matches', 'matches.id', '=', 'match_teams.match_id')
           ->join('participants', 'participants.id', '=', 'match_teams.participant_id')
           ->select('participants.nama_tim as nama_participant', 'participants.logo_tim as logo_participant',
           'match_teams.score as team_score', 'match_teams.comment as team_comment', 'matches.*')
           ->where('match_id', $id_match)->get();
-        return view('admin.match.show', compact('events', 'matches', 'participants', 'match_teams', 'teams', 'count'));
+        return view('admin.match.show', compact('events', 'matches', 'participants', 'match_teams', 'teams', 'count', 'id_part'));
     }
 
     /**
@@ -93,11 +117,11 @@ class MatchController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id, $id_match)
+    public function edit($id, $id_part, $id_match)
     {
         $events = Event::findOrFail($id);
         $matches = Match::findOrFail($id_match);
-        return view('admin.match.edit', compact('events', 'matches'));
+        return view('admin.match.edit', compact('events', 'matches', 'id_part'));
     }
 
     /**
@@ -107,14 +131,12 @@ class MatchController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id, $id_match)
+    public function update(Request $request, $id, $id_part, $id_match)
     {
         $this->validate($request, [
-            'no_match' => 'required',
             'nama' => 'required',
             'waktu' => 'required',
             'tempat' => 'required',
-            'youtube' => 'required',
             'deskripsi' => 'required',
         ]);
         $input = $request->all();
@@ -122,7 +144,7 @@ class MatchController extends Controller
         $matches = Match::findOrFail($id_match);
         $input['status'] = "available";
         $matches->update($input);
-        return redirect()->action('EventMatchController@show', [$events->id])->with('info', 'Match has been edited');
+        return redirect()->action('MatchController@index', [$events->id, $id_part])->with('info', 'Match has been edited');
     }
 
     /**
@@ -131,11 +153,11 @@ class MatchController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id, $id_match)
+    public function destroy($id, $id_part, $id_match)
     {
         $events = Event::findOrFail($id);
         $match = Match::findOrFail($id_match);
         $match->delete();
-        return redirect()->action('EventMatchController@show', [$events->id])->with('danger', 'Event has been deleted');
+        return redirect()->action('MatchController@index', [$events->id, $id_part])->with('danger', 'Event has been deleted');
     }
 }

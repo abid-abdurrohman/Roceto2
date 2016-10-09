@@ -6,7 +6,7 @@
                 <h4 class="modal-title">Create Match</h4>
             </div>
             <div class="modal-body">
-              {!! Form::model(new App\Model\Match, ['action' => ['MatchController@store', $events->id], 'class'=>'form-horizontal']) !!}
+              {!! Form::model(new App\Model\Match, ['action' => ['MatchController@store', $events->id, $id_part], 'class'=>'form-horizontal']) !!}
                   @include('admin.match.form.form', ['submit_text' => 'Add Match'])
               {!! Form::close() !!}
             </div>
