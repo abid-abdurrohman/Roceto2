@@ -40,6 +40,7 @@
   <link href="{{ URL::asset('css/profil.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ URL::asset('css/comments.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ URL::asset('css/calender.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ URL::asset('css/carousel.css') }}" rel="stylesheet" type="text/css" />
 
   <!-- Waves-effect -->
   <link href="{{ URL::asset('admin_asset/css/waves-effect.css') }}" rel="stylesheet">
@@ -158,10 +159,9 @@
    <div class="col-md-12">
     <div class="col-md-3">
      <h3>About Us</h3>
-     <p>Thank you for visiting tennisclub.com. Our mission is to
+     <p>Thank you for visiting roceto.com. Our mission is to
        provide unrivalled and unbiased informative and resources to help any sports fan who enjoys a flutter make informed and value led decisions.</p>
-       <p>Our mission is to
-         provide unrivalled and unbiased informative, resources to help any sports fan who enjoys a flutter make.</p>
+       <p>Roceto will help you to organize and facilitate your event sport. Include Registration, Join Competition, Payment, and Enjoy the competition </p>
        </div>
        <?php ?>
 
@@ -224,19 +224,11 @@
 </div>
 </footer>
 
-<script src="{{ URL::asset('js/jquery-1.10.2.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/jquery-migrate-1.2.1.min.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/jquery.transit.min.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/dropzone.min.js') }}" type="text/javascript"></script>
 
-<script type="text/javascript">
-  $(document).ready(function () {
-    $(function () {
-      "use strict";
-                $('.accordion').accordion({ defaultOpen: 'section1' }); //some_id section1 in demo
-              });
-  });
-</script>
+
 
 <!-- jQuery  -->
 <script src="{{ URL::asset('admin_asset/js/jquery.min.js') }}"></script>
@@ -248,6 +240,8 @@
 <script src="{{ URL::asset('js/menu/modernizr.custom.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/menu/cbpHorizontalMenu.js') }}" type="text/javascript"></script>
 <!--END MENU-->
+<!-- 
+<script src="{{ URL::asset('js/crousel.js') }}" type="text/javascript"></script> -->
 
 <!--Mini Flexslide-->
 <script src="{{ URL::asset('js/minislide/jquery.flexslider.js') }}" type="text/javascript"></script>

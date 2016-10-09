@@ -55,8 +55,8 @@
 <section class="drawer">
 	<div class="col-md-12 size-img back-img-single">
 		<div class="effect-cover">
-			<h3 class="txt-advert animated">The best ROGER FEDERER</h3>
-			<p class="txt-advert-sub">Player on the ATP World Tour </p>
+			<h3 class="txt-advert animated">Bracket Tournament</h3>
+			<p class="txt-advert-sub">Player on the Roceto World Tour </p>
 		</div>
 	</div>
 

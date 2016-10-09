@@ -32,6 +32,7 @@ Route::group(['middleware' => ['web']], function () {
      Route::get('fixtures', 'FixturesUserController@index');
      Route::get('news', 'NewsUserController@index');
      Route::get('news/{slug}', 'NewsUserController@show');
+     Route::get('tags/{id}', 'TagUserController@index');
      Route::get('gallery', 'GalleryUserController@index');
      Route::get('join/{id}', 'RegisterController@index');
      Route::post('join/{id}', 'RegisterController@store');
@@ -90,3 +91,4 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/role-user', 'RoleUserController@store');
     Route::get('admin/pemasukan', 'PemasukanController@index');
 });
+

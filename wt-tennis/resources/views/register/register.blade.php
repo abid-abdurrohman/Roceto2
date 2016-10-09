@@ -5,8 +5,8 @@
 <section class="drawer">
   <div class="col-md-12 size-img back-img-shop">
     <div class="effect-cover">
-      <h3 class="txt-advert animated">The best Product for player</h3>
-      <p class="txt-advert-sub">Rackets - Ball - Bags - Shoes</p>
+      <h3 class="txt-advert animated">Registration Competition</h3>
+      <p class="txt-advert-sub">Competiton of Roceto 22-09-2016</p>
     </div>
   </div>
 
@@ -81,3 +81,13 @@
 </section>
 
 @endsection
+@push('scripts')
+  <script type="text/javascript">
+  $(document).ready(function () {
+    $(function () {
+      "use strict";
+                $('.accordion').accordion({ defaultOpen: 'section1' }); //some_id section1 in demo
+              });
+  });
+</script>
+@endpush

@@ -26,4 +26,5 @@ class NewsUserController extends Controller
         return view('news.news-single', compact('news', 'other_news', 'comments'));
     }
 
+    
 }

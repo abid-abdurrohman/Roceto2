@@ -5,7 +5,7 @@
 <section class="drawer">
             <div class="col-md-12 size-img back-img-news">
                     <div class="effect-cover">
-                        <h3 class="txt-advert animated">ATP World Tour Fan Credential</h3>
+                        <h3 class="txt-advert animated">News World Tour of Roceto</h3>
                         <p class="txt-advert-sub animated">Your all-access pass to experience the action on tour</p>
                     </div>
               </div>

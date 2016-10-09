@@ -7,7 +7,7 @@
 <section class="drawer">
   <div class="col-md-12 size-img back-img-shop">
     <div class="effect-cover">
-      <h3 class="txt-advert animated">The best news ATP WTP</h3>
+      <h3 class="txt-advert animated">The best news ROCETO</h3>
       <p class="txt-advert-sub">News - Match - Player</p>
     </div>
   </div>
@@ -29,7 +29,7 @@
           @unless ($news->tags->isEmpty())
           <i class="fa fa-tag"></i><span>TAGS:</span>
           @foreach ($news->tags as $tag)
-          <a href="#" class="tag">{{ $tag->nama }}</a>
+          <a href="{{ action('TagUserController@index', $tag->id) }}" class="tag">{{ $tag->nama }}</a>
           @endforeach
           @endunless
         </div>

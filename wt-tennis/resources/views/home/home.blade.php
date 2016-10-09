@@ -1,6 +1,24 @@
 @extends('layouts.app')
 @section('content')
 
+<style type="text/css">
+  .text-slider {
+  margin-bottom: 30px;
+}
+.flex_text ul {
+  padding-left: 0;
+}
+.flex_text li {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  color: #fff;
+  min-height: 40px;
+  line-height: 40px;
+  margin-bottom: 0;
+}
+</style>
+
 <!--SECTION CONTAINER SLIDER-->
     <section id="summary-slider">
            <div class="general">
@@ -8,23 +26,22 @@
              <div id="textslide" class="effect-backcolor">
                 <div class="container">
                     <div class="col-md-12 slide-txt">
-                        <p class='sub-result aft-little welcome linetheme-left'>Creative</p>
-                        <p class='sub-result aft-little linetheme-right'>Web Design<span class="point-big">.</span></p>
+                        <p class='sub-result aft-little welcome linetheme-left txt-advert animated'>Welcome</p>
                     </div>
                 </div>
              </div>
            </div>
            <div id="slidematch" class="col-xs-12 col-md-12">
-                  <div class="content-match-team-wrapper">
-                     <span class="gdlr-left">Real Tennis</span>
-                     <span class="gdlr-upcoming-match-versus">VS</span>
-                     <span class="gdlr-right">Wednesday Club</span>
-                  </div>
-                  <div class="content-match-team-time">
-                     <span class="gdlr-left">23 Sep 2016 - 14:00</span>
-                     <span class="gdlr-right">Real Stadium</span>
-                  </div>
-               </div>
+              <div class="content-match-team-wrapper">
+                 <span class="gdlr-left">Real Tennis</span>
+                 <span class="gdlr-upcoming-match-versus">VS</span>
+                 <span class="gdlr-right">Wednesday Club</span>
+              </div>
+              <div class="content-match-team-time">
+                 <span class="gdlr-left">23 Sep 2016 - 14:00</span>
+                 <span class="gdlr-right">Real Stadium</span>
+              </div>
+           </div>
          </div>
     </section>
 
@@ -257,6 +274,7 @@
 
 @endsection
 @push('scripts')
+
 <script>
     $(document).ready(function() {
       if (window.location.hash == '#_=_') {
