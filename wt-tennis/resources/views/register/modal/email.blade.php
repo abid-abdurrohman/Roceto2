@@ -10,7 +10,7 @@
         <i style="font-size:15px">Klik Ok untuk melanjutkan !</i>
       </div>
       <div class="modal-footer">
-        {!! Form::open(['method' => 'Email', 'action' => ['ParticipantController@postPembayaran']]) !!}
+        {!! Form::open(['method' => 'Email', 'action' => ['ParticipantController@regis_buktipem']]) !!}
         <button type="submit" class="btn btn-info" value="email" ><i class="fa fa-trash"></i> Ok</button>
         {!! Form::close() !!}
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

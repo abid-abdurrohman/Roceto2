@@ -1,26 +1,25 @@
 @extends('admin.layouts.app')
-@section('title', 'Edit Data Participant')
+@section('title', 'Create Data Pemasukan')
 @section('content')
         <div class="container">
-
             <!-- Page-Title -->
             <div class="row">
                 <div class="col-sm-12">
-                    <h4 class="pull-left page-title">Participant</h4>
+                    <h4 class="pull-left page-title">Events</h4>
                     <ol class="breadcrumb pull-right">
                         <li><a href="#">Admin</a></li>
-                        <li><a href="{{ action('ParticipantController@event_index') }}">Participant</a></li>
-                        <li class="active">Edit</li>
+                        <li><a href="#">Events</a></li>
+                        <li class="active">Create</li>
                     </ol>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-12">
                     <div class="panel panel-default">
-                        <div class="panel-heading"><h3 class="panel-title">Edit {{ $participants->nama }}</h3></div>
+                        <div class="panel-heading"><h3 class="panel-title">Create Data Entry</h3></div>
                         <div class="panel-body">
-                            {!! Form::model($participants, ['method' => 'PATCH', 'action' => ['ParticipantController@update', $user->id, $participants->id], 'files' => true, 'class'=>'form-horizontal']) !!}
-                                @include('admin/participant/form/form', ['submit_text' => 'Edit Participant'])
+                            {!! Form::model(new App\Model\Pemasukan, ['action' => 'PemasukanController@store', 'class'=>'form-horizontal']) !!}
+                                @include('admin.pemasukan.form.form', ['submit_text' => 'Add pemasukan'])
                             {!! Form::close() !!}
                         </div> <!-- panel-body -->
                     </div> <!-- panel -->

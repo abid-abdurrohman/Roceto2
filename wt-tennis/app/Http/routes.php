@@ -42,7 +42,7 @@ Route::group(['middleware' => ['web']], function () {
      Route::get('bracket/{id}/getPDF', 'BracketUserController@getPDF');
 });
 Route::group(['middleware' => 'auth'], function () {
-<<<<<<< HEAD
+
   Route::get('profil', 'ProfileController@index');
   Route::patch('profil{id}', 'ProfileController@update');
   Route::post('register/{id}/upload', 'BuktiBayarController@store');
@@ -62,7 +62,7 @@ Route::post('register/{id}/upload', 'BuktiBayarController@store');
 Route::get('register/pembayaran', 'ParticipantController@pembayaran');
 Route::post('register/pembayaran', 'ParticipantController@postPembayaran');
 
-Route::get('register/pembayaran/buktipemb', 'ParticipantController@regis_buktipem');
+Route::post('register/pembayaran/buktipemb', 'ParticipantController@regis_buktipem');
 
 Route::get('admin/logout', 'Auth\AuthController@getLogout');
 
@@ -105,7 +105,7 @@ Route::get('bracket', 'BracketUserController@index');
 Route::get('bracket/{id}', 'BracketUserController@show');
 Route::get('bracket/{id}/getPDF', 'BracketUserController@getPDF');
 
-=======
+
     Route::get('profil', 'ProfileController@index');
     Route::patch('profil{id}', 'ProfileController@update');
     Route::post('team/{id}', 'MemberUserController@store');
@@ -114,9 +114,9 @@ Route::get('bracket/{id}/getPDF', 'BracketUserController@getPDF');
     Route::patch('team/{id}/member/{member}', 'MemberUserController@update');
     Route::delete('team/{id}/member/{member}', 'MemberUserController@destroy');
     Route::post('comment/{id}', 'CommentUserController@store');
-});
 
->>>>>>> 85fff12fbe3598adc2d42676b3b265c7d485963f
+
+
 Route::group(['middleware' => 'admin'], function () {
     // Route::get('admin', 'AdminController@login');
     Route::get('admin', 'AdminController@index');
@@ -151,19 +151,17 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('admin/event-statistic.statistic', 'StatisticController');
     Route::get('admin/result', 'ResultController@index');
     Route::get('admin/logout', 'Auth\AuthController@getLogout');
-    Route::get('admin/participant-event', 'ParticipantController@event_index');
-    Route::get('admin/participant-event/{id}', 'ParticipantController@show_event');
-    Route::resource('admin/participant-event.participant', 'ParticipantController');
-    Route::get('admin/participant-event.participant/{id}/bukti_pembayaran', 'ParticipantController@bukti_pembayaran');
-    Route::post('admin/participant-event.participant/{id}/bukti_pembayaran', 'ParticipantController@validation');
+    Route::get('admin/participant-user', 'ParticipantController@event_index');
+    Route::get('admin/participant-user/{user_id}', 'ParticipantController@show_event');
+    Route::resource('admin/participant-user.participant', 'ParticipantController');
+    Route::get('admin/participant-user.participant/{user_id}/bukti_pembayaran', 'ParticipantController@bukti_pembayaran');
+    Route::post('admin/participant-user.participant/{user_id}/bukti_pembayaran', 'ParticipantController@validation');
     Route::post('admin/participant/search', 'ParticipantController@search');
-    Route::resource('admin/participant-event.participant.member', 'MemberController');
+    Route::resource('admin/participant-user.participant.member', 'MemberController');
     Route::get('admin/role-user', 'RoleUserController@index');
     Route::post('admin/role-user', 'RoleUserController@store');
     Route::get('admin/pemasukan', 'PemasukanController@index');
-<<<<<<< HEAD
-});
-=======
+    Route::post('admin/pemasukan', 'PemasukanController@store');
+
 });
 
->>>>>>> 85fff12fbe3598adc2d42676b3b265c7d485963f

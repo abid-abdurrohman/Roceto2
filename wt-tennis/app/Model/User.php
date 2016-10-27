@@ -36,6 +36,11 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Model\Role')->withTimestamps();
     }
 
+
+    public function bukti_pembayaran(){
+        return $this->hasOne('App\Model\BuktiPembayaran');
+    }
+    
     public function hasAnyRole($roles)
     {
         if (is_array($roles)) {

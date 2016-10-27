@@ -20,9 +20,9 @@
 							<div class="panel-heading match-team" >
 								<p> {{ $users->name }}'s Payment</p>
 							</div>
-					</div>
+					
 						<div class="col-md-6">
-							<div class="panel-body" >
+							<div class="" >
 								<div class="table-responsive">
                                     <table id="datatable" class="table table-striped">
                                          <tbody>
@@ -43,13 +43,34 @@
                                 </div>
                             </div>
                         </div>
-                     </div>
 
+                        <div class="col-md-6">
+							<div class="panel-body" >
+								<div class="table-responsive">
+                                    <table id="datatable" class="table table-striped">
+                                         <tbody>
+                                          <p>Silahkan lakukan pembayaran ke Nomer Rekening Berikut, serta upload buktinya disini</p>
+                                           <tr></tr>
+										   <th> Mandiri</th>
+										   <td> :</td>
+										   <td>19999839810371073 (A.N Roceto Competition)</td>
+										   <tr></tr>
+                                           <th>BCA</th>
+                                           <td> :</td>
+                                           <td>123137391639981721 (A.N Roceto Competition)</td>									
+                                        </tbody>
+                                        
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+</div>
 
 									<!-- Personal-Information -->
 							<!-- Kondisi Kirim Email dan Upload bukti bayar -->
 
-							<div class="accordion waves-effect waves-light col-md-6" id="section11" data-toggle="modal" data-target="#con-close-modal2" style="text-align:center; font-size:20px; "  >Upload Bukti !</div>
+							<div class="accordion waves-effect waves-light col-md-12" id="section11" data-toggle="modal" data-target="#con-close-modal2" style="text-align:center; font-size:20px; "  >Upload Bukti !</div>
 							@include('register.modal.upload')
 
 								</div>

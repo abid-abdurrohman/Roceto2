@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title', 'Data Event')
+@section('title', 'Data Pemasukan')
 @section('content')
         <div class="container">
             <!-- Page-Title -->
@@ -23,7 +23,7 @@
                             <div class="row">
                               <div class="col-md-5">
                                 <a class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#con-close-modal">Add <i class="fa fa-plus"></i></a>
-                               
+                                 @include('admin.pemasukan.modal.create')                               
                               </div>
                               <div class="col-md-6">
                               </div>
@@ -36,7 +36,7 @@
                                                <th>ID</th>
                                                 <th>Nama</th>
                                                 <th>Participant ID</th>
-                                                <th>Event ID</th>
+                                                <th>Event</th>
                                                 <th>Created At</th>
                                                 <th>Update At</th>
                                                 <th>Jumlah</th>

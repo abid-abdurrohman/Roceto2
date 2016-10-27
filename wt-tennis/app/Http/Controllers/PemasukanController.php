@@ -13,7 +13,7 @@ class PemasukanController extends Controller
     	$pemasukan = Pemasukan::join('events', 'events.id', '=', 'pemasukan.event_id')->join('participants', 'participants.id', '=', 'pemasukan.participant_id')
     	->select('events.nama as nama_event', 'participants.id as participant_id', 'pemasukan.*')->get();
     	$sum = Pemasukan::sum('jumlah');
-    	return view ('admin.pemasukan.notification.index', compact('pemasukan', 'events', 'participants','sum'));
+    	return view ('admin.pemasukan.index', compact('pemasukan', 'events', 'participants','sum'));
     }
 
     public function getPemasukan()
@@ -31,8 +31,6 @@ class PemasukanController extends Controller
     {
         $this->validate($request, [
             'nama' => 'required',
-            'participant_id' => 'required',
-            'event_id' => 'required',
             'jumlah' => 'required',
         ]);
         $input = $request->all();

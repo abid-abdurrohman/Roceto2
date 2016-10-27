@@ -51,14 +51,6 @@
             <li class="desc-prod" style="text-align:justify">{{ $events->kuota }} tim</li>
           </div>
 
-         <!--  <div class="accordion accordion-close" id="section11"><i class="fa fa-calendar-o"></i>Peraturan Permainan Basket<span></span></div>
-           <div class="acc-content" style="display: block;">
-            <div>Kontak</div>
-            <li class="desc-prod" style="text-align:justify">Bola dapat dipukul ke segala arah dengan menggunakan salah satu atau kedua tangan, tetapi tidak boleh dipukul menggunakan kepalan tangan (meninju). </li>
-            <li class="desc-prod" style="text-align:justify">Pemain tidak diperbolehkan berlari sambil memegang bola. Pemain harus melemparkan bola tersebut dari titik tempat menerima bola, tetapi diperbolehkan apabila pemain tersebut berlari pada kecepatan biasa.</li>
-            <li class="desc-prod" style="text-align:justify">Pemain tidak diperbolehkan menyeruduk, menahan, mendorong, memukul, atau menjegal pemain lawan dengan cara bagaimanapun. Pelanggaran pertama terhadap peraturan ini akan dihitung sebagai kesalahan, pelanggaran kedua akan diberi sanksi berupa diskualifikasi pemain pelanggar hingga keranjang timnya dimasuki oleh bola lawan, dan apabila pelanggaran tersebut dilakukan dengan tujuan untuk mencederai lawan, maka pemain pelanggar akan dikenai hukuman tidak boleh ikut bermain sepanjang pertandingan. Pada masa ini, pergantian pemain tidak diperbolehkan.</li>
-            <li class="desc-prod" style="text-align:justify">Wasit berhak untuk memperhatikan permainan para pemain dan mencatat jumlah pelanggaran dan memberi tahu wasit pembantu apabila terjadi pelanggaran berturut-turut.</li>
-          </div> -->
           <br>
           @if($participant  == null)
             <div class="accordion waves-effect waves-light col-md-12" id="section11" data-toggle="modal" data-target="#con-close-modal" style="text-align:center">Ayo Join!</div>
