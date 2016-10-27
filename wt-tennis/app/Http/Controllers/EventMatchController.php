@@ -20,11 +20,4 @@ class EventMatchController extends Controller
         return view('admin.match.event', compact('events'));
     }
 
-    public function show($id)
-    {
-        $events = Event::findOrFail($id);
-        $matches = Match::where('event_id', $id)->paginate(5);
-        return view('admin.match.index', compact('matches', 'events'));
-    }
-
 }

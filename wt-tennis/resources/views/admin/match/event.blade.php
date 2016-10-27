@@ -38,7 +38,10 @@
                                                 <th>ID</th>
                                                 <th>Nama Event</th>
                                                 <th>Detail Event</th>
-                                                <th>Action</th>
+                                                <th>Match 1</th>
+                                                <th>Match 2</th>
+                                                <th>Match 3</th>
+                                                <th>Match 4</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -48,7 +51,16 @@
                                                 <td><a href="{{ action('EventController@show', $event->id) }}">{{ $event->nama }}</a></td>
                                                 <td>{{ $event->detail }}</td>
                                                 <td>
-                                                  <a href="{{ action('EventMatchController@show', $event->id) }}">Check</a>
+                                                  <a href="{{ action('MatchController@index', [$event->id, 1]) }}">Check <li class="fa fa-arrow-circle-right"></li></a>
+                                                </td>
+                                                <td>
+                                                  <a href="{{ action('MatchController@index', [$event->id, 2]) }}">Check <li class="fa fa-arrow-circle-right"></li></a>
+                                                </td>
+                                                <td>
+                                                  <a href="{{ action('MatchController@index', [$event->id, 3]) }}">Check <li class="fa fa-arrow-circle-right"></li></a>
+                                                </td>
+                                                <td>
+                                                  <a href="{{ action('MatchController@index', [$event->id, 4]) }}">Check <li class="fa fa-arrow-circle-right"></li></a>
                                                 </td>
                                             </tr>
                                           @endforeach

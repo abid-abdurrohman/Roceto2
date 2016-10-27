@@ -9,7 +9,7 @@
                     <h4 class="pull-left page-title">Match</h4>
                     <ol class="breadcrumb pull-right">
                         <li><a href="#">Admin</a></li>
-                        <li><a href="{{ action('EventMatchController@show', $events->id) }}">Match</a></li>
+                        <li><a href="{{ action('MatchController@index', [$events->id, $id_part]) }}">Match</a></li>
                         <li class="active"></li>
                     </ol>
                 </div>
@@ -21,12 +21,12 @@
                     <div class="panel-body">
                         <div class="media-main">
                           <center>
-                            <img class="thumb-lg" src="{!! asset('').'/'.$teams[0]['logo_participant'] !!}" alt="">
+                            <img class="thumb-lg" src="{!! asset('').$teams[0]['logo_participant'] !!}" alt="">
                             <h4>{{ $teams[0]['nama_participant'] }}</h4>
                           </center>
                         </div>
                     </div>
-                  </div>  
+                  </div>
                 </div> <!-- end col -->
                 <div class="col-sm-6 col-lg-2">
                   <div class="media-main">
@@ -34,20 +34,20 @@
                       <h1 style="padding-top:130px; padding-bottom:130px; ">VS</h1>
                     </center>
                   </div>
-                </div> <!-- end col --> 
+                </div> <!-- end col -->
 
                 <div class="col-sm-6 col-lg-5">
                   <div class="panel">
                     <div class="panel-body">
                       <div class="media-main">
                         <center>
-                          <img class="thumb-lg" src="{!! asset('').'/'.$teams[1]['logo_participant'] !!}" alt="">
+                          <img class="thumb-lg" src="{!! asset('').$teams[1]['logo_participant'] !!}" alt="">
                           <h4>{{ $teams[1]['nama_participant'] }}</h4>
                         </center>
                       </div>
                     </div>
                   </div>
-                </div> <!-- end col -->                
+                </div> <!-- end col -->
             </div> <!-- End row -->
             @endif
             <div class="row">
@@ -60,8 +60,10 @@
                             @include('admin.match.notification.flash')
                             <div class="row">
                               <div class="col-md-12">
-                                  <a class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#con-close-modal">Add <i class="fa fa-plus"></i></a>
-                                  @include('admin.match_team.modal.create')
+                                  @if ($count->count() != '2')
+                                      <a class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#con-close-modal">Add <i class="fa fa-plus"></i></a>
+                                      @include('admin.match_team.modal.create', [$events, $id_part, $matches])
+                                  @endif
                               </div>
                             </div><br>
                             <div class="row">
@@ -82,7 +84,7 @@
                                               <tr>
                                                   <td>{{ $match_team->id }}</td>
                                                   <td>
-                                                    <a href="{{ action('ParticipantController@show', array($events->id, $match_team->participant_id)) }}">
+                                                    <a href="{{ action('ParticipantController@show', array($events->id, $id_part, $match_team->participant_id)) }}">
                                                     {{ $match_team->nama_participant }}
                                                     </a>
                                                   </td>
@@ -90,17 +92,17 @@
                                                   <td>{{ $match_team->created_at }}</td>
                                                   <td>{{ $match_team->updated_at }}</td>
                                                   <td>
-                                                    <a href="{{ action('MatchTeamController@edit', array($events->id, $matches->id, $match_team->id)) }}">
+                                                    <a href="{{ action('MatchTeamController@edit', array($events->id, $id_part, $matches->id, $match_team->id)) }}">
                                                       <i class="fa fa-edit"></i> Edit
                                                     </a>
                                                   </td>
                                                   <td>
-                                                    <a href="#" data-toggle="modal" data-target="#myModal-{{ $events->id }}-{{ $matches->id }}-{{ $match_team->id }}">
+                                                    <a href="#" data-toggle="modal" data-target="#myModal-{{ $events->id }}-{{ $id_part }}-{{ $matches->id }}-{{ $match_team->id }}">
                                                       <i class="fa fa-trash"></i> Delete
                                                     </a>
                                                   </td>
                                               </tr>
-                                              @include('admin.match_team.modal.delete', ['id_event' => $events->id, 'id_match' => $matches->id, 'id_team' => $match_team->id])
+                                              @include('admin.match_team.modal.delete', ['id_event' => $events->id, 'id_part' => $id_part, 'id_match' => $matches->id, 'id_team' => $match_team->id])
                                             @endforeach
                                         </tbody>
                                     </table>

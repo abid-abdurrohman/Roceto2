@@ -15,21 +15,8 @@ class EventMatchScoreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     public function event()
-     {
-         $events = Event::paginate(5);
-         return view('admin.match_score.event', compact('events'));
-     }
 
-    public function index($id)
-    {
-        $events = Event::findOrFail($id);
-        $matches = Match::join('events', 'events.id', '=', 'matches.event_id')
-          ->select('events.nama as nama_event', 'matches.*')->where('matches.event_id',$id)->paginate(5);
-        return view('admin.match_score.match', compact('events', 'matches'));
-    }
-
-    public function show($id, $id_match)
+    public function show($id, $id_part, $id_match)
     {
         $events = Event::findOrFail($id);
         $matches = Match::findOrFail($id_match);
@@ -39,10 +26,10 @@ class EventMatchScoreController extends Controller
           'match_teams.score as team_score', 'match_teams.comment as team_comment', 'matches.*')
           ->where('match_id', $id_match)->get()->toArray();
         $match_team = Match_team::where('match_id', $id_match)->get()->toArray();
-        return view('admin.match_score.index', compact('events', 'matches', 'match_teams', 'match_team'));
+        return view('admin.match_score.index', compact('events', 'matches', 'match_teams', 'match_team', 'id_part'));
     }
 
-    public function update(Request $request, $id, $id_match, $id_team)
+    public function update(Request $request, $id, $id_part, $id_match, $id_team)
     {
         $this->validate($request, [
             'score' => 'required',
@@ -51,31 +38,45 @@ class EventMatchScoreController extends Controller
         $input = $request->all();
         $match_teams = Match_team::findOrFail($id_team);
         $match_teams->update($input);
-        return redirect()->action('EventMatchScoreController@show', [$id, $id_match])->with('info', 'Match has been updated');
+        return redirect()->action('EventMatchScoreController@show', [$id, $id_part, $id_match])->with('info', 'Match has been updated');
     }
 
-    public function endmatch($id, $id_match)
+    public function endmatch($id, $id_part, $id_match)
     {
         $match = Match::findOrFail($id_match);
         $match['status'] = 'done';
         $match->update();
-        // $match_teams = Match_team::where('match_id', $id_match)->get();
-        // foreach ($match_teams as $match_team){
-        //     $team_list[$match_team->id] = $match_team->score;
-        // }
-        //
-        // foreach ($match_teams as $match_team){
-        //     $teams = Match_team::findOrFail($match_team->id);
-        //     $teams['status'] = "win"
-        // }
-        return redirect()->action('EventMatchScoreController@index', [$id])->with('info','Match has been done');
+        $match_teams = Match_team::where('match_id', $id_match)->lists('score', 'id');
+        $x = 0;
+        foreach ($match_teams as $id_m => $match_team){
+            if ($x == 1) {
+                if ($match_team > $score_temp) {
+                    $id_win = $id_m;
+                }else{
+                    $id_win = $id_temp;
+                }
+            }else{
+                $score_temp = $match_team;
+                $id_temp = $id_m;
+            }
+            $x++;
+        }
+
+        $match_team = Match_team::findOrFail($id_win);
+        $match_team['status'] = 'win';
+        $match_team->update();
+        return redirect()->action('MatchController@index', [$id, $id_part])->with('info','Match has been done');
     }
 
-    public function startmatch($id, $id_match)
+    public function startmatch(Request $request, $id, $id_part, $id_match)
     {
+        $this->validate($request, [
+            'youtube' => 'required',
+        ]);
         $match = Match::findOrFail($id_match);
+        $match['youtube'] = $request->youtube;
         $match['status'] = 'playing';
         $match->update();
-        return redirect()->action('EventMatchScoreController@show', [$id, $id_match])->with('info','Match has start');
+        return redirect()->action('EventMatchScoreController@show', [$id, $id_part, $id_match])->with('info','Match has start');
     }
 }
