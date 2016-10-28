@@ -10,6 +10,7 @@ use App\Model\Participant;
 use App\Model\Event;
 use App\Model\BuktiPembayaran;
 
+use App\Model\User;
 use App\Http\Controllers\Controllers;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
@@ -29,10 +30,9 @@ class BuktiBayarController extends Controller
     	$photo = $request->thumbnail->getClientOriginalName();
         $destination = 'images/bukti/';
         $request->thumbnail->move($destination, $photo);
-
         $input['thumbnail'] = $destination.$photo;
-        $participant=Participant::where('user_id', Auth::user()->id)->where('event_id', $id)->first();
-        $input['participant_id'] = $participant->id;
+        
+        $input['user_id'] = Auth::user()->id;
 
     	BuktiPembayaran::create($input);
         return redirect()->action('HomeController@index');

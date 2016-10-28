@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title', 'Data Event')
+@section('title', 'Data Pemasukan')
 @section('content')
         <div class="container">
             <!-- Page-Title -->
@@ -19,15 +19,7 @@
                             <h3 class="panel-title">Data Keuangan</h3>
                         </div>
                         <div class="panel-body">
-                           <!--  @include('admin.event.notification.flash') -->
-                            <div class="row">
-                              <div class="col-md-5">
-                                <a class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#con-close-modal">Add <i class="fa fa-plus"></i></a>
-                               
-                              </div>
-                              <div class="col-md-6">
-                              </div>
-                            </div><br>
+                    
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                   <table id="datatable" class="table table-striped table-bordered">
@@ -36,7 +28,7 @@
                                                <th>ID</th>
                                                 <th>Nama</th>
                                                 <th>Participant ID</th>
-                                                <th>Event ID</th>
+                                                <th>Event</th>
                                                 <th>Created At</th>
                                                 <th>Update At</th>
                                                 <th>Jumlah</th>
@@ -86,5 +78,15 @@
                     </div>
                 </div>
             </div> <!-- End Row -->
+
+                   <!--  @include('admin.event.notification.flash') -->
+                            <div class="row">
+                              <div class="col-md-5">
+                                <a class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#con-close-modal"><i class="fa fa-print"></i></a>
+                                 @include('admin.pemasukan.modal.create')                               
+                              </div>
+                              <div class="col-md-6">
+                              </div>
+                            </div><br>
         </div> <!-- container -->
 @endsection

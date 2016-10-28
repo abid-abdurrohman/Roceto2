@@ -7,11 +7,11 @@
         <h4 class="modal-title" id="myModalLabel">Payment Alert</h4>
       </div>
       <div class="modal-body">
-        <i style="font-size:15px">Info: Silahkan Cek email anda untuk melakukan pembayaran !</i>
+        <i style="font-size:15px">Klik Ok untuk melanjutkan !</i>
       </div>
       <div class="modal-footer">
-        {!! Form::open(['method' => 'Email', 'action' => ['ParticipantController@pembayaran']]) !!}
-        <button type="submit" class="btn btn-info" ><i class="fa fa-trash"></i> Ok</button>
+        {!! Form::open(['method' => 'Email', 'action' => ['ParticipantController@regis_buktipem']]) !!}
+        <button type="submit" class="btn btn-info" value="email" ><i class="fa fa-trash"></i> Ok</button>
         {!! Form::close() !!}
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
       </div>

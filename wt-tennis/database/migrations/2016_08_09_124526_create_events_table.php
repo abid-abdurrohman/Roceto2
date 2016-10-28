@@ -18,9 +18,9 @@ class CreateEventsTable extends Migration
             $table->text('detail');
             $table->text('thumbnail');
             $table->text('peraturan');
+            $table->integer('jumlah_pemain');
             $table->integer('biaya_pendaftaran');
             $table->integer('kuota');
-            $table->integer('jumlah_pemain');
             $table->timestamps();
         });
     }

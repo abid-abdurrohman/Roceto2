@@ -17,21 +17,9 @@
     </div>
 </div>
 <div class="form-group">
-    <label class="col-md-2 control-label">Email</label>
-    <div class="col-md-10">
-        {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Write your mail', 'required'], '') !!}
-    </div>
-</div>
-<div class="form-group">
     <label class="col-md-2 control-label">Warna Kostum</label>
     <div class="col-md-10">
         {!! Form::text('warna_kostum', null, ['class' => 'form-control', 'placeholder' => 'Write yours color', 'required'], '') !!}
-    </div>
-</div>
-<div class="form-group">
-    <label class="col-md-2 control-label">Jumlah Pemain</label>
-    <div class="col-md-10">
-        {!! Form::text('jumlah_pemain', null, ['class' => 'form-control', 'placeholder' => 'Write a num', 'required'], '') !!}
     </div>
 </div>
 <div class="form-group" style="margin:1px">

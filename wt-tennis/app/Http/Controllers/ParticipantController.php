@@ -23,44 +23,42 @@ class ParticipantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show_event($id)
+   /* public function show_event($id)
     {
         $events = Event::findOrFail($id);
         $participants = Participant::join('events', 'events.id', '=', 'participants.event_id')->where('events.id' , $id)
           ->select('events.nama as nama_event, events.id as event_id', 'participants.*')->paginate(5);
         return view('admin.participant.index', compact('participants', 'events'));
     }
+*/
 
+
+    /*Untuk menampilkan(admin/participant-user/{user_id})*/
+    public function show_event($id)
+    {
+      $user = User::findOrFail($id);
+        $participants = Participant::join('events', 'events.id', '=', 'participants.event_id')
+        ->where('participants.user_id', $id)->select('events.nama as nama_event', 'participants.*')->get();
+        return view('admin.participant.user_participant', compact('user', 'participants'));
+    }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-       /* $category = Category::lists('nama','id');
-        return view('admin.participant.create', compact('category'));*/
-    }
+  
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request, $id)
+/*    public function store(Request $request, $id)
     {
         $this->validate($request, [
             'nama_tim' => ['required'],
             'logo_tim' => ['required'],
             'no_hp' => ['required'],
-            'email' => ['required'],
             'warna_kostum' => ['required'],
-            'jumlah_pemain' => ['required'], 
         ]);
         $events = Event::findOrFail($id);
         $input = $request->all();
-        $input['status'] = 'waiting';
+        $input['status'] = 'regitered';
         $photo = $request->logo_tim->getClientOriginalName();
         $destination = 'images/participant/';
         $request->logo_tim->move($destination, $photo);
@@ -68,7 +66,7 @@ class ParticipantController extends Controller
         $input['event_id'] = $id;
         Participant::create($input);
         return redirect()->action('ParticipantController@index')->with('success', 'Participant has been created');
-    }
+    }*/
 
     /**
      * Display the specified resource.
@@ -76,13 +74,14 @@ class ParticipantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
+    /*Untuk show participant berdasarkan user*/
     public function show($id, $id_participant)
     {
-        $events = Event::findOrFail($id);
-        $participants = Participant::join('events', 'events.id', '=', 'participants.event_id')
-          ->select('events.nama as nama', 'events.biaya_pendaftaran as biaya_pendaftaran', 'participants.*')->findOrFail($id_participant);
-        $members = Member::where('participant_id', $id_participant)->get();
-        return view('admin.participant.show', compact('participants', 'members', 'events'));
+        $user   = User::findOrFail($id);
+        $participants = Participant::join('events', 'events.id', '=', 'participants.event_id')->join('users' , 'users.id' , '=' , 'participants.user_id')->select('events.nama as nama', 'events.biaya_pendaftaran as biaya_pendaftaran', 'participants.*' , 'users.*')->findOrFail($id_participant);
+        return view('admin.participant.show', compact('participants', 'user'));
     }
 
     /**
@@ -91,11 +90,13 @@ class ParticipantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id, $id_participant)
+
+    /*Untuk edit data participant*/
+    public function edit($user_id, $id_participant)
     {
-        $events = Event::findOrFail($id);
+        $user = User::findOrFail($user_id);
         $participants = Participant::findOrFail($id_participant);
-        return view('admin.participant.edit', compact('participants', 'events'));
+        return view('admin.participant.edit', compact('participants', 'user'));
     }
 
     /**
@@ -105,26 +106,27 @@ class ParticipantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+
+    /*Untuk update data setelah di edit*/
+    public function update(request $request, $id, $id_participant)
     {
         $this->validate($request, [
             'nama_tim' => ['required'],
             'logo_tim' => ['required'],
             'no_hp' => ['required'],
-            'email' => ['required'],
             'warna_kostum' => ['required'],
-            'jumlah_pemain' => ['required'],
         ]);
-        $events = Event::findOrFail($id);
+        $user = User::findOrFail($id);
         $participants = Participant::findOrFail($id_participant);
         $input = $request->all();
         $input['event_id'] = $participants->event_id;
+        $input['user_id']  = $participants->user_id; 
         $photo = $request->logo_tim->getClientOriginalName();
         $destination = 'images/participant/';
         $request->logo_tim->move($destination, $photo);
         $input['logo_tim'] = $destination.$photo;
         $participants->update($input);
-        return redirect()->action('ParticipantController@show', compact('events', 'participants'))->with('info','Participant has been edited');
+        return redirect()->action('ParticipantController@show', [ $id, $id_participant])->with('info','Participant has been edited');
     }
 
     /**
@@ -133,6 +135,9 @@ class ParticipantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
+    /*Untuk mendelet data cancle*/
     public function destroy($id, $id_participant)
     {
         $events = Event::findOrFail($id);
@@ -155,33 +160,48 @@ class ParticipantController extends Controller
         return view('admin.participant.search', compact('participants','temp_search'));
     }
 
-    public function validation($id, $id_participant)
+
+
+    /*Untuk validasi bukti pembayaran*/
+    public function validation($user_id)
     {
-        $events = Event::findOrFail($id);
-        $participants = participant::findOrFail($id_participant);
-        $participants['status'] = 'validated';
-        $participants->update();
-        $input['nama'] = 'pemasukan_pendaftaran';
-        $input['event_id'] = $participants->event_id;
-        $input['participant_id'] = $id;
-        $input['jumlah'] = $events->biaya_pendaftaran;
-        Pemasukan::create($input);
-        return redirect()->action('ParticipantController@bukti_pembayaran', compact('events', 'participants'))->with('info','Participant has been validated');
+        $user = User::findOrFail($user_id);
+        $participants = Participant::join('events', 'events.id', '=' , 'participants.event_id')->join('bukti_pembayaran', 'bukti_pembayaran.user_id', '=' , 'participants.user_id')->where('participants.user_id', $user_id)->select('events.biaya_pendaftaran as jumlah' , 'bukti_pembayaran.*' ,'participants.*')->get();
+       
+        foreach ($participants as $participant)
+        {
+          $participant['status'] = 'validated';
+          $participant->update();
+          $pemasukan = new Pemasukan();
+          $pemasukan->nama = 'pemasukan_pendaftaran';
+
+          $pemasukan->event_id = $participant->event_id;
+          $pemasukan->participant_id = $participant->id;
+          $pemasukan->jumlah = $participant->jumlah;
+          $pemasukan->save();
+        }
+
+        return redirect()->action('ParticipantController@bukti_pembayaran', [$user_id])->with('info','Participant has been validated');
     }
 
-    public function bukti_pembayaran($id, $id_participant)
+
+    /*Untuk melihat data participant yang upload bukti*/
+    public function bukti_pembayaran($user_id)
     {
-        $events = Event::findOrFail($id);
-        $bukti_pembayaran = BuktiPembayaran::join('participants', 'participants.id', '=' , 'bukti_pembayaran.participant_id')->where('participant_id', $id_participant)->select('participants.status as status_participant', 'bukti_pembayaran.*')->first();
-        $participant= Participant::findOrFail($id_participant);
-        return view('admin.participant.bukti_pembayaran.formin', compact('bukti_pembayaran', 'participant', 'events'));
+        $user= User::findOrFail($user_id);
+        $bukti_pembayaran = User::join('participants', 'participants.user_id', '=' , 'users.id')->join('bukti_pembayaran', 'bukti_pembayaran.user_id', '=' , 'users.id')->where('users.id', $user_id)->select('bukti_pembayaran.*','participants.status as status_participant' , 'participants.nama_tim as nama' , 'users.*' )->get();
+        return view('admin.participant.bukti_pembayaran.formin', compact('bukti_pembayaran', 'user'));
     }
+
+    /*Untuk show data user participant*/
     public function event_index()
     {
-        $event_index = Event::paginate(5);
-        return view('admin.participant.event_index', compact('event_index'));
+        $user_event = User::where('is_admin', 0)->paginate(5);
+        return view('admin.participant.user_index', compact('user_event'));
     }
 
+
+    /*Untuk View cancle lomba*/
     public function pembayaran()
     {
         $id_user = Auth::user()->id;
@@ -194,10 +214,16 @@ class ParticipantController extends Controller
         return view('register.pembayaran.pembayaran', compact('users', 'participants', 'sum'));
 
     }
+
+
+
+    /*untuk kirim email pembayaran*/
     public function postPembayaran(request $request)
     {
         $id_user = Auth::user()->id;
         $users = User::findOrFail($id_user);
+        $users->status = 'waiting';
+        $users->update();
         
         $sum = Participant::join('events' , 'events.id', '=' , 'participants.event_id')->where('participants.user_id', $id_user)->select('events.nama as nama_event', 'events.biaya_pendaftaran as payment' , 'participants.*')->sum('events.biaya_pendaftaran');
 
@@ -210,6 +236,22 @@ class ParticipantController extends Controller
             $message->to($users->email)->from('rocetomazzido@gmail.com')->subject('Welcome!');
           }
             );
-        return redirect()->action('ParticipantController@pembayaran');
+        return redirect()->action('ParticipantController@regis_buktipem');
     }
+
+
+
+    /*untuk view upload bukti dan rincian pendaftaran*/
+    public function regis_buktipem(request $request)
+    {
+        $id_user = Auth::user()->id;
+        $users = User::findOrFail($id_user);
+        $sum = Participant::join('events' , 'events.id', '=' , 'participants.event_id')->where('participants.user_id', $id_user)->select('events.nama as nama_event', 'events.biaya_pendaftaran as payment' , 'participants.*')->sum('events.biaya_pendaftaran');
+        $participants = Participant::where('user_id' , $id_user)->get();
+        $count = Participant::join('events' , 'events.id', '=' , 'participants.event_id')->where('participants.user_id', $id_user)->select('events.*', 'participants.*')->count('events.id');
+
+        return view('register.pembayaran.pembayaran_upload', compact('users', 'sum', 'count' , 'participants'));
+    }
+
+
 }

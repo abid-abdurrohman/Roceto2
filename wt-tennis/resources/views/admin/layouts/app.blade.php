@@ -252,6 +252,7 @@
                                 <li class="{{ Request::segment(2) === 'event' ? 'active' : null }}">
                                     <a href="{{ action('EventController@index') }}" class="waves-effect {{ Request::segment(2) === 'event' ? 'active' : null }}"><i class="fa fa-folder-open"></i><span> Events </span></a>
                                 </li>
+                                <li>
                                 <li class="{{ Request::segment(2) === 'participant-event' ? 'active' : null }}">
                                     <a href="{{ action('ParticipantController@event_index') }}" class="waves-effect {{ Request::segment(2) === 'participant-event' ? 'active' : null }}"><i class="fa fa-users"></i><span> Participant </span></a>
                                 </li>
@@ -266,19 +267,9 @@
                                 </li>
                                 </ul>
                             </li>
-                            <li class="has_sub">
-                                <a href="#" class="waves-effect"><i class="fa fa-money"></i><span> Laporan Keuangan </span><span class="pull-right"><i class="md md-add"></i></span></a>
-                                <ul class="list-unstyled">
-                                  <li class="{{ Request::segment(2) === 'pemasukan' ? 'active' : null }}">
-                                      <a href="{{ action('PemasukanController@index') }}" class="waves-effect {{ Request::segment(2) === 'pemasukan' ? 'active' : null }}"><i class="fa fa-mail-forward"></i><span> Pemasukan </span></a>
-                                  </li>
-                                  <li class="{{ Request::segment(2) === 'pengeluaran' ? 'active' : null }}">
-                                      <a href="#" class="waves-effect {{ Request::segment(2) === 'pengeluaran' ? 'active' : null }}"><i class="fa fa-mail-reply"></i><span> Pengeluaran </span></a>
-                                  </li>
-                                  <li class="{{ Request::segment(2) === 'report' ? 'active' : null }}">
-                                      <a href="#" class="waves-effect {{ Request::segment(2) === 'report' ? 'active' : null }}"><i class="fa fa-file-excel-o"></i><span> Report </span></a>
-                                  </li>
-                                </ul>
+                            <li>
+                                <a href="{{ action('PemasukanController@index') }}" class="waves-effect"><i class="fa fa-file-excel-o"></i><span> Financial Report </span><span class="pull-right"></span></a>
+                                
                             </li>
                             <li class="{{ Request::segment(2) === 'schedule' ? 'active' : null }}">
                                 <a href="{{ action('ScheduleController@index') }}" class="waves-effect {{ Request::segment(2) === 'schedule' ? 'active' : null }}"><i class="md md-event"></i><span> Schedule </span></a>

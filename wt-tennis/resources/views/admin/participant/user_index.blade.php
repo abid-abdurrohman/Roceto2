@@ -1,11 +1,11 @@
 @extends('admin.layouts.app')
-@section('title', 'Data Event Participant')
+@section('title', 'Data User Participant')
 @section('content')
         <div class="container">
             <!-- Page-Title -->
             <div class="row">
                 <div class="col-sm-12">
-                    <h4 class="pull-left page-title">Event</h4>
+                    <h4 class="pull-left page-title">Participant</h4>
                     <ol class="breadcrumb pull-right">
                         <li><a href="#">Admin</a></li>
                         <li class="active">Participant Event</li>
@@ -16,7 +16,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Data Event Participant</h3>
+                            <h3 class="panel-title">Data Participant User</h3>
                         </div>
                         <div class="panel-body">
                             <div class="row">
@@ -37,29 +37,25 @@
                                             <tr>
                                             
                                                 <th><center>ID</center></th>
-                                                <th><center>Nama Event</center></th>
-                                                <th><center>Detail Event</center></th>
+                                                <th><center>Nama User</center></th>
                                                 <th colspan="2"><center>Action</center></th>
 
                                             </tr>
                                         </thead>
                                         <tbody>
-                                          @foreach ($event_index as $event)
+                                          @foreach ($user_event as $user)
                                             <tr>
-                                                <td>{{ $event->id }}</td>
-                                                <td><a href="{{ action('EventController@show', $event->id) }}">{{ $event->nama }}</a></td>
-                                                <td>{{ $event->nama }}</td>
+                                                <td>{{ $user->id }}</td>
+                                                <td>{{ $user->name }}</a></td>
                                                 <td>
-                                                  <center><a href="{{ action('ParticipantController@show_event', $event->id) }}" >Check <li class="fa fa-arrow-circle-right"></li></a> </center>
+                                                  <center><a href="{{ action('ParticipantController@show_event', $user->id) }}" >Check <li class="fa fa-arrow-circle-right"></li></a> </center>
                                                 </td>
-                                                <!-- <td>
-                                                  <a href="{{ action('EventBracketController@show_result', $event->id) }}">Result</a>
-                                                </td> -->
+                                             
                                             </tr>
                                           @endforeach
                                         </tbody>
                                     </table>
-                                    {!! $event_index->links() !!}
+                                    {!! $user_event->links() !!}
                                 </div>
                             </div>
                         </div>

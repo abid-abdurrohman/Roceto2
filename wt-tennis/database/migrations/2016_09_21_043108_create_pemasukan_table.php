@@ -17,7 +17,7 @@ class CreatePemasukanTable extends Migration
             $table->string('nama');
             $table->integer('participant_id')->unsigned()->index();
             $table->foreign('participant_id')->references('id')->on('participants')->onDelete('cascade');
-             $table->integer('event_id')->unsigned()->index();
+            $table->integer('event_id')->unsigned()->index();
             $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
             $table->integer('jumlah');
             $table->timestamps();

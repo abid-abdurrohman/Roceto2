@@ -25,9 +25,17 @@ class RegisterController extends Controller
     public function index($id)
     {
         $events = Event::findOrFail($id);
-        $user=Auth::user()->id;
-        $participant= Participant::where('user_id', $user)->where('event_id', $id)->first();
-        return view('register.register', compact('events', 'participant'));
+        if (Auth::guest())
+            {
+                 return view('register.register', compact('events'));
+            }
+        else
+            {
+                $user=Auth::user()->id;
+                $participant= Participant::where('user_id', $user)->where('event_id', $id)->first();
+                return view('register.register', compact('events', 'participant'));
+            }
+
     }
 
     public function store($id, Request $request)
@@ -39,9 +47,10 @@ class RegisterController extends Controller
         $request->logo_tim->move($destination, $photo);
         $input['logo_tim'] = $destination.$photo;
         $input['event_id'] = $id;
-        $input['status'] = 'waiting';
+        $input['status'] = 'registered';
         $input['user_id'] = Auth::user()->id;
         Participant::create($input);
+        $events = Event::findOrFail($id);
         return redirect()->action('RegisterController@index', $id);
     }
 
