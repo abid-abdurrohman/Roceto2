@@ -27,8 +27,8 @@
                                     <div class="row">
                                         <div class="col-md-2 col-sm-2">                           
                                             <div class="user-wrapper-responsive">
-                                                <a style="border:2px" class="image-popup" href="{!! asset('').$member->foto !!}" title="{{ $member->nama }}">
-                                                <img src="{!! asset('').$member->foto !!}" width="180 px" alt="" />
+                                                <center><a style="border:5px" class="image-popup" href="{!! asset('').$member->foto !!}" title="{{ $member->nama }}"></center>
+                                                <img src="{!! asset('').$member->foto !!}" width="180px" alt="" />
                                                 </a>
                                             </div>
                                         </div>
@@ -89,36 +89,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                  <div class="table table-responsive">
-                                    <table id="datatable" class="table table-striped table-bordered">
-                                        <thead>
-                                            <tr >
-                                                <th>ID</th>
-                                                <th>Nama</th>
-                                                <th>Jenis Kelamin</th>
-                                                <th>Tanggal Lahir</th>
-                                                <th>No. Hp</th>
-                                                <th>Posisi</th>
-                                                <th>No. Punggung</th>
-                                                <th>Foto</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>{{ $member->id }}</td>
-                                                <td>{{ $member->nama }}</td>
-                                                <td>{{ $member->jk }}</td>
-                                                <td>{{ $member->tgl_lhr }}</td>
-                                                <td>{{ $member->no_hp }}</td>
-                                                <td>{{ $member->posisi }}</td>
-                                                <td>{{ $member->no_punggung }}</td>
-                                                <td>{{ $member->foto }}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                   </div>
-                                </div>
+                                                                
                             </div>
                         </div>
                     </div>

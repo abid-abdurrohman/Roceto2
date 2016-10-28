@@ -80,8 +80,10 @@ class ParticipantController extends Controller
     public function show($id, $id_participant)
     {
         $user   = User::findOrFail($id);
+
         $participants = Participant::join('events', 'events.id', '=', 'participants.event_id')->join('users' , 'users.id' , '=' , 'participants.user_id')->select('events.nama as nama', 'events.biaya_pendaftaran as biaya_pendaftaran', 'participants.*' , 'users.*')->findOrFail($id_participant);
-        return view('admin.participant.show', compact('participants', 'user'));
+        $members = Member::where('participant_id', $id_participant)->get();
+        return view('admin.participant.show', compact('participants', 'user', 'members'));
     }
 
     /**

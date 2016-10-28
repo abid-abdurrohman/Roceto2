@@ -431,7 +431,11 @@
         {{ Html::script('admin_asset/assets/jquery-slimscroll/jquery.slimscroll.js') }}
         {{ Html::script('admin_asset/assets/jquery-blockui/jquery.blockUI.js') }}
 
+<<<<<<< HEAD
         <!-- Select2 -->
+=======
+         <!--Select2-->
+>>>>>>> 296bd2000bb2f30b8fe6bd0ab0485c8f18d1525f
         {{ Html::script('admin_asset/assets/select2/select2.min.js') }}
 
         <!-- sweet alerts -->

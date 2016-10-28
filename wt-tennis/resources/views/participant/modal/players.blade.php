@@ -7,7 +7,7 @@
             </div>
             <div class="modal-body">
               {!! Form::open(['action' => array('MemberUserController@store', $participants->id), 'files' => true, 'class'=>'form-horizontal']) !!}
-                  @include('participant.form.form', ['submit_text' => '  Daftar' ])
+                  @include('participant.form.form', ['submit_text' => 'Tambahkan' ])
               {!! Form::close() !!}
             </div>
         </div>
