@@ -36,7 +36,8 @@
 										   <tr></tr>
                                            <th>Total Pembayaran</th>
                                            <td> :</td>
-                                           <td>{{ $sum }}</td>									
+                                           <td>{{ $sum }}</td>
+                                           								
                                         </tbody>
                                         
                                     </table>

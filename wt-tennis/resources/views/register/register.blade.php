@@ -52,15 +52,18 @@
           </div>
 
           <br>
+          @if(Auth::guest())
+           <div class="accordion waves-effect waves-light col-md-12" id="section11" data-toggle="modal" data-target="#con-close-modal" style="text-align:center">Ayo Join!</div>
+            @include('register.modal.join')
+          @else
           @if($participant  == null)
             <div class="accordion waves-effect waves-light col-md-12" id="section11" data-toggle="modal" data-target="#con-close-modal" style="text-align:center">Ayo Join!</div>
             @include('register.modal.register', $events)
-          @elseif($participant->status =='waiting')
-            <!-- <div class="accordion waves-effect waves-light col-md-12" id="section11" data-toggle="modal" data-target="#con-close-modal2" style="text-align:center" disabled >ayo join!</div> -->
           @else
-           <!--  <div class="accordion waves-effect waves-light col-md-12" id="section11" data-toggle="modal" data-target="#con-close-modal2" style="text-align:center">Upload Bukti Daftar!</div>
-            @include('register.modal.upload')
- -->          @endif
+           
+         @endif
+         @endif
+
          </div>
        </div>
      </div>

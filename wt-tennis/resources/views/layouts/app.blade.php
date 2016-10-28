@@ -82,10 +82,15 @@
        @else
 
        <li class="dropdown">
+       @if(Auth::user()->status == 'waiting')
+       <a href="{{ action('ParticipantController@regis_buktipem') }}"><i class="fa fa-bell"></i> Bayar</a>
+       @else
        <a href="{{ action('ParticipantController@pembayaran') }}"><i class="fa fa-bell"></i> Bayar</a>
+        @endif
            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                {{ Auth::user()->name }} <span class="caret"></span>
            </a>
+
            <ul class="dropdown-menu" role="menu">
                <li><a href="{{ action('ProfileController@index') }}"><i class="fa fa-btn fa-sign-out"></i>Profile</a></li>
                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
