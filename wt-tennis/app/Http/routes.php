@@ -62,7 +62,7 @@ Route::post('register/{id}/upload', 'BuktiBayarController@store');
 Route::get('register/pembayaran', 'ParticipantController@pembayaran');
 Route::post('register/pembayaran', 'ParticipantController@postPembayaran');
 
-Route::post('register/pembayaran/buktipemb', 'ParticipantController@regis_buktipem');
+Route::get('register/pembayaran/buktipemb', 'ParticipantController@regis_buktipem');
 
 Route::get('admin/logout', 'Auth\AuthController@getLogout');
 
