@@ -18,8 +18,8 @@ class CreateBuktiPembayaran extends Migration
             $table->string('no_rek');
             $table->string('bank');
             $table->text('thumbnail');
-            $table->integer('participant_id')->unsigned()->index();
-            $table->foreign('participant_id')->references('id')->on('participants')->onDelete('cascade');
+            $table->integer('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

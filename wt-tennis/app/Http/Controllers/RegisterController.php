@@ -42,6 +42,7 @@ class RegisterController extends Controller
         $input['status'] = 'waiting';
         $input['user_id'] = Auth::user()->id;
         Participant::create($input);
+        $events = Event::findOrFail($id);
         return redirect()->action('RegisterController@index', $id);
     }
 

@@ -22,6 +22,7 @@ class EventsTableSeeder extends Seeder
                             <li>Kuota Perlombaan</li>
                             </ol>',
             'biaya_pendaftaran' => '200000',
+            'kuota' => '8',
             'kuota' => '16',
             'jumlah_pemain' => '10',
             'created_at' => DB::raw('NOW()'),
@@ -36,6 +37,7 @@ class EventsTableSeeder extends Seeder
                             <li>Kuota Perlombaan<br /><br /></li>
                             </ol>',
             'biaya_pendaftaran' => '250000',
+            'kuota' => '8',
             'kuota' => '16',
             'jumlah_pemain' => '10',
             'created_at' => DB::raw('NOW()'),
@@ -50,8 +52,9 @@ class EventsTableSeeder extends Seeder
                             <li>Kuota Perlombaan<br /><br /></li>
                             </ol>',
             'biaya_pendaftaran' => '220000',
+            'kuota' => '4',
             'kuota' => '16',
-            'jumlah_pemain' => '3',
+            'jumlah_pemain' => '2',
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
@@ -71,7 +74,7 @@ class EventsTableSeeder extends Seeder
             'peraturan' => '',
             'biaya_pendaftaran' => '',
             'kuota' => '',
-            'jumlah_pemain' => '5',
+            'jumlah_pemain' => '2',
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
@@ -81,7 +84,7 @@ class EventsTableSeeder extends Seeder
             'peraturan' => '',
             'biaya_pendaftaran' => '',
             'kuota' => '',
-            'jumlah_pemain' => '2',
+            'jumlah_pemain' => '1',
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
@@ -91,7 +94,7 @@ class EventsTableSeeder extends Seeder
             'peraturan' => '',
             'biaya_pendaftaran' => '',
             'kuota' => '',
-            'jumlah_pemain' => '5',
+            'jumlah_pemain' => '',
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           ),array(
@@ -101,7 +104,7 @@ class EventsTableSeeder extends Seeder
             'peraturan' => '',
             'biaya_pendaftaran' => '',
             'kuota' => '',
-            'jumlah_pemain' => '5',
+            'jumlah_pemain' => '',
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
           )

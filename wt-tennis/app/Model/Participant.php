@@ -22,9 +22,6 @@ class Participant extends Model
     	 return $this->hasMany('App\Model\Match');
     }
 
-    public function bukti_pembayaran(){
-        return $this->hasOne('App\Model\BuktiPembayaran');
-    }
 
     public function users(){
         return $this->belongsTo('App\Model\User');

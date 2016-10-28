@@ -95,16 +95,16 @@
                                                 <td style="width:5px"><a href="{{ action('ParticipantUserController@index', [$participant->id]) }}" class="btn btn-bordered-edit">Manage</a>
 												</td>
 
-												<td style="width:5px">
+												<!-- <td style="width:5px">
 													<a href="" class="btn btn-bordered-danger" data-toggle="modal" data-target="#myModal">Cancel</a>
-												</td>
+												</td> -->
 												<!-- sample modal content -->
 												@include('profile.modal.cancel', [$users->name])
 
                                                 @else
                                                 <td style="width:5px"><span class="label label-warning">{{ $participant->status }}</span>
                                                 </td>
-												<td style="width:5px"><a href="" class="btn btn-bordered-danger" data-toggle="modal" data-target="#myModal">Cancel</a></td>
+												<!-- <td style="width:5px"><a href="" class="btn btn-bordered-danger" data-toggle="modal" data-target="#myModal">Cancel</a></td> -->
 												@include('profile.modal.cancel', [$users->name])
                                                 @endif
                                             </tr>

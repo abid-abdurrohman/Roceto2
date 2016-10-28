@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class BuktiPembayaran extends Model
 {
 	protected $table = 'bukti_pembayaran';
-	protected $fillable = ['atas_nama', 'no_rek', 'bank', 'thumbnail', 'participant_id'];
+	protected $fillable = ['atas_nama', 'no_rek', 'bank', 'thumbnail', 'user_id'];
 
 	public function participants(){
-		return $this->belongsTo('App\Model\Participant');
+		return $this->belongsTo('App\Model\User');
 	}
+
+	
 }
