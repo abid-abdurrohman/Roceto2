@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Model\Event;
 use App\Model\Match;
 use App\Model\Match_team;
 use App\Model\Participant;
@@ -25,7 +26,7 @@ class EventStreamController extends Controller
           ->select('participants.nama_tim as nama_participant', 'participants.logo_tim as logo_participant',
           'match_teams.score as team_score', 'match_teams.comment as team_comment', 'matches.*')
           ->where('match_id', $id)->get()->toArray();
-        /*$videos = Match::inRandomOrder()->where('category_id', $matches->id)->limit(6)->get();*/
+        $videos = Match::inRandomOrder()->where('event_id', $matches->event_id)->limit(3)->get();
         return view('video.video', compact('matches', 'participants', 'videos', 'match_teams'));
     }
 }

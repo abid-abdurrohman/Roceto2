@@ -102,32 +102,42 @@
                 </div>
                 <div class="video-desc">
                     <h3 class="video-other-old">Other <span>Video</span><span class="point-little">.</span></h3>
-                    <div class="col-md-4 other-videotitle">
-                        <p class="othervideo-date">04.09.2014</p>
-                        <p>Emr ATP Rankings</p>
-                    </div>
-                    <div class="col-md-4 other-videotitle">
-                        <p class="othervideo-date">12.02.2014</p>
-                        <p>ATP CONFERENCE</p>
-                    </div>
-                    <div class="col-md-4 other-videotitle otv-last">
-                        <p class="othervideo-date">05.11.2014</p>
-                        <p>US Open 2014</p>
-                    </div>
-                    <div class="col-md-4 other-video">
-                      <img src="http://placehold.it/320x213" />
-                      <i class="fa fa-video-camera"></i>
-                    </div>
-                    <div class="col-md-4 other-video">
-                      <img src="http://placehold.it/320x213" />
-                      <i class="fa fa-video-camera"></i>
-                    </div>
-                    <div class="col-md-4 other-video otv-last">
-                      <img src="http://placehold.it/320x213" />
-                      <i class="fa fa-video-camera"></i>
-                    </div>
+                    <?php $i = 0 ?>
+                    @foreach ($videos as $video)
+                    @if ($i == 2)
+                      <div class="col-md-4 other-videotitle otv-last">
+                          <p class="othervideo-date">{{ $video->waktu }}</p>
+                          <p>{{ $video->nama }}</p>
+                      </div>
+                    @else
+                      <div class="col-md-4 other-videotitle">
+                          <p class="othervideo-date">{{ $video->waktu }}</p>
+                          <p>{{ $video->nama }}</p>
+                      </div>
+                    @endif
+                    <?php $i++ ?>
+                    @endforeach
+                    <?php $i = 0 ?>
+                    @foreach ($videos as $video)
+                    @if ($i == 2)
+                      <div class="col-md-4 other-video otv-last">
+                        <a href="{{ action('EventStreamController@show', $video->id) }}">
+                           <img src="http://placehold.it/320x213" />
+                        </a>
+                        <i class="fa fa-video-camera"></i>
+                      </div>
+                    @else
+                      <div class="col-md-4 other-video">
+                        <a href="{{ action('EventStreamController@show', $video->id) }}">
+                           <img src="http://placehold.it/320x213" />
+                        </a>
+                        <i class="fa fa-video-camera"></i>
+                      </div>
+                    @endif
+                    <?php $i++ ?>
+                    @endforeach
                 </div>
-
+{{--
                 <div class="video-content">
                     <div class="col-md-4 other-videotitle">
                         <p class="othervideo-date">04.09.2014</p>
@@ -154,7 +164,7 @@
                       <img src="http://placehold.it/320x213" />
                       <i class="fa fa-video-camera"></i>
                     </div>
-                </div>
+                </div> --}}
                 @include('layouts.bottom-content')
            </div><!--Close Top Match-->
 

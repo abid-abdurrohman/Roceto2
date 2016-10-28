@@ -43,8 +43,7 @@
 <div class="form-group">
     <label class="col-md-2 control-label">Kuota</label>
     <div class="col-md-10">
-        {!! Form::text('kuota', null, ['class' => 'form-control', 'placeholder' => 'Write a name',
-        'required'],'') !!}
+        {!! Form::select('kuota', ['4' => 4, '8' => 8, '16' => 16, '32' => 32], null, ['class' => 'form-control', 'required'], '') !!}
     </div>
 </div>
 <div class="form-group">

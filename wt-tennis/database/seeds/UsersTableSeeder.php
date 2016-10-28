@@ -13,10 +13,6 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-         $role_user = Role::where('nama', 'User')->first();
-         $role_author = Role::where('nama', 'Author')->first();
-         $role_admin = Role::where('nama', 'Admin')->first();
-
          $user = new User();
          $user->name = 'Admin';
          $user->nick_name = 'Admin';
@@ -26,7 +22,6 @@ class UsersTableSeeder extends Seeder
          $user->is_admin = 1;
          $user->activated = 1;
          $user->save();
-         $user->role()->attach($role_admin);
 
          $user = new User();
          $user->name = 'Adang';
@@ -36,7 +31,6 @@ class UsersTableSeeder extends Seeder
          $user->avatar = 'images/users/admin.jpg';
          $user->activated = 1;
          $user->save();
-         $user->role()->attach($role_user);
 
          $user = new User();
          $user->name = 'Nisa';
@@ -46,7 +40,6 @@ class UsersTableSeeder extends Seeder
          $user->avatar = 'images/users/admin.jpg';
          $user->activated = 1;
          $user->save();
-         $user->role()->attach($role_user);
 
          $user = new User();
          $user->name = 'Abid';
@@ -56,7 +49,6 @@ class UsersTableSeeder extends Seeder
          $user->avatar = 'images/users/admin.jpg';
          $user->activated = 1;
          $user->save();
-         $user->role()->attach($role_user);
 
          $user = new User();
          $user->name = 'Majid';
@@ -66,7 +58,6 @@ class UsersTableSeeder extends Seeder
          $user->avatar = 'images/users/admin.jpg';
          $user->activated = 1;
          $user->save();
-         $user->role()->attach($role_user);
 
          $user = new User();
          $user->name = 'Dika';
@@ -76,7 +67,6 @@ class UsersTableSeeder extends Seeder
          $user->avatar = 'images/users/admin.jpg';
          $user->activated = 1;
          $user->save();
-         $user->role()->attach($role_user);
 
          $user = new User();
          $user->name = 'Unggul';
@@ -86,7 +76,6 @@ class UsersTableSeeder extends Seeder
          $user->avatar = 'images/users/admin.jpg';
          $user->activated = 1;
          $user->save();
-         $user->role()->attach($role_user);
 
          $user = new User();
          $user->name = 'Izzudin';
@@ -96,7 +85,6 @@ class UsersTableSeeder extends Seeder
          $user->avatar = 'images/users/admin.jpg';
          $user->activated = 1;
          $user->save();
-         $user->role()->attach($role_user);
 
          $user = new User();
          $user->name = 'Tica';
@@ -106,6 +94,5 @@ class UsersTableSeeder extends Seeder
          $user->avatar = 'images/users/admin.jpg';
          $user->activated = 1;
          $user->save();
-         $user->role()->attach($role_user);
     }
 }

@@ -118,4 +118,12 @@ class UserAdminController extends Controller
         $users->delete();
         return redirect()->action('UserAdminController@index')->with('danger','User has been deleted');
     }
+
+    public function make_admin($id)
+    {
+        $users = User::findOrFail($id);
+        $users->is_admin = 1;
+        $users->update();
+        return redirect()->action('UserAdminController@index')->with('success','User has been modified to Admin');
+    }
 }

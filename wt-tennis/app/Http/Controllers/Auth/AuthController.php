@@ -82,10 +82,6 @@ class AuthController extends Controller
             'confirmation_code' => $confirmation_code,
         ]);
         //
-        // // Add extra data
-        $userRole = Role::where('nama', 'User')->first();
-        $newUser->role()->attach($userRole->id);
-        //
         // $email = $data['email'];
         // Mail::send('emails.verify',
         //     array (

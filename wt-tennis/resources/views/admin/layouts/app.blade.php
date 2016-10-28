@@ -29,7 +29,7 @@
 
         <!--calendar css-->
         {{ Html::style('admin_asset/assets/fullcalendar/fullcalendar.css') }}
-        
+
         <!-- Select2 -->
         {{ Html::style('admin_asset/assets/select2/select2.css') }}
 
@@ -241,9 +241,6 @@
                                   <li class="{{ Request::segment(2) === 'user' ? 'active' : null }}">
                                       <a href="{{ action('UserAdminController@index') }}" class="waves-effect {{ Request::segment(2) === 'user' ? 'active' : null }}"><i class="fa fa-user"></i><span> User </span></a>
                                   </li>
-                                  <li class="{{ Request::segment(2) === 'role-user' ? 'active' : null }}">
-                                      <a href="{{ action('RoleUserController@index') }}" class="waves-effect {{ Request::segment(2) === 'role-user' ? 'active' : null }}"><i class="fa fa-user"></i><span> Role User </span></a>
-                                  </li>
                                   <li class="{{ Request::segment(2) === 'sponsor' ? 'active' : null }}">
                                       <a href="{{ action('SponsorController@index') }}" class="waves-effect {{ Request::segment(2) === 'sponsor' ? 'active' : null }}"><i class="ion-person-stalker"></i><span> Sponsor </span></a>
                                   </li>
@@ -443,11 +440,7 @@
         {{ Html::script('admin_asset/assets/jquery-slimscroll/jquery.slimscroll.js') }}
         {{ Html::script('admin_asset/assets/jquery-blockui/jquery.blockUI.js') }}
 
-<<<<<<< HEAD
         <!-- Select2 -->
-=======
-         <!--Select2-->
->>>>>>> 85fff12fbe3598adc2d42676b3b265c7d485963f
         {{ Html::script('admin_asset/assets/select2/select2.min.js') }}
 
         <!-- sweet alerts -->

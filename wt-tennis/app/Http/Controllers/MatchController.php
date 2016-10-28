@@ -160,4 +160,100 @@ class MatchController extends Controller
         $match->delete();
         return redirect()->action('MatchController@index', [$events->id, $id_part])->with('danger', 'Event has been deleted');
     }
+
+    public function auto_add($id)
+    {
+        $events = Event::findOrFail($id);
+        $jumlah = $events->kuota/2;
+        for ($i=1; $i <= $jumlah; $i++) {
+            $match = new Match();
+            $match->nama = 'Match '.$i;
+            $match->status = 'available';
+            $match->event_id = $id;
+            $match->no_match = 1;
+            $match->save();
+        }
+        $jumlah = $jumlah/2;
+        if ($jumlah == 1) {
+            $match = new Match();
+            $match->nama = 'Match '.$i;
+            $match->status = 'available';
+            $match->event_id = $id;
+            $match->no_match = 2;
+            $match->save();
+            return redirect()->action('EventMatchController@index')->with('success', 'Event has been created');
+        }else{
+            for ($i=1; $i <= $jumlah; $i++) {
+                $match = new Match();
+                $match->nama = 'Match '.$i;
+                $match->status = 'available';
+                $match->event_id = $id;
+                $match->no_match = 2;
+                $match->save();
+            }
+        }
+        $jumlah = $jumlah/2;
+        if ($jumlah == 1) {
+            $match = new Match();
+            $match->nama = 'Match '.$i;
+            $match->status = 'available';
+            $match->event_id = $id;
+            $match->no_match = 3;
+            $match->save();
+            return redirect()->action('EventMatchController@index')->with('success', 'Event has been created');
+        }else{
+            for ($i=1; $i <= $jumlah; $i++) {
+                $match = new Match();
+                $match->nama = 'Match '.$i;
+                $match->status = 'available';
+                $match->event_id = $id;
+                $match->no_match = 3;
+                $match->save();
+            }
+        }
+        $jumlah = $jumlah/2;
+        if ($jumlah == 1) {
+            $match = new Match();
+            $match->nama = 'Match '.$i;
+            $match->status = 'available';
+            $match->event_id = $id;
+            $match->no_match = 4;
+            $match->save();
+            return redirect()->action('EventMatchController@index')->with('success', 'Event has been created');
+        }else{
+            for ($i=1; $i <= $jumlah; $i++) {
+                $match = new Match();
+                $match->nama = 'Match '.$i;
+                $match->status = 'available';
+                $match->event_id = $id;
+                $match->no_match = 4;
+                $match->save();
+            }
+        }
+        $jumlah = $jumlah/2;
+        if ($jumlah == 1) {
+            $match = new Match();
+            $match->nama = 'Match '.$i;
+            $match->status = 'available';
+            $match->event_id = $id;
+            $match->no_match = 5;
+            $match->save();
+            return redirect()->action('EventMatchController@index')->with('success', 'Event has been created');
+        }else{
+            for ($i=1; $i <= $jumlah; $i++) {
+                $match = new Match();
+                $match->nama = 'Match '.$i;
+                $match->status = 'available';
+                $match->event_id = $id;
+                $match->no_match = 5;
+                $match->save();
+            }
+        }
+        return redirect()->action('EventMatchController@index')->with('success', 'Event has been created');
+    }
+
+    public function auto_team($id, $id_part)
+    {
+        $events = Event::findOrFail($id);
+    }
 }

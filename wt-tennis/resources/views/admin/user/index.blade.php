@@ -41,7 +41,7 @@
                                               <th>Email</th>
                                               <th>Avatar</th>
                                               <th>Waktu</th>
-                                              <th colspan="2">Action</th>
+                                              <th colspan="3">Action</th>
                                           </tr>
                                       </thead>
                                       <tbody>
@@ -51,7 +51,7 @@
                                               <td><a href="{{ action('UserAdminController@show', $user->id) }}">{{ $user->name }}</a></td>
                                               <td>{{ $user->nick_name }}</td>
                                               <td>{{ $user->email }}</td>
-                                              <td><a href="{!! asset('').'/'.$user->avatar !!}" class="image-popup" title="{{ $user->avatar }}"> {{ $user->avatar }} </td> 
+                                              <td><a href="{!! asset('').'/'.$user->avatar !!}" class="image-popup" title="{{ $user->avatar }}"> {{ $user->avatar }} </td>
                                               <td>{{ $user->created_at }}</td>
                                               <td>
                                                 <a href="{{ action('UserAdminController@edit', $user->id) }}">
@@ -63,8 +63,23 @@
                                                   <i class="fa fa-trash"></i> Delete
                                                 </a>
                                               </td>
+                                              @if ($user->is_admin == 1)
+                                                  <td>
+                                                    <a href="#" data-toggle="modal" data-target="#myModal3-{{ $user->id }}">
+                                                      <i class="fa fa-user"></i> Make Admin
+                                                    </a>
+                                                  </td>
+                                              @else
+                                                  <td>
+                                                    <a href="#" data-toggle="modal" data-target="#myModal2-{{ $user->id }}">
+                                                      <i class="fa fa-user"></i> Make Admin
+                                                    </a>
+                                                  </td>
+                                              @endif
                                           </tr>
                                           @include('admin.user.modal.delete', ['id' => $user->id])
+                                          @include('admin.user.modal.make_admin', ['id' => $user->id])
+                                          @include('admin.user.modal.alert_make_admin', ['id' => $user->id])
                                         @endforeach
                                       </tbody>
                                   </table>

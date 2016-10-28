@@ -1,28 +1,6 @@
 @extends('admin.layouts.app')
 @section('title', 'Detail Match')
 @section('content')
-
-<style type="text/css">
-    /*
-    *  Flex Layout Specifics
-    */
-    main{ display:flex;flex-direction:row; }
-    .round{ display:flex;flex-direction:column;justify-content:center;width:200px;list-style:none;padding:0; }
-    .round .spacer{ flex-grow:1; }
-    .round .spacer:first-child,
-    .round .spacer:last-child{ flex-grow:.5; }
-    .round .game-spacer{flex-grow:1;border-right: solid; }
-    /*
-    *  General Styles
-    */
-    li.game{ padding-left:20px; }
-    li.game.winner{ font-weight:bold; }
-    li.game span{  }
-    li.game-top{ border-bottom:0px solid #aaa; }
-    li.game-spacer{ border-right:0px solid #aaa;min-height:40px; }
-    li.game-bottom{ border-top:0px solid #aaa; }
-</style>
-
         <div class="container">
 
             <!-- Page-Title -->
@@ -68,7 +46,7 @@
                             @include('admin.match.notification.flash')
                             <div class="row">
                               <div class="col-md-5">
-                                @if (($id_part == 1 && $count < ($events->kuota/2))||($id_part == 2 && $count < ($events->kuota/4))||($id_part == 3 && $count < ($events->kuota/8))||($id_part == 3 && $count < ($events->kuota/16)))
+                                @if (($id_part == 1 && $count < ($events->kuota/2))||($id_part == 2 && $count < ($events->kuota/4))||($id_part == 3 && $count < ($events->kuota/8))||($id_part == 4 && $count < ($events->kuota/16)))
                                     <a class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#con-close-modal">Add <i class="fa fa-plus"></i></a>
                                     @include('admin.match.modal.create', [$events, $id_part])
                                 @endif

@@ -68,7 +68,9 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('admin/news', 'NewsController');
     Route::resource('admin/news.comment', 'CommentController');
     Route::get('admin/event-match', 'EventMatchController@index');
+    Route::post('admin/event-match/{id}/auto_add', 'MatchController@auto_add');
     Route::resource('admin/event-match.part.match', 'MatchController');
+    Route::post('admin/event-match.part/{id_part}/auto_team', 'MatchController@auto_team');
     Route::resource('admin/event-match.part.match.team', 'MatchTeamController');
     Route::get('admin/event-match/{id}/part/{id_part}/match-score/{id_match}', 'EventMatchScoreController@show');
     Route::post('admin/event-match/{id}/part/{id_part}/match-score/{id_match}', 'EventMatchScoreController@endmatch');
@@ -87,8 +89,6 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/participant-event.participant/{id}/bukti_pembayaran', 'ParticipantController@validation');
     Route::post('admin/participant/search', 'ParticipantController@search');
     Route::resource('admin/participant-event.participant.member', 'MemberController');
-    Route::get('admin/role-user', 'RoleUserController@index');
-    Route::post('admin/role-user', 'RoleUserController@store');
+    Route::patch('admin/user/{id}/make_admin', 'UserAdminController@make_admin');
     Route::get('admin/pemasukan', 'PemasukanController@index');
 });
-

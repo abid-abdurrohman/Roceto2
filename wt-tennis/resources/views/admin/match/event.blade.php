@@ -19,6 +19,7 @@
                             <h3 class="panel-title">Data Event</h3>
                         </div>
                         <div class="panel-body">
+                            @include('admin.match.notification.flash')
                             <div class="row">
                               <div class="col-md-11">
                                 <div id="datatable_filter" class="dataTables_filter">
@@ -38,10 +39,12 @@
                                                 <th>ID</th>
                                                 <th>Nama Event</th>
                                                 <th>Detail Event</th>
-                                                <th>Match 1</th>
-                                                <th>Match 2</th>
-                                                <th>Match 3</th>
-                                                <th>Match 4</th>
+                                                <th>Part 1</th>
+                                                <th>Part 2</th>
+                                                <th>Part 3</th>
+                                                <th>Part 4</th>
+                                                <th>Part 5</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -62,7 +65,25 @@
                                                 <td>
                                                   <a href="{{ action('MatchController@index', [$event->id, 4]) }}">Check <li class="fa fa-arrow-circle-right"></li></a>
                                                 </td>
+                                                <td>
+                                                  <a href="{{ action('MatchController@index', [$event->id, 5]) }}">Check <li class="fa fa-arrow-circle-right"></li></a>
+                                                </td>
+                                                @if ($event->match()->count() == 0)
+                                                    <td>
+                                                      <a href="#" data-toggle="modal" data-target="#myModal-{{ $event->id }}">
+                                                        <i class="fa fa-plus"></i> Auto Add
+                                                      </a>
+                                                    </td>
+                                                @else
+                                                  <td>
+                                                    <a href="#" data-toggle="modal" data-target="#myModal2-{{ $event->id }}">
+                                                      <i class="fa fa-plus"></i> Auto Add
+                                                    </a>
+                                                  </td>
+                                                @endif
                                             </tr>
+                                            @include('admin.match.modal.auto_add', [$event->id])
+                                            @include('admin.match.modal.alert', [$event->id])
                                           @endforeach
                                         </tbody>
                                     </table>
