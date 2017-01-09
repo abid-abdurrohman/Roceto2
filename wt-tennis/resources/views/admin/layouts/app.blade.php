@@ -269,7 +269,7 @@
                             </li>
                             <li>
                                 <a href="{{ action('PemasukanController@index') }}" class="waves-effect"><i class="fa fa-file-excel-o"></i><span> Financial Report </span><span class="pull-right"></span></a>
-                                
+
                             </li>
                             <li class="{{ Request::segment(2) === 'schedule' ? 'active' : null }}">
                                 <a href="{{ action('ScheduleController@index') }}" class="waves-effect {{ Request::segment(2) === 'schedule' ? 'active' : null }}"><i class="md md-event"></i><span> Schedule </span></a>
@@ -431,11 +431,6 @@
         {{ Html::script('admin_asset/assets/jquery-slimscroll/jquery.slimscroll.js') }}
         {{ Html::script('admin_asset/assets/jquery-blockui/jquery.blockUI.js') }}
 
-<<<<<<< HEAD
-        <!-- Select2 -->
-=======
-         <!--Select2-->
->>>>>>> 296bd2000bb2f30b8fe6bd0ab0485c8f18d1525f
         {{ Html::script('admin_asset/assets/select2/select2.min.js') }}
 
         <!-- sweet alerts -->
